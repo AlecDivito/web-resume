@@ -1,10 +1,41 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Alec Divitos Resume website`,
+    description: `Alright so this is just a simple desctipion`,
+    author: `@alecdivito`,
+    email: `divitoa@sheridancollege.ca`,
+    linkedinLink: "https://www.linkedin.com/in/alec-divito-3a1922140/",
+    githubLink: "https://github.com/Alecdivito",
+    resumePdfLink: `/AlecDivito-resume.pdf`,
+    siteLinks: [
+      {
+        title: `Home`,
+        link: `/`,
+      },
+      {
+        title: `About`,
+        link: `/about`,
+      },
+      {
+        title: `Projects`,
+        link: `/personal`,
+      },
+      {
+        title: `Work`,
+        link: "/work",
+      },
+      {
+        title: `Blog`,
+        link: `/blog`,
+      },
+      {
+        title: `Contact`,
+        link: `/contact`,
+      },
+    ],
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
