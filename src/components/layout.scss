@@ -95,10 +95,15 @@ $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity 
     top: 0px;
     left: 0px;
     z-index: $nav-z-index;
+    display: flex;
+    justify-content: space-between;
+    background-color: $nav-background;
+
 
     &--header {
         height: $nav-height;
         display: flex;
+        width: 100%;
         justify-content: space-between;
         background-color: $nav-background;
         padding: $nav-padding;
@@ -113,6 +118,10 @@ $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity 
             width: 56px;
             height: 56px;
         }
+    }
+
+    &__children {
+        display: none;
     }
 
     &__list {
@@ -160,6 +169,10 @@ $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity 
     }
 
     @media (max-width: $tablet-large) {
+        &__children {
+            display: block;
+        }
+
         &__mobile {
             box-sizing: inherit;
             position: fixed;

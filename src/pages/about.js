@@ -6,24 +6,6 @@ import SEO from "../components/seo"
 import ProfilePicture from "../components/profilePicture";
 import "./about.scss";
 
-// const a = useStaticQuery(graphql`
-//     query a {
-//       site {
-//         siteMetadata {
-//           title
-//           email
-//           linkedinLink
-//           githubLink
-//           resumePdfLink
-//           siteLinks {
-//             link
-//             title
-//           }
-//         }
-//       }
-//     }
-//   `);
-
 const AboutPage = () => {
   const data = useStaticQuery(graphql`
       query SiteAboutMeQuery {
