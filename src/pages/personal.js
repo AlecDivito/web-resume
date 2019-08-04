@@ -3,7 +3,7 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const ProjectsPage = () => (
+const PersonalsPage = () => (
     <Layout>
         <SEO title="About Alec" />
         <h1>Hi, I'm Alec Di Vito :)</h1>
@@ -11,4 +11,4 @@ const ProjectsPage = () => (
     </Layout>
 );
 
-export default ProjectsPage;
+export default PersonalsPage;
