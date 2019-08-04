@@ -53,6 +53,43 @@ module.exports = {
         link: "/personal",
         section: 'Personal',
       }
+    ],
+    personalProjects: [
+      {
+        picId: "budgetise",
+        title: "Budgetise",
+        stage: "Completed",
+        technologies: ["Angular 2+", "Nest.js", "Express", "Typescript", "SQL", "NGRX", "SCSS", "HTML", "Javascript"],
+        githubLink: null,
+      },
+      {
+        picId: "bombFinder",
+        title: "MineSweeper Clone",
+        stage: "Completed",
+        technologies: ["Typescript", "React", "CRA", "Canvas2d", "Indexdb", "CSS", "HTML"],
+        githubLink: "https://github.com/AlecDivito/bomb-finder"
+      },
+      {
+        picId: "personalWebsite",
+        title: "Personal Website",
+        stage: "In Progress",
+        technologies: ["Gatsby", "Javascript", "React", "Canvas2d", "SCSS", "HTML"],
+        githubLink: "https://github.com/AlecDivito/bomb-finder"
+      },
+      {
+        picId: "bitmap",
+        title: "Rusty Bitmap",
+        stage: "In Progress",
+        technologies: ["Rust"],
+        githubLink: "https://github.com/AlecDivito/rusty-bitmap"
+      },
+      {
+        picId: "tetris",
+        title: "Tetris Clone",
+        stage: "In Progress",
+        technologies: ["Rust", "Typescript", "Canvas2d", "CSS", "HTML"],
+        githubLink: "https://github.com/AlecDivito/weby-rusty-tetris"
+      },
     ]
   },
   plugins: [

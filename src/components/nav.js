@@ -7,7 +7,7 @@ const Nav = ({ links, navActive, onNavClick, children }) => (
   <nav className="nav">
     <div className="nav--header">
         <Link to="/" className="nav__logo">
-        <Logo />
+          <Logo />
         </Link>
 
         <div className="burger--wrapper">
@@ -31,7 +31,9 @@ const Nav = ({ links, navActive, onNavClick, children }) => (
         </Link>
         ))}
       </div>
-      {children}
+      <div className="nav__children">
+        {children}
+      </div>
     </div>
   </nav>
 )
