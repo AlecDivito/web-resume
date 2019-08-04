@@ -22,6 +22,7 @@ const Nav = ({ links, navActive, onNavClick, children }) => (
       <div className="nav__list">
         {links.map((item, index) => (
         <Link
+            key={index}
             to={item.link}
             className="nav__list__item"
             activeClassName="nav__list__item--active"

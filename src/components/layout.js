@@ -11,8 +11,6 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Nav from "./nav";
 import SocialFooter from "./socialFooter";
-// import Header from "./header";
-import Footer from  "./footer";
 import "./layout.scss"
 
 const Layout = ({ children }) => {
@@ -34,7 +32,7 @@ const Layout = ({ children }) => {
     }
   `);
 
-  const [navActive, setNavActive] = useState(0);
+  const [navActive, setNavActive] = useState(false);
 
   return (
     <div className="page">
@@ -50,9 +48,7 @@ const Layout = ({ children }) => {
           email={data.site.siteMetadata.email}
         />
       </Nav>
-      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
       <main className="page--content">{children}</main>
-      <Footer />
     </div>
   )
 }

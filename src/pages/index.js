@@ -6,22 +6,33 @@ import SEO from "../components/seo"
 import "./index.scss";
 
 const IndexPage = () => {
+
+  const update = () => {
+
+  }
+
+  requestAnimationFrame(update);
+
   return (
     <Layout>
       <SEO title="Home" />
+      <canvas className="home--background"></canvas>
       <div className="home">
+        <div></div>
         <header className="home__header">
-          <h1 className="home__header--name">Alec Di Vito</h1>
+          <h1 className="home__header--name">
+            Alec Di<span className="home__header--name--space">Vito</span>
+          </h1>
           <h3 className="home__header--title">Full Stack Web Developer</h3>
-        </header>
-        <section className="home__section">
           <p className="home__section__description">
             Hi there! I produce elegant, performance and accessible digital
             experiences
           </p>
-          <div className="home__header__links">
-            <Link to="/projects/">explore projects</Link>
-            <Link to="/about/">view profile</Link>
+        </header>
+        <section className="home__section">
+          <div className="home__section__links">
+            <Link className="home__section__links--link link" to="/projects/">explore projects</Link>
+            <Link className="home__section__links--link link" to="/about/">view profile</Link>
           </div>
         </section>
       </div>
