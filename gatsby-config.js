@@ -40,6 +40,7 @@ module.exports = {
           `Graduate of Sheridan\'s Software Development and Network Engineering advance diploma`,
           `Spending time expanding my knowledge into all advancements in computer science. Like using my skill\'s developing websites as well as picking up new languages and frameworks and seeing how to solve problems differently and more effectively`,
           `Currently focusing on expanding my knowledge in machine learning and deep learning application, while iterating them into web services and frontend application, Also planning to start focusing on mobile development more to borden my skill set even more`,
+          `I tackled any challenge I was presented with, learning anything I needed to learn. I am capable of learning anything. I am eager to learn anything. I am interested in a breadth of context and understanding to create full pictures of the development ecosystem, allowing me to make intelligent decisions that allow our team to work across-team and across-projects and won't pigeonhole my team into a bad design.`
         ],
         link: "/work",
         section: 'Professional',

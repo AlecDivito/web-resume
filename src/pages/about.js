@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ProfilePicture from "../components/profilePicture";
 import "./about.scss";
+import Header from "../components/header";
 
 const AboutPage = () => {
   const data = useStaticQuery(graphql`
@@ -26,9 +27,7 @@ const AboutPage = () => {
       <SEO title="About Me" />
       <section className="about">
         <ProfilePicture />
-        <header className="about__header">
-          <h1>Nice to meet you</h1>
-        </header>
+        <Header text="Nice to meet you" isCenter={true} />
         <p className="about__intro">
           My name is <strong>Alec Di Vito</strong>. I'm a creative ambitious and enterprising software engineer.
         </p>

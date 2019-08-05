@@ -6,6 +6,7 @@ import Img from "gatsby-image";
 
 import githubIcon from "../images/github-square.svg";
 import "./personal.scss";
+import Header from "../components/header";
 
 const PersonalsPage = () => {
     const data = useStaticQuery(graphql`
@@ -63,7 +64,7 @@ const PersonalsPage = () => {
         <Layout>
             <SEO title="Projects" />
             <div className="personal">
-                <h1 className="personal__header">Featured Personal Projects</h1>
+                <Header text="Featured Personal Projects" isCenter={true} />
                 <p>These are the projects that I'm most proud of and like to show off!</p>
                 <div>
                 {data.site.siteMetadata.personalProjects.map((t, i) =>
@@ -93,7 +94,7 @@ const PersonalsPage = () => {
                     </div>
                 )}
                 </div>
-                <h1 className="personal__header">Other Personal Project</h1>
+                <Header text="Other Personal Project" isCenter={true} />
                 <p>
                     These are projects I worked on when I was younger and less experienced
                     or just weren't able to fully finish

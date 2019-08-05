@@ -2,8 +2,9 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import "./work.scss"
+import Header from "../components/header";
 
 const WorkPage = () => {
   const data = useStaticQuery(graphql`
@@ -32,9 +33,7 @@ const WorkPage = () => {
     <Layout>
       <SEO title="Professional Work" />
       <section className="work">
-        <header className="work__header">
-          <h1>Professional Work</h1>
-        </header>
+        <Header text="Professional Work" isCenter={true} />
         <p className="work__description">
           I've been fortunate enough to work with some companies amazing companies
           and I'm proud that I have helped them exceed their expectations of sheridan students.
@@ -55,13 +54,14 @@ const WorkPage = () => {
         </ul>
       </section>
       <section>
-          <h1>Resume Download</h1>
-          <p>
-            If you're a digital or design agency, recruiter or just interested in
-            a hard copy of my resume as a PDF you can download it clicking the
-            button below.
-          </p>
-          <Link className="link" to="AlecDivito-resume.pdf">Download PDF</Link>
+        <Header text="Resume Download" isCenter={true} />
+        <p>
+          If you're a digital or design agency, recruiter or just interested in
+          a hard copy of my resume as a PDF you can download it clicking the
+          button below.
+        </p>
+        {/* TODO: Add assets */}
+        <a className="link" href="AlecDivito-resume.pdf">Download PDF</a>
       </section>
     </Layout>
   );

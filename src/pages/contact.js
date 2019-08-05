@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "./contact.scss";
+import Header from "../components/header";
 
 const TextInput = ({fieldName, name, placeholder, type}) => {
   const [active, setActive] = useState(false);
@@ -48,9 +49,7 @@ const ContactPage = () => (
   <Layout>
     <SEO title="Contact Me" />
     <div className="contact">
-      <header className="contact__header">
-        <h1>I Can't wait to learn more about you!</h1>
-      </header>
+      <Header text="I Can't wait to learn more about you!" isCenter={true} />
       <p className="contact__text">
         Whether you just wanna say <span role="img" aria-label="Hi">🖐</span> ‘Hi’ or tell me about your next project,
         please do not hesitate to drop a line <span role="img" aria-label="Smiley Face">😊</span>

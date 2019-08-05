@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Nav from "./nav";
+import Footer from "./footer";
 import SocialFooter from "./socialFooter";
 import "./layout.scss"
 
@@ -34,6 +35,11 @@ const Layout = ({ children }) => {
 
   const [navActive, setNavActive] = useState(false);
 
+  let isHome = false;
+  if (window.location.pathname === "/") {
+    isHome = true;
+  }
+
   return (
     <div className="page">
       <Nav
@@ -49,6 +55,7 @@ const Layout = ({ children }) => {
         />
       </Nav>
       <main className="page--content">{children}</main>
+      { (!isHome) ? <Footer /> : null }
     </div>
   )
 }
