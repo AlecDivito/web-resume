@@ -139,6 +139,7 @@ $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity 
             color: $nav-link-color;
             transition: color .3s ease;
             padding: $nav-link-padding;
+            margin: 0px .75rem;
             text-decoration: inherit;
 
             &:hover {

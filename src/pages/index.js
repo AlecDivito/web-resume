@@ -31,7 +31,7 @@ const IndexPage = () => {
         </header>
         <section className="home__section">
           <div className="home__section__links">
-            <Link className="home__section__links--link link" to="/projects/">explore projects</Link>
+            <Link className="home__section__links--link link" to="/personal/">explore projects</Link>
             <Link className="home__section__links--link link" to="/about/">view profile</Link>
           </div>
         </section>
