@@ -11,6 +11,7 @@ $height: calc(100% - #{$nav-height});
     position: absolute;
     width: 100%;
     height: $height;
+    z-index: -1;
 }
 
 .home {
@@ -43,7 +44,11 @@ $height: calc(100% - #{$nav-height});
         }
         
         &__description {
+            font-size: 1.15rem;
+        }
 
+        &--learn {
+            font-size: 1.15rem;
         }
     }
 
@@ -58,14 +63,8 @@ $height: calc(100% - #{$nav-height});
             flex-shrink: 1;
 
             &--link {
-                // border: 2px solid #333;
-                font-size: 1.25rem;
+                font-size: 1.15rem;
                 margin: 1rem;
-                transition: border-bottom .3s ease;
-    
-                &:hover {
-                    border-bottom: 2px solid black;
-                }
             }
         }
     }

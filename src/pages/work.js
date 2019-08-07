@@ -2,7 +2,7 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { useStaticQuery, graphql } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import "./work.scss"
 import Header from "../components/header";
 
@@ -59,6 +59,10 @@ const WorkPage = () => {
           If you're a digital or design agency, recruiter or just interested in
           a hard copy of my resume as a PDF you can download it clicking the
           button below.
+        </p>
+        <p className="work__description">
+            If you want to know who I am as a person check out my
+            <Link className="link" to="/about">about page.</Link>
         </p>
         <div className="work__btn">
           <a className="link" href="AlecDivito-resume.pdf">Download PDF</a>

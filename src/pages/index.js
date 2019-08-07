@@ -54,21 +54,25 @@ class Particles {
    * Update the particles in the canvas
    */
   update() {
-    this.angle += this.deltaTime / 3;
+    this.angle += 0.01;
     for (let i = 0; i < this.maxParticles; i++) {
       let particle = this.particles[i];
       // update coordinates
       // density calculates how much the angle influences the flake
-      particle.y += (Math.cos(this.angle + particle.density / 50) + 1 + particle.radius / 2);
-      particle.x += Math.sin(this.angle) * 2;
+      //// y is always going down so its the acceleration
+      const x = this.angle + particle.density;
+      particle.y += (Math.cos(x) + particle.radius / 2);
+      // particle.y += Math.sin(x);// + 1 + particle.radius / 2;
+      //// x is what makes the particles sway from left to right
+      particle.x += Math.sin(x);
 
       // Send particles to opposite sides of the screen if threshold is crossed
       if (particle.x > this.width + particle.radius
-         || particle.x < -1 * particle.radius
+         || particle.y < -1 * particle.radius
          || particle.y > this.height + particle.radius)
       {
         particle.x = Math.random() * this.width;
-        particle.y = -10;
+        particle.y = 0;
       }
     }
   }
@@ -100,7 +104,6 @@ const IndexPage = () => {
       let canvas = document.getElementById('bg-canvas');
       if (canvas) {
         particles = new Particles(canvas, 25);
-        console.log(particles);
       } else {
         requestAnimationFrame(update);
         return;
@@ -124,10 +127,10 @@ const IndexPage = () => {
             Alec Di<span className="home__header--name--space">Vito</span>
           </h1>
           <h3 className="home__header--title">Full Stack Web Developer</h3>
-          <p className="home__section__description">
+          <p className="home__header__description">
             Aspiring Designer and Machine Learning Engineer
           </p>
-          <Link to="/about">Learn More</Link>
+          <Link className="home__header--learn link" to="/about">Learn More</Link>
         </header>
         <section className="home__section">
           <div className="home__section__links">
