@@ -83,7 +83,7 @@ module.exports = {
         picId: "bombFinder",
         title: "MineSweeper Clone",
         stage: "Completed",
-        technologies: ["Typescript", "React", "CRA", "Canvas2d", "Indexdb", "CSS", "HTML"],
+        technologies: ["Typescript", "PWA", "React", "CRA", "Canvas2d", "Indexdb", "CSS", "HTML"],
         githubLink: "https://github.com/AlecDivito/bomb-finder"
       },
       {
@@ -104,7 +104,7 @@ module.exports = {
         picId: "tetris",
         title: "Tetris Clone",
         stage: "In Progress",
-        technologies: ["Rust", "Typescript", "Canvas2d", "CSS", "HTML"],
+        technologies: ["Rust", "Web assembly", "Typescript", "Canvas2d", "CSS", "HTML"],
         githubLink: "https://github.com/AlecDivito/weby-rusty-tetris"
       },
     ],
@@ -112,9 +112,9 @@ module.exports = {
       {
         startDate: "Jan 2019",
         endDate: "May 2019",
-        company: "Sheridan College",
+        company: "Centre for Mobile Innovation",
         position: "Software Developer",
-        description: `At sheridan I used MatLab, C++, Typescript and machine
+        description: `At sheridan's research center I used MatLab, C++, Typescript and machine
           learning to detect when when people fell. I worked with PointClickCare
           into implementing a solution that was able to detect if someone has
           fallen or not`
@@ -146,6 +146,24 @@ module.exports = {
         Was given tasks to setup new projects Angular 2+ projects. UsedAzure,
         VSTS, Angular 2+, .Net Core 2, and NoSql to quickly develop user
         interface, and anticipate and react to UX needs`
+      }
+    ],
+    skills: [
+      {
+        section: "Current Stack",
+        skills: ["Typescript/Javascript", "Node.js", "HTML", "CSS", "Rust", "C++"]
+      },
+      {
+        section: "Worked With",
+        skills: ["C#", "IOS", "Python", "PHP"]
+      },
+      {
+        section: "Played With",
+        skills: ["Java", "F#", "Android"]
+      },
+      {
+        section: "Frameworks & Libraries",
+        skills: [".Net Core", "Angular 2+", "React", "Vue", "Laravel", "Spring"]
       }
     ]
   },
