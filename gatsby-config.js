@@ -59,6 +59,16 @@ module.exports = {
         ],
         link: "/personal",
         section: 'Personal',
+      },
+      {
+        details: [
+          'Be awesome',
+          'Study Machine Learning',
+          'Study Math',
+          'Get at least 85% in all my courses'
+        ],
+        link: null,
+        section: 'Goals'
       }
     ],
     personalProjects: [

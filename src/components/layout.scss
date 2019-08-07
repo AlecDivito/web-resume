@@ -59,10 +59,18 @@ $nav-link-padding: 0px 4px;
 $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity .5s cubic-bezier(.4,0,.2,1);
 
 .layout {
-
     &--max-width {
         margin: auto;
         max-width: $tablet-large;
+    }
+}
+
+@media (min-width: 1080px) {
+    .layout {
+        &--max-width {
+            margin: auto;
+            max-width: 960px;
+        }
     }
 }
 

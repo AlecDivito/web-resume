@@ -18,6 +18,7 @@ const ProfilePicture = () => {
     `);
 
     return <Img fluid={data.placeholderImage.childImageSharp.fluid}
+        className="profile-pic"
         objectFit="cover"
         objectPosition="50% 50%"
         alt="Alec Divito Profile Picture" />
