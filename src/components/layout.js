@@ -27,6 +27,7 @@ const Layout = ({ children }) => {
           siteLinks {
             link
             title
+            ready
           }
         }
       }
@@ -55,7 +56,16 @@ const Layout = ({ children }) => {
         />
       </Nav>
       <main className="page--content">{children}</main>
-      { (!isHome) ? <Footer /> : null }
+      {(!isHome) ?
+        <Footer siteLinks={data.site.siteMetadata.siteLinks}>
+          <SocialFooter
+            github={data.site.siteMetadata.githubLink}
+            linkedin={data.site.siteMetadata.linkedinLink}
+            resumePdf={data.site.siteMetadata.resumePdfLink}
+          />
+        </Footer>
+        : null
+      }
     </div>
   )
 }

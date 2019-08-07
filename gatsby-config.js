@@ -11,26 +11,32 @@ module.exports = {
       {
         title: `Home`,
         link: `/`,
+        ready: true,
       },
       {
         title: `About`,
         link: `/about`,
+        ready: true,
       },
       {
         title: `Projects`,
         link: `/personal`,
+        ready: true,
       },
       {
         title: `Work`,
         link: "/work",
+        ready: true,
       },
       {
         title: `Blog`,
         link: `/blog`,
+        ready: false,
       },
       {
         title: `Contact`,
         link: `/contact`,
+        ready: true,
       },
     ],
     aboutMe: [

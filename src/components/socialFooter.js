@@ -3,14 +3,17 @@ import PropTypes from "prop-types"
 import linkIcon from "../images/link.svg";
 import githubIcon from "../images/github-square.svg";
 import linkedinIcon from "../images/linkedin-square.svg";
-
+import "./socialFooter.scss"
 
 const SocialFooter = ({ github, linkedin, resumePdf, email }) => (
   <div className="footer--social">
-    <a href={`mailto:${email}`} className="footer--social__email">
-      <span>Let's Talk</span>
-      <span>{email}</span>
-    </a>
+    {(email) ?
+      <a href={`mailto:${email}`} className="footer--social__email">
+        <span>Let's Talk</span>
+        <span>{email}</span>
+      </a>
+      : null
+    }
     <a href={resumePdf} className="footer--social__icon">
       <img
         className="footer--social__icon__img"
@@ -39,7 +42,7 @@ SocialFooter.propTypes = {
     github: PropTypes.string.isRequired,
     linkedin: PropTypes.string.isRequired,
     resumePdf: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
+    email: PropTypes.string,
 }
 
 export default SocialFooter;
