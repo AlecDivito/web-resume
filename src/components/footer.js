@@ -30,7 +30,7 @@ const Footer = ({ siteLinks, children }) => (
         </div>
       </div>
       <div className="footer__bottom layout--max-width">
-        <div>
+        <div className="footer__bottom__copyright">
           Alec Divito © {new Date().getFullYear()}, Built with
           {` `}
           <a className="link" href="https://www.gatsbyjs.org">Gatsby</a>

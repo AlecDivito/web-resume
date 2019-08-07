@@ -62,7 +62,7 @@ $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity 
 
     &--max-width {
         margin: auto;
-        width: 800px;
+        max-width: 800px;
     }
 }
 
