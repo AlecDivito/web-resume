@@ -5,7 +5,7 @@ import "./footer.scss";
 
 const Footer = ({ siteLinks, children }) => (
   <footer className="footer">
-      <div className="footer__top">
+      <div className="footer__top layout--max-width">
         <div className="footer__top__about">
           <h3>About</h3>
           <p>
@@ -15,7 +15,8 @@ const Footer = ({ siteLinks, children }) => (
           </p>
         </div>
         <div className="footer__top__blog">
-          <ul></ul>
+          {/* <h3>Latest Blogs</h3>
+          <ul></ul> */}
         </div>
         <div className="footer__top__site">
           <h3>Site Links</h3>
@@ -28,7 +29,7 @@ const Footer = ({ siteLinks, children }) => (
           </ul>
         </div>
       </div>
-      <div className="footer__bottom">
+      <div className="footer__bottom layout--max-width">
         <div>
           Alec Divito © {new Date().getFullYear()}, Built with
           {` `}

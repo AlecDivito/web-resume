@@ -58,6 +58,14 @@ $nav-link-color-hover: #777;
 $nav-link-padding: 0px 4px;
 $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity .5s cubic-bezier(.4,0,.2,1);
 
+.layout {
+
+    &--max-width {
+        margin: auto;
+        width: 800px;
+    }
+}
+
 .page {
     margin-top: $nav-height;
 
