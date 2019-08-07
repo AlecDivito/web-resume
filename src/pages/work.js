@@ -32,7 +32,7 @@ const WorkPage = () => {
   return (
     <Layout>
       <SEO title="Professional Work" />
-      <section className="work">
+      <section className="work layout--max-width">
         <Header text="Professional Work" isCenter={true} />
         <p className="work__description">
           I've been fortunate enough to work with some companies amazing companies
@@ -53,15 +53,16 @@ const WorkPage = () => {
           <li className="work__timeline__event--circle--bottom"></li>
         </ul>
       </section>
-      <section>
+      <section className="work layout--max-width">
         <Header text="Resume Download" isCenter={true} />
-        <p>
+        <p className="work__description">
           If you're a digital or design agency, recruiter or just interested in
           a hard copy of my resume as a PDF you can download it clicking the
           button below.
         </p>
-        {/* TODO: Add assets */}
-        <a className="link" href="AlecDivito-resume.pdf">Download PDF</a>
+        <div className="work__btn">
+          <a className="link" href="AlecDivito-resume.pdf">Download PDF</a>
+        </div>
       </section>
     </Layout>
   );
