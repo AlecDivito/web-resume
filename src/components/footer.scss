@@ -15,26 +15,14 @@ $tablet-large: 768px;
         display: flex;
         flex-direction: column;
 
-        &__about {
+        &__site__list {
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: none;
 
-        }
-
-        &__blog {
-
-        }
-
-        &__site {
-            
-
-            &__list {
-                display: flex;
-                flex-wrap: wrap;
-                list-style-type: none;
-
-                li {
-                    flex: 1 0 33%;
-                    margin: 5px;
-                }
+            li {
+                flex: 1 0 33%;
+                margin: 5px;
             }
         }
     }
