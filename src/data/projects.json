@@ -2,6 +2,7 @@
     {
         "picId": "budgetise",
         "title": "Budgetise",
+        "image": "./images/budgetise.png",
         "stage": "Completed",
         "technologies": [
             "Angular 2+",
@@ -21,6 +22,7 @@
         "picId": "bombFinder",
         "title": "MineSweeper Clone",
         "stage": "Completed",
+        "image": "./images/bomb-finder.png",
         "technologies": [
             "Typescript",
             "PWA",
@@ -38,6 +40,7 @@
         "picId": "personalWebsite",
         "title": "Personal Website",
         "stage": "In Progress",
+        "image": "./images/PersonalWebsite.png",
         "technologies": [
             "Gatsby",
             "Javascript",
@@ -53,6 +56,7 @@
         "picId": "bitmap",
         "title": "Rusty Bitmap",
         "stage": "In Progress",
+        "image": "./images/bitmap_logo.png",
         "technologies": [
             "Rust"
         ],
@@ -63,6 +67,7 @@
         "picId": "tetris",
         "title": "Tetris Clone",
         "stage": "In Progress",
+        "image": "./images/tetris.png",
         "technologies": [
             "Rust",
             "Web assembly",

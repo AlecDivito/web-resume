@@ -7,59 +7,32 @@ import Img from "gatsby-image";
 import "./personal.scss";
 import Header from "../components/header";
 
-const PersonalsPage = () => {
-    const data = useStaticQuery(graphql`
-        query SitePersonalPageQuery {
-            site {
-                siteMetadata {
-                    personalProjects {
-                        picId
-                        title
-                        stage
-                        technologies
-                        githubLink
-                        siteLink
-                    }
-                }
-            }
-            budgetise: file(relativePath: { eq: "budgetise.png" }) {
+const query = graphql`
+query GetPersonalProjectsData {
+    allProjectsJson {
+        nodes {
+            id
+            githubLink
+            picId
+            siteLink
+            stage
+            technologies
+            title
+            image {
                 childImageSharp {
-                    fluid(maxWidth: 300) {
-                        ...GatsbyImageSharpFluid
-                    }
-                }
-            }
-            bombFinder: file(relativePath: { eq: "bomb-finder.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 300) {
-                        ...GatsbyImageSharpFluid
-                    }
-                }
-            }
-            bitmap: file(relativePath: { eq: "bitmap_logo.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 300) {
-                        ...GatsbyImageSharpFluid
-                    }
-                }
-            }
-            tetris: file(relativePath: { eq: "tetris.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 300) {
-                        ...GatsbyImageSharpFluid
-                    }
-                }
-            }
-            personalWebsite: file(relativePath: { eq: "PersonalWebsite.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 300) {
+                    fluid {
                         ...GatsbyImageSharpFluid
                     }
                 }
             }
         }
-    `)
-    
+    }
+}
+`
+
+const PersonalsPage = () => {
+    const data = useStaticQuery(query)
+    console.log(data);
     return (
         <Layout>
             <SEO title="Projects" />
@@ -67,9 +40,9 @@ const PersonalsPage = () => {
                 <Header text="Featured Personal Projects" isCenter={true} />
                 <p className="personal__description">These are the projects that I'm most proud of and like to show off!</p>
                 <div className="personal__cards">
-                {data.site.siteMetadata.personalProjects.map((t, i) =>
-                    <div className="card" key={i} >
-                        <Img className="card__image" fluid={data[t.picId].childImageSharp.fluid} />
+                {data.allProjectsJson.nodes.map((t) =>
+                    <div className="card" key={t.id} >
+                        <Img className="card__image" fluid={t.image.childImageSharp.fluid} />
                         <div className="card__content">
                             <div className="card__header">
                                 <h3>{t.title}</h3>
@@ -77,7 +50,7 @@ const PersonalsPage = () => {
                             </div>
                             <div className="card__footer">
                                 <div className="card__footer__tags">
-                                    {t.technologies.map((t, i) => <span className="tag" key={i} >{t}</span>)}
+                                    {t.technologies.map((tag, i) => <span className="tag" key={i} >{tag}</span>)}
                                 </div>
                                 <div className="card__footer__links">
                                     {(t.siteLink)
