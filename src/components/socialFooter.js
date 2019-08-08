@@ -1,11 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types"
-import linkIcon from "../images/link.svg";
-import githubIcon from "../images/github-square.svg";
-import linkedinIcon from "../images/linkedin-square.svg";
 import "./socialFooter.scss"
 
-const SocialFooter = ({ github, linkedin, resumePdf, email }) => (
+const SocialFooter = ({ external, email }) => (
   <div className="footer--social">
     {(email) ?
       <a href={`mailto:${email}`} className="footer--social__email">
@@ -14,35 +11,22 @@ const SocialFooter = ({ github, linkedin, resumePdf, email }) => (
       </a>
       : null
     }
-    <a href={resumePdf} className="footer--social__icon">
-      <img
-        className="footer--social__icon__img"
-        alt="Resume Link"
-        src={linkIcon}
-      />
-    </a>
-    <a href={github} className="footer--social__icon">
-      <img
-        className="footer--social__icon__img"
-        alt="Github link"
-        src={githubIcon}
-      />
-    </a>
-    <a href={linkedin} className="footer--social__icon">
-      <img
-        className="footer--social__icon__img"
-        alt="linkedin link"
-        src={linkedinIcon}
-      />
-    </a>
+    {external.map(e =>
+      <a key={e.id} href={e.link} className="footer--social__icon">
+        <img src={e.image} alt={e.alt} className="footer--social__icon" />
+      </a>
+    )}
   </div>
 )
 
 SocialFooter.propTypes = {
-    github: PropTypes.string.isRequired,
-    linkedin: PropTypes.string.isRequired,
-    resumePdf: PropTypes.string.isRequired,
-    email: PropTypes.string,
+  external: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired
+  })).isRequired,
+  email: PropTypes.string
 }
 
 export default SocialFooter;

@@ -44,7 +44,8 @@ Footer.propTypes = {
   siteLinks: PropTypes.arrayOf(PropTypes.exact({
     title: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
-    ready: PropTypes.bool.isRequired
+    ready: PropTypes.bool.isRequired,
+    id: PropTypes.string.isRequired
   })).isRequired,
   children: PropTypes.node
 }

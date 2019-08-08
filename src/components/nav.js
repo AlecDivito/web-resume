@@ -20,16 +20,16 @@ const Nav = ({ links, navActive, onNavClick, children }) => (
 
     <div className={`nav__mobile ${navActive ? "nav__list--dropdown" : ""}`}>
       <div className="nav__list">
-        {links.map((item, index) => (
+        {(links) ? links.filter(item => item.ready).map((item, index) => (
         <Link
-            key={index}
+            key={item.id}
             to={item.link}
             className="nav__list__item"
             activeClassName="nav__list__item--active"
         >
             {item.title}
         </Link>
-        ))}
+        )) : null}
       </div>
       <div className="nav__children">
         {children}
@@ -40,11 +40,13 @@ const Nav = ({ links, navActive, onNavClick, children }) => (
 
 Nav.propTypes = {
     links: PropTypes.arrayOf(PropTypes.shape({
-        title: PropTypes.string,
-        link: PropTypes.string,
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        link: PropTypes.string.isRequired,
+        ready: PropTypes.bool.isRequired
     })).isRequired,
     navActive: PropTypes.bool.isRequired,
-    onNavClick: PropTypes.func,
+    onNavClick: PropTypes.func.isRequired,
     children: PropTypes.node.isRequired
 }
 

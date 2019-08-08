@@ -7,33 +7,41 @@
 
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
 
 import Nav from "./nav";
 import Footer from "./footer";
 import SocialFooter from "./socialFooter";
-import "./layout.scss"
+import "./layout.scss";
+
+const navData = graphql`
+query GetNavData {
+  allExternalNavJson {
+    nodes {
+      id
+      image
+      link
+      alt
+    }
+  }
+  allInternalNavJson {
+    nodes {
+      id
+      link
+      ready
+      title
+    }
+  }
+  site {
+    siteMetadata {
+      email
+      title
+    }
+  }
+}
+`;
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-          email
-          linkedinLink
-          githubLink
-          resumePdfLink
-          siteLinks {
-            link
-            title
-            ready
-          }
-        }
-      }
-    }
-  `);
-
   const [navActive, setNavActive] = useState(false);
 
   let isHome = false;
@@ -42,31 +50,29 @@ const Layout = ({ children }) => {
   }
 
   return (
-    <div className="page">
-      <Nav
-        links={data.site.siteMetadata.siteLinks}
-        navActive={navActive}
-        onNavClick={() => setNavActive(!navActive)}
-      >
-        <SocialFooter
-          github={data.site.siteMetadata.githubLink}
-          linkedin={data.site.siteMetadata.linkedinLink}
-          resumePdf={data.site.siteMetadata.resumePdfLink}
-          email={data.site.siteMetadata.email}
-        />
-      </Nav>
-      <main className="page--content">{children}</main>
-      {(!isHome) ?
-        <Footer siteLinks={data.site.siteMetadata.siteLinks}>
+    <StaticQuery query={navData} render={ data => (
+      <div className="page">
+        <Nav
+          links={data.allInternalNavJson.nodes}
+          navActive={navActive}
+          onNavClick={() => setNavActive(!navActive)}
+        >
           <SocialFooter
-            github={data.site.siteMetadata.githubLink}
-            linkedin={data.site.siteMetadata.linkedinLink}
-            resumePdf={data.site.siteMetadata.resumePdfLink}
+            external={data.allExternalNavJson.nodes}
+            email={data.site.siteMetadata.email}
           />
-        </Footer>
-        : null
-      }
-    </div>
+        </Nav>
+        <main className="page--content">{children}</main>
+        {(!isHome) ?
+          <Footer siteLinks={data.allInternalNavJson.nodes}>
+            <SocialFooter
+              external={data.allExternalNavJson.nodes}
+            />
+          </Footer>
+          : null
+        }
+      </div>
+    )} />
   )
 }
 
