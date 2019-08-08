@@ -1,0 +1,30 @@
+[
+    {
+        "startDate": "Jan 2019",
+        "endDate": "May 2019",
+        "company": "Centre for Mobile Innovation",
+        "position": "Software Developer",
+        "description": "At sheridan's research center I used MatLab, C++, Typescript and machine learning to detect when when people fell. I worked with PointClickCare into implementing a solution that was able to detect if someone has fallen or not"
+    },
+    {
+        "startDate": "Jan 2016",
+        "endDate": "Dec 2018",
+        "company": "Sheridan College",
+        "position": "Student",
+        "description": "I graduated from Sheridan's Software Development and Network Engineering course with a 3.84 GPA. At Sheridan There was lot's of hands on learning and real world projects with coops."
+    },
+    {
+        "startDate": "May 2018",
+        "endDate": "Aug 2018",
+        "company": "Maple Leaf Foods",
+        "position": "IS Digital Developer",
+        "description": "While at Maple leaf foods I worked on multiple projects  (IOS, C#, .Net MVC5 and Core, as well as react + typescript). Helped extend backend and frontend functionality for IOS Plant down time app."
+    },
+    {
+        "startDate": "Sep 2017",
+        "endDate": "Dec 2017",
+        "company": "Ontario Government",
+        "position": "Junior Software Developer",
+        "description": "Developed lots of skills working with Typescript and Angular 2+. Was given tasks to setup new projects Angular 2+ projects. UsedAzure, VSTS, Angular 2+, .Net Core 2, and NoSql to quickly develop user interface, and anticipate and react to UX needs"
+    }
+]
