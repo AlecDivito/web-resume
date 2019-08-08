@@ -65,7 +65,7 @@ const PersonalsPage = () => {
     return (
         <Layout>
             <SEO title="Projects" />
-            <div className="personal layout--max-width">
+            <section className="personal layout--max-width">
                 <Header text="Featured Personal Projects" isCenter={true} />
                 <p className="personal__description">These are the projects that I'm most proud of and like to show off!</p>
                 <div className="personal__cards">
@@ -99,13 +99,18 @@ const PersonalsPage = () => {
                         </div>
                     </div>
                 )}
+                    <div className="card">
+                        View Work
+                    </div>
                 </div>
+            </section>
+            <section className="personal layout--max-width">
                 <Header text="Other Personal Project" isCenter={true} />
                 <p className="personal__description">
                     These are projects I worked on when I was younger and less experienced
                     or just weren't able to fully finish
                 </p>
-            </div>
+            </section>
         </Layout>
     )
 };

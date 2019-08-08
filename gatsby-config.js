@@ -156,20 +156,24 @@ module.exports = {
     skills: [
       {
         section: "Current Stack",
-        skills: ["Typescript/Javascript", "Node.js", "HTML", "CSS", "Rust", "C++"]
+        skills: ["Typescript", "Javascript", "React", "Node.js", "HTML5", "CSS3", "Rust", "C++", "Git"]
       },
       {
         section: "Worked With",
-        skills: ["C#", "IOS", "Python", "PHP"]
+        skills: ["C#", "PHP", "IOS", "Swift", "Python", "MatLab"]
       },
       {
         section: "Played With",
-        skills: ["Java", "F#", "Android"]
+        skills: ["Java", "F#", "Android", "Kotlin", "GO", "Shell Scripting"]
       },
       {
         section: "Frameworks & Libraries",
-        skills: [".Net Core", "Angular 2+", "React", "Vue", "Laravel", "Spring"]
-      }
+        skills: [".Net Core", "Angular 2+", "Vue", "Gatsby", "Laravel", "Spring", "Express", "Nestjs"]
+      },
+      {
+        section: "Databases",
+        skills: ["SQL + PL/SQL", "MySQL", "Postgres", "SQLite", "SQL Server"]
+      },
     ]
   },
   plugins: [

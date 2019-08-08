@@ -18,6 +18,10 @@ const WorkPage = () => {
             position
             description
           }
+          skills {
+              section
+              skills
+          }
         }
       }
     }
@@ -53,6 +57,23 @@ const WorkPage = () => {
           <li className="work__timeline__event--circle--bottom"></li>
         </ul>
       </section>
+      
+      <section className="skills--section layout--max-width">
+        <Header text="Skills" isCenter={true} />
+        <div className="skills">
+          {data.site.siteMetadata.skills.map((t, i) =>
+            <div className="skills__type" key={i}>
+              <h3 className="skills__type__header">{t.section}</h3>
+              <ul className="skills__type__list">
+                {t.skills.map((s, index) =>
+                  <li key={index}>{s}</li>
+                )}
+              </ul>
+            </div>
+          )}
+        </div>
+      </section>
+
       <section className="work layout--max-width">
         <Header text="Resume Download" isCenter={true} />
         <p className="work__description">
