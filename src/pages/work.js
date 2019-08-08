@@ -6,26 +6,30 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import "./work.scss"
 import Header from "../components/header";
 
-const WorkPage = () => {
-  const data = useStaticQuery(graphql`
-    query SiteWorkQuery {
-      site {
-        siteMetadata {
-          work {
-            startDate
-            endDate
-            company
-            position
-            description
-          }
-          skills {
-              section
-              skills
-          }
-        }
-      }
+const query = graphql`
+query GetWorkData {
+  allWorkJson {
+    nodes {
+      company
+      description
+      endDate
+      id
+      position
+      startDate
     }
-  `);
+  }
+  allSkillsJson {
+    nodes {
+      id
+      skills
+      section
+    }
+  }
+}
+`;
+
+const WorkPage = () => {
+  const data = useStaticQuery(query);
 
   const options = { year: 'numeric', month: 'short'}
   const endDate = new Date();
@@ -44,8 +48,8 @@ const WorkPage = () => {
         </p>
         <ul className="work__timeline" endyear={endFormat} startyear={startFormat}>
           <li className="work__timeline__event--circle--top"></li>
-          {data.site.siteMetadata.work.map( (w, i) => (
-            <li key={i} className="work__timeline__event">
+          {data.allWorkJson.nodes.map( w => (
+            <li key={w.id} className="work__timeline__event">
               <div className="work__timeline__event--circle"></div>
               <div className="work__timeline__event__details">
                 <h3 className="event__header">{w.position} <small>at</small> {w.company}</h3>
@@ -61,8 +65,8 @@ const WorkPage = () => {
       <section className="skills--section layout--max-width">
         <Header text="Skills" isCenter={true} />
         <div className="skills">
-          {data.site.siteMetadata.skills.map((t, i) =>
-            <div className="skills__type" key={i}>
+          {data.allSkillsJson.nodes.map(t =>
+            <div className="skills__type" key={t.id}>
               <h3 className="skills__type__header">{t.section}</h3>
               <ul className="skills__type__list">
                 {t.skills.map((s, index) =>
