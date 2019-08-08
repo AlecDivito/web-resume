@@ -126,12 +126,17 @@ $tablet-large: 768px;
         height: inherit;
         max-width: 45%;
         margin: 2.5%;
+        overflow: hidden;
+        transition: box-shadow .25s ease-in-out;
 
         &:hover {
             box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
             .card__image {
                 filter: blur(0px) brightness(90%);
-                border: 1px solid black;
+                > picture > img {
+                    transform: scale(1.15);
+                }
             }
         }
         
@@ -141,7 +146,15 @@ $tablet-large: 768px;
             border-bottom-left-radius: 0px;
             border-bottom-right-radius: 0px;
             filter: blur(1px) brightness(50%);
-            transition: filter .25s ease-in-out, box-shadow .25s ease-in-out;
+            transform-origin: 50% 50%;
+            transition: filter .25s ease-in-out;
+            border-bottom: 1px solid #000000;
+
+            > picture > img {
+                // needs the important here or else a style on the image overrides
+                // the transition. Don't like it but it works
+                transition: transform .5s ease-in-out, opacity .5s ease-in-out !important;
+            }
         }
 
         &__content {
