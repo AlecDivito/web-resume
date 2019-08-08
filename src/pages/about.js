@@ -8,21 +8,21 @@ import ProfilePicture from "../components/profilePicture";
 import "./about.scss";
 import Header from "../components/header";
 
-const AboutPage = () => {
-  const data = useStaticQuery(graphql`
-      query SiteAboutMeQuery {
-        site {
-          siteMetadata {
-            aboutMe {
-              details
-              link
-              section
-            }
-          }
-        }
-      }
-  `)
+const query = graphql`
+query AboutMeQuery {
+  allAboutJson {
+    nodes {
+      id
+      details
+      link
+      section
+    }
+  }
+}
+`;
 
+const AboutPage = () => {
+  const data = useStaticQuery(query)
   return (
     <Layout>
       <SEO title="About Me" />
@@ -41,8 +41,8 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
-        {data.site.siteMetadata.aboutMe.map( ({details, link, section}, index) => (
-          <div key={index} className="about__me">
+        {data.allAboutJson.nodes.map( ({id, details, link, section}) => (
+          <div key={id} className="about__me">
             <h3 className="about__me__header">{section}</h3>
             <ul className="about__me__details">
               {details.map( (description, i) =>

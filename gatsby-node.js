@@ -5,3 +5,12 @@
  */
 
 // You can delete this file if you're not using it
+
+// exports.createPages = async ({ actions: {createPage}, graphql}) => {
+//     const results = await graphql(`
+//     {
+//         NavigationJson {
+
+//         }
+//     }`)
+// }

@@ -191,20 +191,8 @@ module.exports = {
       options: {
         name: `data`,
         path: `${__dirname}/src/data/`,
-        ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
-    /*
-    {
-      resolve: 'gatsby-source-filesystem
-      options: {
-        path: './data/
-      }
-
-      // .data/ has json
-      // ./data/images has images
-    }
-    */
     `gatsby-transformer-sharp`, // images
     `gatsby-plugin-sharp`,      // image optimization
     `gatsby-transformer-json`,  // graphql for data files

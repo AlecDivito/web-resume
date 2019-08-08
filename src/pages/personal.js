@@ -4,8 +4,6 @@ import SEO from "../components/seo";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
-import githubIcon from "../images/github-square.svg";
-import linkIcon from "../images/link.svg";
 import "./personal.scss";
 import Header from "../components/header";
 
@@ -84,13 +82,13 @@ const PersonalsPage = () => {
                                 <div className="card__footer__links">
                                     {(t.siteLink)
                                         ? <a href={t.siteLink} target="_blank" rel="noopener noreferrer">
-                                            <img className="card__footer__links__link" alt="Site Url for title" src={linkIcon} />
+                                            <img className="card__footer__links__link" alt="Site Url for title" src="/svgs/link.svg" />
                                         </a>
                                         : null
                                     }
                                     {(t.githubLink)
                                         ? <a href={t.githubLink} target="_blank" rel="noopener noreferrer">
-                                            <img className="card__footer__links__link" alt="Github Url for title" src={githubIcon} />
+                                            <img className="card__footer__links__link" alt="Github Url for title" src="/svgs/github-square.svg" />
                                         </a>
                                         : null
                                     }
