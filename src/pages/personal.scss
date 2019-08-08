@@ -131,6 +131,7 @@ $tablet-large: 768px;
             box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
             .card__image {
                 filter: blur(0px) brightness(90%);
+                border: 1px solid black;
             }
         }
         
@@ -141,7 +142,6 @@ $tablet-large: 768px;
             border-bottom-right-radius: 0px;
             filter: blur(1px) brightness(50%);
             transition: filter .25s ease-in-out, box-shadow .25s ease-in-out;
-            overflow: hidden;
         }
 
         &__content {

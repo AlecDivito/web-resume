@@ -61,7 +61,7 @@ const AboutPage = () => {
             </div>
           </div>
         ))}
-        <div className="about__greetings about__greetings--reverse">
+        <div className="about__greetings">
           <div className="about__greetings__intro">
             <Header text="That's not all I do" isCenter={true} />
             <p className="about__intro">

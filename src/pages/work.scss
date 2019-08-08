@@ -22,7 +22,7 @@ $tablet-large: 768px;
     &__timeline {
         list-style-type: none;
         padding: 60px 0 24px;
-        margin: 0 1.5rem 3.75rem 1.25rem;
+        margin: 3rem 1.5rem 3.75rem 1.25rem;
         position: relative;
         z-index: 10;
         clear: both;
@@ -147,6 +147,7 @@ $tablet-large: 768px;
         clear: both;
 
         &__timeline {
+            margin: 3rem 0;
             width: 50%;
             float: right;
 

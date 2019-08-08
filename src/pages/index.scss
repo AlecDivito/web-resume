@@ -21,10 +21,10 @@ $height: calc(100% - #{$nav-height});
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1rem 0 1rem 1rem;
     
     &__header {
         color: #333333;
+        padding: 0px 1rem;
         
         &--name {
             font-family: Impacto, Impact, sans-serif;
@@ -53,7 +53,7 @@ $height: calc(100% - #{$nav-height});
     }
 
     &__section {
-        padding-right: 1rem;
+        background-color: $primary-color;
 
         &__links {
             display: flex;
