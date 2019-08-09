@@ -32,7 +32,7 @@ const AboutPage = () => {
           <div className="about__greetings__intro">
             <Header text="Nice to meet you" isCenter={true} />
             <p className="about__intro">
-              My name is <strong>Alec Di Vito</strong>. I'm a creative ambitious and enterprising software engineer.
+              My name is <strong>Alec Di Vito</strong>. I'm a creative, ambitious, and enterprising software engineer.
             </p>
             <p className="about__intro">
               Currently I'm looking for possible co-op opportunities for the 2020 Winter
@@ -65,14 +65,14 @@ const AboutPage = () => {
           <div className="about__greetings__intro">
             <Header text="That's not all I do" isCenter={true} />
             <p className="about__intro">
-              I Also really really really enjoy riding my bike and helping out
-              around the community. Just this summer I helped out a bike shop
-              in mississauga that is run parnell with sheridan and the city of
-              mississauga.
+              I also really enjoy riding my bike and helping out
+              around the community. During the past summer, I helped out a bike shop
+              in Mississauga that is run parallel between Sherdian College and the City of
+              Mississauga.
             </p>
             <p className="about__intro">
-              Also I love skating and was head skate patrol at multiple different
-              rinks around mississauga growing up. Really love the GTA and can't wait to
+              I love skating and was Head Skate Patrol at multiple different
+              rinks around Mississauga growing up. I really love the GTA and can't wait to
               do more.
             </p>
           </div>

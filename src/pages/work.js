@@ -43,8 +43,8 @@ const WorkPage = () => {
       <section className="work layout--max-width">
         <Header text="Professional Work" isCenter={true} />
         <p className="work__description">
-          I've been fortunate enough to work with some companies amazing companies
-          and I'm proud that I have helped them exceed their expectations of sheridan students.
+          I've been fortunate enough to work with some amazing companies, and my experiences with them helped
+          to broaden my skills set and knowledge base. I'm proud that I have helped them raise their expectations of what Sheridan students are capable of.
         </p>
         <ul className="work__timeline" endyear={endFormat} startyear={startFormat}>
           <li className="work__timeline__event--circle--top"></li>

@@ -7,11 +7,10 @@ const Footer = ({ siteLinks, children }) => (
   <footer className="footer">
       <div className="footer__top layout--max-width">
         <div className="footer__top__about">
-          <h3>About</h3>
+          <h3>Alec Di Vito</h3>
           <p>
-            Hey I'm Alec and this is my footer, this is just supposed to say
-            something about how cool I amm that I ride a bike, but thats all you
-            need to know. Thanks for visiting :)
+            I'm a creative, ambitious, and enterprising software engineer as well as
+            an aspiring designer and machine learning engineer.
           </p>
         </div>
         <div className="footer__top__blog">
