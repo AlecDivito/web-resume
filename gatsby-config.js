@@ -25,6 +25,7 @@ module.exports = {
     `gatsby-transformer-sharp`, // images
     `gatsby-plugin-sharp`,      // image optimization
     `gatsby-transformer-json`,  // graphql for data files
+    `gatsby-transformer-remark`,// md files to html
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
