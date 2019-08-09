@@ -1,9 +1,8 @@
 [
     {
-        "picId": "budgetise",
         "title": "Budgetise",
         "image": "./images/budgetise.png",
-        "stage": "Completed",
+        "stage": "✔ Completed",
         "technologies": [
             "Angular 2+",
             "Nest.js",
@@ -15,13 +14,14 @@
             "HTML",
             "Javascript"
         ],
+        "description": "Capstone project for my final year in the SDNE program at sheridan. Created to manage multiple McDonald's expenses.",
+        "blogPost": "/personal/budgetise",
         "githubLink": null,
         "siteLink": null
     },
     {
-        "picId": "bombFinder",
         "title": "MineSweeper Clone",
-        "stage": "Completed",
+        "stage": "✔ Completed",
         "image": "./images/bomb-finder.png",
         "technologies": [
             "Typescript",
@@ -33,13 +33,14 @@
             "CSS",
             "HTML"
         ],
+        "description": "A Minesweeper clone inspired by Google's proxx.app. Added more features on top of the game.",
+        "blogPost": "/personal/bomb-finder",
         "githubLink": "https://github.com/AlecDivito/bomb-finder",
         "siteLink": "https: //alecdivito.github.io/bomb-finder/"
     },
     {
-        "picId": "personalWebsite",
         "title": "Personal Website",
-        "stage": "In Progress",
+        "stage": "⚠ In Progress",
         "image": "./images/PersonalWebsite.png",
         "technologies": [
             "Gatsby",
@@ -49,24 +50,26 @@
             "SCSS",
             "HTML"
         ],
+        "description": "This website! Learning gatsby (which is pretty cool) and creating a blog and resume website at the same time!",
+        "blogPost": null,
         "githubLink": "https://github.com/AlecDivito/bomb-finder",
         "siteLink": null
     },
     {
-        "picId": "bitmap",
         "title": "Rusty Bitmap",
-        "stage": "In Progress",
+        "stage": "⚠ In Progress",
         "image": "./images/bitmap_logo.png",
         "technologies": [
             "Rust"
         ],
+        "description": "A small library that focuses on creating a library on crates.io and hopefully a webassembly one on npm. Ability to read, edit and write bitmaps.",
+        "blogPost": null,
         "githubLink": "https://github.com/AlecDivito/rusty-bitmap",
         "siteLink": null
     },
     {
-        "picId": "tetris",
         "title": "Tetris Clone",
-        "stage": "In Progress",
+        "stage": "⚠ In Progress",
         "image": "./images/tetris.png",
         "technologies": [
             "Rust",
@@ -76,6 +79,8 @@
             "CSS",
             "HTML"
         ],
+        "description": "A tetris clone focusing on using webassembly compiled by rust. Used to learn advantages using webassembly beside javascript development",
+        "blogPost": null,
         "githubLink": "https://github.com/AlecDivito/weby-rusty-tetris",
         "siteLink": null
     }

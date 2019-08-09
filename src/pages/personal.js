@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { useStaticQuery, graphql } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
 import "./personal.scss";
@@ -12,12 +12,11 @@ query GetPersonalProjectsData {
     allProjectsJson {
         nodes {
             id
-            githubLink
-            picId
-            siteLink
             stage
-            technologies
             title
+            technologies
+            description
+            blogPost
             image {
                 childImageSharp {
                     fluid {
@@ -25,6 +24,8 @@ query GetPersonalProjectsData {
                     }
                 }
             }
+            githubLink
+            siteLink
         }
     }
 }
@@ -32,7 +33,7 @@ query GetPersonalProjectsData {
 
 const PersonalsPage = () => {
     const data = useStaticQuery(query)
-    console.log(data);
+
     return (
         <Layout>
             <SEO title="Projects" />
@@ -42,12 +43,23 @@ const PersonalsPage = () => {
                 <div className="personal__cards">
                 {data.allProjectsJson.nodes.map((t) =>
                     <div className="card" key={t.id} >
-                        <Img className="card__image" fluid={t.image.childImageSharp.fluid} />
+                        <a
+                            className={`${(t.blogPost) ? "" : "card__image--no-link"}`}
+                            href={(t.blogPost) ? t.blogPost : "javascript:void(0);"}>
+                            <Img className="card__image" fluid={t.image.childImageSharp.fluid} />
+                        </a>
                         <div className="card__content">
                             <div className="card__header">
                                 <h3>{t.title}</h3>
                                 <h5>{t.stage}</h5>
                             </div>
+                            <p className="card__description">
+                                {t.description}
+                            </p>
+                            {(t.blogPost) ?
+                                <Link className="card__read-more" to={t.blogPost}>Read more...</Link>
+                                : null
+                            }
                             <div className="card__footer">
                                 <div className="card__footer__tags">
                                     {t.technologies.map((tag, i) => <span className="tag" key={i} >{tag}</span>)}

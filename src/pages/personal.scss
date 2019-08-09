@@ -31,7 +31,7 @@ $tablet-large: 768px;
     position: relative;
     display: block;
     width: 100%;
-    height: 160px;
+    height: 180px;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
@@ -57,6 +57,11 @@ $tablet-large: 768px;
         filter: blur(1px) brightness(30%);
         width: 100%;
         height: 100%;
+        cursor: pointer;
+
+        &--no-link {
+            cursor: not-allowed;
+        }
     }
 
     &__content {
@@ -71,6 +76,24 @@ $tablet-large: 768px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+    }
+
+
+    &__description {
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #FFFFFF;
+        margin: 0;
+    }
+
+    &__read-more {
+        border: 1px solid #FFFFFF;
+        padding: 8px;
+        border-radius: 5px;
+        text-align: center;
+        color: #FFFFFF;
+        text-decoration: none;
     }
 
     &__header {
@@ -114,6 +137,8 @@ $tablet-large: 768px;
     }
 }
 
+$desktop-card-image-height: 160px;
+
 @media (min-width: $tablet-large) {
     .personal__cards {
         width: 100%;
@@ -130,7 +155,7 @@ $tablet-large: 768px;
         transition: box-shadow .25s ease-in-out;
 
         &:hover {
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 
             .card__image {
                 filter: blur(0px) brightness(90%);
@@ -142,7 +167,7 @@ $tablet-large: 768px;
         
         &__image {
             position: relative;
-            height: 160px;
+            height: $desktop-card-image-height;
             border-bottom-left-radius: 0px;
             border-bottom-right-radius: 0px;
             filter: blur(1px) brightness(50%);
@@ -157,14 +182,30 @@ $tablet-large: 768px;
             }
         }
 
+        &__description {
+            display: block;
+            margin: 1rem 0rem;
+            color: #000000;
+
+            white-space: normal; 
+            overflow: visible;
+            text-overflow: initial;
+        }
+
+        &__read-more {
+            border-color: #000000;
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+
         &__content {
-            position: relative;
-            height: inherit;
+            position: static;
+            height: calc(100% - #{$desktop-card-image-height});
         }
 
         &__header {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
 
             h3, h5 {
                 line-height: 2rem;
