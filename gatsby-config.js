@@ -8,13 +8,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
-    { // for the images
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -25,7 +18,19 @@ module.exports = {
     `gatsby-transformer-sharp`, // images
     `gatsby-plugin-sharp`,      // image optimization
     `gatsby-transformer-json`,  // graphql for data files
-    `gatsby-transformer-remark`,// md files to html
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            }
+          }
+        ]
+      }
+    },// md files to html
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

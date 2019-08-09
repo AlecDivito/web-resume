@@ -1,7 +1,6 @@
 import React from "react"
-import logo from "../images/logo.png";
-// import { useStaticQuery, graphql } from "gatsby"
-// import Img from "gatsby-image"
+import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -15,19 +14,19 @@ import logo from "../images/logo.png";
  */
 
 const Logo = () => {
-  // const data = useStaticQuery(graphql`
-  //   query {
-  //     placeholderImage: file(relativePath: { eq: "logo.png" }) {
-  //       childImageSharp {
-  //         fluid(maxWidth: 56) {
-  //           ...GatsbyImageSharpFluid
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
+  const data = useStaticQuery(graphql`
+    query GetLogoImage {
+      file(relativePath: { eq: "images/logo.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
 
-  return <img className="logo" alt="Alec Di Vito logo" src={logo} />
+  return <Img className="logo" alt="Alec Di Vito logo" fluid={data.file.childImageSharp.fluid} />
 }
 
 export default Logo
