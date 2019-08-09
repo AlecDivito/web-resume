@@ -90,7 +90,11 @@ const WorkPage = () => {
             <Link className="link" to="/about">about page.</Link>
         </p>
         <div className="work__btn">
-          <a className="link" href="AlecDivito-resume.pdf">Download PDF</a>
+          <a className="link"
+            rel="noopener noreferrer"
+            href="AlecDivito-resume.pdf" target="_blank">
+              Download PDF
+          </a>
         </div>
       </section>
     </Layout>

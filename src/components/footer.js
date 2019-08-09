@@ -32,7 +32,7 @@ const Footer = ({ siteLinks, children }) => (
         <div className="footer__bottom__copyright">
           Alec Divito © {new Date().getFullYear()}, Built with
           {` `}
-          <a className="link" href="https://www.gatsbyjs.org" target="_blank">Gatsby</a>
+          <a className="link" href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">Gatsby</a>
         </div>
         {children}
       </div>
