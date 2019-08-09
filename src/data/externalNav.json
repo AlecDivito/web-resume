@@ -1,15 +1,18 @@
 [
     {
+        "type": "Resume",
         "alt": "Alec Divito's Resume",
         "image": "/svgs/link.svg",
-        "link": "/Alecdivito-resume.pdf"
+        "link": "/AlecDivito-resume.pdf"
     },
     {
+        "type": "Github",
         "alt": "Alec Divito's Github",
         "image": "/svgs/github-square.svg",
         "link": "https://github.com/Alecdivito"
     },
     {
+        "type": "Linkedin",
         "alt": "Alec Divito's Linkedin",
         "image": "/svgs/linkedin-square.svg",
         "link": "https://www.linkedin.com/in/alec-divito-3a1922140/"

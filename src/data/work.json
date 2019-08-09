@@ -1,8 +1,8 @@
 [
     {
         "startDate": "Jan 2019",
-        "endDate": "May 2019",
-        "company": "Centre for Mobile Innovation",
+        "endDate": "April 2019",
+        "company": "Center for Mobile Innovation",
         "position": "Software Developer",
         "description": "At Sheridan's research center I used MatLab, C++, Typescript, and machine learning to detect when people fell. I worked with PointClickCare to implement a solution that was able to detect whether someone has fallen."
     },
@@ -18,7 +18,7 @@
         "endDate": "Aug 2018",
         "company": "Maple Leaf Foods",
         "position": "IS Digital Developer",
-        "description": "While at Maple Leaf Foods, I worked on multiple projects using languages like IOS, C#, .Net MVC5, Core, React, and Typescript. I extended back-end and front-end functionality for an iOS Plant Down Time app."
+        "description": "While at Maple Leaf Foods, I worked on multiple projects using languages like Swift for IOS, C#, .Net MVC5, .Net Core 2, React, and Typescript. I extended back-end and front-end functionality for an iOS Plant Down Time app and helped with input on a component library for Maple Leaf Foods."
     },
     {
         "startDate": "Sep 2017",

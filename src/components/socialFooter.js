@@ -12,7 +12,7 @@ const SocialFooter = ({ external, email }) => (
       : null
     }
     {external.map(e =>
-      <a key={e.id} href={e.link} className="footer--social__icon">
+      <a key={e.id} href={e.link} className="footer--social__icon" target="_blank">
         <img src={e.image} alt={e.alt} className="footer--social__icon" />
       </a>
     )}
