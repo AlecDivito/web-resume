@@ -44,11 +44,6 @@ query GetNavData {
 const Layout = ({ children }) => {
   const [navActive, setNavActive] = useState(false);
 
-  let isHome = false;
-  if (window.location.pathname === "/") {
-    isHome = true;
-  }
-
   return (
     <StaticQuery query={navData} render={ data => (
       <div className="page">
@@ -63,14 +58,11 @@ const Layout = ({ children }) => {
           />
         </Nav>
         <main className="page--content">{children}</main>
-        {(!isHome) ?
           <Footer siteLinks={data.allInternalNavJson.nodes}>
             <SocialFooter
               external={data.allExternalNavJson.nodes}
             />
           </Footer>
-          : null
-        }
       </div>
     )} />
   )

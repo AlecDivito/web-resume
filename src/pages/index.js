@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
+import HeaderLayout from "../components/headerLayout";
 import SEO from "../components/seo"
 import "./index.scss";
 
@@ -105,19 +105,27 @@ const IndexPage = () => {
       if (canvas) {
         particles = new Particles(canvas, 25);
       } else {
-        requestAnimationFrame(update);
+        if (typeof window !== 'undefined') {
+
+          window.requestAnimationFrame(update);
+        }
         return;
       }
     }
     particles.update();
     particles.render();
-    requestAnimationFrame(update);
+    if (typeof window !== 'undefined') {
+
+      window.requestAnimationFrame(update);
+    }
+  }
+  if (typeof window !== 'undefined') {
+
+    window.requestAnimationFrame(update);
   }
 
-  requestAnimationFrame(update);
-
   return (
-    <Layout>
+    <HeaderLayout>
       <SEO title="Home" />
       <canvas id="bg-canvas" className="home--background"></canvas>
       <div className="home">
@@ -139,7 +147,7 @@ const IndexPage = () => {
           </div>
         </section>
       </div>
-    </Layout>
+    </HeaderLayout>
   )
 }
 
