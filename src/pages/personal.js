@@ -43,11 +43,15 @@ const PersonalsPage = () => {
                 <div className="personal__cards">
                 {data.allProjectsJson.nodes.map((t) =>
                     <div className="card" key={t.id} >
-                        <a
-                            className={`${(t.blogPost) ? "" : "card__image--no-link"}`}
-                            href={(t.blogPost) ? t.blogPost : "javascript:void(0);"}>
-                            <Img className="card__image" fluid={t.image.childImageSharp.fluid} />
-                        </a>
+                        {(t.blogPost) ?
+                            <a href={t.blogPost}>
+                                <Img className="card__image" fluid={t.image.childImageSharp.fluid} />
+                            </a>
+                            :
+                            <span className="card__image--no-link">
+                                <Img className="card__image" fluid={t.image.childImageSharp.fluid} />
+                            </span>
+                        }
                         <div className="card__content">
                             <div className="card__header">
                                 <h3>{t.title}</h3>
