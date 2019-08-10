@@ -1,0 +1,128 @@
+---
+title: "Bomb Finder"
+date: "2019-07-10"
+author: "Alec Di Vito"
+images: "./images/budgetise.png" 
+---
+// Overview
+/ image
+// Contribuations
+// Purpose
+/ image
+// Cause
+/ image
+// desgin process
+/ image
+// arctiecture
+/ image
+// art styles / components
+/ image
+// overall feeling
+/ image
+// todo
+
+Minesweeper challenge
+
+## Overview
+I decided to re-make minesweeper from the ground up, as well as build upon by it
+adding features like game templates, game statistics and settings. My main 
+insperation for the project was to mimike a Google's Reasearch lab project they 
+called proxx.app. The goal of the project was to remake minsweeper with updated 
+graphics and as a PWA (progressive web app) thus allowing a wider audenince 
+experince to have fun with a newly skined minesweeper game.
+
+## Goals
+Bomb finders initial goal was to just create the minesweeper game with animated
+pieces. It begain to grow as I started to see the project as more of a learning
+opprunity.
+The goal was to create a PWA that scored 100 in all of the fields on the lighthouse
+browser test. I also wanted to gain experince using Indexdb as a way of keeping
+state on the client side as well as learning how to create fun experinces using
+the browsers 2D engine, Canvas2d. 
+The main way my app diffres from proxx is that I have more pages and I don't
+have a fancy background animation (sadly). Proxx also used div tags and stored
+theyre animations in there. I decided to only use a canvas element
+// what was my aim when I took up this project
+// talk about proxx goals and how mine deffer
+
+## Failures
+The project first began using preact and my own rolled webpack program but I had
+trouble figuring out a way to let my do code-splitting as well as use typescript.
+These furtrations lasted about a week and after unsuccessfully getting codespliting
+to work I decided to switch to React's CRA (create-react-app) because of my
+pervious experince and experince with it. CRA allowed me to quickly get the
+project started and focus on the design of my components and pages. 
+
+
+## Technologies
+Bomb finder is build with React with Typescript. It currently isn't connected to
+any backend services so it makes use of the browsers provided features to save
+data. Currently I am using indexDB (if provided) to save all of the users data.
+I chouse indexdb because it doesn't run on the main thread. If I were to use
+session or local storage. 
+
+
+## Deign process
+I'm not a designer but I tried to follow a workflow this project.
+I inital started out this project out by writing my goals for the projects
+and all the pages I wanted.
+
+
+
+
+## Project Status
+This project is at a finished stage. It is mostly completed and is fully
+usable and installable. There are still some small bugs that need to be
+fixed but the initial 1.0 release works. A polish wouldn't hurt it. ed.
+
+
+
+
+## What's Next
+- Make bomb finder into a trusted web app
+- Add more animations for game bored pieces
+- Allow player's to pick they're color for the background on the game board
+- Add a High score table
+- Add way for friends to challenge eachother to a game
+    - same seed
+    - diffrent seed
+    - competitive version
+- Add way to turn off satified tiles
+- Add way for users 
+
+
+
+## Project Screen Shots
+![Screen shot of minesweeper game](https://raw.githubusercontent.com/AlecDivito/alecdivito.github.io/master/src/images/bomb-finder.png)
+
+
+## Reflections
+
+Originally I wanted to build a simplier clone of Googles proxx.app but what
+was supposed to be simple steam rolled into something a little bigger then
+I first envisioned. The projected became bigger and bigger as I started adding
+new features in the game like game templates, settings, and statistics.
+
+This projects main goal was to experiment with PWA's and reacts implmentation
+of them. As well as gain some experince working the some of the browser's
+internal API's like canvas2d and indexDB. 
+
+One of the main challenges I came across was using indexDB for saving games
+and other items. There were issues were I couldn't update the store without
+deleting it first as well as a poor implementation of a super class to handle
+the reading and writing of data. I probably spent 5 days playing with the
+implmentation of it. It's currently implmentation isn't bad but could be better.
+I removed it as being a super class and changed it to a singlton. It works well
+for creating the database from sratch and I haven't encountered anymore issues with it
+
+At the end of the day this project is a completed project that I'm really proud
+to show people. I learnt alot about chrome dev tools and profiling my perforamce
+code. It was a lot of fun creating the animations and working with canvas2d. Using
+react's "create react app" helped a lot to quickly get the project running. I 
+can't wait till I have the time to fully polish the game off to how I want it to be.
+
+## Resources
+Google's Minesweeper game (for insperation):
+- https://proxx.app
+Codepen for UI element designs
+- https://codepen.io

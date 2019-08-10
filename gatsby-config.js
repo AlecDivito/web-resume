@@ -18,19 +18,44 @@ module.exports = {
     `gatsby-transformer-sharp`, // images
     `gatsby-plugin-sharp`,      // image optimization
     `gatsby-transformer-json`,  // graphql for data files
+    // {
+    //   resolve: `gatsby-transformer-remark`,
+    //   options: {
+    //     plugins: [`gatsby-remark-images`],
+    //     // options: {
+    //     //   maxWidth: 590,
+    //     //   sizeByPixelDensity: true,
+    //     //   withWebp: true
+    //     // }
+    //   }
+    // },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-remark-images', // manage images found in md
+      options: {
+        maxWidth: 1152,
+        linkImagesToOriginal: false,
+        quality: 75,
+        withWebp: true,
+      }
+    },
+    {
+      resolve: `gatsby-plugin-mdx`, // md files to html
       options: {
         gatsbyRemarkPlugins: [
+          `gatsby-remark-copy-linked-files`,
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images', // manage images found in md
             options: {
-              maxWidth: 1200,
+              maxWidth: 1152,
+              linkImagesToOriginal: false,
+              quality: 75,
+              withWebp: true,
             }
           }
-        ]
+        ],
+        plugins: ['gatsby-remark-images'],
       }
-    },// md files to html
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
