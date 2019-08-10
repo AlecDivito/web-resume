@@ -62,8 +62,8 @@ module.exports = {
         name: `Alec Di Vito`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#ff3860`,
+        theme_color: `#ff3860`,
         display: `minimal-ui`,
         icon: `src/data/images/logo.png`, // This path is relative to the root of the site.
       },
