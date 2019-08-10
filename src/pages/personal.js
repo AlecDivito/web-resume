@@ -82,18 +82,18 @@ const PersonalsPage = () => {
                         </div>
                     </div>
                 )}
-                    <div className="card">
+                    {/* <div className="card">
                         View Work
-                    </div>
+                    </div> */}
                 </div>
             </section>
-            <section className="personal layout--max-width">
+            {/* <section className="personal layout--max-width">
                 <Header text="Other Personal Project" isCenter={true} />
                 <p className="personal__description">
                     These are projects I worked on when I was younger and less experienced
                     or just weren't able to fully finish
                 </p>
-            </section>
+            </section> */}
         </Layout>
     )
 };
