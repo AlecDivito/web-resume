@@ -54,7 +54,7 @@ const ContactPage = () => (
         Whether you just wanna say <span role="img" aria-label="Hi">🖐</span> ‘Hi’ or tell me about your next project,
         please do not hesitate to drop a line <span role="img" aria-label="Smiley Face">😊</span>
       </p>
-      <form className="contact__form">
+      <form className="contact__form" action="https://formcarry.com/s/UArougfMt9W" method="POST" acceptCharset="UTF-8">
         {/* TODO: Add a topic drop down (stuff like general inquiry or work together or peep) */}
         <TextInput type="text" fieldName="Full Name" name="name" placeholder="You name" />
         <TextInput type="email" fieldName="Email" name="email" placeholder="your@email" />
