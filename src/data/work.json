@@ -1,17 +1,17 @@
 [
     {
-        "startDate": "Jan 2019",
-        "endDate": "April 2019",
-        "company": "Center for Mobile Innovation",
-        "position": "Software Developer",
-        "description": "At Sheridan's research center I used MatLab, C++, Typescript, and machine learning to detect when people fell. I worked with PointClickCare to implement a solution that was able to detect whether someone has fallen."
+        "startDate": "Sep 2019",
+        "endDate": "Present",
+        "company": "Sheridan Center for Mobile Innovation",
+        "position": "ML Software Developer",
+        "description": "Using machine learning to create a  facial expression classifier that will strive to accurately determine a person's emotional response to specific stimuli."
     },
     {
-        "startDate": "Jan 2016",
-        "endDate": "Dec 2018",
-        "company": "Sheridan College",
-        "position": "Student",
-        "description": "I graduated from Sheridan's Software Development and Network Engineering course with a 3.84 GPA. At Sheridan, there was lots of hands on learning and real world projects. I also participated in co-ops, which gave me real-world experience in solving problems and working with different teams."
+        "startDate": "Jan 2019",
+        "endDate": "April 2019",
+        "company": "Sheridan Center for Mobile Innovation",
+        "position": "Software Developer",
+        "description": "At Sheridan's research center I used MatLab, C++, Typescript, and machine learning to detect when people fell. I worked with PointClickCare to implement a solution that was able to detect whether someone has fallen."
     },
     {
         "startDate": "May 2018",

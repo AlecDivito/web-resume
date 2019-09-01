@@ -1,0 +1,20 @@
+[
+    {
+        "startDate": "May 2019",
+        "endDate": "Dec 2021",
+        "school": "Sheridan College",
+        "program": "Mobile Computing",
+        "achivement": "Honours Bachelor of Computer Science",
+        "gpa": "3.85",
+        "description": "I was able to transfer into sheridans Mobile Computing course straight into year "
+    },
+    {
+        "startDate": "Jan 2016",
+        "endDate": "Dec 2018",
+        "school": "Sheridan College",
+        "program": "Software Development and Network Engineering",
+        "achivement": "Advanced Diploma",
+        "gpa": "3.84",
+        "description": "I graduated from Sheridan's Software Development and Network Engineering course with a 3.84 GPA. At Sheridan, there was lots of hands on learning and real world projects. I also participated in co-ops, which gave me real-world experience in solving problems and working with different teams."
+    }
+]
