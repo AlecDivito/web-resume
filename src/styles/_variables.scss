@@ -81,6 +81,7 @@ $footer-bottom-border-color: $shade-1;
  */
 // header
 $index-header-color: $shade-8;
+$index-header-title-color: $shade-8;
 $index-header-bottom-margin: $nav-height + $nav-height-border-shadow-offset;
 $index-header-height: calc(100vh - (#{$nav-height} + #{$nav-height-border-shadow-offset} + #{$index-header-bottom-margin}));
 

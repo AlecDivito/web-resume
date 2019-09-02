@@ -27,8 +27,8 @@ const Nav = ({ links, navActive, onNavClick, children }) => (
             <Link
                 key={item.id}
                 to={item.link}
-                className="nav__list__link"
-                activeClassName="nav__list__link--active"
+                className="nav__list__link link"
+                activeClassName="active"
             >
                 {item.title}
             </Link>

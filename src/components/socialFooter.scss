@@ -1,24 +1,19 @@
-$primary-color: #FF3860;
-$accent-color:  #79FF38;
-$dark-shade: #3d171f;
-$light-shade: #ebcad1;
-
-$tablet-large: 768px;
+@import "../styles/variables";
 
 .footer--social {
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     padding: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
     &__email {
+        color: $shade-1;
+        padding: .5rem;
+        border: 2px solid $shade-1;
         display: flex;
         flex-direction: column;
-        border: 2px solid #000;
-        padding: .5rem;
         text-decoration: none;
-        color: $dark-shade;
     }
 
     &__icon {

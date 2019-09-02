@@ -94,27 +94,6 @@
             &:hover {
                 color: $nav-link-color-hover;
             }
-
-            &--active {
-                position: relative;
-                transition: color .0s ease;
-                transition: border-bottom .25s ease-out;
-
-                &::after {
-                    content: "";
-                    position: absolute;
-                    background: $accent-color-5;
-                    width: 100%;
-                    left: 0;
-                    bottom: 0;
-                    height: .7em;
-                    z-index: -1;
-                }
-
-                &:hover {
-                    color: $nav-link-color;
-                }
-            }
         }
     }
 

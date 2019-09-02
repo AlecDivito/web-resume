@@ -106,7 +106,6 @@ const IndexPage = () => {
         particles = new Particles(canvas, 25);
       } else {
         if (typeof window !== 'undefined') {
-
           window.requestAnimationFrame(update);
         }
         return;
