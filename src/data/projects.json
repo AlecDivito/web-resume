@@ -57,15 +57,16 @@
     },
     {
         "title": "Rusty Bitmap",
-        "stage": "⚠ In Progress",
+        "stage": "✔ Completed",
         "image": "./images/bitmap_logo.png",
         "technologies": [
-            "Rust"
+            "Rust",
+            "Crates.io"
         ],
         "description": "A small library that focuses on creating a library on crates.io and hopefully a webassembly one on npm. Ability to read, edit and write bitmaps.",
-        "blogPost": null,
+        "blogPost": "/personal/rustbitmap",
         "githubLink": "https://github.com/AlecDivito/rusty-bitmap",
-        "siteLink": null
+        "siteLink": "https://crates.io/crates/rustbitmap"
     },
     {
         "title": "Tetris Clone",
