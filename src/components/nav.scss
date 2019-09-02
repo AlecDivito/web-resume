@@ -1,76 +1,34 @@
-$tablet-large: 768px;
-//     @media (max-width: $tablet-large) {
-
-
-// brands
-$brand-white: hsl(0, 0%, 100%);
-$brand-black: hsl(0, 0%, 4%);
-$brand-light: hsl(0, 0%, 96);
-$brand-dark: hsl(0, 0%, 21%);
-$brand-primary: hsl(171, 100%, 41%);
-$brand-link: hsl(217, 71%, 53%);
-$brand-info: hsl(204, 86%, 53%);
-$brand-success: hsl(141, 71%, 48%);
-$brand-warning: hsl(48, 100%, 67%);
-$brand-danger: hsl(348, 100%, 61%);//  #FF3860
-
-// shades
-$shade-black: hsl(0, 0%, 7%);
-$shade-dark: hsl(0, 0%, 14%);
-$shade-black-gray: hsl(0, 0%, 21%);
-$shade-dark-gray: hsl(0, 0%, 29%);
-$shade-light-gray: hsl(0, 0%, 71%);
-$shade-black-white: hsl(0, 0%, 86%);
-$shade-dark-white: hsl(0, 0%, 96%);
-$shade-white: hsl(0, 0%, 98%);
-
-$primary-color: #FF3860;
-$accent-color:  #79FF38;
-$dark-shade: #3d171f;
-$light-shade: #ebcad1;
-
-
-$nav-width: 100%;
-$nav-height: 72px;
-$nav-padding: 8px;
-$nav-background: $brand-danger;
-$nav-z-index: 20;
-
-$nav-link-color: #000;
-$nav-link-color-hover: #777;
-$nav-link-padding: 0px 4px;
-$nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity .5s cubic-bezier(.4,0,.2,1);
-
+@import "../styles/variables";
 
 .nav {
+    background-color: $nav-background;
     // Problems with positioning on safari,
     // may need to convert to fixed element
     position: -webkit-sticky;
     position: sticky;
     width: $nav-width;
-    height: $nav-height + 16px;
+    height: $nav-height + $nav-height-border-shadow-offset;
     // negative top allows for movement before sticking
-    top: -16px;
+    top: -$nav-height-border-shadow-offset;
     left: 0px;
-    background-color: white;
     z-index: $nav-z-index;
     -webkit-backface-visibility: hidden;
 
     &::before, &::after {
         content: "";
         display: block;
-        height: 16px;
+        height: $nav-height-border-shadow-offset;
         position: sticky;
     }
 
     &::before {
-        top: $nav-height - 16px;
-        box-shadow: 0 10px 6px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        top: $nav-height - $nav-height-border-shadow-offset;
+        box-shadow: $nav-box-shadow;
     }
 
     &::after {
-        background: linear-gradient(white, rgba(255,255,255,1));
-        top: 0;
+        background: $nav-after-background;
+        top: 0px;
         z-index: $nav-z-index + 1;
     }
 
@@ -80,32 +38,34 @@ $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity 
         top: 0px;
         // this needs to be important because the max page length will mess
         // it up (.layout--max-width)
-        margin: -16px auto 0px auto !important;
+        margin: -$nav-height-border-shadow-offset auto 0px auto;
         z-index: $nav-z-index + 2;
-        display: flex;
         height: $nav-height;
-        justify-content: space-between;
-        background-color: white;
+        background-color: $nav-background;
     }
 
+    &--container {
+        padding: 0px 8px;
+        display: flex;
+        justify-content: space-between;
+    }
 
     &--header {
         height: $nav-height;
         display: flex;
         width: 100%;
         justify-content: space-between;
-        // background-color: $nav-background;
         padding: $nav-padding;
     }
 
     &__logo {
-        width: 56px;
-        height: 56px;
+        width:  $nav-height - ($nav-padding * 2);
+        height: $nav-height - ($nav-padding * 2);
         z-index: $nav-z-index;
 
         .logo {
-            width: 56px;
-            height: 56px;
+            width: $nav-height - ($nav-padding * 2);
+            height: $nav-height - ($nav-padding * 2);
         }
     }
 
@@ -114,22 +74,22 @@ $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity 
     }
 
     &__list {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-        list-style-type: none;
-        align-items: center;
         height: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        list-style-type: none;
         transform: translateY(0);
 
-        &__item {
-            font-weight: 700;
+        &__link {
             color: $nav-link-color;
-            transition: color .3s ease;
             padding: $nav-link-padding;
             margin: 0px .75rem;
+            font-weight: 700;
             text-decoration: inherit;
+            transition: color .3s ease;
 
             &:hover {
                 color: $nav-link-color-hover;
@@ -143,7 +103,7 @@ $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity 
                 &::after {
                     content: "";
                     position: absolute;
-                    background: $accent-color;
+                    background: $accent-color-5;
                     width: 100%;
                     left: 0;
                     bottom: 0;
@@ -174,7 +134,7 @@ $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity 
             height: 100%;
             width: 100%;
             padding-top: $nav-height;
-            // background-color: $brand-danger;
+            background-color: $nav-background;
             opacity: 0;
         }
         
@@ -190,17 +150,14 @@ $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity 
                 opacity: 1;
             }
 
-            &__item {
-                font-size: 32px;
+            &__link {
+                font-size: 2rem;
             }
         }
     }
 }
 
-// burger
-$burger-size: $nav-height - ($nav-padding * 2);
-$burger-anim-speed: 0.125s;
-$burger-color: $dark-shade;
+
 
 // want to update burger to be this...
 // https://codepen.io/sonjastrieder/pen/wJPLEP
@@ -220,7 +177,7 @@ $burger-color: $dark-shade;
         border-radius: 50%;
         border: 2px solid $burger-color;
         background: radial-gradient(ellipse at center, $burger-color 5%, rgba($burger-color, 0) 7%);
-        transition: background 0.125s;
+        transition: background $burger-anim-speed;
         text-decoration: none;
 
         &:before, &:after {
