@@ -78,3 +78,22 @@ $burger-color: $shade-1;
 $index-header-color: $shade-8;
 $index-header-bottom-margin: $nav-height + $nav-height-border-shadow-offset;
 $index-header-height: calc(100vh - (#{$nav-height} + #{$nav-height-border-shadow-offset} + #{$index-header-bottom-margin}));
+
+/**
+ * CONTACT PAGE STYLES
+ */
+$contact-text-color: $shade-8;
+$contact-text-font-size: 1rem;
+
+$contact-field-border-color: $shade-5;
+$contact-field-label-color: $shade-5;
+
+$contact-input-color: $shade-8;
+$contact-input-background-color: $shade-2;
+
+$contact-active: $primary-color-5;
+$contact-field-border-color--active: $contact-active;
+$contact-field-label-color--active: $contact-active;
+
+$contact-submit-btn-color: $shade-1;
+$contact-submit-btn-background: $contact-active;
