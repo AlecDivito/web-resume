@@ -75,7 +75,7 @@ $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity 
 }
 
 .page {
-    margin-top: $nav-height;
+    // margin-top: $nav-height;
 
     &--content {
         width: 100%;
@@ -85,39 +85,101 @@ $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity 
 }
 
 .link {
-    position: relative;
-    color: $nav-link-color;
-    transition: color .3s ease;
-    padding: $nav-link-padding;
-    text-decoration: inherit;
-    white-space: nowrap;
-    z-index: 0;
-
-
+    padding: .25em 0;
+  
     &::after {
-        content: "";
+        display: block;
         position: absolute;
-        background: $accent-color;
-        width: 100%;
-        left: 0;
         bottom: 0;
-        height: .7em;
-        z-index: -1;
+        left: 50%;
+        width: 100%;
+        height: 1px;
+        content: "";
+        background-color: #55468C;
+        -webkit-transform: translateX(-50%) scaleX(.5);
+                  transform: translateX(-50%) scaleX(.5);
+        -webkit-transform-origin: center;
+                  transform-origin: center;
+        -webkit-transition: all .25s linear;
+                transition: all .25s linear;
+    }
+  
+    &:hover {
+
+        &::after {
+            background: $primary-color;
+            -webkit-transform: translateX(-50%) scaleX(1);
+                        transform: translateX(-50%) scaleX(1);
+        }
+
     }
 }
 
-.nav {
-    position: fixed;
-    width: $nav-width;
-    height: $nav-height;
-    top: 0px;
-    left: 0px;
-    z-index: $nav-z-index;
-    display: flex;
-    justify-content: space-between;
-    background-color: $nav-background;
+// .link {
+//     position: relative;
+//     color: $nav-link-color;
+//     transition: color .3s ease;
+//     padding: $nav-link-padding;
+//     text-decoration: inherit;
+//     white-space: nowrap;
+//     z-index: 0;
 
-    // box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+//     &::after {
+//         content: "";
+//         position: absolute;
+//         background: $accent-color;
+//         width: 100%;
+//         left: 0;
+//         bottom: 0;
+//         height: .7em;
+//         z-index: -1;
+//     }
+// }
+
+.nav {
+    // Problems with positioning on safari,
+    // may need to convert to fixed element
+    position: -webkit-sticky;
+    position: sticky;
+    width: $nav-width;
+    height: $nav-height + 16px;
+    // negative top allows for movement before sticking
+    top: -16px;
+    left: 0px;
+    background-color: white;
+    z-index: $nav-z-index;
+    -webkit-backface-visibility: hidden;
+
+    &::before, &::after {
+        content: "";
+        display: block;
+        height: 16px;
+        position: sticky;
+    }
+
+    &::before {
+        top: $nav-height - 16px;
+        box-shadow: 0 10px 6px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+
+    &::after {
+        background: linear-gradient(white, rgba(255,255,255,1));
+        top: 0;
+        z-index: $nav-z-index + 1;
+    }
+
+    &--border-shadow {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0px;
+        margin-top: -16px;
+        z-index: $nav-z-index + 2;
+        display: flex;
+        height: $nav-height;
+        justify-content: space-between;
+        background-color: white;
+    }
 
 
     &--header {
@@ -125,7 +187,7 @@ $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity 
         display: flex;
         width: 100%;
         justify-content: space-between;
-        background-color: $nav-background;
+        // background-color: $nav-background;
         padding: $nav-padding;
     }
 
@@ -205,7 +267,7 @@ $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity 
             height: 100%;
             width: 100%;
             padding-top: $nav-height;
-            background-color: $brand-danger;
+            // background-color: $brand-danger;
             opacity: 0;
         }
         
