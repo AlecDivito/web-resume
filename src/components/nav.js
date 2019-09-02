@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import Logo from "./logo"
+import "./nav.scss";
 
 const Nav = ({ links, navActive, onNavClick, children }) => (
   <nav className="nav">
