@@ -86,6 +86,22 @@ $index-header-bottom-margin: $nav-height + $nav-height-border-shadow-offset;
 $index-header-height: calc(100vh - (#{$nav-height} + #{$nav-height-border-shadow-offset} + #{$index-header-bottom-margin}));
 
 /**
+ * ABOUT ME PAGE STYLES
+ */
+$about-color: $shade-8;
+$about-header-color: $primary-color-5;
+$about-paragraph-color: $shade-8;
+$about-paragraph-strong-color: $accent-color-7;
+$about-paragraph-font-size: 1.20rem;
+
+$about-profile-pic-box-shadow: 0 10px 20px $primary-color-9, 0 6px 6px $primary-color-8;
+$about-profile-pic-border-color: $accent-color-8;
+
+$about-max-pic-width: 300px;
+$about-greetings-intro-padding: 1rem;
+
+
+/**
  * CONTACT PAGE STYLES
  */
 $contact-text-color: $shade-8;

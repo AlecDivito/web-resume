@@ -14,7 +14,6 @@
 }
 
 .link {
-    // color: $shade-7;
     transition: 0.3s color ease;
     position: relative;
     width: fit-content;
@@ -25,7 +24,14 @@
             width: 100%;
         }
     }
-    
+
+    &.link--default-color {
+        color: $shade-7;
+        &:hover {
+            color: $shade-9;
+        }
+    }
+
     &::before, &::after {
         content: "";
         transition: 0.3s width ease;
@@ -49,8 +55,6 @@
 
 
     &:hover {
-        // color: $shade-9;
-
         &::before, &::after {
             width: 100%; 
         }

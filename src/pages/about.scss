@@ -1,26 +1,23 @@
-$primary-color: #FF3860;
-$accent-color:  #79FF38;
-$dark-shade: #3d171f;
-$light-shade: #ebcad1;
-
-$tablet-large: 768px;
-
-$max-pic-width: 300px;
-$greetings-intro-padding: 1rem;
+@import "../styles/variables";
 
 .about {
     padding: 1rem;
-    color: #333;
+    color: $about-color;
 
     &__header {
         font-size: 1.45em;
         text-align: center;
-        color: $primary-color;
+        color: $about-header-color;
     }
 
     &__intro {
+        color: $about-paragraph-color;
         padding: 4px 0px;
-        font-size: 1.15rem;
+        font-size: $about-paragraph-font-size;
+
+        strong {
+            color: $about-paragraph-strong-color;
+        }
     }
 
     &__me {
@@ -29,7 +26,7 @@ $greetings-intro-padding: 1rem;
         padding: 1.5rem 0px;
 
         &__header {
-            color: $primary-color;
+            color: $about-header-color;
             font-size: 28px;
             margin: 0;
         }
@@ -41,6 +38,8 @@ $greetings-intro-padding: 1rem;
             &__item {
                 margin-bottom: 12px;
                 margin-top: 20px;
+                font-size: $about-paragraph-font-size;
+                color: $about-paragraph-color;
             }
         }
 
@@ -51,17 +50,17 @@ $greetings-intro-padding: 1rem;
 }
 
 .profile-pic {
+    padding:1px;
+    border:1px solid $about-profile-pic-border-color;
     margin-bottom: 1rem;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-   padding:1px;
-   border:1px solid #021a40;
+    box-shadow: $about-profile-pic-box-shadow;
 }
 
-@media (min-width: 676px) {
+@media (min-width: 645px) {
     .profile-pic {
-        width: $max-pic-width;
-        height: $max-pic-width;
-        flex-basis: $max-pic-width;
+        width: $about-max-pic-width;
+        height: $about-max-pic-width;
+        flex-basis: $about-max-pic-width;
     }
 
     
@@ -70,22 +69,22 @@ $greetings-intro-padding: 1rem;
             display: flex;
             padding-bottom: 2rem;
 
-          &:last-child {
+            &:last-child {
                 padding-top: 4rem;
-                border-top: 1px solid #000;
             }
 
             &__intro {
-                box-sizing: border-box;
-                padding: $greetings-intro-padding;
-                width: calc(100% - #{$max-pic-width});
-                flex-basis: calc(100% - #{$max-pic-width});
+                display: flex;
+                flex-direction: column;
+                align-self: center;
+                padding: 0rem 1rem;
+                width: calc(100% - #{$about-max-pic-width});
+                flex-basis: calc(100% - #{$about-max-pic-width});
                 text-align: center;
             }
         }
 
         &__me {
-            border-top: 1px solid #000;
             display: grid;
             grid-template-columns: 200px auto;
             grid-template-rows: auto;
@@ -106,11 +105,5 @@ $greetings-intro-padding: 1rem;
                 margin-top: 0px
             }
         }
-    }
-}
-
-@media (min-width: 1080px) {
-    .about__greetings__intro {
-        padding: 2rem;
     }
 }

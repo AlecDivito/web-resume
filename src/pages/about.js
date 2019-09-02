@@ -21,7 +21,7 @@ query AboutMeQuery {
 }
 `;
 
-const AboutPage = () => {
+const AboutPage = () => { 
   const data = useStaticQuery(query)
   return (
     <Layout>
@@ -37,7 +37,7 @@ const AboutPage = () => {
             <p className="about__intro">
               Currently I'm looking for possible co-op opportunities for the 2020 Winter
               and Summer semesters. If you like what you see and want to work with me
-              <strong><Link className="link" to="/contact">please get in touch.</Link></strong>
+              <strong><Link className="link link--default-color" to="/contact"> please get in touch.</Link></strong>
             </p>
           </div>
         </div>
@@ -53,7 +53,7 @@ const AboutPage = () => {
             </ul>
             <div className="about__me__link">
               {(link) ?
-                <Link to={link} className="about__me__link link">
+                <Link to={link} className="about__me__link link link--default-color">
                   Learn More
                 </Link>
                 : null
@@ -67,7 +67,7 @@ const AboutPage = () => {
             <p className="about__intro">
               I also really enjoy riding my bike and helping out
               around the community. During the past summer, I helped out a bike shop
-              in Mississauga that is run parallel between Sherdian College and the City of
+              in Mississauga that is run parallel between Sheridan College and the City of
               Mississauga.
             </p>
             <p className="about__intro">
