@@ -129,7 +129,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <canvas id="bg-canvas" className="home--background"></canvas>
       <div className="home">
-        <div></div>
+
         <header className="home__header">
           <h1 className="home__header--name">
             Alec Di<span className="home__header--name--space">Vito</span>
@@ -140,11 +140,21 @@ const IndexPage = () => {
           </p>
           <Link className="home__header--learn link" to="/about">Learn More</Link>
         </header>
-        <section className="home__section">
-          <div className="home__section__links">
-            <Link className="home__section__links--link link" to="/personal/">projects</Link>
-            <Link className="home__section__links--link link" to="/about/">work</Link>
-          </div>
+        
+        <section className="home__section home--work">
+          <h1>Work</h1>
+        </section>
+
+        <section className="home__section home--projects">
+          <h1>Projects</h1>
+        </section>
+
+        <section className="home__section home--school">
+          <h1>School</h1>
+        </section>
+
+        <section className="home__section home--volunteer">
+          <h1>Volunteer</h1>
         </section>
       </div>
     </HeaderLayout>

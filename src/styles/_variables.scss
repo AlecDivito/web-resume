@@ -23,6 +23,7 @@ $shade-4: hsl(0, 0%, 68%);
 $shade-3: hsl(0, 0%, 78%);
 $shade-2: hsl(0, 0%, 88%);
 $shade-1: hsl(0, 0%, 95%);
+$shade-0: hsl(0, 0%, 98%);
 
 // primary colors
 $primary-color-9: hsl(222, 89%, 9%);
@@ -45,3 +46,35 @@ $accent-color-4:  hsl(40, 100%, 60%);
 $accent-color-3:  hsl(40, 100%, 70%);
 $accent-color-2:  hsl(40, 100%, 80%);
 $accent-color-1:  hsl(40, 100%, 90%);
+
+
+/**
+ * NAV STYLES
+ */
+$nav-width: 100%;
+$nav-height: 72px;
+$nav-height-border-shadow-offset: 16px;
+$nav-box-shadow: 0 10px 6px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+$nav-after-background: linear-gradient($shade-1, $shade-1);
+$nav-padding: 8px;
+$nav-background: $primary-color-7;
+$nav-z-index: 20;
+
+$nav-link-color: $shade-2;
+$nav-link-color-hover: $shade-1;
+$nav-link-padding: 0px 4px;
+$nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity .5s cubic-bezier(.4,0,.2,1);
+
+// - burger styles
+$burger-size: $nav-height - ($nav-padding * 2);
+$burger-anim-speed: 0.125s;
+$burger-color: $shade-1;
+
+
+/**
+ * INDEX PAGE STYLES
+ */
+// header
+$index-header-color: $shade-8;
+$index-header-bottom-margin: $nav-height + $nav-height-border-shadow-offset;
+$index-header-height: calc(100vh - (#{$nav-height} + #{$nav-height-border-shadow-offset} + #{$index-header-bottom-margin}));
