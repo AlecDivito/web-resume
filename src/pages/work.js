@@ -51,7 +51,7 @@ const WorkPage = () => {
           {data.allWorkJson.nodes.map( w => (
             <li key={w.id} className="work__timeline__event">
               <div className="work__timeline__event--circle"></div>
-              <div className="work__timeline__event__details">
+              <div className="work__timeline__event__details event">
                 <h3 className="event__header">{w.position} <small>at</small> {w.company}</h3>
                 <p className="event__dates">{w.startDate} - {w.endDate}</p>
                 <p className="event__description">{w.description}</p>
@@ -80,17 +80,17 @@ const WorkPage = () => {
 
       <section className="work layout--max-width">
         <Header text="Resume Download" isCenter={true} />
-        <p className="work__description">
+        <p className="work__description work__description--resume">
           If you're a digital or design agency, recruiter or just interested in
           a hard copy of my resume as a PDF you can download it clicking the
           button below.
         </p>
-        <p className="work__description">
+        <p className="work__description work__description--resume">
             If you want to know who I am as a person check out my
-            <Link className="link" to="/about">about page.</Link>
+            <Link className="link link--default-color" to="/about"> about page.</Link>
         </p>
         <div className="work__btn">
-          <a className="link"
+          <a className="link link--default-color"
             rel="noopener noreferrer"
             href="AlecDivito-resume.pdf" target="_blank">
               Download PDF

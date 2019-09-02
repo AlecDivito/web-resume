@@ -47,6 +47,8 @@ $accent-color-3:  hsl(40, 100%, 70%);
 $accent-color-2:  hsl(40, 100%, 80%);
 $accent-color-1:  hsl(40, 100%, 90%);
 
+$global-box-shadow: 0 10px 20px $primary-color-9, 0 6px 6px $primary-color-8;
+
 
 /**
  * NAV STYLES
@@ -94,12 +96,32 @@ $about-paragraph-color: $shade-8;
 $about-paragraph-strong-color: $accent-color-7;
 $about-paragraph-font-size: 1.20rem;
 
-$about-profile-pic-box-shadow: 0 10px 20px $primary-color-9, 0 6px 6px $primary-color-8;
+$about-profile-pic-box-shadow: $global-box-shadow;
 $about-profile-pic-border-color: $accent-color-8;
 
 $about-max-pic-width: 300px;
 $about-greetings-intro-padding: 1rem;
 
+
+/**
+ * PROJECT PAGE STYLES
+ */
+
+
+
+/**
+ * WORK PAGE STYLES
+ */
+$work-color: $shade-8;
+$work-description-font-size: 1.20rem;
+
+
+$work-timeline-border-color: $primary-color-5;
+$work-timeline-box-shadow: $global-box-shadow;
+$work-timeline-background-color: $shade-1;
+
+$work-event-color: $shade-8;
+$work-event-header-color: $shade-9;
 
 /**
  * CONTACT PAGE STYLES
