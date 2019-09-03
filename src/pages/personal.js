@@ -53,31 +53,30 @@ const PersonalsPage = () => {
                             </span>
                         }
                         <div className="card__content">
-                            <div className="card__header">
-                                <h3>{t.title}</h3>
-                                <h5>{t.stage}</h5>
-                            </div>
-                            <p className="card__description">
+                            <h3>{t.title}</h3>
+                            <h5>{t.stage}</h5>
+                            <p>
                                 {t.description}
                             </p>
-                            {(t.blogPost) ?
-                                <Link className="card__read-more" to={t.blogPost}>Read more...</Link>
-                                : null
-                            }
-                            <div className="card__footer">
-                                <div className="card__footer__tags">
-                                    {t.technologies.map((tag, i) => <span className="tag" key={i} >{tag}</span>)}
-                                </div>
-                                <div className="card__footer__links">
+                            <h5 className="card__content__title--secondary">Technologies</h5>
+                            <div className="card__content__tags">
+                                {t.technologies.map((tag, i) => <span className="tag" key={i} >{tag}</span>)}
+                            </div>
+                            <div className="card__content__footer">
+                                {(t.blogPost) ?
+                                    <Link className="card__content__footer__link" to={t.blogPost}>Read more...</Link>
+                                    : <span></span>
+                                }
+                                <div className="card__content__footer__links">
                                     {(t.siteLink)
                                         ? <a href={t.siteLink} target="_blank" rel="noopener noreferrer">
-                                            <img className="card__footer__links__link" alt="Site Url for title" src="/svgs/link.svg" />
+                                            <img className="card__content__footer__links__link" alt="Site Url for title" src="/svgs/link.svg" />
                                         </a>
                                         : null
                                     }
                                     {(t.githubLink)
                                         ? <a href={t.githubLink} target="_blank" rel="noopener noreferrer">
-                                            <img className="card__footer__links__link" alt="Github Url for title" src="/svgs/github-square.svg" />
+                                            <img className="card__content__footer__links__link" alt="Github Url for title" src="/svgs/github-square.svg" />
                                         </a>
                                         : null
                                     }

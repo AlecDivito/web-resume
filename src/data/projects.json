@@ -5,10 +5,9 @@
         "stage": "✔ Completed",
         "technologies": [
             "Angular 2+",
-            "Nest.js",
             "Express",
+            "Postgres",
             "Typescript",
-            "SQL",
             "NGRX",
             "SCSS",
             "HTML",

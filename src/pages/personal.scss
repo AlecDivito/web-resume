@@ -1,16 +1,8 @@
-$primary-color: #FF3860;
-$accent-color:  #79FF38;
-$dark-shade: #3d171f;
-$light-shade: #ebcad1;
-
-$tablet-large: 768px;
+@import "../styles/variables";
 
 .personal {
-    padding: 1rem;
-
-    &__header {
-        color: $primary-color;
-    }
+    padding-bottom: 1rem;
+    color: $personal-color;
 
     &__description {
         text-align: center;
@@ -18,22 +10,24 @@ $tablet-large: 768px;
 }
 
 .tag {
-    margin: 0px 4px;
-    padding: 4px;
-    border-radius: 5px;
-    color: $dark-shade;
-    background: $accent-color;
-    line-height: 2rem;
+    box-sizing: border-box;
+    width: fit-content;
+    height: 24px;
+    color: $tag-color;
+    margin: 2px 2px;
+    padding: 4px 16px;
+    border-radius: 35px;
+    background: $tag-background-color;
+    font-size: 14px;
 }
 
 .card {
-    margin: 2rem 0px;
+    margin: 2rem 1rem;
     position: relative;
     display: block;
-    width: 100%;
-    height: 180px;
+    width: calc(100% - 2rem);
     border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 10px 20px $primary-color-1, 0 6px 6px $primary-color-2;
 
     &:after {
         content: "";
@@ -48,15 +42,11 @@ $tablet-large: 768px;
     }
 
     &__image {
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        position: absolute;
+        float: right;
+        margin: 1rem;
+        width: 80px;
+        height: 80px;
         border-radius: 10px;
-        filter: blur(1px) brightness(30%);
-        width: 100%;
-        height: 100%;
         cursor: pointer;
 
         &--no-link {
@@ -65,75 +55,72 @@ $tablet-large: 768px;
     }
 
     &__content {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
         width: 100%;
         height: 100%;
         padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
 
+        p {
+            width: calc(100% - (80px + 16px));
+            height: 54px;
+            overflow: hidden;
+            display: -moz-box;
+            display: -webkit-box;
+            line-clamp: 3;
+            box-orient: vertical;
+            text-overflow: ellipsis;
+        }
 
-    &__description {
-        white-space: nowrap; 
-        overflow: hidden;
-        text-overflow: ellipsis;
-        color: #FFFFFF;
-        margin: 0;
+        &__title--secondary {
+            display: none;
+        }
+
+        &__tags {
+            display: none;
+        }
+
+        &__footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 36px;
+        
+            &__links {
+                display: flex;
+                flex-direction: row;
+                margin-top: 5px;
+        
+                &__link {
+                    width:  28px;
+                    height: 28px;
+                    margin-left: .5rem;
+                    filter: invert(1);
+                }
+            }
+
+            .card__content__footer__link {
+                color: $primary-color-8;
+                text-decoration: none;
+                padding: 8px;
+                background-color: $primary-color-1;
+                border-radius: 10px;
+                transition: background-color .25s ease;
+                line-height: 20px;
+
+                &:hover {
+                    background-color: $primary-color-2;
+                }
+
+            }
+        }
     }
 
     &__read-more {
-        border: 1px solid #FFFFFF;
+        border: 1px solid $shade-1;
         padding: 8px;
         border-radius: 5px;
         text-align: center;
-        color: #FFFFFF;
+        color: $shade-1;
         text-decoration: none;
-    }
-
-    &__header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-
-        h3, h5 {
-            line-height: 2rem;
-            color: #fff;
-        }
-    }
-
-    &__footer {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-
-        &__tags {
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            align-self: center;
-            max-width: 100%;
-            box-sizing: border-box;
-            display: inline-block;
-        }
-
-        &__links {
-            display: flex;
-            flex-direction: row;
-            margin-top: 5px;
-
-            &__link {
-                width: 32px;
-                height: 32px;
-                margin-left: .5rem;
-                filter: invert(1);
-            }
-        }
     }
 }
 
@@ -149,18 +136,18 @@ $desktop-card-image-height: 160px;
 
     .card {
         height: inherit;
-        max-width: 45%;
-        margin: 2.5%;
+        max-width: 47%;
+        margin: 1.5%;
         overflow: hidden;
         transition: box-shadow .25s ease-in-out;
 
         &:hover {
-            box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+            box-shadow: 0 19px 38px $primary-color-1, 0 15px 12px $primary-color-2;
 
             .card__image {
                 filter: blur(0px) brightness(90%);
                 > picture > img {
-                    transform: scale(1.15);
+                    transform: scale(1.10);
                 }
             }
         }
@@ -174,6 +161,9 @@ $desktop-card-image-height: 160px;
             transform-origin: 50% 50%;
             transition: filter .25s ease-in-out;
             border-bottom: 1px solid #000000;
+            float: none;
+            margin: 0;
+            width: 100%;
 
             > picture > img {
                 // needs the important here or else a style on the image overrides
@@ -201,24 +191,43 @@ $desktop-card-image-height: 160px;
         &__content {
             position: static;
             height: calc(100% - #{$desktop-card-image-height});
-        }
-
-        &__header {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            justify-content: space-between;
 
-            h3, h5 {
-                line-height: 2rem;
-                color: #000;
+            h3 {
+                color: $card-title-color;
+                font-weight: 700;
+                font-size: 1.4em;
             }
-        }
 
-        &__footer__links__link {
-            filter: invert(0);
-            transition: transform .25s ease-in-out;
+            h5, p {
+                color: $card-description-color;
+            }
 
-            &:hover {
-                transform: scale(1.1) translateY(1px);
+            p {
+                margin-bottom: 0;
+                padding-bottom: 16px;
+                border-bottom: 1px solid $shade-5;
+                overflow: visible;
+                display: block;
+                width: 100%;
+                height: initial;
+            }
+
+            &__title--secondary {
+                display: block;
+                color: $card-title-color;
+                margin-top: 16px;
+                font-size: 1rem;
+            }
+
+            &__tags {
+                display: flex;
+                flex-flow: wrap;
+                margin: 8px 0px;
+                max-height: 56px;
+                overflow: hidden;
             }
         }
     }
