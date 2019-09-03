@@ -1,9 +1,10 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 import HeaderLayout from "../components/headerLayout";
 import SEO from "../components/seo"
 import "./index.scss";
+import IconLink from "../components/iconLink";
 
 /**
  * Render a storm of particles that are really pretty
@@ -94,6 +95,45 @@ class Particles {
 
 }
 
+const query = graphql`
+query HomePageData {
+  allWorkJson {
+    nodes {
+      company
+      position
+      startDate
+      endDate
+    }
+  }
+  allVolunteerJson {
+    nodes {
+      description
+      job
+      location
+      time
+    }
+  }
+  allSchoolJson {
+    nodes {
+      achivement
+      endDate
+      gpa
+      startDate
+      school
+      program
+    }
+  }
+  allProjectsJson {
+    nodes {
+      siteLink
+      title
+      githubLink
+      blogPost
+    }
+  }
+}
+`;
+
 const IndexPage = () => {
 
   let particles = null;
@@ -119,15 +159,16 @@ const IndexPage = () => {
     }
   }
   if (typeof window !== 'undefined') {
-
     window.requestAnimationFrame(update);
   }
+
+  const data = useStaticQuery(query);
 
   return (
     <HeaderLayout>
       <SEO title="Home" />
       <canvas id="bg-canvas" className="home--background"></canvas>
-      <div className="home">
+      <div className="home layout--max-width">
 
         <header className="home__header">
           <h1 className="home__header--name">
@@ -142,18 +183,46 @@ const IndexPage = () => {
         
         <section className="home__section home--work">
           <h1>Work</h1>
+          <ul>
+            {data.allWorkJson.nodes.map(p => 
+            <li>{p.position} at {p.company} ({p.startDate} - {p.endDate})</li>  
+            )}
+          </ul>
         </section>
 
         <section className="home__section home--projects">
           <h1>Projects</h1>
+          <ul>
+            {data.allProjectsJson.nodes.map(p => 
+              <li>
+                {p.title}
+                {(p.blogPost)
+                  ? <Link link={p.blogPost} className="link--button">Read More</Link>
+                  : null
+                }
+                <IconLink type="site" link={p.siteLink} />
+                <IconLink type="github" link={p.githubLink} />
+              </li>  
+            )}
+          </ul>
         </section>
 
         <section className="home__section home--school">
           <h1>School</h1>
+          <ul>
+            {data.allSchoolJson.nodes.map(p => 
+              <li>{p.program} at {p.school} ({p.startDate} - {p.endDate}, {p.gpa})</li>  
+            )}
+          </ul>
         </section>
 
         <section className="home__section home--volunteer">
           <h1>Volunteer</h1>
+          <ul>
+            {data.allVolunteerJson.nodes.map(p => 
+            <li>{p.job} during {p.time} - {p.description}</li>  
+            )}
+          </ul>
         </section>
       </div>
     </HeaderLayout>

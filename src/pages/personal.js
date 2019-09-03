@@ -64,7 +64,7 @@ const PersonalsPage = () => {
                             </div>
                             <div className="card__content__footer">
                                 {(t.blogPost) ?
-                                    <Link className="card__content__footer__link" to={t.blogPost}>Read more...</Link>
+                                    <Link className="link--button" to={t.blogPost}>Read more...</Link>
                                     : <span></span>
                                 }
                                 <div className="card__content__footer__links">

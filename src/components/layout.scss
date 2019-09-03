@@ -19,6 +19,20 @@
     width: fit-content;
     text-decoration: none;
 
+    &--button {
+        color: $primary-color-8;
+        text-decoration: none;
+        padding: 8px;
+        background-color: $primary-color-1;
+        border-radius: 10px;
+        transition: background-color .25s ease;
+        line-height: 20px;
+
+        &:hover {
+            background-color: $primary-color-2;
+        }
+    }
+
     &.active {
         &::after {
             width: 100%;
