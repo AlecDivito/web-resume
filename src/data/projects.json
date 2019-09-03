@@ -14,6 +14,7 @@
             "Javascript"
         ],
         "description": "Capstone project for my final year in the SDNE program at sheridan. Created to manage multiple McDonald's expenses.",
+        "shortDescription": "Capstone project for my final year in SDNE program",
         "blogPost": "/personal/budgetise",
         "githubLink": null,
         "siteLink": null
@@ -33,6 +34,7 @@
             "HTML"
         ],
         "description": "A Minesweeper clone inspired by Google's proxx.app. Added more features on top of the game.",
+        "shortDescription": "Minesweeper clone inspired by Googles proxx",
         "blogPost": "/personal/bomb-finder",
         "githubLink": "https://github.com/AlecDivito/bomb-finder",
         "siteLink": "https://alecdivito.github.io/bomb-finder/"
@@ -50,6 +52,7 @@
             "HTML"
         ],
         "description": "This website! Learning gatsby (which is pretty cool) and creating a blog and resume website at the same time!",
+        "shortDescription": "This website, made with gatsby",
         "blogPost": null,
         "githubLink": "https://github.com/AlecDivito/bomb-finder",
         "siteLink": null
