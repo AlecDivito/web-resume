@@ -1,5 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import HeaderLayout from "../components/headerLayout";
 import SEO from "../components/seo"
@@ -37,7 +38,10 @@ class Particles {
         y: Math.random() * this.height,
         radius: Math.random() * 5 + 1,
         density: Math.random() * maxParticles,
-        color: "rgba(" + Math.floor((Math.random() * 255)) + ", " + Math.floor((Math.random() * 255)) + ", " + Math.floor((Math.random() * 255)) + ", 0.8)",
+        red: Math.floor((Math.random() * 255)),
+        green: Math.floor((Math.random() * 255)),
+        blue: Math.floor((Math.random() * 255)),
+        alpha: 1.0,
       });
     }
 
@@ -73,7 +77,12 @@ class Particles {
       {
         particle.x = Math.random() * this.width;
         particle.y = 0;
+        particle.alpha = 1.0;
       }
+      // if (particle.y > this.height - 100) {
+        const unitVector = (this.height - particle.y) / this.height
+        particle.alpha = -1 * Math.pow(unitVector, 3) + Math.pow(unitVector, 2) + 3 * unitVector;
+      // }
     }
   }
 
@@ -85,7 +94,7 @@ class Particles {
     for (let i = 0; i < this.maxParticles; i++) {
       let particle = this.particles[i];
       this.context.beginPath();
-      this.context.fillStyle = particle.color;
+      this.context.fillStyle = `rgba(${this.particles[i].red},${this.particles[i].green},${this.particles[i].blue},${this.particles[i].alpha})`;
       this.context.moveTo(particle.x, particle.y);
       this.context.arc(particle.x, particle.y, particle.radius, 0, 2 * Math.PI);
       this.context.fill();
@@ -93,6 +102,72 @@ class Particles {
   }
 
 }
+
+const query = graphql`
+  query HomePageData {
+    allWorkJson {
+      nodes {
+        id
+        company
+        position
+        startDate
+        endDate
+        logo {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    allVolunteerJson {
+      nodes {
+        id
+        description
+        job
+        location
+        time
+      }
+    }
+    allSchoolJson {
+      nodes {
+        id
+        achievement
+        endDate
+        gpa
+        startDate
+        school
+        program
+        logo {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    allProjectsJson {
+      nodes {
+        id
+        siteLink
+        shortDescription
+        title
+        stage
+        githubLink
+        blogPost
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 const IndexPage = () => {
 
@@ -106,7 +181,6 @@ const IndexPage = () => {
         particles = new Particles(canvas, 25);
       } else {
         if (typeof window !== 'undefined') {
-
           window.requestAnimationFrame(update);
         }
         return;
@@ -120,16 +194,17 @@ const IndexPage = () => {
     }
   }
   if (typeof window !== 'undefined') {
-
     window.requestAnimationFrame(update);
   }
+
+  const data = useStaticQuery(query);
 
   return (
     <HeaderLayout>
       <SEO title="Home" />
       <canvas id="bg-canvas" className="home--background"></canvas>
-      <div className="home">
-        <div></div>
+      <div className="home layout--max-width">
+
         <header className="home__header">
           <h1 className="home__header--name">
             Alec Di<span className="home__header--name--space">Vito</span>
@@ -140,10 +215,62 @@ const IndexPage = () => {
           </p>
           <Link className="home__header--learn link" to="/about">Learn More</Link>
         </header>
-        <section className="home__section">
-          <div className="home__section__links">
-            <Link className="home__section__links--link link" to="/personal/">projects</Link>
-            <Link className="home__section__links--link link" to="/about/">work</Link>
+        
+        <section className="home__section home--work">
+          <h1>Work</h1>
+          <div className="home__section__list">
+            {data.allWorkJson.nodes.map(p => 
+            <Link to={`/work#${p.id}`} className="home__section__list__item home--work__item" key={p.id}>
+              <Img fluid={p.logo.childImageSharp.fluid} alt={p.company} />
+              <span><strong>{p.position}</strong> at {p.company}</span>
+              <small>({p.startDate} - {p.endDate})</small>
+            </Link>  
+            )}
+          </div>
+        </section>
+
+        <section className="home__section home--projects">
+          <h1>Projects</h1>
+          <div className="home__section__list">
+            {data.allProjectsJson.nodes.map((p) => 
+              <Link to={(p.blogPost) ? p.blogPost : `/personal#${p.id}`} className="home__section__list__item home--projects__item" key={p.id}>
+                <Img fluid={p.image.childImageSharp.fluid} alt={p.company} />
+                <strong className={`home--projects__item--${p.stage[0]}`}>{p.stage[0]}</strong>
+                <span>{p.title}</span>
+                <span className="mobile--hidden">{p.shortDescription}</span>
+                {/* {(p.blogPost)
+                  ? <Link link={p.blogPost} className="link--button">Read More</Link>
+                  : null
+                } */}
+                {/* <IconLink type="site" link={p.siteLink} />
+                <IconLink type="github" link={p.githubLink} /> */}
+              </Link>  
+            )}
+          </div>
+        </section>
+
+        <section className="home__section home--school">
+          <h1>School</h1>
+          <div className="home__section__list">
+            {data.allSchoolJson.nodes.map((p, id) => 
+              <Link to={`/work#${p.id}`} className="home__section__list__item home--school__item" key={id}>
+                <Img fluid={p.logo.childImageSharp.fluid} alt={`${p.program} at ${p.school}`} />
+                <span>{p.program} at {p.school}</span>
+                <small>({p.startDate} - {p.endDate}, {p.gpa})</small>
+              </Link>  
+            )}
+          </div>
+        </section>
+
+        <section className="home__section home--volunteer">
+          <h1>Volunteer</h1>
+          <div className="home__section__list">
+            {data.allVolunteerJson.nodes.map((p, id) => 
+            <Link to={`/work#${p.id}`} className="home__section__list__item home--volunteer__item" key={id}>
+              <span>{p.time}</span>
+              <span>{p.job}</span>
+            </Link>  
+            )}
           </div>
         </section>
       </div>

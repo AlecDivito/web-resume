@@ -1,0 +1,20 @@
+[
+    {
+        "job": "Hackademics Software Developer",
+        "location": "Sheridan",
+        "description": "Helping to outreach and tell students about hackathons, developing application that help students to find the information they need to be successful, holding Sheridan's 2nd Hackthon",
+        "time": "Present"
+    },
+    {
+        "job": "Bike Mentor",
+        "location": "Sheridan",
+        "description": "Help fix bikes community bikes as well as teach other how to ride confidently on the road.",
+        "time": "Summer 2019"
+    },
+    {
+        "job": "Parks Canada Outreach assistant",
+        "location": "Toronto",
+        "description": "Telling by standards about national parks being free, Helped spray on tattoos.",
+        "time": "Summer 2017"
+    }
+]

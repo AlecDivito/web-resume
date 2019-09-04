@@ -1,0 +1,207 @@
+@import "../styles/variables";
+
+.nav {
+    background-color: $nav-background;
+    // Problems with positioning on safari,
+    // may need to convert to fixed element
+    position: -webkit-sticky;
+    position: sticky;
+    width: $nav-width;
+    height: $nav-height + $nav-height-border-shadow-offset;
+    // negative top allows for movement before sticking
+    top: -$nav-height-border-shadow-offset;
+    left: 0px;
+    z-index: $nav-z-index;
+    -webkit-backface-visibility: hidden;
+
+    &::before, &::after {
+        content: "";
+        display: block;
+        height: $nav-height-border-shadow-offset;
+        position: sticky;
+    }
+
+    &::before {
+        top: $nav-height - $nav-height-border-shadow-offset;
+        box-shadow: $nav-box-shadow;
+    }
+
+    &::after {
+        background: $nav-after-background;
+        top: 0px;
+        z-index: $nav-z-index + 1;
+    }
+
+    &--border-shadow {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0px;
+        // this needs to be important because the max page length will mess
+        // it up (.layout--max-width)
+        margin: -$nav-height-border-shadow-offset auto 0px auto;
+        z-index: $nav-z-index + 2;
+        height: $nav-height;
+        background-color: $nav-background;
+    }
+
+    &--container {
+        padding: 0px 8px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &--header {
+        height: $nav-height;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: $nav-padding;
+    }
+
+    &__logo {
+        width:  $nav-height - ($nav-padding * 2);
+        height: $nav-height - ($nav-padding * 2);
+        z-index: $nav-z-index;
+
+        .logo {
+            width: $nav-height - ($nav-padding * 2);
+            height: $nav-height - ($nav-padding * 2);
+        }
+    }
+
+    &__children {
+        display: none;
+    }
+
+    &__list {
+        height: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        list-style-type: none;
+        transform: translateY(0);
+
+        &__link {
+            color: $nav-link-color;
+            padding: $nav-link-padding;
+            margin: 0px .75rem;
+            font-weight: 700;
+            text-decoration: inherit;
+            transition: color .3s ease;
+
+            &:hover {
+                color: $nav-link-color-hover;
+            }
+        }
+    }
+
+    @media (max-width: $tablet-large) {
+        &__children {
+            display: block;
+        }
+
+        &__mobile {
+            box-sizing: inherit;
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            overflow: hidden;
+            transition: $nav-mobile-transform-animation;
+            transform: translateY(-100%);
+            height: 100%;
+            width: 100%;
+            padding-top: $nav-height;
+            background-color: $nav-background;
+            opacity: 0;
+        }
+        
+        &__list {
+            flex-direction: column;
+            justify-content: space-around;
+
+            &--dropdown {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            &__link {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+
+
+// want to update burger to be this...
+// https://codepen.io/sonjastrieder/pen/wJPLEP
+.burger {
+    display: none;
+    z-index: $nav-z-index;
+}
+
+@media (max-width: $tablet-large) {
+    .burger {
+        display: inline-block;
+        font-size: 5rem;
+        position: relative;
+        width: $burger-size;
+        height: $burger-size;
+        padding: 0.8rem;
+        border-radius: 50%;
+        border: 2px solid $burger-color;
+        background: radial-gradient(ellipse at center, $burger-color 5%, rgba($burger-color, 0) 7%);
+        transition: background $burger-anim-speed;
+        text-decoration: none;
+
+        &:before, &:after {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-radius: 2px;
+            background-color: $burger-color;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            transition:
+                left $burger-anim-speed ($burger-anim-speed * 2), right $burger-anim-speed ($burger-anim-speed * 2),
+                width $burger-anim-speed $burger-anim-speed, height $burger-anim-speed $burger-anim-speed,
+                transform ($burger-anim-speed * 2)
+        }
+        &:before {
+            left: 0.23em;
+        }
+        &:after {
+            right: 0.23em;
+        }
+
+        &.burger--active {
+            background: radial-gradient(ellipse at center, rgba($burger-color,0) 4%, rgba($burger-color,0) 6%);
+            &:before {
+                transform: rotate(45deg);
+            }
+            &:after {
+                transform: rotate(-45deg);
+            }
+            &:before,
+            &:after {
+                width: 100%;
+                height: 2px;
+                border-radius: 2px;
+                left: 0;
+                right: 0;
+                transition: 
+                left $burger-anim-speed, right $burger-anim-speed,
+                width $burger-anim-speed, height $burger-anim-speed,
+                transform ($burger-anim-speed * 2) $burger-anim-speed;
+            }
+        }
+    }
+}

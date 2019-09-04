@@ -1,0 +1,149 @@
+// Resolutions
+$tablet-large: 768px;
+
+// brands
+$brand-white: hsl(0, 0%, 100%);
+$brand-black: hsl(0, 0%, 4%);
+$brand-light: hsl(0, 0%, 96);
+$brand-dark: hsl(0, 0%, 21%);
+$brand-primary: hsl(171, 100%, 41%);
+$brand-link: hsl(217, 71%, 53%);
+$brand-info: hsl(204, 86%, 53%);
+$brand-success: hsl(141, 71%, 48%);
+$brand-warning: hsl(48, 100%, 67%);
+$brand-danger: hsl(348, 100%, 61%);//  #FF3860
+
+// shades
+$shade-9: hsl(0, 0%, 8%);
+$shade-8: hsl(0, 0%, 25%);
+$shade-7: hsl(0, 0%, 35%);
+$shade-6: hsl(0, 0%, 48%);
+$shade-5: hsl(0, 0%, 58%);
+$shade-4: hsl(0, 0%, 68%);
+$shade-3: hsl(0, 0%, 78%);
+$shade-2: hsl(0, 0%, 88%);
+$shade-1: hsl(0, 0%, 95%);
+$shade-0: hsl(0, 0%, 98%);
+
+// primary colors
+$primary-color-9: hsl(222, 89%, 9%);
+$primary-color-8: hsl(222, 89%, 19%);
+$primary-color-7: hsl(222, 89%, 29%);
+$primary-color-6: hsl(222, 89%, 39%);
+$primary-color-5: hsl(222, 89%, 49%);
+$primary-color-4: hsl(222, 89%, 59%);
+$primary-color-3: hsl(222, 89%, 69%);
+$primary-color-2: hsl(222, 89%, 79%);
+$primary-color-1: hsl(222, 89%, 89%);
+
+// accent colors
+$accent-color-9:  hsl(40, 100%, 10%);
+$accent-color-8:  hsl(40, 100%, 20%);
+$accent-color-7:  hsl(40, 100%, 30%);
+$accent-color-6:  hsl(40, 100%, 40%);
+$accent-color-5:  hsl(40, 100%, 50%);
+$accent-color-4:  hsl(40, 100%, 60%);
+$accent-color-3:  hsl(40, 100%, 70%);
+$accent-color-2:  hsl(40, 100%, 80%);
+$accent-color-1:  hsl(40, 100%, 90%);
+
+$global-box-shadow: 0 10px 20px $primary-color-9, 0 6px 6px $primary-color-8;
+
+
+/**
+ * NAV STYLES
+ */
+$nav-width: 100%;
+$nav-height: 72px;
+$nav-height-border-shadow-offset: 16px;
+$nav-box-shadow: 0 10px 6px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+$nav-after-background: linear-gradient($shade-1, $shade-1);
+$nav-padding: 8px;
+$nav-background: $primary-color-7;
+$nav-z-index: 20;
+
+$nav-link-color: $shade-2;
+$nav-link-color-hover: $shade-1;
+$nav-link-padding: 0px 4px;
+$nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity .5s cubic-bezier(.4,0,.2,1);
+
+// - burger styles
+$burger-size: $nav-height - ($nav-padding * 2);
+$burger-anim-speed: 0.125s;
+$burger-color: $shade-1;
+
+/**
+ * FOOTER STYLES
+ */
+$footer-bottom-border-color: $shade-1;
+
+
+/**
+ * INDEX PAGE STYLES
+ */
+// header
+$index-header-color: $shade-8;
+$index-header-title-color: $shade-8;
+$index-header-bottom-margin: $nav-height + $nav-height-border-shadow-offset;
+$index-header-height: calc(100vh - (#{$nav-height} + #{$nav-height-border-shadow-offset} + #{$index-header-bottom-margin}));
+
+/**
+ * ABOUT ME PAGE STYLES
+ */
+$about-color: $shade-8;
+$about-header-color: $primary-color-5;
+$about-paragraph-color: $shade-8;
+$about-paragraph-strong-color: $accent-color-7;
+$about-paragraph-font-size: 1.20rem;
+
+$about-profile-pic-box-shadow: $global-box-shadow;
+$about-profile-pic-border-color: $accent-color-8;
+
+$about-max-pic-width: 300px;
+$about-greetings-intro-padding: 1rem;
+
+
+/**
+ * PERSONAL PROJECT PAGE STYLES
+ */
+$personal-color: $shade-8;
+
+$tag-color: $shade-1;
+$tag-background-color: $accent-color-5;
+
+$card-title-color: $shade-8;
+$card-description-color: $shade-7;
+
+
+/**
+ * WORK PAGE STYLES
+ */
+$work-color: $shade-8;
+$work-description-font-size: 1.20rem;
+
+
+$work-timeline-border-color: $primary-color-5;
+$work-timeline-box-shadow: $global-box-shadow;
+$work-timeline-background-color: $shade-1;
+
+$work-event-color: $shade-8;
+$work-event-header-color: $shade-9;
+
+/**
+ * CONTACT PAGE STYLES
+ */
+$contact-text-color: $shade-8;
+$contact-text-font-size: 1rem;
+
+$contact-field-border-color: $shade-5;
+$contact-field-label-color: $shade-5;
+
+$contact-input-color: $shade-8;
+$contact-input-background-color: $shade-2;
+
+$contact-active: $primary-color-5;
+$contact-field-border-color--active: $contact-active;
+$contact-field-label-color--active: $contact-active;
+
+$contact-submit-btn-color: $shade-1;
+$contact-submit-btn-background: $contact-active;

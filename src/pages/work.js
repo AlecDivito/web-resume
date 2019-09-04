@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link, useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 import "./work.scss"
 import Header from "../components/header";
 
@@ -23,6 +24,35 @@ query GetWorkData {
       id
       skills
       section
+    }
+  }
+  allVolunteerJson {
+    nodes {
+      id
+      description
+      job
+      location
+      time
+    }
+  }
+  allSchoolJson {
+    nodes {
+      id
+      description
+      achievement
+      endDate
+      gpa
+      startDate
+      school
+      program
+      joiningWord
+      logo {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   }
 }
@@ -49,9 +79,9 @@ const WorkPage = () => {
         <ul className="work__timeline" endyear={endFormat} startyear={startFormat}>
           <li className="work__timeline__event--circle--top"></li>
           {data.allWorkJson.nodes.map( w => (
-            <li key={w.id} className="work__timeline__event">
+            <li key={w.id} className="work__timeline__event" id={w.id}>
               <div className="work__timeline__event--circle"></div>
-              <div className="work__timeline__event__details">
+              <div className="work__timeline__event__details event">
                 <h3 className="event__header">{w.position} <small>at</small> {w.company}</h3>
                 <p className="event__dates">{w.startDate} - {w.endDate}</p>
                 <p className="event__description">{w.description}</p>
@@ -59,6 +89,23 @@ const WorkPage = () => {
             </li>
           ))}
           <li className="work__timeline__event--circle--bottom"></li>
+        </ul>
+      </section>
+
+      <section className="school--section layout--max-width">
+        <Header text="School" isCenter={true} />
+        <ul>
+          {data.allSchoolJson.nodes.map(n =>
+            <li id={n.id} className="school--section__item">
+              <Img fluid={n.logo.childImageSharp.fluid} alt={`${n.school} logo`} />
+              <span className="school--section__item__name">
+                <strong>{n.achievement}</strong> {n.joiningWord} <strong>{n.program}</strong> at <strong>{n.school}</strong>
+                <br />
+                <small>({n.startDate} - {n.endDate}, {n.gpa})</small>                
+              </span>
+              <span className="school--section__item__description">{n.description}</span>
+            </li>
+          )}
         </ul>
       </section>
       
@@ -78,19 +125,33 @@ const WorkPage = () => {
         </div>
       </section>
 
+      <section className="volunteer--section layout--max-width">
+        <Header text="Volunteer" isCenter={true} />
+        <ul>
+          {data.allVolunteerJson.nodes.map(n =>
+            <li className="volunteer--section__item" id={n.id}>
+              <span>{n.time}</span>
+              <span>{n.location}</span>
+              <span className="volunteer--section__item__job">{n.job}</span>
+              <span className="volunteer--section__item__description">{n.description}</span>
+            </li>
+          )}
+        </ul>
+      </section>
+
       <section className="work layout--max-width">
         <Header text="Resume Download" isCenter={true} />
-        <p className="work__description">
+        <p className="work__description work__description--resume">
           If you're a digital or design agency, recruiter or just interested in
           a hard copy of my resume as a PDF you can download it clicking the
           button below.
         </p>
-        <p className="work__description">
+        <p className="work__description work__description--resume">
             If you want to know who I am as a person check out my
-            <Link className="link" to="/about">about page.</Link>
+            <Link className="link link--default-color" to="/about"> about page.</Link>
         </p>
         <div className="work__btn">
-          <a className="link"
+          <a className="link link--default-color"
             rel="noopener noreferrer"
             href="AlecDivito-resume.pdf" target="_blank">
               Download PDF

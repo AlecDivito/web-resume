@@ -1,30 +1,37 @@
-$primary-color: #FF3860;
-$accent-color:  #79FF38;
-$dark-shade: #3d171f;
-$light-shade: #ebcad1;
-$nav-height: 72px;
-
-
-$height: calc(100% - #{$nav-height});
+@import "../styles/variables";
 
 .home--background {
     position: absolute;
+    top: 0;
     width: 100%;
-    height: $height;
-    z-index: -1;
+    height: 100vh;
+    mix-blend-mode: hard-light;
+
+    &:after {
+        position: absolute;
+        content: "";
+        left: 0px;
+        top: 0px;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(transparent, gray);
+    }
 }
 
 .home {
-    position: absolute;
     width: 100%;
-    height: $height;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    height: 100%;
+    padding-bottom: 2rem;
     
     &__header {
-        color: #333333;
+        height: $index-header-height;
+        margin-bottom: $index-header-bottom-margin;
+        color: $index-header-color;
         padding: 0px 1rem;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
         
         &--name {
             margin: 0;
@@ -41,32 +48,126 @@ $height: calc(100% - #{$nav-height});
 
         &--title {
             margin: 0;
+            color: $index-header-title-color;
             font-size: 26px;
             font-weight: 100;
         }
         
         &__description {
+            color: $index-header-title-color;
             font-size: 1.15rem;
         }
 
         &--learn {
             font-size: 1.15rem;
+            color: $shade-6;
+
+            &:hover {
+                color: $shade-8;
+            }
         }
     }
 
     &__section {
-        background-color: $primary-color;
+        padding: 0rem 1rem;
 
-        &__links {
+        &__list {
             display: flex;
-            justify-content: space-evenly;
-            flex-basis: 0;
-            flex-grow: 1;
-            flex-shrink: 1;
+            flex-direction: column;
 
-            &--link {
-                font-size: 1.15rem;
-                margin: 1rem;
+            &__item {
+                text-decoration: none;
+                color: $shade-8;
+                border-radius: 5px;
+                padding: 12px 8px;
+                font-size: 1.3rem;
+                display: grid;
+                grid-template-rows: 1fr; 
+                grid-gap: 8px;
+                align-items: center;
+                justify-content: center;
+    
+                &:hover {
+                    background-color: $shade-2;
+                    cursor: pointer;
+                }
+    
+                .gatsby-image-wrapper {
+                    width: 35px;
+                    height: 35px;
+                    margin: 8px;
+                }
+            }
+        }
+
+        h1 {
+            margin: 2rem 0rem;
+            font-size: 2.2rem;
+            color: $shade-9;
+        }
+
+    }
+
+    &--work {
+        &__item {
+            grid-template-columns: 50px 1fr 0.4fr; 
+        }
+    }
+
+    &--school {
+        &__item {
+            grid-template-columns: 50px 1fr 0.6fr;
+        }
+    }
+
+    &--projects {
+        &__item {
+            grid-template-columns: 50px 30px 0.45fr 1fr;
+            
+            &--✔ {
+                color: $brand-success;
+                font-size: 2rem;
+            }
+
+            &--⚠ {
+                color: $accent-color-5;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    &--volunteer {
+        &__item {
+            grid-template-columns: 0.25fr 1fr; 
+        }
+    }
+}
+
+@media (max-width: $tablet-large) {
+    .home {
+        &--school {
+            &__item {
+                grid-template-columns: 50px 1fr;
+
+                small {
+                    grid-column: 2;
+                }
+            }
+        }
+
+        &--projects {
+            &__item {
+                grid-template-columns: 50px 30px 1fr;
+            }
+        }
+
+        &--work {
+            &__item {
+                grid-template-columns: 50px 1fr;
+
+                small {
+                    grid-column: 2;
+                }
             }
         }
     }

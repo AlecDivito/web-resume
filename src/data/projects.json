@@ -5,16 +5,16 @@
         "stage": "✔ Completed",
         "technologies": [
             "Angular 2+",
-            "Nest.js",
             "Express",
+            "Postgres",
             "Typescript",
-            "SQL",
             "NGRX",
             "SCSS",
             "HTML",
             "Javascript"
         ],
         "description": "Capstone project for my final year in the SDNE program at sheridan. Created to manage multiple McDonald's expenses.",
+        "shortDescription": "Capstone project for my final year in SDNE program",
         "blogPost": "/personal/budgetise",
         "githubLink": null,
         "siteLink": null
@@ -34,6 +34,7 @@
             "HTML"
         ],
         "description": "A Minesweeper clone inspired by Google's proxx.app. Added more features on top of the game.",
+        "shortDescription": "Minesweeper clone inspired by Googles proxx",
         "blogPost": "/personal/bomb-finder",
         "githubLink": "https://github.com/AlecDivito/bomb-finder",
         "siteLink": "https://alecdivito.github.io/bomb-finder/"
@@ -51,21 +52,24 @@
             "HTML"
         ],
         "description": "This website! Learning gatsby (which is pretty cool) and creating a blog and resume website at the same time!",
-        "blogPost": null,
+        "shortDescription": "This website, made with gatsby",
+        "blogPost": "/personal/website",
         "githubLink": "https://github.com/AlecDivito/bomb-finder",
         "siteLink": null
     },
     {
         "title": "Rusty Bitmap",
-        "stage": "⚠ In Progress",
+        "stage": "✔ Completed",
         "image": "./images/bitmap_logo.png",
         "technologies": [
-            "Rust"
+            "Rust",
+            "Crates.io"
         ],
         "description": "A small library that focuses on creating a library on crates.io and hopefully a webassembly one on npm. Ability to read, edit and write bitmaps.",
-        "blogPost": null,
+        "shortDescription": "Rust library that is able to read, write, and edit bitmaps.",
+        "blogPost": "/personal/rustbitmap",
         "githubLink": "https://github.com/AlecDivito/rusty-bitmap",
-        "siteLink": null
+        "siteLink": "https://crates.io/crates/rustbitmap"
     },
     {
         "title": "Tetris Clone",
@@ -80,6 +84,7 @@
             "HTML"
         ],
         "description": "A tetris clone focusing on using webassembly compiled by rust. Used to learn advantages using webassembly beside javascript development",
+        "shortDescription": "Tetris clone with a focus on developing the logic in rust and wasm",
         "blogPost": null,
         "githubLink": "https://github.com/AlecDivito/weby-rusty-tetris",
         "siteLink": null
