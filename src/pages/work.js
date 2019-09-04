@@ -132,7 +132,7 @@ const WorkPage = () => {
             <li className="volunteer--section__item" id={n.id}>
               <span>{n.time}</span>
               <span>{n.location}</span>
-              <span>{n.job}</span>
+              <span className="volunteer--section__item__job">{n.job}</span>
               <span className="volunteer--section__item__description">{n.description}</span>
             </li>
           )}

@@ -220,8 +220,6 @@
 }
 
 .volunteer--section {
-
-
     &__item {
         display: grid;
         grid-template-columns: 140px 100px 1fr;
@@ -244,6 +242,19 @@
             grid-column-start: 1;
             grid-column-end: 4;
             font-size: 1rem;
+        }
+    }
+}
+
+@media (max-width: $tablet-large) {
+    .volunteer--section {
+        &__item {
+            grid-template-columns: 140px 100px;
+
+            &__job {
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
         }
     }
 }
