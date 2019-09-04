@@ -83,8 +83,7 @@
                 font-size: 1.3rem;
                 display: grid;
                 grid-template-rows: 1fr; 
-                grid-column-gap: 8px;
-                grid-row-gap: 0px;
+                grid-gap: 8px;
                 align-items: center;
                 justify-content: center;
     
@@ -140,6 +139,36 @@
     &--volunteer {
         &__item {
             grid-template-columns: 0.25fr 1fr; 
+        }
+    }
+}
+
+@media (max-width: $tablet-large) {
+    .home {
+        &--school {
+            &__item {
+                grid-template-columns: 50px 1fr;
+
+                small {
+                    grid-column: 2;
+                }
+            }
+        }
+
+        &--projects {
+            &__item {
+                grid-template-columns: 50px 30px 1fr;
+            }
+        }
+
+        &--work {
+            &__item {
+                grid-template-columns: 50px 1fr;
+
+                small {
+                    grid-column: 2;
+                }
+            }
         }
     }
 }

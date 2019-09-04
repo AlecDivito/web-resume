@@ -237,7 +237,7 @@ const IndexPage = () => {
                 <Img fluid={p.image.childImageSharp.fluid} alt={p.company} />
                 <strong className={`home--projects__item--${p.stage[0]}`}>{p.stage[0]}</strong>
                 <span>{p.title}</span>
-                <span>{p.shortDescription}</span>
+                <span className="mobile--hidden">{p.shortDescription}</span>
                 {/* {(p.blogPost)
                   ? <Link link={p.blogPost} className="link--button">Read More</Link>
                   : null

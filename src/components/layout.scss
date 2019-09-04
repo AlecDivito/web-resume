@@ -13,6 +13,13 @@
     z-index: 0;
 }
 
+@media (max-width: $tablet-large) {
+    .mobile--hidden {
+        display: none;
+        opacity: 0;
+    }
+}
+
 .link {
     transition: 0.3s color ease;
     position: relative;
