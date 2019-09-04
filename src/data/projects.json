@@ -53,7 +53,7 @@
         ],
         "description": "This website! Learning gatsby (which is pretty cool) and creating a blog and resume website at the same time!",
         "shortDescription": "This website, made with gatsby",
-        "blogPost": null,
+        "blogPost": "/personal/website",
         "githubLink": "https://github.com/AlecDivito/bomb-finder",
         "siteLink": null
     },
@@ -66,6 +66,7 @@
             "Crates.io"
         ],
         "description": "A small library that focuses on creating a library on crates.io and hopefully a webassembly one on npm. Ability to read, edit and write bitmaps.",
+        "shortDescription": "Rust library that is able to read, write, and edit bitmaps.",
         "blogPost": "/personal/rustbitmap",
         "githubLink": "https://github.com/AlecDivito/rusty-bitmap",
         "siteLink": "https://crates.io/crates/rustbitmap"
@@ -83,6 +84,7 @@
             "HTML"
         ],
         "description": "A tetris clone focusing on using webassembly compiled by rust. Used to learn advantages using webassembly beside javascript development",
+        "shortDescription": "Tetris clone with a focus on developing the logic in rust and wasm",
         "blogPost": null,
         "githubLink": "https://github.com/AlecDivito/weby-rusty-tetris",
         "siteLink": null

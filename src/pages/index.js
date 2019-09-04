@@ -1,10 +1,10 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import HeaderLayout from "../components/headerLayout";
 import SEO from "../components/seo"
 import "./index.scss";
-import IconLink from "../components/iconLink";
 
 /**
  * Render a storm of particles that are really pretty
@@ -38,7 +38,10 @@ class Particles {
         y: Math.random() * this.height,
         radius: Math.random() * 5 + 1,
         density: Math.random() * maxParticles,
-        color: "rgba(" + Math.floor((Math.random() * 255)) + ", " + Math.floor((Math.random() * 255)) + ", " + Math.floor((Math.random() * 255)) + ", 0.8)",
+        red: Math.floor((Math.random() * 255)),
+        green: Math.floor((Math.random() * 255)),
+        blue: Math.floor((Math.random() * 255)),
+        alpha: 1.0,
       });
     }
 
@@ -74,7 +77,12 @@ class Particles {
       {
         particle.x = Math.random() * this.width;
         particle.y = 0;
+        particle.alpha = 1.0;
       }
+      // if (particle.y > this.height - 100) {
+        const unitVector = (this.height - particle.y) / this.height
+        particle.alpha = -1 * Math.pow(unitVector, 3) + Math.pow(unitVector, 2) + 3 * unitVector;
+      // }
     }
   }
 
@@ -86,7 +94,7 @@ class Particles {
     for (let i = 0; i < this.maxParticles; i++) {
       let particle = this.particles[i];
       this.context.beginPath();
-      this.context.fillStyle = particle.color;
+      this.context.fillStyle = `rgba(${this.particles[i].red},${this.particles[i].green},${this.particles[i].blue},${this.particles[i].alpha})`;
       this.context.moveTo(particle.x, particle.y);
       this.context.arc(particle.x, particle.y, particle.radius, 0, 2 * Math.PI);
       this.context.fill();
@@ -99,10 +107,18 @@ const query = graphql`
 query HomePageData {
   allWorkJson {
     nodes {
+      id
       company
       position
       startDate
       endDate
+      logo {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   }
   allVolunteerJson {
@@ -115,20 +131,35 @@ query HomePageData {
   }
   allSchoolJson {
     nodes {
-      achivement
+      achievement
       endDate
       gpa
       startDate
       school
       program
+      logo {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   }
   allProjectsJson {
     nodes {
       siteLink
+      shortDescription
       title
       githubLink
       blogPost
+      image {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   }
 }
@@ -185,7 +216,11 @@ const IndexPage = () => {
           <h1>Work</h1>
           <ul>
             {data.allWorkJson.nodes.map(p => 
-            <li>{p.position} at {p.company} ({p.startDate} - {p.endDate})</li>  
+            <li key={p.id}>
+                <Img fluid={p.logo.childImageSharp.fluid} alt={p.company} />
+                <span>{p.position} at {p.company}</span>
+                <small>({p.startDate} - {p.endDate})</small>
+            </li>  
             )}
           </ul>
         </section>
@@ -193,15 +228,16 @@ const IndexPage = () => {
         <section className="home__section home--projects">
           <h1>Projects</h1>
           <ul>
-            {data.allProjectsJson.nodes.map(p => 
-              <li>
-                {p.title}
-                {(p.blogPost)
+            {data.allProjectsJson.nodes.map((p, id) => 
+              <li key={id}>
+                <Img fluid={p.image.childImageSharp.fluid} alt={p.company} />
+                <span>{p.title} - {p.shortDescription}</span>
+                {/* {(p.blogPost)
                   ? <Link link={p.blogPost} className="link--button">Read More</Link>
                   : null
-                }
-                <IconLink type="site" link={p.siteLink} />
-                <IconLink type="github" link={p.githubLink} />
+                } */}
+                {/* <IconLink type="site" link={p.siteLink} />
+                <IconLink type="github" link={p.githubLink} /> */}
               </li>  
             )}
           </ul>
@@ -210,8 +246,11 @@ const IndexPage = () => {
         <section className="home__section home--school">
           <h1>School</h1>
           <ul>
-            {data.allSchoolJson.nodes.map(p => 
-              <li>{p.program} at {p.school} ({p.startDate} - {p.endDate}, {p.gpa})</li>  
+            {data.allSchoolJson.nodes.map((p, id) => 
+              <li key={id}>
+                <Img fluid={p.logo.childImageSharp.fluid} alt={`${p.program} at ${p.school}`} />
+                <span>{p.program} at {p.school} ({p.startDate} - {p.endDate}, {p.gpa})</span>
+              </li>  
             )}
           </ul>
         </section>
@@ -219,8 +258,8 @@ const IndexPage = () => {
         <section className="home__section home--volunteer">
           <h1>Volunteer</h1>
           <ul>
-            {data.allVolunteerJson.nodes.map(p => 
-            <li>{p.job} during {p.time} - {p.description}</li>  
+            {data.allVolunteerJson.nodes.map((p, id) => 
+            <li key={id}>{p.job} during {p.time} - {p.description}</li>  
             )}
           </ul>
         </section>
