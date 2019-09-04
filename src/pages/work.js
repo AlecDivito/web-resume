@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link, useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 import "./work.scss"
 import Header from "../components/header";
 
@@ -23,6 +24,35 @@ query GetWorkData {
       id
       skills
       section
+    }
+  }
+  allVolunteerJson {
+    nodes {
+      id
+      description
+      job
+      location
+      time
+    }
+  }
+  allSchoolJson {
+    nodes {
+      id
+      description
+      achievement
+      endDate
+      gpa
+      startDate
+      school
+      program
+      joiningWord
+      logo {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   }
 }
@@ -61,6 +91,23 @@ const WorkPage = () => {
           <li className="work__timeline__event--circle--bottom"></li>
         </ul>
       </section>
+
+      <section className="school--section layout--max-width">
+        <Header text="School" isCenter={true} />
+        <ul>
+          {data.allSchoolJson.nodes.map(n =>
+            <li id={n.id} className="school--section__item">
+              <Img fluid={n.logo.childImageSharp.fluid} alt={`${n.school} logo`} />
+              <span className="school--section__item__name">
+                <strong>{n.achievement}</strong> {n.joiningWord} <strong>{n.program}</strong> at <strong>{n.school}</strong>
+                <br />
+                <small>({n.startDate} - {n.endDate}, {n.gpa})</small>                
+              </span>
+              <span className="school--section__item__description">{n.description}</span>
+            </li>
+          )}
+        </ul>
+      </section>
       
       <section className="skills--section layout--max-width">
         <Header text="Skills" isCenter={true} />
@@ -76,6 +123,20 @@ const WorkPage = () => {
             </div>
           )}
         </div>
+      </section>
+
+      <section className="volunteer--section layout--max-width">
+        <Header text="Volunteer" isCenter={true} />
+        <ul>
+          {data.allVolunteerJson.nodes.map(n =>
+            <li className="volunteer--section__item" id={n.id}>
+              <span>{n.time}</span>
+              <span>{n.location}</span>
+              <span>{n.job}</span>
+              <span className="volunteer--section__item__description">{n.description}</span>
+            </li>
+          )}
+        </ul>
       </section>
 
       <section className="work layout--max-width">

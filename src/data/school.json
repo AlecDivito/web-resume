@@ -5,6 +5,7 @@
         "school": "Sheridan College",
         "program": "Mobile Computing",
         "achievement": "Honours Bachelor of Computer Science",
+        "joiningWord": "from",
         "gpa": "3.85",
         "description": "I was able to transfer into sheridans Mobile Computing course straight into year ",
         "logo": "./images/work/sheridan.jpeg"
@@ -15,6 +16,7 @@
         "school": "Sheridan College",
         "program": "Software Development and Network Engineering",
         "achievement": "Advanced Diploma",
+        "joiningWord": "in",
         "gpa": "3.84",
         "description": "I graduated from Sheridan's Software Development and Network Engineering course with a 3.84 GPA. At Sheridan, there was lots of hands on learning and real world projects. I also participated in co-ops, which gave me real-world experience in solving problems and working with different teams.",
         "logo": "./images/work/sheridan.jpeg"
