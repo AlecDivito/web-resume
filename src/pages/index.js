@@ -104,65 +104,69 @@ class Particles {
 }
 
 const query = graphql`
-query HomePageData {
-  allWorkJson {
-    nodes {
-      id
-      company
-      position
-      startDate
-      endDate
-      logo {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
+  query HomePageData {
+    allWorkJson {
+      nodes {
+        id
+        company
+        position
+        startDate
+        endDate
+        logo {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    allVolunteerJson {
+      nodes {
+        id
+        description
+        job
+        location
+        time
+      }
+    }
+    allSchoolJson {
+      nodes {
+        id
+        achievement
+        endDate
+        gpa
+        startDate
+        school
+        program
+        logo {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    allProjectsJson {
+      nodes {
+        id
+        siteLink
+        shortDescription
+        title
+        stage
+        githubLink
+        blogPost
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
     }
   }
-  allVolunteerJson {
-    nodes {
-      description
-      job
-      location
-      time
-    }
-  }
-  allSchoolJson {
-    nodes {
-      achievement
-      endDate
-      gpa
-      startDate
-      school
-      program
-      logo {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  }
-  allProjectsJson {
-    nodes {
-      siteLink
-      shortDescription
-      title
-      githubLink
-      blogPost
-      image {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  }
-}
 `;
 
 const IndexPage = () => {
@@ -214,54 +218,60 @@ const IndexPage = () => {
         
         <section className="home__section home--work">
           <h1>Work</h1>
-          <ul>
+          <div className="home__section__list">
             {data.allWorkJson.nodes.map(p => 
-            <li key={p.id}>
-                <Img fluid={p.logo.childImageSharp.fluid} alt={p.company} />
-                <span>{p.position} at {p.company}</span>
-                <small>({p.startDate} - {p.endDate})</small>
-            </li>  
+            <Link to={`/work#${p.id}`} className="home__section__list__item home--work__item" key={p.id}>
+              <Img fluid={p.logo.childImageSharp.fluid} alt={p.company} />
+              <span><strong>{p.position}</strong> at {p.company}</span>
+              <small>({p.startDate} - {p.endDate})</small>
+            </Link>  
             )}
-          </ul>
+          </div>
         </section>
 
         <section className="home__section home--projects">
           <h1>Projects</h1>
-          <ul>
-            {data.allProjectsJson.nodes.map((p, id) => 
-              <li key={id}>
+          <div className="home__section__list">
+            {data.allProjectsJson.nodes.map((p) => 
+              <Link to={(p.blogPost) ? p.blogPost : `/personal#${p.id}`} className="home__section__list__item home--projects__item" key={p.id}>
                 <Img fluid={p.image.childImageSharp.fluid} alt={p.company} />
-                <span>{p.title} - {p.shortDescription}</span>
+                <strong className={`home--projects__item--${p.stage[0]}`}>{p.stage[0]}</strong>
+                <span>{p.title}</span>
+                <span>{p.shortDescription}</span>
                 {/* {(p.blogPost)
                   ? <Link link={p.blogPost} className="link--button">Read More</Link>
                   : null
                 } */}
                 {/* <IconLink type="site" link={p.siteLink} />
                 <IconLink type="github" link={p.githubLink} /> */}
-              </li>  
+              </Link>  
             )}
-          </ul>
+          </div>
         </section>
 
         <section className="home__section home--school">
           <h1>School</h1>
-          <ul>
+          <div className="home__section__list">
             {data.allSchoolJson.nodes.map((p, id) => 
-              <li key={id}>
+              <Link to={`/work#${p.id}`} className="home__section__list__item home--school__item" key={id}>
                 <Img fluid={p.logo.childImageSharp.fluid} alt={`${p.program} at ${p.school}`} />
-                <span>{p.program} at {p.school} ({p.startDate} - {p.endDate}, {p.gpa})</span>
-              </li>  
+                <span>{p.program} at {p.school}</span>
+                <small>({p.startDate} - {p.endDate}, {p.gpa})</small>
+              </Link>  
             )}
-          </ul>
+          </div>
         </section>
 
         <section className="home__section home--volunteer">
           <h1>Volunteer</h1>
-          <ul>
+          <div className="home__section__list">
             {data.allVolunteerJson.nodes.map((p, id) => 
-            <li key={id}>{p.job} during {p.time} - {p.description}</li>  
+            <Link to={`/work#${p.id}`} className="home__section__list__item home--volunteer__item" key={id}>
+              <span>{p.time}</span>
+              <span>{p.job}</span>
+            </Link>  
             )}
-          </ul>
+          </div>
         </section>
       </div>
     </HeaderLayout>

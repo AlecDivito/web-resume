@@ -49,7 +49,7 @@ const WorkPage = () => {
         <ul className="work__timeline" endyear={endFormat} startyear={startFormat}>
           <li className="work__timeline__event--circle--top"></li>
           {data.allWorkJson.nodes.map( w => (
-            <li key={w.id} className="work__timeline__event">
+            <li key={w.id} className="work__timeline__event" id={w.id}>
               <div className="work__timeline__event--circle"></div>
               <div className="work__timeline__event__details event">
                 <h3 className="event__header">{w.position} <small>at</small> {w.company}</h3>
