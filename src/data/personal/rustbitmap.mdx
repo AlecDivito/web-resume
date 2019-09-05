@@ -7,6 +7,7 @@ images: "./images/bitmap_logo.png"
 
 ## Overview
 
+
 ## Goals
 
 ## Technologies
@@ -14,11 +15,39 @@ images: "./images/bitmap_logo.png"
 ## Design Process
 
 ## Difficulties
+The biggiest hurrdle was reading in the diffrent file formats that bitmap offers.
+most of the header of the file is always the same and really easy to read in but
+what caught me off guard was 
 
 ## Project Status
+This project is done. It works for most bitmaps found in the wild now-a-days
+(which isn't common).
 
 ## Results
 
 ## What's Next
+Adding some support for compiling the library down to webassembly. One of my
+intrests is being able to share code accross code bases. I have attempted this
+and am currently looking at a way of implmenting it.
 
 ## Reflections
+This library is over designed and isn't usable right off the shelf, but it is
+my first publiclly avaliable library. I think adding in the bitmap editing features
+was a bit overkill but on the bright side I was able to implment image resizing
+for linear, bilinear and bicubic interpolation. I liked how I got to play around
+more with this project with actually file.
+
+I decided to challenge myself and setup a continuous pipeline using travis.ci
+which was also really cool. From now on I want to always have a way for my applications
+to be continuously tested and deployed.
+
+One thing I would want to improve is the lack of traits used in my code. I believe
+my code could have been better if I added that in.
+
+I threw away a lot of my code but I had an better understanding of my problem and
+what I needed to accoplish after prototyping. I feel as though my code
+
+To be honest this project was just a fun small little project to help me get
+more comfortable with rust's low level and to actually deploy it to a package
+registry which I did and for that I'm happy. This project accomplished it's final
+goal, I hope my next project is easialy able to out shine this one.
