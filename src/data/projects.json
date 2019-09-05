@@ -41,7 +41,7 @@
     },
     {
         "title": "Personal Website",
-        "stage": "⚠ In Progress",
+        "stage": "✔ Completed",
         "image": "./images/PersonalWebsite.png",
         "technologies": [
             "Gatsby",
