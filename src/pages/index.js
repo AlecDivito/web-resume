@@ -214,9 +214,15 @@ const IndexPage = () => {
             Aspiring Designer and Machine Learning Engineer
           </p>
           <Link className="home__header--learn link" to="/about">Learn More</Link>
+
+          <div>
+            <a href="#index--page-anchor" className="home__header--scroller"></a>
+          </div>
+
         </header>
         
         <section className="home__section home--work">
+          <div aria-label="index--page-anchor" id="index--page-anchor"><span>anchor tag for work experience</span></div>
           <h1>Work</h1>
           <div className="home__section__list">
             {data.allWorkJson.nodes.map(p => 

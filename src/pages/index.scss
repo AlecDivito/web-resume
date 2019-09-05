@@ -1,5 +1,12 @@
 @import "../styles/variables";
 
+#index--page-anchor {
+    display: block;
+    position: relative;
+    top: -$nav-height;
+    visibility: hidden;
+}
+
 .home--background {
     position: absolute;
     top: 0;
@@ -66,6 +73,42 @@
                 color: $shade-8;
             }
         }
+
+        &--scroller {
+            width: 46px;
+            height: 46px;
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            margin-left: -(46px/2px) + px;
+            
+            border: 1px solid $shade-9;
+            border-radius: 100%;
+            box-sizing: border-box;
+            transition: border-color .25s ease;
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 25%;
+                left: 32.5%;
+                width: 16px;
+                height: 16px;
+                border-left: 1px solid $shade-9;
+                border-bottom: 1px solid $shade-9;
+                transform: rotate(-45deg);
+                box-sizing: border-box;
+            }
+
+            &:hover {
+                border-color: $shade-7;
+                cursor: pointer;
+
+                &:after {
+                    border-color: $shade-7;
+                }
+            }
+        }
     }
 
     &__section {
@@ -93,9 +136,9 @@
                 }
     
                 .gatsby-image-wrapper {
-                    width: 35px;
-                    height: 35px;
-                    margin: 8px;
+                    width:  45px;
+                    height: 45px;
+                    margin: auto;
                 }
             }
         }
