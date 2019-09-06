@@ -31,9 +31,9 @@
         text-decoration: none;
         padding: 8px;
         background-color: $primary-color-1;
-        border-radius: 10px;
         transition: background-color .25s ease;
         line-height: 20px;
+        font-size: 12px;
 
         &:hover {
             background-color: $primary-color-2;

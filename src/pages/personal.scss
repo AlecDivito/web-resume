@@ -26,7 +26,6 @@
     position: relative;
     display: block;
     width: calc(100% - 2rem);
-    border-radius: 10px;
     box-shadow: 0 10px 20px $primary-color-1, 0 6px 6px $primary-color-2;
 
     &:after {
@@ -46,7 +45,6 @@
         margin: 1rem;
         width: 80px;
         height: 80px;
-        border-radius: 10px;
         cursor: pointer;
 
         &--no-link {

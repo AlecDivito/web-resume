@@ -96,7 +96,7 @@ const WorkPage = () => {
         <Header text="School" isCenter={true} />
         <ul>
           {data.allSchoolJson.nodes.map(n =>
-            <li id={n.id} className="school--section__item">
+            <li key={n.id} id={n.id} className="school--section__item">
               <Img fluid={n.logo.childImageSharp.fluid} alt={`${n.school} logo`} />
               <span className="school--section__item__name">
                 <strong>{n.achievement}</strong> {n.joiningWord} <strong>{n.program}</strong> at <strong>{n.school}</strong>
@@ -129,7 +129,7 @@ const WorkPage = () => {
         <Header text="Volunteer" isCenter={true} />
         <ul>
           {data.allVolunteerJson.nodes.map(n =>
-            <li className="volunteer--section__item" id={n.id}>
+            <li key={n.id} className="volunteer--section__item" id={n.id}>
               <span>{n.time}</span>
               <span>{n.location}</span>
               <span className="volunteer--section__item__job">{n.job}</span>

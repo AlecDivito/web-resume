@@ -8,6 +8,7 @@
         margin: 1rem 2rem 0rem 2rem;
         text-align: center;
         font-size: $work-description-font-size;
+        line-height: 1.4rem;
 
         &--resume {
             margin-bottom: 2rem;
@@ -81,9 +82,8 @@
 
 
             &__details {
-                padding: 1rem;
+                padding: 1.5rem;
                 position: relative;
-                border-radius: 5px;
                 box-shadow: $work-timeline-box-shadow;
                 // filter: drop-shadow(0 2px 0 rgba(0,0,0,.1));
                 line-height: 1.5rem;
@@ -194,12 +194,11 @@
         grid-gap: 1rem;
         align-self: center;
 
-        padding: 1rem;
+        padding: 2rem;
         margin: 2rem 0rem;
         font-size: 1.3rem;
         color: $shade-8;
 
-        border-radius: 5px;
         transition: box-shadow .25s ease;
 
         &:hover {
@@ -226,12 +225,11 @@
         grid-gap: 1rem;
         align-self: center;
 
-        padding: 1rem;
-        margin: 2rem 0rem;
+        padding: 2rem;
+        margin: 1rem 0rem;
         font-size: 1.3rem;
         color: $shade-8;
 
-        border-radius: 5px;
         transition: box-shadow .25s ease;
 
         &:hover {
