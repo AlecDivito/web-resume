@@ -11,21 +11,28 @@ images:
     - ../images/personal/website/design_contact_page.png
     - ../images/personal/website/design_nav_component.png
     - ../images/personal/website/old_index_page.png
+    - ../images/personal/website/old_about_page.png
     - ../images/personal/website/old_personal_page.png
+    - ../images/personal/website/old_work_page.png
+    - ../images/personal/website/old_contact_page.png
+    - ../images/personal/website/old_nav_component.png
+    - ../images/personal/website/old_personal_page_desktop.png
 ---
-
-import Img from "gatsby-image";
 
 ## Overview
 
 This website was created to act as a resume for my skills and hobbies for anyone
-who is interested. Another reason why I created it was to give it the option of
-expanding into something greater, such as a blog/notes website to show off what
-I've learnt in school and in my free time.
+who is interested. The website is the starting of a project that could become
+a blog or a place to put my school and self studies. The hardest part of any
+project is starting it and this my start.
 
 ## Goals
 
-I wanted to make something that was easily extendable and looked good. It also
+1. Act as a second resume
+2. Look decent for a Full Stack standard (not UI/UX)
+3. Show off completed school and personal projects
+
+I wanted to make something that was easily extendable, looked good and was easy to manage. It also
 had to have a layout that was easy to read on mobile, tablet and desktop platforms.
 The final goal was to make sure that it advertised my accomplishments and
 projects that I have completed and am proud of as well as give a glimps of what
@@ -33,53 +40,83 @@ I'm currently working on.
 
 ## Technologies
 
-I used Gatsby<sup>[[2](#refactoringui)]</sup> as my static site generator, I
-really enjoyed using it and felt right at home because of how heavily it uses
-React. I used Javascript instead of my usually frontend language of Typescript
-and regert that, I really miss my types with my syntax highlighting and
-have never had a good experince using proptypes. To style I used SCSS and focused
-on using some parts of the BEM methodology.
+The site was build with Gatsby<sup>[[2](#gatsby)]</sup> because it allowed me to
+use React to generate a static site. I really enjoyed using it and felt right at
+home because of how heavily Gatsby uses React and it's component system. That's
+the main reason why it was chosen over other solution's that are out on the market
+today (ex. Hugo)
 
-The reason why I ended up using Javascript to code my website is because this was
-my first time working with Gatsby and I had no clue that they had a plugin that
-allowed a developer to compile they're website using Typescript. Whoops.
+Javascript was used instead of my usually choice of Typescript. This was mainly
+because this is my first project using Gatsby and I didn't find out there was a
+plugin that allowed me to compile the project with typescript. Overall I believe
+this was a poor choice and regret it. Typescript is superior to Javascript in
+every way and using React without types doesn't feel right. Proptypes do help
+a little but they do not compare to the ability in typescript to quickly map
+out an interface and get a compile time exception about an incorrect type. Though
+this was my first time using Proptypes in a actual project so I may not know all
+the tips and tricks.
+
+To style I used SCSS and focused on using some parts of the BEM methodology.
 
 ## Design/Development Process
 
-This project has been on again and off again for at least 1 year at this point.
-What really held me back the last time I took a stab at this was my designs and
-planning because I had neither. This time I decided to take the time to just draw
-out some of my ideas as well as define a small sitemap that would cover all
-the sections of the site.
+This project has been on and off again for at least 1 year at this point.
+In that time there have been many designs focusing on single paged layout's
+but none of them were ever panned out. What really held me back we're my designs and
+planning. This time I decided to take the time to just draw out some basic ideas
+as well as define a small sitemap that would cover all the sections of the site.
+After spending 30 minutes of drawing and thinking what content I wanted on each
+page I ended up with these drawings:
 
 <div class="image--grid">
-    <props.images.design_index_page alt=""/>
-    <props.images.design_about_page alt=""/>
-    <props.images.design_projects_page alt=""/>
-    <props.images.design_work_page alt=""/>
-    <props.images.design_contact_page alt=""/>
-    <props.images.design_nav_component alt=""/>
+    <props.images.design_index_page alt="Initial design for home page"/>
+    <props.images.design_about_page alt="Initial design for about page"/>
+    <props.images.design_projects_page alt="Initial design for projects page"/>
+    <props.images.design_work_page alt="Initial design for work page"/>
+    <props.images.design_contact_page alt="Initial design for contact page"/>
+    <props.images.design_nav_component alt="Initial design for the nav component"/>
 </div>
 
-<h3>Old Primary Colors</h3>
+After quickly finishing my layouts I got to work and used this small color palette
+to color the screen:
+
+<h4>Old Primary Colors</h4>
 <div>
     <span class="color--square old-primary-1"></span>
 </div>
-<h3>Old Accent Colors</h3>
+<h4>Old Accent Colors</h4>
 <div>
     <span class="color--square old-accent-1"></span>
 </div>
-<h3>Old Shades</h3>
+<h4>Old Shades</h4>
 <div>
     <span class="color--square old-shade-1"></span>
     <span class="color--square old-shade-2"></span>
 </div>
 
-After reading through refactoring UI<sup>[[1](#refactoringui)]</sup> blog post on
-how important color are in an application as well as how important it is to have
-diffrent shades I decided to actually spend some time actually coming up with a
-good color palette with lots of colors to choose from. These are the colors and
-shades I came up with:
+Using a simple palette allowed me to not spend much time on coloring the site so
+I was able to spend more time on styling the components and live functionalities
+live the navigation bar. The final designs for the projects and index page look
+as such:
+
+<div class="image--grid">
+    <props.images.old_index_page alt="first vision of the home page" />
+    <props.images.old_about_page alt="first vision of the about page" />
+    <props.images.old_personal_page alt="first vision of the projects page" />
+    <props.images.old_work_page alt="first vision of the work page" />
+    <props.images.old_contact_page alt="first vision of the contact page" />
+    <props.images.old_nav_component alt="first vision of the active nav component" />
+</div>
+
+Now, to be franck, I thought this looked pretty good. Yeah there were some super
+bright colors and the accent color looked pretty bad but I thought I had done a
+good job on it. Then I let other people see. So I changed it.
+
+The first part of the site that was changed is colors. After reading through
+refactoring UI<sup>[[1](#refactoringui)]</sup> blog post on how important color
+is in an application as well as how important it is to have different shades. This
+lead me to actually spend some time actually coming up with a good color palette.
+With lots of colors to choose from, These are the colors and shades I came up with:
 
 <h3>Primary Color</h3>
 <div>
@@ -121,43 +158,64 @@ shades I came up with:
 </div>
 
 Already this looks better then the older shades, not only do we have more selection
-to show new states of the application but we can also give diffrent colors to
-diffrent alerts and such on the page.
+to pick from but we can also give different colors to different components on the page.
+Once the updated colors were picked I got what the site looks like today.
 
 ## Difficulties
-The biggiest difficulty was finding a good color and even now I'm still not
-very satisfied with my pick of blues and 
 
-After I starting pointing my filesystem in the correct directory most of my issues didn't matter as much anymore.
+There were no big difficulties that were faced during this project, on design
+and learning pains. There were a lot of mistake's I made initial because I
+didn't know very well how to use Gatsby so I had to read the documentation and
+look at helpful tutorials.
 
+The hardest part of this project was properly setting up the markdown to HTML
+converter and properly setting up the filesystem so it pointed at all of my data
+instead of the default pictures. Again all of these issues were solved as I learned
+the platform more.
 
 ## Project Status
-Is a resume ever done? No, so I guess this website is never done but that's ok.
-But overall the website is currently at a completed stage that I am happy with.
 
-## Results
+Is a resume ever done? No, so this website is never done but that's ok.
+Overall the initial structure and design for the website is at a completed stage
+that I am happy with. If I extend the site or my web design skills improve I may
+look at updating the look.
 
 ## What's Next
-I want to expand the content on this resume website into more of blog. I think
-it's duable but first I need to write the content. Also once the website starts
-included blogging aspacts I'd need to do one more final redesign so that all the
-blog content is easy to find and search for. 
 
-To sum up my plans:
+Expanding the content on the website would be my first goal for what's to come.
+A resume website doesn't add a lot to anyone's life, so turning it into a place
+to congregate my thoughts, projects, tutorials would be my first move at improving
+this site.
 
-1. Write blog content
+What's next could be boiled down to 2 points:
+
+1. Write blog content (in the form of notes and tutorials)
 2. Small redesign to focus more on content instead of my resume
 
-I think now that I am back at school for 2 more years, there's no better time then
-now to start this. I find I am being taught a lot of content I already somewhat
-know so I want to change that somewhat into a KNOW!
+Now is a better time then any as I will be back in school for 2 more years (as
+of writing this in 2019). There is no better time then right now to start.
 
 ## Reflections
-I think the biggest reveal was how bad I am at planning out my design. Recently
-I have been exposed to Adobe XD and figma and am intrested in using these before
-I jump into my next project.
+
+As I reflect on this project I think it already shows that the biggest hangup for
+the project was design. Using a tool like Figma<sup>[[6](#figma)]</sup> before
+jumping straight into the coding would have allowed me to code this website once
+and not need to make multiple small changes to it over time.
+
+I'm also not happy about the way I sorted out my styles and I feel as though I
+maybe repeating myself quite a bit in the style department. I think a way to
+improve this is to look at some css framework as well as reworking how my pages
+are layed out.
+
+Although I may complain about how I was slowed down by my lack of design prototyping,
+I can say with confidence that I really like the look of my site. A lot of my
+design friends nit pick it but everyone else not in design say it looks great
+which is awesome. This really motivated to keep better tabs on my projects and
+document anything I create. I can't wait to add more content to my website :)
 
 ## References
-- <a href="https://refactoringui.com/previews/building-your-color-palette/" id="refactoringui">Refactoring UI Color Palette</a>
-- [Gatsby](https://www.gatsbyjs.org) 
-- [Material Card Design](https://material.io/components/cards/#specs)
+
+1. <a href="https://refactoringui.com/previews/building-your-color-palette/" rel="noopener noreferrer" target="_blank" id="refactoringui">Refactoring UI Color Palette</a>
+2. <a href="https://www.gatsbyjs.org" rel="noopener noreferrer" target="_blank" id="gatsby">GatsbyJS: Blazing fast modern site generator for React</a>
+3. <a href="https://material.io/components/cards/#specs" rel="noopener noreferrer" target="_blank" id="material">Material Card Design</a>
+4. <a href="https://www.figma.com" id="figma" rel="noopener noreferrer" target="_blank">Figma: Design, protype, and gather feedback</a>
