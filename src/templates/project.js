@@ -49,16 +49,14 @@ const ProjectTemplate = ({data}) => {
             const { childImageSharp, publicURL } = image;
             const { fluid } = childImageSharp;
             const name = fluid.originalName.split(".");
-            console.log(name);
-            images[name[0]] = () =>
+            images[name[0]] = ({ alt }) =>
                fluid ? (
-                <Img fluid={fluid} />
+                <Img fluid={fluid} alt={alt} />
                 ) : (
-                <img src={publicURL || ''} />
+                <img src={publicURL || ''} alt={alt}/>
             );
         });
     }
-    console.log(images);
 
     return (
         <Layout>

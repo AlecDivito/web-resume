@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 import HeaderLayout from "../components/headerLayout";
 import SEO from "../components/seo"
 import "./index.scss";
+import StatusDot from "../components/statusDot";
 
 /**
  * Render a storm of particles that are really pretty
@@ -155,6 +156,7 @@ const query = graphql`
         shortDescription
         title
         stage
+        status
         githubLink
         blogPost
         image {
@@ -241,7 +243,7 @@ const IndexPage = () => {
             {data.allProjectsJson.nodes.map((p) => 
               <Link to={(p.blogPost) ? p.blogPost : `/personal#${p.id}`} className="home__section__list__item home--projects__item" key={p.id}>
                 <Img fluid={p.image.childImageSharp.fluid} alt={p.company} />
-                <strong className={`home--projects__item--${p.stage[0]}`}>{p.stage[0]}</strong>
+                <StatusDot status={p.status} />
                 <span>{p.title}</span>
                 <span className="mobile--hidden">{p.shortDescription}</span>
                 {/* {(p.blogPost)

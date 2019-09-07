@@ -6,6 +6,7 @@ import Img from "gatsby-image";
 
 import "./personal.scss";
 import Header from "../components/header";
+import StatusDot from "../components/statusDot";
 
 const query = graphql`
 query GetPersonalProjectsData {
@@ -14,6 +15,7 @@ query GetPersonalProjectsData {
             id
             stage
             title
+            status
             technologies
             description
             blogPost
@@ -53,8 +55,13 @@ const PersonalsPage = () => {
                             </span>
                         }
                         <div className="card__content">
-                            <h3>{t.title}</h3>
-                            <h5>{t.stage}</h5>
+                            <div className="card__content__header">
+                                <h3>{t.title}</h3>
+                                <div className="card__content__header--flex">
+                                    <StatusDot status={t.status} />
+                                    <h5>{t.stage}</h5>
+                                </div>
+                            </div>
                             <p>
                                 {t.description}
                             </p>

@@ -17,11 +17,15 @@
         // top: 23px;
         // left: 23px;
 
-        &.true {
-            background-color: #62bd19;
+        &.completed {
+            background-color: $brand-success; // #62bd19;
         }
 
-        &.false {
+        &.archived {
+            background-color: $brand-warning;
+        }
+
+        &.active {
             background-color: $brand-danger;
         }
     }
@@ -37,11 +41,15 @@
         animation-iteration-count: infinite; 
         opacity: 0.0;
 
-        &.true {
-            border: 3px solid #62bd19;
+        &.completed {
+            border: 3px solid $brand-success; // #62bd19;
         }
 
-        &.false {
+        &.archived {
+            border: 3px solid $brand-warning;
+        }
+
+        &.active {
             border: 3px solid $brand-danger;
         }
     }

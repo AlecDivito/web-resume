@@ -165,16 +165,6 @@
     &--projects {
         &__item {
             grid-template-columns: 50px 30px 0.45fr 1fr;
-            
-            &--✔ {
-                color: $brand-success;
-                font-size: 2rem;
-            }
-
-            &--⚠ {
-                color: $accent-color-5;
-                font-size: 2rem;
-            }
         }
     }
 

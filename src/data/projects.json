@@ -1,28 +1,9 @@
 [
     {
-        "title": "Budgetise",
-        "image": "./images/budgetise.png",
-        "stage": "✔ Completed",
-        "technologies": [
-            "Angular 2+",
-            "Express",
-            "Postgres",
-            "Typescript",
-            "NGRX",
-            "SCSS",
-            "HTML",
-            "Javascript"
-        ],
-        "description": "Capstone project for my final year in the SDNE program at sheridan. Created to manage multiple McDonald's expenses.",
-        "shortDescription": "Capstone project for my final year in SDNE program",
-        "blogPost": "/personal/budgetise",
-        "githubLink": null,
-        "siteLink": null
-    },
-    {
         "title": "MineSweeper Clone",
-        "stage": "✔ Completed",
-        "image": "./images/bomb-finder.png",
+        "stage": "Completed",
+        "status": "completed",
+        "image": "./images/bomb_finder.png",
         "technologies": [
             "Typescript",
             "PWA",
@@ -40,8 +21,24 @@
         "siteLink": "https://alecdivito.github.io/bomb-finder/"
     },
     {
+        "title": "Rusty Bitmap",
+        "stage": "Completed",
+        "status": "completed",
+        "image": "./images/bitmap_logo.png",
+        "technologies": [
+            "Rust",
+            "Crates.io"
+        ],
+        "description": "A small library that focuses on creating a library on crates.io and hopefully a webassembly one on npm. Ability to read, edit and write bitmaps.",
+        "shortDescription": "Rust library that is able to read, write, and edit bitmaps.",
+        "blogPost": "/personal/rustbitmap",
+        "githubLink": "https://github.com/AlecDivito/rusty-bitmap",
+        "siteLink": "https://crates.io/crates/rustbitmap"
+    },
+    {
         "title": "Personal Website",
-        "stage": "✔ Completed",
+        "stage": "Completed",
+        "status": "completed",
         "image": "./images/PersonalWebsite.png",
         "technologies": [
             "Gatsby",
@@ -58,22 +55,30 @@
         "siteLink": null
     },
     {
-        "title": "Rusty Bitmap",
-        "stage": "✔ Completed",
-        "image": "./images/bitmap_logo.png",
+        "title": "Budgetise",
+        "image": "./images/budgetise.png",
+        "stage": "Archived",
+        "status": "archived",
         "technologies": [
-            "Rust",
-            "Crates.io"
+            "Angular 2+",
+            "Express",
+            "Postgres",
+            "Typescript",
+            "NGRX",
+            "SCSS",
+            "HTML",
+            "Javascript"
         ],
-        "description": "A small library that focuses on creating a library on crates.io and hopefully a webassembly one on npm. Ability to read, edit and write bitmaps.",
-        "shortDescription": "Rust library that is able to read, write, and edit bitmaps.",
-        "blogPost": "/personal/rustbitmap",
-        "githubLink": "https://github.com/AlecDivito/rusty-bitmap",
-        "siteLink": "https://crates.io/crates/rustbitmap"
+        "description": "Capstone project for my final year in the SDNE program at sheridan. Created to manage multiple McDonald's expenses.",
+        "shortDescription": "Capstone project for my final year in SDNE program",
+        "blogPost": "/personal/budgetise",
+        "githubLink": null,
+        "siteLink": null
     },
     {
         "title": "Tetris Clone",
-        "stage": "⚠ In Progress",
+        "stage": "In Progress",
+        "status": "active",
         "image": "./images/tetris.png",
         "technologies": [
             "Rust",
