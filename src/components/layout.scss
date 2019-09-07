@@ -4,7 +4,7 @@
 
 .layout--max-width {
     margin: auto;
-    max-width: $tablet-large;
+    max-width: 150px + $tablet-large;
 }
 
 .page--content {
@@ -20,67 +20,7 @@
     }
 }
 
-.link {
-    transition: 0.3s color ease;
-    position: relative;
-    width: fit-content;
-    text-decoration: none;
 
-    &--button {
-        color: $primary-color-8;
-        text-decoration: none;
-        padding: 8px;
-        background-color: $primary-color-1;
-        transition: background-color .25s ease;
-        line-height: 20px;
-        font-size: 12px;
-
-        &:hover {
-            background-color: $primary-color-2;
-        }
-    }
-
-    &.active {
-        &::after {
-            width: 100%;
-        }
-    }
-
-    &.link--default-color {
-        color: $shade-7;
-        &:hover {
-            color: $shade-9;
-        }
-    }
-
-    &::before, &::after {
-        content: "";
-        transition: 0.3s width ease;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        position: absolute;
-        height: 5px;
-        width: 0px;
-        background-color: $accent-color-5;
-    }
-    
-    &::before {
-        right: 0px;
-        top: -0.25em;
-    }
-
-    &::after {
-       left: 0px;
-       bottom: -0.25em;
-    }
-
-
-    &:hover {
-        &::before, &::after {
-            width: 100%; 
-        }
-    }
-}
 
 @media (max-width: $tablet-large) {
     .link::after {

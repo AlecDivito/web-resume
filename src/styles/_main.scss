@@ -18,7 +18,7 @@ p {
     margin: 1rem 0px;
 }
 
-
+// website blog post
 $primary-color-list: (
     1: $primary-color-1, 2: $primary-color-2, 3: $primary-color-3, 4: $primary-color-4,
     5: $primary-color-5, 6: $primary-color-6, 7: $primary-color-7, 8: $primary-color-8,
@@ -58,6 +58,13 @@ $shades-list: (
 .old-shade-1 { background-color: #FFF; }
 .old-shade-2 { background-color: #333; }
 
+// bomb finder
+.bf-shade-1 { background-color: #FFF; }
+.bf-shade-2 { background-color: #333; }
+.bf-shade-3 { background-color: #000; }
+
+
+// general helper classes for project posts
 .image--grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -66,5 +73,70 @@ $shades-list: (
     .gatsby-image-wrapper {
         // height: 200px;
 
+    }
+}
+
+.link {
+    transition: 0.3s color ease;
+    position: relative;
+    width: fit-content;
+    text-decoration: none;
+
+    &--button {
+        color: $primary-color-8;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 1rem;
+        background-color: $primary-color-1;
+        transition: background-color .25s ease;
+        line-height: 0.5rem;
+        border-radius: 5px;
+
+
+        &:hover {
+            background-color: $primary-color-2;
+        }
+    }
+
+    &.active {
+        &::after {
+            width: 100%;
+        }
+    }
+
+    &.link--default-color {
+        color: $shade-7;
+        &:hover {
+            color: $shade-9;
+        }
+    }
+
+    &::before, &::after {
+        content: "";
+        transition: 0.3s width ease;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        position: absolute;
+        height: 5px;
+        width: 0px;
+        background-color: $accent-color-5;
+    }
+    
+    &::before {
+        right: 0px;
+        top: -0.25em;
+    }
+
+    &::after {
+       left: 0px;
+       bottom: -0.25em;
+    }
+
+
+    &:hover {
+        &::before, &::after {
+            width: 100%; 
+        }
     }
 }
