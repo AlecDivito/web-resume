@@ -12,8 +12,8 @@
             "Typescript",
             "PWA",
             "React",
-            "CRA",
             "Canvas2d",
+            "Chrome Dev Tools",
             "Indexdb",
             "CSS",
             "HTML"
@@ -35,7 +35,8 @@
         "totalTime": "2 months",
         "technologies": [
             "Rust",
-            "Crates.io"
+            "Crates.io",
+            "Binary Files"
         ],
         "description": "A small library that focuses on creating a library on crates.io and hopefully a webassembly one on npm. Ability to read, edit and write bitmaps.",
         "shortDescription": "Rust library that is able to read, write, and edit bitmaps.",
@@ -79,11 +80,12 @@
             "Angular 2+",
             "Express",
             "Postgres",
+            "Nginx",
+            "Digital Ocean",
             "Typescript",
             "NGRX",
             "SCSS",
-            "HTML",
-            "Javascript"
+            "HTML"
         ],
         "description": "Capstone project for my final year in the SDNE program at sheridan. Created to manage multiple McDonald's expenses.",
         "shortDescription": "Capstone project for my final year in SDNE program",

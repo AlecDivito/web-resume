@@ -1,9 +1,10 @@
 [
     {
-        "section": "Current Stack",
+        "section": "Fluent / Current Stack",
         "skills": [
             "Typescript",
             "Javascript",
+            "Angular 2+",
             "React",
             "Node.js",
             "HTML5",
@@ -14,32 +15,32 @@
         ]
     },
     {
-        "section": "Worked With",
+        "section": "Proficient",
         "skills": [
             "C#",
-            "PHP",
             "IOS",
             "Swift",
             "Python",
-            "MatLab"
+            "Java",
+            "GO",
+            "C"
         ]
     },
     {
-        "section": "Played With",
+        "section": "Familiar",
         "skills": [
-            "Java",
+            "PHP",
+            "MatLab",
             "F#",
             "Android",
             "Kotlin",
-            "GO",
             "Shell Scripting"
         ]
     },
     {
         "section": "Frameworks & Libraries",
         "skills": [
-            ".Net Core",
-            "Angular 2+",
+            ".Net Core 2+",
             "Vue",
             "Gatsby",
             "Laravel",
