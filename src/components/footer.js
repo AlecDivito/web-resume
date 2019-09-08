@@ -25,7 +25,7 @@ const Footer = ({ siteLinks, projectPosts, children }) => (
         </div>
         <div className="footer__top__site">
           <h3>Site Links</h3>
-          <ul className="footer__top__site__list">
+          <ul className="footer__top__site__list wrap">
             {siteLinks.filter(s => s.ready).map((s, i) => (
               <li key={i}>
                 <Link className="link" to={s.link}>{s.title}</Link>
