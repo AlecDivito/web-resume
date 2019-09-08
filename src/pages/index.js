@@ -159,7 +159,7 @@ const query = graphql`
         status
         githubLink
         blogPost
-        image {
+        logo {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
@@ -218,13 +218,13 @@ const IndexPage = () => {
           <Link className="home__header--learn link" to="/about">Learn More</Link>
 
           <div>
-            <a href="#index--page-anchor" className="home__header--scroller"></a>
+            <a href="#index--page-anchor" className="home__header--scroller"><span></span></a>
           </div>
 
         </header>
         
         <section className="home__section home--work">
-          <div aria-label="index--page-anchor" id="index--page-anchor"><span>anchor tag for work experience</span></div>
+          <div aria-label="index--page-anchor" id="index--page-anchor" />
           <h1>Work</h1>
           <div className="home__section__list">
             {data.allWorkJson.nodes.map(p => 
@@ -242,7 +242,7 @@ const IndexPage = () => {
           <div className="home__section__list">
             {data.allProjectsJson.nodes.map((p) => 
               <Link to={(p.blogPost) ? p.blogPost : `/personal#${p.id}`} className="home__section__list__item home--projects__item" key={p.id}>
-                <Img fluid={p.image.childImageSharp.fluid} alt={p.company} />
+                <Img fluid={p.logo.childImageSharp.fluid} alt={p.company} />
                 <StatusDot status={p.status} />
                 <span>{p.title}</span>
                 <span className="mobile--hidden">{p.shortDescription}</span>

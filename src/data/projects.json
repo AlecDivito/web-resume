@@ -4,6 +4,10 @@
         "stage": "Completed",
         "status": "completed",
         "image": "./images/bomb_finder.png",
+        "logo": "./images/bomb_finder_logo.png",
+        "startDate": "May 2019",
+        "endDate": "Aug 2019",
+        "totalTime": "4 months",
         "technologies": [
             "Typescript",
             "PWA",
@@ -25,6 +29,10 @@
         "stage": "Completed",
         "status": "completed",
         "image": "./images/bitmap_logo.png",
+        "logo": "./images/bitmap_logo.png",
+        "startDate": "July 2019",
+        "endDate": "Aug 2019",
+        "totalTime": "2 months",
         "technologies": [
             "Rust",
             "Crates.io"
@@ -40,6 +48,10 @@
         "stage": "Completed",
         "status": "completed",
         "image": "./images/PersonalWebsite.png",
+        "logo": "./images/website_logo.png",
+        "startDate": "Aug 2018",
+        "endDate": "Present",
+        "totalTime": "1 year+",
         "technologies": [
             "Gatsby",
             "Javascript",
@@ -56,9 +68,13 @@
     },
     {
         "title": "Budgetise",
-        "image": "./images/budgetise.png",
         "stage": "Archived",
         "status": "archived",
+        "image": "./images/budgetise.png",
+        "logo": "./images/budgetise_logo.png",
+        "startDate": "",
+        "endDate": "",
+        "totalTime": "",
         "technologies": [
             "Angular 2+",
             "Express",
@@ -80,6 +96,10 @@
         "stage": "In Progress",
         "status": "active",
         "image": "./images/tetris.png",
+        "logo": "./images/tetris.png",
+        "startDate": "May 2019",
+        "endDate": "Present",
+        "totalTime": "4 months+",
         "technologies": [
             "Rust",
             "Web assembly",
