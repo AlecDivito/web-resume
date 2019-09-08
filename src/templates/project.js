@@ -66,7 +66,7 @@ const ProjectTemplate = ({data}) => {
                     ? <Img fluid={childImageSharp.fluid} alt={alt} />
                     : <img className="image--child" src={publicURL} alt={alt}/>
                 }
-                {(caption != null && caption.length > 0)
+                {(caption && caption.length > 0)
                     ? <figcaption>{caption}</figcaption>
                     : null
                 }
