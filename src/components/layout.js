@@ -24,6 +24,13 @@ query GetNavData {
       alt
     }
   }
+  allProjectsJson {
+    nodes {
+      id
+      title
+      blogPost
+    }
+  }
   allInternalNavJson {
     nodes {
       id
@@ -58,7 +65,10 @@ const Layout = ({ children }) => {
           />
         </Nav>
         <main className="page--content">{children}</main>
-          <Footer siteLinks={data.allInternalNavJson.nodes}>
+          <Footer
+            siteLinks={data.allInternalNavJson.nodes}
+            projectPosts={data.allProjectsJson.nodes}
+          >
             <SocialFooter
               external={data.allExternalNavJson.nodes}
             />

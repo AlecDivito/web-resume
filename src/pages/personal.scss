@@ -45,9 +45,22 @@
         height: 100%;
         padding: 1rem;
 
+        &__header {
+            &--flex {
+                display: flex;
+                justify-content: normal;
+                margin: 1rem 0;
+
+                > h5 {
+                    margin-left: .5rem;
+                }
+            }
+        }
+
         p {
             width: calc(100% - (80px + 16px));
             height: 54px;
+            font-size: 1rem;
             overflow: hidden;
             display: -moz-box;
             display: -webkit-box;
@@ -193,6 +206,7 @@ $desktop-card-image-height: 160px;
             p {
                 margin-bottom: 0;
                 padding-bottom: 16px;
+                font-size: 1.2rem;
                 border-bottom: 1px solid $shade-5;
                 overflow: visible;
                 display: block;

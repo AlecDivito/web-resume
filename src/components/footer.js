@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import PropTypes from 'prop-types';
 import "./footer.scss";
 
-const Footer = ({ siteLinks, children }) => (
+const Footer = ({ siteLinks, projectPosts, children }) => (
   <footer className="footer">
       <div className="footer__top layout--max-width">
         <div className="footer__top__about">
@@ -13,9 +13,15 @@ const Footer = ({ siteLinks, children }) => (
             an aspiring designer and machine learning engineer.
           </p>
         </div>
-        <div className="footer__top__blog">
-          {/* <h3>Latest Blogs</h3>
-          <ul></ul> */}
+        <div className="footer__top__site">
+          <h3>Projects</h3>
+          <ul className="footer__top__site__list">
+            {projectPosts.filter(p => p.blogPost).map(p => (
+              <li key={p.id} >
+                <Link className="link" to={p.blogPost}>{p.title}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="footer__top__site">
           <h3>Site Links</h3>
@@ -45,6 +51,11 @@ Footer.propTypes = {
     link: PropTypes.string.isRequired,
     ready: PropTypes.bool.isRequired,
     id: PropTypes.string.isRequired
+  })).isRequired,
+  projectPosts: PropTypes.arrayOf(PropTypes.exact({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    blogPost: PropTypes.string.isRequired,
   })).isRequired,
   children: PropTypes.node
 }
