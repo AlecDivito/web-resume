@@ -47,14 +47,19 @@ const ProjectTemplate = ({data}) => {
     if (project.frontmatter.images) {
         project.frontmatter.images.forEach((image, i) => {
             const { childImageSharp, publicURL } = image;
-            const { fluid } = childImageSharp;
-            const name = fluid.originalName.split(".");
-            images[name[0]] = ({ alt }) =>
-               fluid ? (
-                <Img fluid={fluid} alt={alt} />
-                ) : (
-                <img src={publicURL || ''} alt={alt}/>
-            );
+            // public urls normally look like: "/static/gradient_bicubic-676f728568c6798ea9686d6a6ef2c3e8.bmp"
+            // we want to try and get "gradient_bicubic"
+            let publicUrlName = publicURL.split("/");
+            let name = publicUrlName[publicUrlName.length - 1].split("-")[0];
+            // if we have a childImageShape, we can just get the name normally
+            if (childImageSharp != null) {
+                name = childImageSharp.fluid.originalName.split(".")[0];
+            }
+            console.log(name, publicURL, childImageSharp != null)
+            images[name] = ({ alt, caption }) =>
+                (childImageSharp != null)
+                    ? <Img fluid={childImageSharp.fluid} alt={alt} />
+                    : <img className="image--child" src={publicURL} alt={alt}/>;
         });
     }
 
