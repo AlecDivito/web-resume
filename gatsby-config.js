@@ -51,9 +51,12 @@ module.exports = {
               quality: 75,
               withWebp: true,
             }
+          },
+          {
+            resolve: 'gatsby-remark-prismjs',
           }
         ],
-        plugins: ['gatsby-remark-images'],
+        plugins: ['gatsby-remark-images' ],
       }
     },
     {
