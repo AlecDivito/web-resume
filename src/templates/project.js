@@ -55,7 +55,6 @@ const ProjectTemplate = ({data}) => {
             if (childImageSharp != null) {
                 name = childImageSharp.fluid.originalName.split(".")[0];
             }
-            console.log(name, publicURL, childImageSharp != null)
             images[name] = ({ alt, caption }) =>
                 (childImageSharp != null)
                     ? <Img fluid={childImageSharp.fluid} alt={alt} />

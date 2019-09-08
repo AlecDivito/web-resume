@@ -7,6 +7,7 @@ import Img from "gatsby-image";
 import "./personal.scss";
 import Header from "../components/header";
 import StatusDot from "../components/statusDot";
+import Tag from "../components/tag";
 
 const query = graphql`
 query GetPersonalProjectsData {
@@ -67,7 +68,7 @@ const PersonalsPage = () => {
                             </p>
                             <h5 className="card__content__title--secondary">Technologies</h5>
                             <div className="card__content__tags">
-                                {t.technologies.map((tag, i) => <span className="tag" key={i} >{tag}</span>)}
+                                {t.technologies.map((tag, i) => <Tag text={tag} key={i} />)}
                             </div>
                             <div className="card__content__footer">
                                 {(t.blogPost) ?

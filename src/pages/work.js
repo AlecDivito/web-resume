@@ -6,6 +6,7 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import "./work.scss"
 import Header from "../components/header";
+import Tag from "../components/tag";
 
 const query = graphql`
 query GetWorkData {
@@ -115,11 +116,9 @@ const WorkPage = () => {
           {data.allSkillsJson.nodes.map(t =>
             <div className="skills__type" key={t.id}>
               <h3 className="skills__type__header">{t.section}</h3>
-              <ul className="skills__type__list">
-                {t.skills.map((s, index) =>
-                  <li key={index}>{s}</li>
-                )}
-              </ul>
+              <div className="skills__type__list">
+                {t.skills.map((s, index) => <Tag key={index} text={s} /> )}
+              </div>
             </div>
           )}
         </div>
