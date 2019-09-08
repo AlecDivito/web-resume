@@ -89,6 +89,18 @@ $shades-list: (
     }
 }
 
+@media(max-width: $tablet-large) {
+    .image--grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: $tablet-large - 200px) {
+    .image--grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .link {
     transition: 0.3s color ease;
     position: relative;

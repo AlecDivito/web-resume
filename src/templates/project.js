@@ -91,7 +91,7 @@ const ProjectTemplate = ({data}) => {
                         <img src="/svgs/right-arrow.svg" alt="right arrow" />
                         <span>{project.frontmatter.endDate}</span>
                     </span>
-                    <span className="project__header--text">
+                    <span className="project__header--text left">
                         {project.frontmatter.totalTime}
                     </span>
                 </h3>

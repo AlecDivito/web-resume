@@ -30,6 +30,10 @@
                     margin-left: 0rem;
                 }
             }
+
+            &.left {
+                line-height: 2.2rem;
+            }
         }
     }
 
@@ -87,6 +91,15 @@
                 bottom: -6px;
                 width: 24px;
             }
+        }
+    }
+}
+
+@media(max-width: $tablet-large) {
+    .project__header--text {
+
+        img {
+            margin: 0 0.5rem;
         }
     }
 }
