@@ -64,7 +64,7 @@
         "shortDescription": "This website, made with gatsby",
         "blogPost": "/personal/website",
         "githubLink": "https://github.com/AlecDivito/bomb-finder",
-        "siteLink": null
+        "siteLink": "https://alecdivito.github.io/"
     },
     {
         "title": "Budgetise",
@@ -112,6 +112,6 @@
         "shortDescription": "Tetris clone with a focus on developing the logic in rust and wasm",
         "blogPost": null,
         "githubLink": "https://github.com/AlecDivito/weby-rusty-tetris",
-        "siteLink": null
+        "siteLink": "https://alecdivito.github.io/weby-rusty-tetris/"
     }
 ]

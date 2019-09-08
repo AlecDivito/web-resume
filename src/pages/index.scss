@@ -39,6 +39,7 @@
         justify-content: center;
         align-content: center;
         flex-direction: column;
+        text-align: center;
         
         &--name {
             margin: 0;
@@ -68,6 +69,7 @@
         &--learn {
             font-size: 1.15rem;
             color: $shade-6;
+            margin: 0 auto;
 
             &:hover {
                 color: $shade-8;
@@ -171,6 +173,18 @@
     &--volunteer {
         &__item {
             grid-template-columns: 0.25fr 1fr; 
+        }
+    }
+
+    &--social {
+        &__item {
+            grid-template-columns: 50px 1fr;
+
+            img {
+                width:  45px;
+                height: 45px;
+                filter: invert(1);
+            }
         }
     }
 }

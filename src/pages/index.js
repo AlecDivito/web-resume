@@ -168,6 +168,15 @@ const query = graphql`
         }
       }
     }
+    allExternalNavJson {
+      nodes {
+        id
+        image
+        link
+        type
+        alt
+      }
+    }
   }
 `;
 
@@ -278,6 +287,18 @@ const IndexPage = () => {
               <span>{p.time}</span>
               <span>{p.job}</span>
             </Link>  
+            )}
+          </div>
+        </section>
+
+        <section className="home__section home--social">
+          <h1>Social</h1>
+          <div className="home__section__list">
+            {data.allExternalNavJson.nodes.map( (e) =>
+              <a href={e.link} target="_blank" rel="noopener noreferrer" className="home__section__list__item home--social__item">
+                <img src={e.image} alt={e.alt} />
+                <span>{e.type}</span>
+              </a>
             )}
           </div>
         </section>
