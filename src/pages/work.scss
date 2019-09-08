@@ -2,6 +2,7 @@
 
 .work {
     padding-top: 1rem;
+    padding-bottom: 1rem;
     color: $work-color;
 
     &__description {
@@ -205,6 +206,13 @@
             box-shadow: $nav-box-shadow;
         }
 
+        &__name {
+
+            small {
+                font-size: 1rem;
+            }
+        }
+
         .gatsby-image-wrapper {
             width: 35px;
             height: 35px;
@@ -255,6 +263,17 @@
             }
         }
     }
+
+    .school--section, .volunteer--section {
+        &__item {
+            padding: 2rem;
+            margin: 1rem;
+
+            &__description {
+                display: none;
+            }
+        }
+    }
 }
 
 .skills {
@@ -283,13 +302,6 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-
-            li {
-                padding: 4px 16px;
-                margin: 4px;
-                background-color: $accent-color-5;
-                border-radius: 35px;
-            }
         }
     }
 }
@@ -301,9 +313,6 @@
 
         &__type {
             width: 50%;
-
-            &__list {
-            }
         }
     }
 }

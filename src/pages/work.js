@@ -100,7 +100,7 @@ const WorkPage = () => {
             <li key={n.id} id={n.id} className="school--section__item">
               <Img fluid={n.logo.childImageSharp.fluid} alt={`${n.school} logo`} />
               <span className="school--section__item__name">
-                <strong>{n.achievement}</strong> {n.joiningWord} <strong>{n.program}</strong> at <strong>{n.school}</strong>
+                <span>{n.achievement} {n.joiningWord} {n.program} at {n.school}</span>
                 <br />
                 <small>({n.startDate} - {n.endDate}, {n.gpa})</small>                
               </span>

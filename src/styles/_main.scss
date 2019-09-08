@@ -16,6 +16,7 @@ body, html {
 
 p {
     margin: 1rem 0px;
+    font-size: 1.2rem;
 }
 
 // website blog post
@@ -66,14 +67,25 @@ $shades-list: (
 
 
 // general helper classes for project posts
-.image--grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 8px;
+.image {
+    &--grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 8px;
+        
+        .gatsby-image-wrapper {
+            // height: 200px;
     
-    .gatsby-image-wrapper {
-        // height: 200px;
+        }
+    }
 
+    &--child {
+        width: 100%;
+    }
+
+    &--center {
+        max-width: $tablet-large - 300px;
+        margin: auto;
     }
 }
 
