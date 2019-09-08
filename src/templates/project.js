@@ -55,10 +55,18 @@ const ProjectTemplate = ({data}) => {
             if (childImageSharp != null) {
                 name = childImageSharp.fluid.originalName.split(".")[0];
             }
-            images[name] = ({ alt, caption }) =>
-                (childImageSharp != null)
+            images[name] = ({ alt, caption }) => (
+                <figure>
+                {(childImageSharp != null)
                     ? <Img fluid={childImageSharp.fluid} alt={alt} />
-                    : <img className="image--child" src={publicURL} alt={alt}/>;
+                    : <img className="image--child" src={publicURL} alt={alt}/>
+                }
+                {(caption != null && caption.length > 0)
+                    ? <figcaption>{caption}</figcaption>
+                    : null
+                }
+                </figure>
+            )
         });
     }
 

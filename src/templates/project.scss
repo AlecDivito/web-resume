@@ -1,3 +1,5 @@
+@import "../styles/variables";
+
 .project {
     padding: 1.5rem;
     > * {
@@ -18,18 +20,32 @@
             margin-top: 1.5rem;
         }
 
-        ul {
+        ul, ol {
             margin-top: 1rem;
-            margin-left: 2rem;
+            margin-left: 1.5rem;
         }
 
         li {
             color: rgba(0, 0, 0, 0.84);
         }
 
-        p {
-            color: rgba(0, 0, 0, 0.84);
+        ol > li {
+            margin-top: 1rem;
         }
 
+        ul > li {
+            margin-top: 1rem;
+        }
+
+        p {
+            color: rgba(0, 0, 0, 0.84);
+            line-height: 2.2rem;
+        }
+
+        figcaption {
+            font-size: 1rem;
+            color: $shade-7;
+            text-align: center;
+        }
     } 
 }

@@ -234,7 +234,9 @@ const IndexPage = () => {
         
         <section className="home__section home--work">
           <div aria-label="index--page-anchor" id="index--page-anchor" />
-          <h1>Work</h1>
+          <h1>
+            <Link className="link" to="/work">Work</Link>
+          </h1>
           <div className="home__section__list">
             {data.allWorkJson.nodes.map(p => 
             <Link to={`/work#${p.id}`} className="home__section__list__item home--work__item" key={p.id}>
@@ -247,7 +249,9 @@ const IndexPage = () => {
         </section>
 
         <section className="home__section home--projects">
-          <h1>Projects</h1>
+          <h1>
+            <Link className="link" to="/personal">Projects</Link>
+          </h1>
           <div className="home__section__list">
             {data.allProjectsJson.nodes.map((p) => 
               <Link to={(p.blogPost) ? p.blogPost : `/personal#${p.id}`} className="home__section__list__item home--projects__item" key={p.id}>
@@ -267,7 +271,9 @@ const IndexPage = () => {
         </section>
 
         <section className="home__section home--school">
-          <h1>School</h1>
+          <h1>
+            <Link className="link" to="/work">School</Link>
+          </h1>
           <div className="home__section__list">
             {data.allSchoolJson.nodes.map((p, id) => 
               <Link to={`/work#${p.id}`} className="home__section__list__item home--school__item" key={id}>
@@ -280,7 +286,9 @@ const IndexPage = () => {
         </section>
 
         <section className="home__section home--volunteer">
-          <h1>Volunteer</h1>
+          <h1>
+            <Link className="link" to="/work">Volunteer</Link>
+          </h1>
           <div className="home__section__list">
             {data.allVolunteerJson.nodes.map((p, id) => 
             <Link to={`/work#${p.id}`} className="home__section__list__item home--volunteer__item" key={id}>
