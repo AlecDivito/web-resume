@@ -41,7 +41,7 @@ const PersonalsPage = () => {
         <Layout>
             <SEO title="Projects" />
             <section className="personal layout--max-width">
-                <Header text="Featured Personal Projects" isCenter={true} />
+                <Header text="Personal Projects" isCenter={true} />
                 <p className="personal__description">These are the projects that I'm most proud of and like to show off!</p>
                 <div className="personal__cards">
                 {data.allProjectsJson.nodes.map((t) =>

@@ -48,6 +48,7 @@ query GetWorkData {
       school
       program
       joiningWord
+      relevantCourses
       logo {
         childImageSharp {
           fluid {
@@ -108,7 +109,10 @@ const WorkPage = () => {
                 <br />
                 <small>({n.startDate} - {n.endDate}, {n.gpa})</small>                
               </span>
-              <span className="school--section__item__description">{n.description}</span>
+              <div className="school--section__item__description">
+                {n.relevantCourses.map((t, i) => <Tag text={t} key={i} />)}
+              </div>
+              {/* <span className="school--section__item__description">{n.description}</span> */}
             </li>
           )}
         </ul>

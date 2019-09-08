@@ -49,10 +49,10 @@ const ContactPage = () => (
   <Layout>
     <SEO title="Contact Me" />
     <div className="contact">
-      <Header text="I Can't wait to learn more about you!" isCenter={true} />
+      <Header text="Why not get in touch!" isCenter={true} />
       <p className="contact__text">
-        Whether you just wanna say <span role="img" aria-label="Hi">🖐</span> ‘Hi’ or tell me about your next project,
-        please do not hesitate to drop a line <span role="img" aria-label="Smiley Face">😊</span>
+        Weather you want to ask me some questions or just tell me about a project
+        your working on, don't hesitate to tell me what's up!
       </p>
       <form className="contact__form" action="https://formcarry.com/s/UArougfMt9W" method="POST" acceptCharset="UTF-8">
         {/* TODO: Add a topic drop down (stuff like general inquiry or work together or peep) */}

@@ -35,7 +35,7 @@ const AboutPage = () => {
               My name is <strong>Alec Di Vito</strong>. I'm a creative, ambitious, and enterprising software engineer.
             </p>
             <p className="about__intro">
-              Currently I'm looking for possible co-op opportunities for the 2020 Winter
+              Currently I'm looking for co-op opportunities for the 2020 Winter
               and Summer semesters. If you like what you see and want to work with me
               <strong><Link className="link link--default-color" to="/contact"> please get in touch.</Link></strong>
             </p>
