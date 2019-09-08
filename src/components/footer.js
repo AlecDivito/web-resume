@@ -55,7 +55,7 @@ Footer.propTypes = {
   projectPosts: PropTypes.arrayOf(PropTypes.exact({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    blogPost: PropTypes.string.isRequired,
+    blogPost: PropTypes.string,
   })).isRequired,
   children: PropTypes.node
 }

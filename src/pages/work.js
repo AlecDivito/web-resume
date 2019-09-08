@@ -18,6 +18,7 @@ query GetWorkData {
       id
       position
       startDate
+      utilized
     }
   }
   allSkillsJson {
@@ -86,6 +87,9 @@ const WorkPage = () => {
                 <h3 className="event__header">{w.position} <small>at</small> {w.company}</h3>
                 <p className="event__dates">{w.startDate} - {w.endDate}</p>
                 <p className="event__description">{w.description}</p>
+                <div className="event__tags">
+                  {w.utilized.map((text, i) => <Tag text={text} key={i} />)}
+                </div>
               </div>
             </li>
           ))}

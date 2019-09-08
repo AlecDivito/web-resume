@@ -295,7 +295,7 @@ const IndexPage = () => {
           <h1>Social</h1>
           <div className="home__section__list">
             {data.allExternalNavJson.nodes.map( (e) =>
-              <a href={e.link} target="_blank" rel="noopener noreferrer" className="home__section__list__item home--social__item">
+              <a key={e.id} href={e.link} target="_blank" rel="noopener noreferrer" className="home__section__list__item home--social__item">
                 <img src={e.image} alt={e.alt} />
                 <span>{e.type}</span>
               </a>
