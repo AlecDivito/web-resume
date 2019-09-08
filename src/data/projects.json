@@ -73,9 +73,9 @@
         "status": "archived",
         "image": "./images/budgetise.png",
         "logo": "./images/budgetise_logo.png",
-        "startDate": "",
-        "endDate": "",
-        "totalTime": "",
+        "startDate": "Jan 2018",
+        "endDate": "Dec 2018",
+        "totalTime": "1 year",
         "technologies": [
             "Angular 2+",
             "Express",

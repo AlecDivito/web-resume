@@ -1,6 +1,7 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import SEO from "../components/seo"
 import Img from "gatsby-image";
 import Header from "../components/header";
 import Layout from "../components/layout";
@@ -11,8 +12,12 @@ export const query = graphql`
         mdx(fields: {slug: {eq: $slug}}) {
             frontmatter {
                 author
-                date
+                startDate
+                endDate
+                totalTime
                 title
+                next
+                previous
                 images {
                     publicURL
                     childImageSharp {
@@ -70,13 +75,44 @@ const ProjectTemplate = ({data}) => {
         });
     }
 
+    // startDate
+    // endDate
+    // totalTime
+
     return (
         <Layout>
+            <SEO title={project.frontmatter.title} />
             <section className="project layout--max-width">
                 <Header text={project.frontmatter.title} isCenter={true} />
-                <h3>{project.frontmatter.author}</h3> - {project.frontmatter.date}
-                <div className="project__content">
+                <h3 className="project__header">
+                    <span className="project__header--text">
+                        <img src="/svgs/time.svg" alt="time icon" />
+                        <span>{project.frontmatter.startDate}</span>
+                        <img src="/svgs/right-arrow.svg" alt="right arrow" />
+                        <span>{project.frontmatter.endDate}</span>
+                    </span>
+                    <span className="project__header--text">
+                        {project.frontmatter.totalTime}
+                    </span>
+                </h3>
+                <article className="project__content">
                     <MDXRenderer images={images} >{project.body}</MDXRenderer>
+                </article>
+                <div className="project__footer">
+                    {(project.frontmatter.next !== "")
+                        ? <Link className="project__footer--link link" to={`/personal/${project.frontmatter.next}`}>
+                            <img className="img" src="/svgs/left-arrow.svg" alt="left arrow" />
+                            {project.frontmatter.next}
+                        </Link>
+                        : <div />
+                    }
+                    {(project.frontmatter.previous !== "")
+                        ? <Link className="project__footer--link link" to={`/personal/${project.frontmatter.previous}`}>
+                            {project.frontmatter.previous}
+                            <img className="img" src="/svgs/right-arrow.svg" alt="right arrow" />
+                        </Link>
+                        : <div />
+                    }
                 </div>
             </section>
         </Layout>

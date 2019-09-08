@@ -1,5 +1,6 @@
 [
     {
+        "website": null,
         "startDate": "Sep 2019",
         "endDate": "Present",
         "company": "Sheridan Center for Mobile Innovation",
@@ -11,6 +12,7 @@
         ]
     },
     {
+        "website": null,
         "startDate": "Jan 2019",
         "endDate": "April 2019",
         "company": "Sheridan Center for Mobile Innovation",
@@ -25,6 +27,7 @@
         ]
     },
     {
+        "website": "http://digitalinnovation.mapleleaffoods.com/",
         "startDate": "May 2018",
         "endDate": "Aug 2018",
         "company": "Maple Leaf Foods",
@@ -42,6 +45,7 @@
         ]
     },
     {
+        "website": null,
         "startDate": "Sep 2017",
         "endDate": "Dec 2017",
         "company": "Ontario Government",
