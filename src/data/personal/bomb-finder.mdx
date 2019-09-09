@@ -36,14 +36,6 @@ called proxx<sup>[[1](#proxx)]</sup>.
 4. Bomb Finder should feel like a native app experience.
 5. Canvas2d must be used for the game board
 
-The goal was to remake minesweeper and create a PWA (progressive web app) that scored 100 in all of
-the fields on the lighthouse browser test. I also wanted to gain experience using
-IndexDB as a way of keeping state on the client side as well as learning how to
-create fun experiences using the browsers 2D engine, Canvas2d. The power of havening
-the web app as a PWA meant that user could download the app to they're home just
-by visiting the page. There was no need for the user to download our app from the
-app store.
-
 ## Technologies
 
 Bomb Finder is build with React and Typescript. It currently isn't connected to
@@ -118,7 +110,7 @@ One of the problems I wasn't able to solve was caused because of the Typescript 
 interact with IndexDB. To understand the problem you need to understand what CRA
 does while compiling the program for development and what it does to compile the
 program for production. While in development mode all of the classes
-name's aren't simplified, this means when you call ```Javascript function.constructor.name ```
+name's aren't simplified, this means when you call ```function.constructor.name ```
 you get the name of the class. In production all the class names are simplified
 meaning that the name of the class at runtime has changed. Have the class name
 change is a big deal during runtime because that means we need to manually set

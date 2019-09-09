@@ -39,6 +39,7 @@
 
     &__content {
         margin-top: 1rem;
+        margin-bottom: 2rem;
         font-size: 1.2rem;
         line-height: 1.58;
 
@@ -79,11 +80,11 @@
         }
     }
 
-    &__footer {
+    &__nav {
         display: flex;
         justify-content: space-between;
-        margin-top: 2rem;
         font-size: 1.2rem;
+        margin-bottom: 2rem;
 
         &--link {
             position: relative;

@@ -46,6 +46,25 @@ export const query = graphql`
     }
 `;
 
+const Navigation = ({ textRight, textLeft }) => (
+    <div className="project__nav">
+        {(textRight !== "")
+            ? <Link className="project__nav--link link" to={`/personal/${textRight}`}>
+                <img className="img" src="/svgs/left-arrow.svg" alt="left arrow" />
+                {textRight}
+            </Link>
+            : <div />
+        }
+        {(textLeft !== "")
+            ? <Link className="project__nav--link link" to={`/personal/${textLeft}`}>
+                {textLeft}
+                <img className="img" src="/svgs/right-arrow.svg" alt="right arrow" />
+            </Link>
+            : <div />
+        }
+    </div>
+)
+
 const ProjectTemplate = ({data}) => {    
     const project = data.mdx;
     let images = {};
@@ -75,14 +94,11 @@ const ProjectTemplate = ({data}) => {
         });
     }
 
-    // startDate
-    // endDate
-    // totalTime
-
     return (
         <Layout>
             <SEO title={project.frontmatter.title} />
             <section className="project layout--max-width">
+                {/* <Navigation textRight={project.frontmatter.next} textLeft={project.frontmatter.previous} /> */}
                 <Header text={project.frontmatter.title} isCenter={true} />
                 <h3 className="project__header">
                     <span className="project__header--text">
@@ -98,22 +114,7 @@ const ProjectTemplate = ({data}) => {
                 <article className="project__content">
                     <MDXRenderer images={images} >{project.body}</MDXRenderer>
                 </article>
-                <div className="project__footer">
-                    {(project.frontmatter.next !== "")
-                        ? <Link className="project__footer--link link" to={`/personal/${project.frontmatter.next}`}>
-                            <img className="img" src="/svgs/left-arrow.svg" alt="left arrow" />
-                            {project.frontmatter.next}
-                        </Link>
-                        : <div />
-                    }
-                    {(project.frontmatter.previous !== "")
-                        ? <Link className="project__footer--link link" to={`/personal/${project.frontmatter.previous}`}>
-                            {project.frontmatter.previous}
-                            <img className="img" src="/svgs/right-arrow.svg" alt="right arrow" />
-                        </Link>
-                        : <div />
-                    }
-                </div>
+                <Navigation textRight={project.frontmatter.next} textLeft={project.frontmatter.previous} />
             </section>
         </Layout>
     );
