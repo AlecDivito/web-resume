@@ -156,6 +156,15 @@ class Preferences {
 This could be solved by ejecting the build config but that is a massive downside
 compared to just hard coding the table name to all of the fields and table.
 
+## The Problem of updating
+
+So when rendering to the screen we want the canvas to run at 60fps. When running
+at this speed we need to keep track of time. To render one would normally call
+to ```Javascript window.requestAnimationFrame(callback)``` and inside the call
+back you would receive a time in micro seconds on how long the current page has
+been opened? The problem comes when a user clicks off the page and then clicks
+on again and the time would sky rocket
+
 ## Project Status
 
 This project is at a finished stage. It is completed and is fully
