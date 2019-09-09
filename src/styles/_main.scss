@@ -16,4 +16,152 @@ body, html {
 
 p {
     margin: 1rem 0px;
+    font-size: 1.2rem;
+}
+
+// website blog post
+$primary-color-list: (
+    1: $primary-color-1, 2: $primary-color-2, 3: $primary-color-3, 4: $primary-color-4,
+    5: $primary-color-5, 6: $primary-color-6, 7: $primary-color-7, 8: $primary-color-8,
+    9: $primary-color-9,
+);
+$accent-color-list: (
+    1: $accent-color-1, 2: $accent-color-2, 3: $accent-color-3, 4: $accent-color-4,
+    5: $accent-color-5, 6: $accent-color-6, 7: $accent-color-7, 8: $accent-color-8,
+    9: $accent-color-9,
+);
+$shades-list: (
+    1: $shade-1, 2: $shade-2, 3: $shade-3, 4: $shade-4,
+    5: $shade-5, 6: $shade-6, 7: $shade-7, 8: $shade-8,
+    9: $shade-9,
+);
+@each $i, $color in $primary-color-list {
+    .primary-#{$i} { background-color: $color; }
+}
+@each $i, $color in $accent-color-list {
+    .accent-#{$i} { background-color: $color; }
+}
+@each $i, $color in $shades-list {
+    .shade-#{$i} { background-color: $color; }
+}
+
+.color--square {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin: 0.5rem;
+    box-shadow: inset 0px 0px 2px rgba(0,0,0,0.9);
+    border-radius: 5px;
+}
+
+
+.old-primary-1 { background-color: #ff3860; }
+.old-accent-1 { background-color: #79ff38; }
+.old-shade-1 { background-color: #FFF; }
+.old-shade-2 { background-color: #333; }
+
+// bomb finder
+.bf-shade-1 { background-color: #FFF; }
+.bf-shade-2 { background-color: #333; }
+.bf-shade-3 { background-color: #000; }
+
+
+// general helper classes for project posts
+.image {
+    &--grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 8px;
+        
+        .gatsby-image-wrapper {
+            // height: 200px;
+    
+        }
+    }
+
+    &--child {
+        width: 100%;
+    }
+
+    &--center {
+        max-width: $tablet-large - 300px;
+        margin: auto;
+    }
+}
+
+@media(max-width: $tablet-large) {
+    .image--grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: $tablet-large - 200px) {
+    .image--grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.link {
+    transition: 0.3s color ease;
+    position: relative;
+    width: fit-content;
+    text-decoration: none;
+
+    &--button {
+        color: $primary-color-8;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 1rem;
+        background-color: $primary-color-1;
+        transition: background-color .25s ease;
+        line-height: 0.5rem;
+        border-radius: 5px;
+
+
+        &:hover {
+            background-color: $primary-color-2;
+        }
+    }
+
+    &.active {
+        &::after {
+            width: 100%;
+        }
+    }
+
+    &.link--default-color {
+        color: $shade-7;
+        &:hover {
+            color: $shade-9;
+        }
+    }
+
+    &::before, &::after {
+        content: "";
+        transition: 0.3s width ease;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        position: absolute;
+        height: 5px;
+        width: 0px;
+        background-color: $accent-color-5;
+    }
+    
+    &::before {
+        right: 0px;
+        top: -0.25em;
+    }
+
+    &::after {
+       left: 0px;
+       bottom: -0.25em;
+    }
+
+
+    &:hover {
+        &::before, &::after {
+            width: 100%; 
+        }
+    }
 }

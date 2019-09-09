@@ -1,24 +1,165 @@
 ---
-title: "Bomb Finder"
-date: "2019-07-10"
+title: "Project: Rustbitmap"
+startDate: "July 2019"
+endDate: "Aug 2019"
+totalTime: "2 months"
 author: "Alec Di Vito"
-images: "./images/bitmap_logo.png" 
+next: "bomb-finder"
+previous: "website"
+images:
+    - ../images/bitmap_logo.png
+    - ../images/personal/rustbitmap/gradient_nearest_neighbor.bmp
+    - ../images/personal/rustbitmap/gradient_bilinear.bmp
+    - ../images/personal/rustbitmap/gradient_bicubic.bmp
+    - ../images/personal/rustbitmap/example.bmp
+    - ../images/personal/rustbitmap/picture_nearest_neighbor.bmp
+    - ../images/personal/rustbitmap/picture_bilinear.bmp
+    - ../images/personal/rustbitmap/picture_bicubic.bmp
 ---
 
 ## Overview
 
+Rustbitmap is a small rust library used to read, write and edit bitmaps.
+
 ## Goals
 
-## Technologies
+1. Get used to reading and implementing specification documents
+2. Ability write and read in most types of bitmaps
+3. Testing
+4. Deploy the crate
+5. Use no dependencies
 
-## Design Process
+## Technologies
+ 
+Rust was chosen because I am learning it in my free time and I really like it's
+types system. I also believe it to be the future after it reaches an muchirtiy.
+It's include package manager make's working with it a lot of fun as well. The
+main reason why I didn't code this in C++ was because rust would be less code,
+cleaner code, and the best part is that it would be safe.
+
+I added continuous integration as well as tests to make sure the functions I
+implemented work.
 
 ## Difficulties
 
+The biggest hurdle was reading and writing files with a different bitcount (or depth count).
+It also took me awhile to get my head around bitcount and depth
+
+Another difficulty I faced was implementing image resizing. Nearest neighbor was
+simple but when jumping up to bilinear and bicubic resizing I initially had
+difficult understanding the concept. Although after watching some helpful
+video's by computerphile on Youtube and reading some online articles it became
+clear to me and I was able to implement it in a couple of hours.
+
+One of the smaller issues when implementing bicubic was it's tendency to sometimes
+over or under shoot it's possible range of values overflowing the bit. I ran into
+this issue for a day and it took a couple of hours to figure out what was going
+wrong.
+
 ## Project Status
+
+This project is done. It works for most bitmaps found in the wild now-a-days
+(which isn't common).
 
 ## Results
 
+This is all about images and bitmaps so why don't we make some and talk about
+the size of them. Lets start off with gradients and move on from there. Using the
+code below we can expand a 3-by-3 cube by 10000% (300-by-300):
+
+```Rust
+extern crate rustbitmap;
+
+use rustbitmap::{BitMap, Rgba};
+
+fn main() {
+    let pixels = vec![Rgba::rgb(255, 0, 0), Rgba::rgb(127, 0, 127), Rgba::rgb(0, 0, 255),
+                      Rgba::rgb(127, 127, 0), Rgba::white(), Rgba::rgb(0, 0, 127),
+                      Rgba::rgb(0, 255, 0), Rgba::rgb(0, 127, 0), Rgba::rgb(0, 127, 127)];
+    let mut nearest_neighbor = BitMap::create(3, 3, pixels.clone()).unwrap();
+    let mut bilinear = BitMap::create(3, 3, pixels.clone()).unwrap();
+    let mut bicubic = BitMap::create(3, 3, pixels.clone()).unwrap();
+
+    nearest_neighbor.fast_resize_by(125.0).unwrap();
+    bilinear.resize_by(125.0).unwrap();
+    bicubic.slow_resize_by(125.0).unwrap();
+
+    nearest_neighbor.simplify_and_save_as("gradient_nearest_neighbor.bmp").unwrap();
+    bilinear.simplify_and_save_as("gradient_bilinear.bmp").unwrap();
+    bicubic.simplify_and_save_as("gradient_bicubic.bmp").unwrap();
+}
+```
+
+Produces images like these:
+
+<div class="image--grid">
+    <props.images.gradient_nearest_neighbor caption="Nearest Neighbor (300x300, 45.7KB)" alt="nearest neighbor gradient" />
+    <props.images.gradient_bilinear caption="Bilinear (300x300, 270.1KB)" alt="bilinear gradient" />
+    <props.images.gradient_bicubic caption="Bicubic (300x300, 270.1KB)" alt="bicubic gradient" />
+</div>
+
+We can also read in images so why don't we do that. I have a source image and let's
+resize it to
+
+<div class="image--center">
+    <props.images.example caption="source image (640x450, 864.1KB)" alt="flower" />
+</div>
+
+Using the code:
+
+```Rust
+extern crate rustbitmap;
+
+use rustbitmap::{BitMap};
+
+fn main() {
+    let mut nearest_neighbor = BitMap::read("example.bmp").unwrap();
+    let mut bilinear = BitMap::read("example.bmp").unwrap();
+    let mut bicubic = BitMap::read("example.bmp").unwrap();
+
+    nearest_neighbor.fast_resize_by(0.25).unwrap();
+    bilinear.resize_by(0.25).unwrap();
+    bicubic.slow_resize_by(0.25).unwrap();
+
+    nearest_neighbor.simplify_and_save_as("picture_nearest_neighbor.bmp").unwrap();
+    bilinear.simplify_and_save_as("picture_bilinear.bmp").unwrap();
+    bicubic.simplify_and_save_as("picture_bicubic.bmp").unwrap();
+}
+```
+
+<div class="image--grid">
+    <props.images.picture_nearest_neighbor caption="Nearest Neighbor (460x113, 54.3KB)" alt="nearest neighbor gradient" />
+    <props.images.picture_bilinear caption="Bilinear (460x113, 54.3KB)" alt="bilinear gradient" />
+    <props.images.picture_bicubic caption="Bicubic (460x113, 54.3KB)" alt="bicubic gradient" />
+</div>
+
 ## What's Next
 
+Adding some support for compiling the library down to webassembly. One of my
+interests is being able to share code across code bases. I have attempted this
+and am currently looking at a way of implementing it.
+
+If and when I can compile it down to web assembly, I'll be posting a live demo
+here to be for readers to use and test it out inside of they're browser.
+
 ## Reflections
+
+This library is over designed and isn't usable right off the shelf, but it is
+my first publicly available library. I think adding in the bitmap editing features
+was a bit overkill but on the bright side I was able to implement image resizing
+for linear, bilinear and bicubic interpolation.
+
+I decided to challenge myself and setup a continuous pipeline using travis.ci
+which was also really cool. From now on I want to always have a way for my applications
+to be continuously tested and deployed.
+
+One thing I would want to improve is the lack of traits used in my code. I believe
+my code could have been better if I added that in.
+
+I threw away a lot of my code but I had an better understanding of my problem and
+what I needed to accomplish after prototyping. I feel as though my code
+
+To be honest this project was just a fun small little project to help me get
+more comfortable with rust's low level and to actually deploy it to a package
+registry which I did and for that I'm happy. This project accomplished it's final
+goal, I hope my next project is easily able to out shine this one.

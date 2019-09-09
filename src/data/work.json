@@ -1,34 +1,65 @@
 [
     {
+        "website": null,
         "startDate": "Sep 2019",
         "endDate": "Present",
-        "company": "Sheridan Center for Mobile Innovation",
+        "company": "Sheridan's Center for Mobile Innovation",
         "position": "Software Developer",
         "description": "Using machine learning to create a  facial expression classifier that will strive to accurately determine a person's emotional response to specific stimuli.",
-        "logo": "./images/work/sheridan.jpeg"
+        "logo": "./images/work/sheridan.jpeg",
+        "utilized": [
+            "Python"
+        ]
     },
     {
+        "website": null,
         "startDate": "Jan 2019",
         "endDate": "April 2019",
-        "company": "Sheridan Center for Mobile Innovation",
+        "company": "Sheridan's Center for Mobile Innovation",
         "position": "Software Developer",
-        "description": "At Sheridan's research center I used MatLab, C++, Typescript, and machine learning to detect when people fell. I worked with PointClickCare to implement a solution that was able to detect whether someone has fallen.",
-        "logo": "./images/work/sheridan.jpeg"
+        "description": "Continued research on on-going fall detection project. Collected Falling data manually. Worked with project partners PointClickCare to implement a solution that used Pose Analysis and machine learning.",
+        "logo": "./images/work/sheridan.jpeg",
+        "utilized": [
+            "MatLab",
+            "C++",
+            "Typescript",
+            "Express",
+            "Pose Analysis",
+            "Machine Learning"
+        ]
     },
     {
+        "website": "http://digitalinnovation.mapleleaffoods.com/",
         "startDate": "May 2018",
         "endDate": "Aug 2018",
         "company": "Maple Leaf Foods",
         "position": "IS Digital Developer",
-        "description": "While at Maple Leaf Foods, I worked on multiple projects using languages like Swift for IOS, C#, .Net MVC5, .Net Core 2, React, and Typescript. I extended back-end and front-end functionality for an iOS Plant Down Time app and helped with input on a component library for Maple Leaf Foods.",
-        "logo": "./images/work/mapleleaffoods.png"
+        "description": "Worked on multiple projects. Extended and helped manage deployment of back-end and front-end functionality for an iOS and website Plant Down Time app. Helped with input on a component library for Maple Leaf Foods.",
+        "logo": "./images/work/mapleleaffoods.png",
+        "utilized": [
+            "Typescript",
+            "React",
+            "C#",
+            ".Net MVC5",
+            "Git",
+            "Swift",
+            "Azure"
+        ]
     },
     {
+        "website": null,
         "startDate": "Sep 2017",
         "endDate": "Dec 2017",
         "company": "Ontario Government",
         "position": "Junior Software Developer",
-        "description": "During this role, I developed many skills working with Typescript and Angular 2+. I was given tasks to setup new projects Angular 2+ projects. UsedAzure, VSTS, Angular 2+, .Net Core 2, and NoSql to quickly develop user interface, and anticipate and react to UX needs.",
-        "logo": "./images/work/ontarioGovernment.png"
+        "description": "During this role, I developed many skills working with Typescript and Angular 2+. Given tasks to setup new projects Angular 2+ projects. Quickly develop user interface to anticipate and react to UX needs.",
+        "logo": "./images/work/ontarioGovernment.png",
+        "utilized": [
+            "Typescript",
+            "Angular 2+",
+            "Azure",
+            ".Net Core 2",
+            "NoSql"
+        ]
     }
 ]

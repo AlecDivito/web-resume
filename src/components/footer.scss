@@ -3,7 +3,7 @@
 
 .footer {
     bottom: 0;
-    padding: 1rem;
+    padding: 1rem 1rem 0.25rem 1rem;
     background-color: $nav-background;
     color: $nav-link-color;
 
@@ -12,14 +12,21 @@
         display: flex;
         flex-direction: column;
 
-        &__site__list {
-            display: flex;
-            flex-wrap: wrap;
-            list-style-type: none;
+        &__site {
+            margin: 0rem 1rem;
+            &__list {
+                list-style-type: none;
+                margin-bottom: 1rem;
 
-            li {
-                flex: 1 0 33%;
-                margin: 5px;
+                &.wrap {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+    
+                li {
+                    flex: 1 0 33%;
+                    margin: 8px 8px 8px 0px;
+                }
             }
         }
     }
@@ -67,13 +74,17 @@
 
         &__bottom {
             flex-direction: row;
+            flex-direction: row;
+            justify-content: space-between;
+            text-align: start;
+            padding: 0rem 1rem;
 
             &__copyright {
-                line-height: 3.4rem;
+                line-height: 4rem;
             }
 
             > * {
-                width: 100%;
+                width: 75%;
             }
         }
     }

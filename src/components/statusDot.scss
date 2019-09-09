@@ -1,0 +1,70 @@
+// pulsating dot https://codepen.io/vram1980/pen/Kyaie
+@import "../styles/variables";
+
+.status {
+    &--container {
+        position: relative;
+        margin: auto;
+        width: 15px;
+        height: 15px;
+    }
+    
+    &--circle {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        position: absolute;
+        // top: 23px;
+        // left: 23px;
+
+        &.completed {
+            background-color: $brand-success; // #62bd19;
+        }
+
+        &.archived {
+            background-color: $brand-warning;
+        }
+
+        &.active {
+            background-color: $brand-danger;
+        }
+    }
+    
+    &--ringring {
+        border-radius: 30px;
+        height: 25px;
+        width: 25px;
+        position: absolute;
+        left: -5px;
+        top: -5px;
+        animation: pulsate 1s ease-out;
+        animation-iteration-count: infinite; 
+        opacity: 0.0;
+
+        &.completed {
+            border: 3px solid $brand-success; // #62bd19;
+        }
+
+        &.archived {
+            border: 3px solid $brand-warning;
+        }
+
+        &.active {
+            border: 3px solid $brand-danger;
+        }
+    }
+}
+
+
+@keyframes pulsate {
+    0% {transform: scale(0.1, 0.1); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {transform: scale(1.2, 1.2); opacity: 0.0;}
+}
+
+@media (max-width: $tablet-large) {
+
+    .status--container {
+        margin: 0rem 0rem;
+    }
+}

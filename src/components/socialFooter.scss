@@ -2,7 +2,7 @@
 
 .footer--social {
     width: 100%;
-    padding: .5rem;
+    padding: .5rem 0rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -27,5 +27,12 @@
 }
 
 @media (min-width: $tablet-large) {
+    .footer--social {
+        width: 25%;
+        justify-content: end;
 
+        &__icon {
+            margin-right: 2.5rem;
+        }
+    }
 }

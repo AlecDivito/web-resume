@@ -6,6 +6,8 @@ import Img from "gatsby-image";
 
 import "./personal.scss";
 import Header from "../components/header";
+import StatusDot from "../components/statusDot";
+import Tag from "../components/tag";
 
 const query = graphql`
 query GetPersonalProjectsData {
@@ -14,6 +16,7 @@ query GetPersonalProjectsData {
             id
             stage
             title
+            status
             technologies
             description
             blogPost
@@ -38,7 +41,7 @@ const PersonalsPage = () => {
         <Layout>
             <SEO title="Projects" />
             <section className="personal layout--max-width">
-                <Header text="Featured Personal Projects" isCenter={true} />
+                <Header text="Personal Projects" isCenter={true} />
                 <p className="personal__description">These are the projects that I'm most proud of and like to show off!</p>
                 <div className="personal__cards">
                 {data.allProjectsJson.nodes.map((t) =>
@@ -53,18 +56,23 @@ const PersonalsPage = () => {
                             </span>
                         }
                         <div className="card__content">
-                            <h3>{t.title}</h3>
-                            <h5>{t.stage}</h5>
+                            <div className="card__content__header">
+                                <h3>{t.title}</h3>
+                                <div className="card__content__header--flex">
+                                    <StatusDot status={t.status} />
+                                    <h5>{t.stage}</h5>
+                                </div>
+                            </div>
                             <p>
                                 {t.description}
                             </p>
                             <h5 className="card__content__title--secondary">Technologies</h5>
                             <div className="card__content__tags">
-                                {t.technologies.map((tag, i) => <span className="tag" key={i} >{tag}</span>)}
+                                {t.technologies.map((tag, i) => <Tag text={tag} key={i} />)}
                             </div>
                             <div className="card__content__footer">
                                 {(t.blogPost) ?
-                                    <Link className="link--button" to={t.blogPost}>Read more...</Link>
+                                    <Link className="link--button" to={t.blogPost}>Learn more...</Link>
                                     : <span></span>
                                 }
                                 <div className="card__content__footer__links">

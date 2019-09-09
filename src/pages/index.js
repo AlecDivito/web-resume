@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 import HeaderLayout from "../components/headerLayout";
 import SEO from "../components/seo"
 import "./index.scss";
+import StatusDot from "../components/statusDot";
 
 /**
  * Render a storm of particles that are really pretty
@@ -155,15 +156,25 @@ const query = graphql`
         shortDescription
         title
         stage
+        status
         githubLink
         blogPost
-        image {
+        logo {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
             }
           }
         }
+      }
+    }
+    allExternalNavJson {
+      nodes {
+        id
+        image
+        link
+        type
+        alt
       }
     }
   }
@@ -214,10 +225,18 @@ const IndexPage = () => {
             Aspiring Designer and Machine Learning Engineer
           </p>
           <Link className="home__header--learn link" to="/about">Learn More</Link>
+
+          <div>
+            <a href="#index--page-anchor" className="home__header--scroller"><span></span></a>
+          </div>
+
         </header>
         
         <section className="home__section home--work">
-          <h1>Work</h1>
+          <div aria-label="index--page-anchor" id="index--page-anchor" />
+          <h1>
+            <Link className="link" to="/work">Work</Link>
+          </h1>
           <div className="home__section__list">
             {data.allWorkJson.nodes.map(p => 
             <Link to={`/work#${p.id}`} className="home__section__list__item home--work__item" key={p.id}>
@@ -230,12 +249,14 @@ const IndexPage = () => {
         </section>
 
         <section className="home__section home--projects">
-          <h1>Projects</h1>
+          <h1>
+            <Link className="link" to="/personal">Projects</Link>
+          </h1>
           <div className="home__section__list">
             {data.allProjectsJson.nodes.map((p) => 
               <Link to={(p.blogPost) ? p.blogPost : `/personal#${p.id}`} className="home__section__list__item home--projects__item" key={p.id}>
-                <Img fluid={p.image.childImageSharp.fluid} alt={p.company} />
-                <strong className={`home--projects__item--${p.stage[0]}`}>{p.stage[0]}</strong>
+                <Img fluid={p.logo.childImageSharp.fluid} alt={p.company} />
+                <StatusDot status={p.status} />
                 <span>{p.title}</span>
                 <span className="mobile--hidden">{p.shortDescription}</span>
                 {/* {(p.blogPost)
@@ -250,7 +271,9 @@ const IndexPage = () => {
         </section>
 
         <section className="home__section home--school">
-          <h1>School</h1>
+          <h1>
+            <Link className="link" to="/work">School</Link>
+          </h1>
           <div className="home__section__list">
             {data.allSchoolJson.nodes.map((p, id) => 
               <Link to={`/work#${p.id}`} className="home__section__list__item home--school__item" key={id}>
@@ -263,13 +286,27 @@ const IndexPage = () => {
         </section>
 
         <section className="home__section home--volunteer">
-          <h1>Volunteer</h1>
+          <h1>
+            <Link className="link" to="/work">Volunteer</Link>
+          </h1>
           <div className="home__section__list">
             {data.allVolunteerJson.nodes.map((p, id) => 
             <Link to={`/work#${p.id}`} className="home__section__list__item home--volunteer__item" key={id}>
               <span>{p.time}</span>
               <span>{p.job}</span>
             </Link>  
+            )}
+          </div>
+        </section>
+
+        <section className="home__section home--social">
+          <h1>Social</h1>
+          <div className="home__section__list">
+            {data.allExternalNavJson.nodes.map( (e) =>
+              <a key={e.id} href={e.link} target="_blank" rel="noopener noreferrer" className="home__section__list__item home--social__item">
+                <img src={e.image} alt={e.alt} />
+                <span>{e.type}</span>
+              </a>
             )}
           </div>
         </section>

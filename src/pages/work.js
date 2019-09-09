@@ -6,6 +6,7 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import "./work.scss"
 import Header from "../components/header";
+import Tag from "../components/tag";
 
 const query = graphql`
 query GetWorkData {
@@ -17,6 +18,7 @@ query GetWorkData {
       id
       position
       startDate
+      utilized
     }
   }
   allSkillsJson {
@@ -46,6 +48,7 @@ query GetWorkData {
       school
       program
       joiningWord
+      relevantCourses
       logo {
         childImageSharp {
           fluid {
@@ -85,6 +88,9 @@ const WorkPage = () => {
                 <h3 className="event__header">{w.position} <small>at</small> {w.company}</h3>
                 <p className="event__dates">{w.startDate} - {w.endDate}</p>
                 <p className="event__description">{w.description}</p>
+                <div className="event__tags">
+                  {w.utilized.map((text, i) => <Tag text={text} key={i} />)}
+                </div>
               </div>
             </li>
           ))}
@@ -96,14 +102,17 @@ const WorkPage = () => {
         <Header text="School" isCenter={true} />
         <ul>
           {data.allSchoolJson.nodes.map(n =>
-            <li id={n.id} className="school--section__item">
+            <li key={n.id} id={n.id} className="school--section__item">
               <Img fluid={n.logo.childImageSharp.fluid} alt={`${n.school} logo`} />
               <span className="school--section__item__name">
-                <strong>{n.achievement}</strong> {n.joiningWord} <strong>{n.program}</strong> at <strong>{n.school}</strong>
+                <span>{n.achievement} {n.joiningWord} {n.program} at {n.school}</span>
                 <br />
                 <small>({n.startDate} - {n.endDate}, {n.gpa})</small>                
               </span>
-              <span className="school--section__item__description">{n.description}</span>
+              <div className="school--section__item__description">
+                {n.relevantCourses.map((t, i) => <Tag text={t} key={i} />)}
+              </div>
+              {/* <span className="school--section__item__description">{n.description}</span> */}
             </li>
           )}
         </ul>
@@ -115,11 +124,9 @@ const WorkPage = () => {
           {data.allSkillsJson.nodes.map(t =>
             <div className="skills__type" key={t.id}>
               <h3 className="skills__type__header">{t.section}</h3>
-              <ul className="skills__type__list">
-                {t.skills.map((s, index) =>
-                  <li key={index}>{s}</li>
-                )}
-              </ul>
+              <div className="skills__type__list">
+                {t.skills.map((s, index) => <Tag key={index} text={s} /> )}
+              </div>
             </div>
           )}
         </div>
@@ -129,7 +136,7 @@ const WorkPage = () => {
         <Header text="Volunteer" isCenter={true} />
         <ul>
           {data.allVolunteerJson.nodes.map(n =>
-            <li className="volunteer--section__item" id={n.id}>
+            <li key={n.id} className="volunteer--section__item" id={n.id}>
               <span>{n.time}</span>
               <span>{n.location}</span>
               <span className="volunteer--section__item__job">{n.job}</span>

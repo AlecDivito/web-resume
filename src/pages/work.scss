@@ -2,12 +2,14 @@
 
 .work {
     padding-top: 1rem;
+    padding-bottom: 1rem;
     color: $work-color;
 
     &__description {
         margin: 1rem 2rem 0rem 2rem;
         text-align: center;
         font-size: $work-description-font-size;
+        line-height: 1.4rem;
 
         &--resume {
             margin-bottom: 2rem;
@@ -81,9 +83,8 @@
 
 
             &__details {
-                padding: 1rem;
+                padding: 2rem;
                 position: relative;
-                border-radius: 5px;
                 box-shadow: $work-timeline-box-shadow;
                 // filter: drop-shadow(0 2px 0 rgba(0,0,0,.1));
                 line-height: 1.5rem;
@@ -134,6 +135,12 @@
         font-size: 1rem;
         margin-bottom: 0;
         margin-top: 20px;
+    }
+
+    &__tags {
+        margin-top: 1rem;
+        display: flex;
+        flex-flow: wrap;
     }
 }
 
@@ -194,16 +201,22 @@
         grid-gap: 1rem;
         align-self: center;
 
-        padding: 1rem;
+        padding: 2rem;
         margin: 2rem 0rem;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         color: $shade-8;
 
-        border-radius: 5px;
         transition: box-shadow .25s ease;
 
         &:hover {
             box-shadow: $nav-box-shadow;
+        }
+
+        &__name {
+
+            small {
+                font-size: 1rem;
+            }
         }
 
         .gatsby-image-wrapper {
@@ -214,7 +227,8 @@
         
         &__description {
             grid-column: 2;
-            font-size: 1rem;
+            display: flex;
+            flex-flow: wrap;
         }
     }
 }
@@ -226,12 +240,11 @@
         grid-gap: 1rem;
         align-self: center;
 
-        padding: 1rem;
-        margin: 2rem 0rem;
-        font-size: 1.3rem;
+        padding: 2rem;
+        margin: 1rem 0rem;
+        font-size: 1.2rem;
         color: $shade-8;
 
-        border-radius: 5px;
         transition: box-shadow .25s ease;
 
         &:hover {
@@ -254,6 +267,17 @@
             &__job {
                 grid-column-start: 1;
                 grid-column-end: 3;
+            }
+        }
+    }
+
+    .school--section, .volunteer--section {
+        &__item {
+            padding: 2rem;
+            margin: 1rem;
+
+            &__description {
+                display: none;
             }
         }
     }
@@ -285,13 +309,6 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-
-            li {
-                padding: 4px 16px;
-                margin: 4px;
-                background-color: $accent-color-5;
-                border-radius: 35px;
-            }
         }
     }
 }
@@ -303,9 +320,6 @@
 
         &__type {
             width: 50%;
-
-            &__list {
-            }
         }
     }
 }

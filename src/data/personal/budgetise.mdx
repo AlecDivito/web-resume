@@ -1,37 +1,55 @@
 ---
-title: "Budgetise"
-date: "2018-12-15"
+title: "Budgetise: Franchise Budgeting Application"
+startDate: "Jan 2018"
+endDate: "Dec 2018"
+totalTime: "1 year"
 author: "Alec Di Vito"
-images: "./images/budgetise.png" 
+next: "website"
+previous: ""
+images:
+    - ../images/budgetise.png
+    - ../images/budgetise_win_second_place.jpg
+    - ../images/personal/budgetise/landing_page.png
+    - ../images/personal/budgetise/ui_sitemap.png
 ---
 
-import Img from "gatsby-image";
-
 ## Role
+
 - Project Manager
 - Lead Programmer
 - Designer
 
 ## Project Timeline
+
 - 1 Year
 
 ## Team Size
+
 - 4 People
 
-<img src="../images/budgetise.png" alt="Budgetise dashboard" />
+<div>
+    <props.images.budgetise alt="budgetise dashboard" caption="budgetise dashboard" />
+</div>
 
-# Overview
-During my last year at Sheridan College while in Software Development and Network
+## Overview
+
+During my last year at Sheridan College while in the Software Development and Network
 Engineering advanced diploma program, I had to complete a capstone project with 4 teammates to
-summarize and show what we learnt over the 3 year's while in the program. To 
-complete the capstone my team had to ether choose a client from a list and hope we land the one we
-picked or create our own project. My teammates and I decided we would want to try
-and land the biggest project on the client list which was an owner of 12 franchise
-stores for a fast food company. We landed it. The owner wanted to find a solution
-that would allow him to track his expenses closer and get ride of his old workflow
-of using spreadsheets. We came up with budgetise to solve his problem.
- 
-# Contributions
+summarize and show what we learnt over the lifetime of the program.
+
+To complete the capstone my team had to ether choose a client from a list or
+come up and complete an idea. Our group decided to try and land a client.
+
+Our first choice was for a project where you would be required to design and
+create a budgeting application for an owner of 12 franchise stores for a fast
+food company. We landed it.
+
+The owner wanted to find a solution that would allow him to track his expenses
+closer and get ride of his old workflow of using spreadsheets. We came up with
+budgetise to solve his problem.
+
+## Contributions
+
 - Created the entire design of the site and landing page
 - Created initial design of the project and Git workflow
 - Added User registration and security features
@@ -39,71 +57,99 @@ of using spreadsheets. We came up with budgetise to solve his problem.
 - Presented and showcased at sheridan's capstone competition
 - Helped with presentations
 
-# Purpose
+<div class="image--center">
+    <props.images.landing_page alt="budgetise landing page" caption="preview of Budgetise landing page" />
+</div>
+
+## Purpose
+
 Initially the owner was managing his stores expenses using excel spreadsheets but
 as he started to acquire more he noticed that there would be multiple spreadsheets
 floating around his upper management. These spreadsheets were huge with over 25
-sections to them that only kept a year of data. Versioning the spreadsheets was
-difficult to manage as well because it was hard to tell who had the most recent
-copy. There was a lot of corrections needed because of mis-input so the sheets
-always needed to be double checked because of inconsistencies that sometimes
-arouse. Statistical gathering was another big issue, there was no easy way to
-collect all of the stores historic data to try and discover deeper trends in
-the data.
+sections to them that only kept a year's worth of data. Problems included:
 
-# Solution
+1. Versioning the spreadsheets. It was hard to tell who had the most recent copy.
+2. Inconsistent Data. Sheets needed to regularly be double or tripled checked because of mis-input.
+3. No way to gather statistical data to discover deeper trends.
+4. Permissions and data privacy. Spreadsheets provide no way to inherently hide data.
+
+## Solution
+
 In an effort to help the store owner manage his stores better we decided to create
 a website that mimicked his excel worksheet workflow but with extra features.
-My team and I decided to add all the features that the excel work sheet's lacked
-as well as a fine grain security policy features. The hope was to only give
-upper management the data they only needed to run they're stores and give the
-owner of all the stores full access to the website. We also created a dashboard
-that was able to quickly give store owners a run down of how they're
-store was preforming that month. We created smaller modules to track different types
-of business expenses such as tracking contractors or other irregular type fee's. 
+Based on our research there were six core area's our solution will focus on:
 
-# Technology
-Initially we started with using Angular 2+ on the frontend and .Net Core 2 on the
-backend. I thought .Net Core 2 was amazing and C# as a language is so much fun to
-program in. Some of our teammates however were more experienced with javascript so
-I decided to change the backend to my own implementation or NestJS (because I didn't
-know that NestJS existed until it was too late into the project). We decided to 
-use postgres as our database and we deployed all of this to a server hosted on
-Digital Ocean.
+1. Managing Store Information
+2. Managing Store Budget
+3. Automating Data Input
+4. Reporting and Dashboards
+5. Managing Outside Service
+6. Managing Users and Permission
 
-# Showcase
+## Planning Process
 
-We were able to make it into the sheridan capstone showcase with our projects 
-and our amazing presentations. At the showcase we were setup right next to the
+Because this project was a capstone project, there was a 4 month planning process
+with regular meeting between our team, our client and our professors (or
+as they would say Investors). This aloud us to map out a rough layout for the
+site as well as develop our user stories to follow to implement processes like
+authentication, user management, budget management, and reporting.
+
+Along with developing a report we did some research about possible SAAS companies that
+may already somewhat fill this niche market.
+
+## Workflow
+
+Every project requires a workflow and our was no different. We decided to move in
+agile style where each branch was a new task to complete in a bigger user story.
+When ever a part was finished, me or my teammate Lawrence would look through and
+test the new feature the branch introduced to the app. Once approved by one of us,
+we would merge the feature into the master branch.
+
+## Technology
+
+Our team choose to use Angular 2+ on the frontend and Typescript with Express on the
+backend. I chose to use a full Typescript stack because some of our teammate's
+didn't have enough experience to learn a new language on top of developing a
+complicated monolith. Live updating was really important to us because we
+envisioned this app to be able to be used in a team so we included web sockets
+into our project. We decided to use postgres as our database picked up typeorm
+as our orm to interact with the database. We deployed our solution onto a server
+hosted on Digital Ocean using Nginx as our web server.
+
+## Difficulties and Challenges
+
+I think the biggies difficulty our project faced was experience. In our project
+we had one developer who was struggling in school and the added pressure of our
+capstone didn't help. Your only as strong as your weakest link, so I that I would
+help him get up to speed on the project and give him smaller and similar tasks
+to accomplish. When he finished we would join a skype call together and review
+his work. If he ever got stuck I would quickly get online and ask him questions
+to try and help guide him to the correct solution. I found this helped him improve
+quite a bit and in the last 7 weeks or so he was able to complete a small module
+for our project.
+
+## Showcase
+
+We were able to make it into the sheridan capstone showcase with our projects
+and our amazing class presentations. At the showcase we were setup right next to the
 door so we could be sure to get as much attention as possible as we tried to
 woo the people that came in to checkout ours and other cool projects that were
 at the showcase. In the end we ended up winning second place and came home with
 a medal.
 
-![Winning second place at capstone showcase](../images/budgetise--win-second-place.jpg)
+<div class="image--center">
+    <props.images.budgetise_win_second_place alt="Winning second place at capstone showcase" caption="Winning second place at capstone showcase" />
+</div>
 
-# Reflection
+## Reflection
 
 Overall I'm really happy with my team and the significant progress we made over
-the 1 year development cycle of planning and prototyping diffrent UI layouts
-and user experinces. I found that during each sprint we consistently delivered
-on each week’s goals to the best of each of ours team member’s abilities. Coming
-into our final term, my team members were at very different skill levels with
-our core tech stack. Confronted with this challenge, I spent time and effort to
-bring other members up to speed and reach reasonable productivity levels.
-
-The team started off moving at a slow pace, but each week, the quality, volume
-and velocity for which we ship new features and improvements has improved
-drastically. The ability of each team member to estimate delivery times has also
-progressed nicely.
-
-Our group has done a decent job of communicating this semester,but it can be
-improved. We recognize it can be hard to ask for help or admit a task is above your
-bandwidth. Software development and business are team sports, knowing this we
-need to be better at asking for an assist when needed.
+the 1 year development cycle of planning and prototyping different UI layouts
+and user experiences. Coming into our final term, the team members was at different
+skill levels with our core tech stack. Confronted with this challenge, I spent
+time and effort to bring other members up to speed and reach reasonable
+productivity levels.
 
 Our client is delighted with how the project is progressing. This knowledge will
 fuel us to work hard towards delivering an amazing product.  The ultimate goal is
 to exceed our first client’s expectations, with an eye on future clients.
-
-

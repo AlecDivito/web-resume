@@ -1,116 +1,218 @@
 ---
-title: "Bomb Finder"
-date: "2019-07-10"
+title: "Project: Bomb Finder"
+startDate: "May 2019"
+endDate: "Aug 2019"
+totalTime: "4 months"
 author: "Alec Di Vito"
-images: "./images/budgetise.png" 
+next: ""
+previous: "rustbitmap"
+images:
+    - ../images/personal/bomb_finder/bomb_finder_sitemap.png
+    - ../images/personal/bomb_finder/home.png
+    - ../images/personal/bomb_finder/how_to_play.png
+    - ../images/personal/bomb_finder/game_in_progress.png
+    - ../images/personal/bomb_finder/game_lose.png
+    - ../images/personal/bomb_finder/settings.png
+    - ../images/personal/bomb_finder/game_menu.png
+    - ../images/personal/bomb_finder/game_won.png
+    - ../images/personal/bomb_finder/stats.png
+    - ../images/personal/bomb_finder/create_template.png
+    - ../images/personal/bomb_finder/manage_templates.png
 ---
 
 ## Overview
-I decided to re-make minesweeper from the ground up, as well as build upon by it
-adding features like game templates, game statistics and settings. My main 
-inspiration for the project was to mimic a Google's Research lab project they 
-called proxx.app.
+
+Bomb Finder is meant to be a re-make of the popular game minesweeper. It was built
+as a fun exercise that looked at adding small features to the game such as game
+templates, game statistics and settings for graphics and game play. The main
+inspiration for this project was brought on by Google creating they're own clone
+called proxx<sup>[[1](#proxx)]</sup>.
 
 ## Goals
-The goal was to remake minesweeper and create a PWA (progressive web app) that scored 100 in all of
-the fields on the lighthouse browser test. I also wanted to gain experience using
-Indexdb as a way of keeping state on the client side as well as learning how to
-create fun experiences using the browsers 2D engine, Canvas2d. The power of havening
-the web app as a PWA meant that user could download the app to they're home just
-by visiting the page. There was no need for the user to download our app from the
-app store.
+
+1. Make Bomb Finder a PWA (progressive web app) as well as score 100 in the lighthouse browser tests
+2. Use IndexDB to persist data. Data represents settings, statistics, game templates and game's currently in progress
+3. Bomb Finder should alway keep state, even when the game is turned off by the user
+4. Bomb Finder should feel like a native app experience.
+5. Canvas2d must be used for the game board
 
 ## Technologies
-Bomb finder is build with React with Typescript. It currently isn't connected to
+
+Bomb Finder is build with React and Typescript. It currently isn't connected to
 any backend services so it makes use of the browsers provided features to save
 data. Currently I am using indexDB (if provided) to save all of the users data.
-I choose Indexdb because it doesn't run on the main thread. If I were to use
-session or local storage. 
-
+I chose IndexDB because it doesn't run on the main thread while session and
+local storage do. This helps when rendering the game board at 60 fps and reduces
+overhead of completing the update and render operations when a user interacts with
+the board.
 
 ## Design process
-I'm not a designer but I tried to follow a workflow this project. I initial
-started out this project out by writing my goals for the projects and all the
-pages I wanted. I then got started on deciding what pages I wanted in my game
-and some simple designs that I wrote on paper.
 
-![Bomb finders initial planning](../images/bomb-finder--inital-design.jpg)
+I'm not a designer but I try to follow a workflow for all of my projects. I initially
+started by writing my goals I want my project to accomplish as well as all the
+pages I wanted to include. After deciding on what pages to include I got started
+on a simple designs of how I would expect it too look on each page.
 
-![Bomb finders site map](../images/bomb-finder--sitemap.png)
+<div class="image--center">
+    <props.images.bomb_finder_sitemap alt="Initial design of the sitemap" caption="sitemap for bomb finder"/>
+</div>
 
-After mapping out what files I wanted I got started creating the project. Initially
-I started the project using Preact and my own rolled webpack program but I had
-trouble figuring out a way to let my do code-splitting as well as use typescript.
+Development initially started with the project using React's smaller alternative
+Preact<sup>[[7](#preact)]</sup>. While using Preact<sup>[[7](#preact)]</sup> I rolled my own webpack build configuration but I had
+trouble figuring out a way to support code-splitting as well as use typescript.
 These frustrations lasted about a week and after unsuccessfully getting code splitting
-to work I decided to switch to Reacts CRA (create-react-app) because of my
-pervious experience and experience with it. CRA allowed me to quickly get the
+to work I decided to switch to Reacts CRA<sup>[[4](#CRA)]</sup> (create-react-app) because of my
+pervious experience with it. CRA<sup>[[4](#CRA)]</sup> allowed me to quickly get the
 project started and focus on the design of my components and pages.
 
+I first started by adding content to the pages before I implemented designs.
+This allowed me to move quickly in developing the app and getting all of the features
+I wanted out of it like utilizing IndexDB and rendering with canvas2d. It also
+allowed me to focus on developing minesweeper's game mechanics.
 
-## Difficulties
-While developing the game board I had a lot of animating pieces. Initially when I
-started development I would call multiple draw calls to just draw one piece onto
-the board. Of course this was over kill and ended up tanking performance when I
-would play on mobile or on a hard difficulty on my computer.
+After I had added a majority of the required feature's, I went back and filled
+the app out with a very basic design, using a very sad color palette of shades:
 
-To solve this problem I used offscreen canvases to render each piece I had in the
-game so that there would only be one copy of each piece while the game is playing.
-Then on each update I would copy and paste the smaller canvases into the big
-canvas. This was really good for performance but there was still lag on bigger
-game boards.
+<h4>Shades</h4>
+<div>
+    <span class="color--square bf-shade-1"></span>
+    <span class="color--square bf-shade-2"></span>
+    <span class="color--square bf-shade-3"></span>
+</div>
 
-To remove the lag from the bigger game boards I added in conditions on what to
-draw depending on what was currently visible to the user through they're view
-port. This allowed me to only draw the pieces that only the play could see and
-nothing more. You can test this out by jumping into a game and moving left to
-right very quickly. You'll see that there's a brief second where some rows of 
-pieces don't show up.
+## Difficulties and Challenges
+
+Bomb Finder was pretty simple to create but because of some of the features that
+I was trying to implement into the program I run into some difficulties. One
+of the biggest ones was developing the game board to support hundreds to thousands
+of pieces. My initial implementation moved from piece to piece and drew they're
+current state. This meant that I redrew each image on every render loop. This
+solution work on small boards such as 5x5 and 10x10 but became a problem when
+playing on bigger boards like 16x16 and 24x24.
+
+To solve this problem, I first visited MDN<sup>[[3](#MDN)]</sup> where it said you can
+render each piece alone on an invisible canvas, then copy and paste the invisible canvas
+into the games canvas. This idea sounded great so I implemented it for all 21 pieces.
+
+This worked great and solved my problem on desktop where I had a lot of power but on
+mobile I was still having issues with my framerate. I realized that on mobile, you
+can't really see most of the screen anyways, so why not just skip rendering pieces
+off screen. So I did that.
+
+Aside from rendering problems, there was also challenged with finding a solution to read and write
+data to IndexDB effectivity and in a way that hid all of the logic needed to actually
+read and write from IndexDB. This lead me to perse typescript annotation to register
+data class to database classes on startup as well as give access to the database
+when the application is running. Once registered the browser will be able to create,
+select or edit the table so it matches the data model.
+
+One of the problems I wasn't able to solve was caused because of the Typescript annotations I made to
+interact with IndexDB. To understand the problem you need to understand what CRA
+does while compiling the program for development and what it does to compile the
+program for production. While in development mode all of the classes
+name's aren't simplified, this means when you call ```function.constructor.name ```
+you get the name of the class. In production all the class names are simplified
+meaning that the name of the class at runtime has changed. Have the class name
+change is a big deal during runtime because that means we need to manually set
+the table that the field is supposed to belong to because there is not way to
+get it during runtime without using a static string.
+
+The result of this change made a nice looking data model like this:
+
+```Typescript
+@Table()
+class Preferences {
+    @Field(true)
+    readonly id: string;
+
+    @Field()
+    defaultCellSize: number = 35;
+    ...
+}
+```
+
+Into this:
+
+```Typescript
+@Table("settings")
+class Preferences {
+    @Field("settings", true)
+    readonly id: string;
+
+    @Field("settings")
+    defaultCellSize: number = 35;
+    ...
+}
+```
+
+This could be solved by ejecting the build config but that is a massive downside
+compared to just hard coding the table name to all of the fields and table.
+
+## The Problem of updating
+
+So when rendering to the screen we want the canvas to run at 60fps. When running
+at this speed we need to keep track of time. To render one would normally call
+to ```Javascript window.requestAnimationFrame(callback)``` and inside the call
+back you would receive a time in micro seconds on how long the current page has
+been opened? The problem comes when a user clicks off the page and then clicks
+on again and the time would sky rocket
 
 ## Project Status
-This project is at a finished stage. It is mostly completed and is fully
-usable and uninstallable. There are still some small bugs that need to be
-fixed but the initial 1.0 release works. A polish wouldn't hurt it.
 
+This project is at a finished stage. It is completed and is fully
+usable and installable. I'm still deciding weather it's worth it to try and
+extend the project.
 
 ## What's Next
-- Make bomb finder into a <a href="https://developers.google.com/web/updates/2019/02/using-twa">trusted web app</a>
+
+- Make Bomb Finder into a trusted web app<sup>[[5](#TWA)]</sup>
 - Allow player's to pick they're color for the background on the game board
 - Add way to turn off satisfied tiles handicap
 - Add more animations for game bored pieces
-- Add a High score table
+- Add a High score table (online functionality)
 - Add way for friends to challenge each other to a game
-    - same seed
-    - different seed
-    - competitive version
-    - battle royal???
-
-
+  - same seed
+  - different seed
+  - competitive version
+  - battle royal???
 
 ## Project Screen Shots
-![Bomb finder home page](../images/bomb-finder--home.png)
 
-![Bomb finder game template page](../images/bomb-finder--game-template.png)
-
-![Screen shot of minesweeper game](../images/bomb-finder--in-progress.png)
-
-![Screen shot of bomb finder winning page](../images/bomb-finder--winning.png)
-
-![Bomb finder stats page](../images/bomb-finder--stats.png)
-
+<div class="image--grid">
+    <props.images.home alt="Home" />
+    <props.images.game_menu alt="Game menu" />
+    <props.images.manage_templates alt="manage game templates" />
+    <props.images.create_template alt="create game templates" />
+    <props.images.game_in_progress alt="game in progress" />
+    <props.images.game_lose alt="game lost" />
+    <props.images.game_won alt="game won" />
+    <props.images.how_to_play alt="how to play game" />
+    <props.images.settings alt="game settings" />
+    <props.images.stats alt="game statistics" />
+</div>
 
 ## Reflections
+
 At the end of the day this project is a completed project that I'm really proud
 to show people. I learned a lot about chrome dev tools and profiling my performance
 code. It was a lot of fun creating the animations and working with canvas2d. Using
-Reacts "create react app" helped a lot to quickly get the project running. I 
-can't wait till I have the time to fully polish the game off to how I want it to be.
+Reacts CRA helped a lot to quickly get the project running. I think this project
+could have been improved by doing some initial design planning at the start of
+project. It could have been a big asset to spend a couple of days in Figma<sup>[[6](#figma)]</sup>
+to quickly prototype possible designs and color schemes that would be more attractive
+then my sad color palette. Other then the design I feel as though I hit all my goals
+I wanted to hit and am really proud of that!
 
 <a href="https://alecdivito.github.io/bomb-finder/" target="_blank">
     You read about it, why not tryout my mine sweeper clone today! Click Here.
 </a>
 
 ## Resources
-Google's Minesweeper game (for insperation):
-- <a href="https://proxx.app" rel="noopener noreferrer" target="_blank">Proxx for the initial inspiration</a>
-- <a href="https://codepen.io" rel="noopener noreferrer" target="_blank">Codepen for UI element design inspiration</a>
-- <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas" rel="noopener noreferrer" target="_blank">MDN for optimizing canvas</a>
+
+1. <a href="https://proxx.app" id="proxx" rel="noopener noreferrer" target="_blank">Proxx for the initial inspiration</a>
+2. <a href="https://codepen.io" rel="noopener noreferrer" target="_blank">Codepen for UI element design inspiration</a>
+3. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas" id="MDN" rel="noopener noreferrer" target="_blank">MDN for optimizing canvas</a>
+4. <a href="https://create-react-app.dev" id="CRA" rel="noopener noreferrer" target="_blank">Create React App</a>
+5. <a href="https://developers.google.com/web/updates/2019/02/using-twa" id="TWA" rel="noopener noreferrer" target="_blank">Trusted Web App</a>
+6. <a href="https://www.figma.com" id="figma" rel="noopener noreferrer" target="_blank">Figma: Design, protype, and gather feedback</a>
+7. <a href="https://preactjs.com" id="preact" rel="noopener noreferrer" target="_blank">Preact: Fast 3kB alternative to React</a>
