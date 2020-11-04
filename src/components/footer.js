@@ -5,43 +5,43 @@ import "./footer.scss";
 
 const Footer = ({ siteLinks, projectPosts, children }) => (
   <footer className="footer">
-      <div className="footer__top layout--max-width">
-        <div className="footer__top__about">
-          <h3>Alec Di Vito</h3>
-          <p>
-            I'm a creative, ambitious, and enterprising software engineer as well as
-            an aspiring designer and machine learning engineer.
+    <div className="footer__top layout--max-width">
+      <div className="footer__top__about">
+        <h3>Alec Di Vito</h3>
+        <p>
+          I'm a creative, ambitious, and enterprising software engineer as well as
+          an Cloud and Fullstack Developer.
           </p>
-        </div>
-        <div className="footer__top__site">
-          <h3>Projects</h3>
-          <ul className="footer__top__site__list">
-            {projectPosts.filter(p => p.blogPost).map(p => (
-              <li key={p.id} >
-                <Link className="link" to={p.blogPost}>{p.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="footer__top__site">
-          <h3>Site Links</h3>
-          <ul className="footer__top__site__list wrap">
-            {siteLinks.filter(s => s.ready).map((s, i) => (
-              <li key={i}>
-                <Link className="link" to={s.link}>{s.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
-      <div className="footer__bottom layout--max-width">
-        <div className="footer__bottom__copyright">
-          Alec Di Vito © {new Date().getFullYear()}, Built with
+      <div className="footer__top__site">
+        <h3>Projects</h3>
+        <ul className="footer__top__site__list">
+          {projectPosts.filter(p => p.blogPost).map(p => (
+            <li key={p.id} >
+              <Link className="link" to={p.blogPost}>{p.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="footer__top__site">
+        <h3>Site Links</h3>
+        <ul className="footer__top__site__list wrap">
+          {siteLinks.filter(s => s.ready).map((s, i) => (
+            <li key={i}>
+              <Link className="link" to={s.link}>{s.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div className="footer__bottom layout--max-width">
+      <div className="footer__bottom__copyright">
+        Alec Di Vito © {new Date().getFullYear()}, Built with
           {` `}
-          <a className="link" href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">Gatsby</a>
-        </div>
-        {children}
+        <a className="link" href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">Gatsby</a>
       </div>
+      {children}
+    </div>
   </footer>
 )
 

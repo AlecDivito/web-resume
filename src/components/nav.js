@@ -9,29 +9,30 @@ const Nav = ({ links, navActive, onNavClick, children }) => (
     <div className="nav--border-shadow">
       <div className="nav--container layout--max-width">
         <div className="nav--header">
-            <Link to="/" className="nav__logo">
-              <Logo />
-            </Link>
+          <Link to="/" className="nav__logo">
+            <Logo />
+          </Link>
 
-            <div className="burger--wrapper">
+          <div className="burger--wrapper">
             <div
-                className={`burger ${navActive ? "burger--active" : ""}`}
-                onClick={onNavClick}
+              aria-hidden="true"
+              className={`burger ${navActive ? "burger--active" : ""}`}
+              onClick={onNavClick}
             />
-            </div>
+          </div>
         </div>
 
         <div className={`nav__mobile ${navActive ? "nav__list--dropdown" : ""}`}>
           <div className="nav__list">
             {(links) ? links.filter(item => item.ready).map((item, index) => (
-            <Link
+              <Link
                 key={item.id}
                 to={item.link}
                 className="nav__list__link link"
                 activeClassName="active"
-            >
+              >
                 {item.title}
-            </Link>
+              </Link>
             )) : null}
           </div>
           <div className="nav__children">
@@ -44,15 +45,15 @@ const Nav = ({ links, navActive, onNavClick, children }) => (
 )
 
 Nav.propTypes = {
-    links: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        link: PropTypes.string.isRequired,
-        ready: PropTypes.bool.isRequired
-    })).isRequired,
-    navActive: PropTypes.bool.isRequired,
-    onNavClick: PropTypes.func.isRequired,
-    children: PropTypes.node.isRequired
+  links: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    ready: PropTypes.bool.isRequired
+  })).isRequired,
+  navActive: PropTypes.bool.isRequired,
+  onNavClick: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Nav;

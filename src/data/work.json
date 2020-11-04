@@ -1,6 +1,25 @@
 [
     {
         "website": null,
+        "startDate": "Sept 2020",
+        "endDate": "Present",
+        "company": "Hackademics Club",
+        "position": "Vice President",
+        "description": "Raised $+12,000 for Hackville! Lead team of 4 to develop open source solutions for Hackademics club. Helped to created a podcast focused on spreading the word about hackathons and Hackademics.",
+        "logo": "./images/work/hackademics.png",
+        "utilized": [
+            "Volunteer",
+            "Leadership",
+            "Gatsby",
+            "Github Actions",
+            "Typescript",
+            "Javascript",
+            "HTML",
+            "SCSS"
+        ]
+    },
+    {
+        "website": null,
         "startDate": "Jan 2020",
         "endDate": "Aug 2020",
         "company": "Royal Bank of Canada",
@@ -28,7 +47,8 @@
         "description": "Using machine learning to create a  facial expression classifier that will strive to accurately determine a person's emotional response to specific stimuli.",
         "logo": "./images/work/sheridan.jpeg",
         "utilized": [
-            "Python"
+            "Python",
+            "Tensorflow"
         ]
     },
     {

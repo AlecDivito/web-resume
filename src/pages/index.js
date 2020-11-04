@@ -73,16 +73,15 @@ class Particles {
 
       // Send particles to opposite sides of the screen if threshold is crossed
       if (particle.x > this.width + particle.radius
-         || particle.y < -1 * particle.radius
-         || particle.y > this.height + particle.radius)
-      {
+        || particle.y < -1 * particle.radius
+        || particle.y > this.height + particle.radius) {
         particle.x = Math.random() * this.width;
         particle.y = 0;
         particle.alpha = 1.0;
       }
       // if (particle.y > this.height - 100) {
-        const unitVector = (this.height - particle.y) / this.height
-        particle.alpha = -1 * Math.pow(unitVector, 3) + Math.pow(unitVector, 2) + 3 * unitVector;
+      const unitVector = (this.height - particle.y) / this.height
+      particle.alpha = -1 * Math.pow(unitVector, 3) + Math.pow(unitVector, 2) + 3 * unitVector;
       // }
     }
   }
@@ -222,7 +221,7 @@ const IndexPage = () => {
           </h1>
           <h3 className="home__header--title">Full Stack Web Developer</h3>
           <p className="home__header__description">
-            Aspiring Designer and Machine Learning Engineer
+            Aspiring Cloud Developer and WASM expert
           </p>
           <Link className="home__header--learn link" to="/about">Learn More</Link>
 
@@ -231,19 +230,19 @@ const IndexPage = () => {
           </div>
 
         </header>
-        
+
         <section className="home__section home--work">
           <div aria-label="index--page-anchor" id="index--page-anchor" />
           <h1>
             <Link className="link" to="/work">Work</Link>
           </h1>
           <div className="home__section__list">
-            {data.allWorkJson.nodes.map(p => 
-            <Link to={`/work#${p.id}`} className="home__section__list__item home--work__item" key={p.id}>
-              <Img fluid={p.logo.childImageSharp.fluid} alt={p.company} />
-              <span><strong>{p.position}</strong> at {p.company}</span>
-              <small>({p.startDate} - {p.endDate})</small>
-            </Link>  
+            {data.allWorkJson.nodes.map(p =>
+              <Link to={`/work#${p.id}`} className="home__section__list__item home--work__item" key={p.id}>
+                <Img fluid={p.logo.childImageSharp.fluid} alt={p.company} />
+                <span><strong>{p.position}</strong> at {p.company}</span>
+                <small>({p.startDate} - {p.endDate})</small>
+              </Link>
             )}
           </div>
         </section>
@@ -253,7 +252,7 @@ const IndexPage = () => {
             <Link className="link" to="/personal">Projects</Link>
           </h1>
           <div className="home__section__list">
-            {data.allProjectsJson.nodes.map((p) => 
+            {data.allProjectsJson.nodes.map((p) =>
               <Link to={(p.blogPost) ? p.blogPost : `/personal#${p.id}`} className="home__section__list__item home--projects__item" key={p.id}>
                 <Img fluid={p.logo.childImageSharp.fluid} alt={p.company} />
                 <StatusDot status={p.status} />
@@ -265,7 +264,7 @@ const IndexPage = () => {
                 } */}
                 {/* <IconLink type="site" link={p.siteLink} />
                 <IconLink type="github" link={p.githubLink} /> */}
-              </Link>  
+              </Link>
             )}
           </div>
         </section>
@@ -275,12 +274,12 @@ const IndexPage = () => {
             <Link className="link" to="/work">School</Link>
           </h1>
           <div className="home__section__list">
-            {data.allSchoolJson.nodes.map((p, id) => 
+            {data.allSchoolJson.nodes.map((p, id) =>
               <Link to={`/work#${p.id}`} className="home__section__list__item home--school__item" key={id}>
                 <Img fluid={p.logo.childImageSharp.fluid} alt={`${p.program} at ${p.school}`} />
                 <span>{p.program} at {p.school}</span>
                 <small>({p.startDate} - {p.endDate}, {p.gpa})</small>
-              </Link>  
+              </Link>
             )}
           </div>
         </section>
@@ -290,11 +289,11 @@ const IndexPage = () => {
             <Link className="link" to="/work">Volunteer</Link>
           </h1>
           <div className="home__section__list">
-            {data.allVolunteerJson.nodes.map((p, id) => 
-            <Link to={`/work#${p.id}`} className="home__section__list__item home--volunteer__item" key={id}>
-              <span>{p.time}</span>
-              <span>{p.job}</span>
-            </Link>  
+            {data.allVolunteerJson.nodes.map((p, id) =>
+              <Link to={`/work#${p.id}`} className="home__section__list__item home--volunteer__item" key={id}>
+                <span>{p.time}</span>
+                <span>{p.job}</span>
+              </Link>
             )}
           </div>
         </section>
@@ -302,7 +301,7 @@ const IndexPage = () => {
         <section className="home__section home--social">
           <h1>Social</h1>
           <div className="home__section__list">
-            {data.allExternalNavJson.nodes.map( (e) =>
+            {data.allExternalNavJson.nodes.map((e) =>
               <a key={e.id} href={e.link} target="_blank" rel="noopener noreferrer" className="home__section__list__item home--social__item">
                 <img src={e.image} alt={e.alt} />
                 <span>{e.type}</span>
