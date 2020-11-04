@@ -65,7 +65,7 @@ const Navigation = ({ textRight, textLeft }) => (
     </div>
 )
 
-const ProjectTemplate = ({data}) => {    
+const ProjectTemplate = ({ data }) => {
     const project = data.mdx;
     let images = {};
     if (project.frontmatter.images) {
@@ -73,24 +73,36 @@ const ProjectTemplate = ({data}) => {
             const { childImageSharp, publicURL } = image;
             // public urls normally look like: "/static/gradient_bicubic-676f728568c6798ea9686d6a6ef2c3e8.bmp"
             // we want to try and get "gradient_bicubic"
-            let publicUrlName = publicURL.split("/");
-            let name = publicUrlName[publicUrlName.length - 1].split("-")[0];
-            // if we have a childImageShape, we can just get the name normally
+            let name = "";
+            let component;
             if (childImageSharp != null) {
                 name = childImageSharp.fluid.originalName.split(".")[0];
+                component = ({ alt, caption }) => (
+                    <figure>
+                        <Img fluid={childImageSharp.fluid} alt={alt} />
+                        {(caption && caption.length > 0)
+                            ? <figcaption>{caption}</figcaption>
+                            : null
+                        }
+                    </figure>
+                )
+            } else {
+                let publicUrlName = publicURL.split("/");
+                let filename = publicUrlName[publicUrlName.length - 1].split("-")[0];
+                // Remove the filename extensen
+                name = filename.split(".")[0];
+                component = ({ alt, caption }) => (
+                    <figure>
+                        <img className="image--child" src={publicURL} alt={alt} />
+                        {(caption && caption.length > 0)
+                            ? <figcaption>{caption}</figcaption>
+                            : null
+                        }
+                    </figure>
+                )
             }
-            images[name] = ({ alt, caption }) => (
-                <figure>
-                {(childImageSharp != null)
-                    ? <Img fluid={childImageSharp.fluid} alt={alt} />
-                    : <img className="image--child" src={publicURL} alt={alt}/>
-                }
-                {(caption && caption.length > 0)
-                    ? <figcaption>{caption}</figcaption>
-                    : null
-                }
-                </figure>
-            )
+            // if we have a childImageShape, we can just get the name normally
+            images[name] = component;
         });
     }
 
