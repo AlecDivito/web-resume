@@ -1,5 +1,32 @@
 [
     {
+        "title": "WasmCompute",
+        "status": "active",
+        "stage": "In Progress",
+        "image": "./images/wasmcompute_profile.png",
+        "logo": "./images/wasmcompute.png",
+        "startDate": "Jan 2020",
+        "endDate": "Present",
+        "totalTime": "8 months",
+        "technologies": [
+            "Rust",
+            "WASM",
+            "Typescript",
+            "Github",
+            "AWS",
+            "Terraform",
+            "Postgres",
+            "Sqlite",
+            "Nginx",
+            "Bootstrap",
+            "Handlebars"
+        ],
+        "description": "Run web assembly in the cloud. Why write your serverless functions in any language.",
+        "shortDescription": "Run web assembly in the cloud",
+        "blogPost": "/personal/wasmcompute",
+        "siteLink": "https://wasmcompute.com"
+    },
+    {
         "title": "MineSweeper Clone",
         "stage": "Completed",
         "status": "completed",
