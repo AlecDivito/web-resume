@@ -15,6 +15,19 @@ Are personal websites ever finished??? First draft with most of the important in
 ## Project Goals
 Keep an up-to-date project that shows off some of my web design skills and other projects that may not get much attention if not posted somewhere.
 
-## 💫 Deploy
+## ToDo
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+- [ ] Use a better animation for links
+- [ ] Pick better colors for header
+- [ ] Add blog tab
+  - [ ] Link all projects to blog
+  - [ ] Write your first blog post
+  - [ ] Update look and feel of blog pages
+- [ ] About Page
+  - [ ] Remove Work Page
+  - [ ] Merge Work Page content into About Page
+  - [ ] Make Work place description collapsible
+- [ ] Landing Page
+  - [ ] Add Programming languages Logos + Tools
+  - [ ] Add rubik cube or some type of animate / call to action in header
+  - [ ] Change work / project into cards on desktop

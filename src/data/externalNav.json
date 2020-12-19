@@ -3,7 +3,7 @@
         "type": "Resume",
         "alt": "Alec Divito's Resume",
         "image": "/svgs/link.svg",
-        "link": "/AlecDivito-resume.pdf"
+        "link": "/2020-Sept-AlecDivito-Resume.pdf"
     },
     {
         "type": "Github",
@@ -15,6 +15,6 @@
         "type": "Linkedin",
         "alt": "Alec Divito's Linkedin",
         "image": "/svgs/linkedin-square.svg",
-        "link": "https://www.linkedin.com/in/alec-divito-3a1922140/"
+        "link": "https://www.linkedin.com/in/alec-divito/"
     }
 ]
