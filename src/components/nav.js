@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import Logo from "./logo"
 import "./nav.scss";
 
 const Nav = ({ links, navActive, onNavClick, children }) => (
@@ -10,7 +9,7 @@ const Nav = ({ links, navActive, onNavClick, children }) => (
       <div className="nav--container layout--max-width">
         <div className="nav--header">
           <Link to="/" className="nav__logo">
-            <Logo />
+            Alec Di Vito
           </Link>
 
           <div className="burger--wrapper">

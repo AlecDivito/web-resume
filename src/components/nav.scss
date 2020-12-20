@@ -27,7 +27,7 @@
     }
 
     &::after {
-        background: $nav-after-background;
+        background: $primary-color;
         top: 0px;
         z-index: $nav-z-index + 1;
     }
@@ -45,28 +45,25 @@
     }
 
     &--container {
+        height: 100%;
         padding: 0px 8px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
 
     &--header {
-        height: $nav-height;
         display: flex;
         width: 100%;
         justify-content: space-between;
         padding: $nav-padding;
+        font-weight: 700;
     }
 
     &__logo {
-        width:  $nav-height - ($nav-padding * 2);
-        height: $nav-height - ($nav-padding * 2);
-        z-index: $nav-z-index;
-
-        .logo {
-            width: $nav-height - ($nav-padding * 2);
-            height: $nav-height - ($nav-padding * 2);
-        }
+        color: $shade-0;
+        font-size: $nav-font-size-left;
+        text-decoration: none;
     }
 
     &__children {
@@ -86,6 +83,7 @@
         &__link {
             color: $nav-link-color;
             padding: $nav-link-padding;
+            font-size: $nav-font-size-right;
             margin: 0px .75rem;
             font-weight: 700;
             text-decoration: inherit;

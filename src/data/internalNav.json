@@ -1,7 +1,7 @@
 [
     {
-        "title": "Home",
-        "link": "/",
+        "title": "Projects",
+        "link": "/projects",
         "ready": true
     },
     {
@@ -10,19 +10,9 @@
         "ready": true
     },
     {
-        "title": "Projects",
+        "title": "Blog",
         "link": "/personal",
         "ready": true
-    },
-    {
-        "title": "Work",
-        "link": "/work",
-        "ready": true
-    },
-    {
-        "title": "Blog",
-        "link": "/blog",
-        "ready": false
     },
     {
         "title": "Contact",
