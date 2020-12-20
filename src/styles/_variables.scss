@@ -1,3 +1,6 @@
+// fonts
+$raleway-font: raleway;
+
 // Resolutions
 $tablet-large: 768px;
 
@@ -35,6 +38,7 @@ $primary-color-4: hsl(222, 89%, 59%);
 $primary-color-3: hsl(222, 89%, 69%);
 $primary-color-2: hsl(222, 89%, 79%);
 $primary-color-1: hsl(222, 89%, 89%);
+$primary-color: #475DE6;
 
 // accent colors
 // $accent-color-9:  hsl(40, 100%, 10%);
@@ -55,12 +59,14 @@ $global-box-shadow: 0 10px 20px $primary-color-1, 0 6px 6px $primary-color-2;
  * NAV STYLES
  */
 $nav-width: 100%;
-$nav-height: 72px;
+$nav-height: 100px;
+$nav-font-size-left: 2.2em;
+$nav-font-size-right: 1em;
 $nav-height-border-shadow-offset: 16px;
 $nav-box-shadow: 0 10px 6px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 $nav-after-background: linear-gradient($shade-1, $shade-1);
 $nav-padding: 8px;
-$nav-background: $primary-color-6;
+$nav-background: $primary-color;
 $nav-z-index: 20;
 
 $nav-link-color: $shade-2;
@@ -109,8 +115,8 @@ $about-greetings-intro-padding: 1rem;
  */
 $personal-color: $shade-8;
 
-$tag-color: $shade-1;
-$tag-background-color: $accent-color-5;
+$tag-color: $shade-9;
+$tag-background-color: $shade-0;
 
 $card-title-color: $shade-8;
 $card-description-color: $shade-7;
