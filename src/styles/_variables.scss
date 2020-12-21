@@ -3,6 +3,7 @@ $raleway-font: raleway;
 
 // Resolutions
 $tablet-large: 768px;
+$desktop: 1364px;
 
 // brands
 $brand-white: hsl(0, 0%, 100%);
@@ -67,7 +68,7 @@ $nav-box-shadow: 0 10px 6px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 $nav-after-background: linear-gradient($shade-1, $shade-1);
 $nav-padding: 8px;
 $nav-background: $primary-color;
-$nav-z-index: 20;
+$nav-z-index: 200;
 
 $nav-link-color: $shade-2;
 $nav-link-color-hover: $shade-1;

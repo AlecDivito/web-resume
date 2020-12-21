@@ -19,7 +19,16 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     const results = await graphql(`
     {
-        allMdx {
+        projects: allMdx(filter: {slug: {regex: "\/personal\/"}}) {
+            edges {
+                node {
+                    fields {
+                        slug
+                    }
+              }
+            }
+        }
+        blogs: allMdx(filter: {slug: {regex: "\/blogs\/"}}) {
             edges {
                 node {
                     fields {
@@ -31,13 +40,23 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     }
     `);
 
-    results.data.allMdx.edges.forEach(({ node }) => {
+    results.data.projects.edges.forEach(({ node }) => {
         createPage({
             path: node.fields.slug,
             component: path.resolve(`./src/templates/project.js`),
             context: {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
+                slug: node.fields.slug,
+            }
+        })
+    })
+
+    results.data.blogs.edges.forEach(({ node }) => {
+        createPage({
+            path: node.fields.slug,
+            component: path.resolve(`./src/templates/blogTemplate.js`),
+            context: {
                 slug: node.fields.slug,
             }
         })

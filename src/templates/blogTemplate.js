@@ -55,13 +55,13 @@ const BlogTemplate = ({ data }) => {
         <Layout>
             <SEO title={blog.frontmatter.title}
                 description={blog.frontmatter.description} />
-            <section className="article layout--max-width">
-                <Hero title={data.frontmatter.title}
-                    subTitle={data.frontmatter.subTitle}
-                    tags={data.frontmatter.tags}
-                    date={data.frontmatter.publishedDate}
+            <section className="article">
+                <Hero title={blog.frontmatter.title}
+                    subTitle={blog.frontmatter.subTitle}
+                    tags={blog.frontmatter.tags}
+                    date={blog.frontmatter.publishedDate}
                 />
-                <article className="article__content">
+                <article className="article__content layout--max-width">
                     <MDXRenderer>{blog.body}</MDXRenderer>
                 </article>
             </section>
