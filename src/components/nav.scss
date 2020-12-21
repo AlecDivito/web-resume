@@ -14,23 +14,23 @@
     z-index: $nav-z-index;
     -webkit-backface-visibility: hidden;
 
-    &::before, &::after {
-        content: "";
-        display: block;
-        height: $nav-height-border-shadow-offset;
-        position: sticky;
-    }
+    // &::before, &::after {
+    //     content: "";
+    //     display: block;
+    //     height: $nav-height-border-shadow-offset;
+    //     position: sticky;
+    // }
 
-    &::before {
-        top: $nav-height - $nav-height-border-shadow-offset;
-        box-shadow: $nav-box-shadow;
-    }
+    // &::before {
+    //     top: $nav-height - $nav-height-border-shadow-offset;
+    //     box-shadow: $nav-box-shadow;
+    // }
 
-    &::after {
-        background: $primary-color;
-        top: 0px;
-        z-index: $nav-z-index + 1;
-    }
+    // &::after {
+    //     background: $primary-color;
+    //     top: 0px;
+    //     z-index: $nav-z-index + 1;
+    // }
 
     &--border-shadow {
         position: -webkit-sticky;

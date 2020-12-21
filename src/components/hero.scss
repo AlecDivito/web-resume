@@ -1,15 +1,36 @@
 @import "../styles/variables";
 
+$header-block-height: 200px;
+$header-curve-height: 100px;
+$height: $header-block-height + $header-curve-height;
+
+$offset-height: 60px;
 
 .hero {
-    height: 400px;
-    background-color: $primary-color;
+    height: $height;
     display: flex;
     align-items: center;
+    position: relative;
+
+    &--container {
+        margin-top: $offset-height;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
 
     &--flex {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+    }
+
+    &--z-index {
+        z-index: 100;
+    }
+
+    &--content {
+        padding-left: 2rem;
+        padding-bottom: $offset-height;
     }
     
     &__title {
@@ -26,6 +47,13 @@
         font-weight: bold;
     }
 
+    &__link {
+        padding-left: 2rem;
+        font-size: 1.2em;
+        font-weight: 700;
+        color: $shade-0;
+    }
+
     &__list {
         display: flex;
         flex-direction: row;
@@ -38,5 +66,12 @@
                 padding-left: 0rem;
             }
         }
+    }
+
+    &__curve {
+        position: absolute;
+        top: -1;
+        left: 0;
+        right: 0;
     }
 }
