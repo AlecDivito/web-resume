@@ -23,7 +23,7 @@
         ],
         "description": "Run web assembly in the cloud. Why write your serverless functions in any language.",
         "shortDescription": "Run stateful web assembly functions in the cloud. Fast and easy.",
-        "blogPost": "/personal/wasmcompute",
+        "blogPost": "/devlog/wasmcompute",
         "siteLink": "https://wasmcompute.com"
     },
     {
@@ -47,7 +47,7 @@
         ],
         "description": "A Minesweeper clone inspired by Google's proxx.app. Added more features on top of the game.",
         "shortDescription": "Minesweeper clone inspired by Googles proxx",
-        "blogPost": "/personal/bomb-finder",
+        "blogPost": "/devlog/bomb-finder",
         "githubLink": "https://github.com/AlecDivito/bomb-finder",
         "siteLink": "https://alecdivito.github.io/bomb-finder/"
     },
@@ -67,7 +67,7 @@
         ],
         "description": "A small library that focuses on creating a library on crates.io and hopefully a webassembly one on npm. Ability to read, edit and write bitmaps.",
         "shortDescription": "Rust library that is able to read, write, and edit bitmaps.",
-        "blogPost": "/personal/rustbitmap",
+        "blogPost": "/devlog/rustbitmap",
         "githubLink": "https://github.com/AlecDivito/rusty-bitmap",
         "siteLink": "https://crates.io/crates/rustbitmap"
     },
@@ -90,7 +90,7 @@
         ],
         "description": "This website! Learning gatsby (which is pretty cool) and creating a blog and resume website at the same time!",
         "shortDescription": "This website, made with gatsby",
-        "blogPost": "/personal/website",
+        "blogPost": "/devlog/website",
         "githubLink": "https://github.com/AlecDivito/bomb-finder",
         "siteLink": "https://alecdivito.github.io/"
     },
@@ -117,7 +117,7 @@
         ],
         "description": "Capstone project for my final year in the SDNE program at sheridan. Created to manage multiple McDonald's expenses.",
         "shortDescription": "Capstone project for my final year in SDNE program",
-        "blogPost": "/personal/budgetise",
+        "blogPost": "/devlog/budgetise",
         "githubLink": null,
         "siteLink": null
     },

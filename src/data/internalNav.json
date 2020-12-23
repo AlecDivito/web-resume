@@ -1,5 +1,10 @@
 [
     {
+        "title": "Home",
+        "link": "/",
+        "ready": true
+    },
+    {
         "title": "About",
         "link": "/about",
         "ready": true
@@ -7,7 +12,7 @@
     {
         "title": "DevLog",
         "link": "/devlog",
-        "ready": false
+        "ready": true
     },
     {
         "title": "Blog",
