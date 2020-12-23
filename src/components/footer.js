@@ -26,7 +26,7 @@ const Footer = ({
         </div>
         <div className="footer--index footer__bottom">
           <div className="footer__bottom--head">{alecHead}</div>
-          <p style={{ zIndex: 300 }}>Made with ❤️ by <a className="link--plain" href="https://val-z.com">Valeriia Zub</a> and <a className="link--plain" href="https://alecdivito.github.io">Alec Di Vito</a></p>
+          <p style={{ zIndex: 300 }}>Made with <span role="img" aria-label="love">❤️</span> by <a className="link--plain" href="https://val-z.com">Valeriia Zub</a> and <a className="link--plain" href="https://alecdivito.github.io">Alec Di Vito</a></p>
         </div>
       </div>
     </div>
