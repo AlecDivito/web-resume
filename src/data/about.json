@@ -1,83 +1,83 @@
 {
-  "widgets": [
-    {
-      "type": "widget",
-      "title": "Who Am I...",
-      "description": "I am this guys thats a dude"
-    },
-    {
-      "type": "widget",
-      "title": "But I also do...",
-      "description": "I also do some other things too..."
-    }
-  ],
-  "info": [
-    {
-      "type": "info",
-      "title": "I have...",
-      "info": [
-        {
-          "title": "6 Years",
-          "subTitle": "Done 6 years of programming"
-        },
-        {
-          "title": "2 Hacks",
-          "subTitle": "Helped organize 2 Hackathons"
-        },
-        {
-          "title": "2 Years",
-          "subTitle": "Worked 2 years professionally"
-        },
-        {
-          "title": "15 Langs",
-          "subTitle": "Have programmed in 15 different Languages"
-        }
-      ]
-    },
-    {
-      "type": "info",
-      "title": "But I also have...",
-      "info": [
-        {
-          "image": "/svgs/bike.svg",
-          "subTitle": "Biked 140KM in one day"
-        },
-        {
-          "image": "/svgs/mountain.svg",
-          "subTitle": "Concurred the Sleeping Giant"
-        },
-        {
-          "image": "/svgs/nesting-doll.svg",
-          "subTitle": "Been attempting to learn Russian "
-        },
-        {
-          "image": "/svgs/vr-headset.svg",
-          "subTitle": "A passion for VR and Physical computing"
-        }
-      ]
-    },
-    {
-      "type": "info",
-      "title": "Right now I am working on...",
-      "info": [
-        {
-          "image": "/images/hackville.svg",
-          "title": "Hackville 2021",
-          "link": "https://www.hackville.club",
-          "subTitle": "Student run virtual hackathon"
-        },
-        {
-          "image": "/images/wasmcompute.svg",
-          "title": "WASM Compute",
-          "link": "https://wasmcompute.com",
-          "subTitle": "Experimental Serverless Platform for Web Assembly"
-        },
-        {
-          "image": "/images/thesis.svg",
-          "title": "Thesis",
-          "subTitle": "A thesis reviewing stateful serverless platforms"
-        }
-      ]
-    }
-  ]
+  "about": {
+    "widgets": [
+      {
+        "title": "Who Am I...",
+        "description": "I am this guys thats a dude"
+      },
+      {
+        "title": "But I also do...",
+        "description": "I also do some other things too..."
+      }
+    ],
+    "info": [
+      {
+        "title": "I have...",
+        "items": [
+          {
+            "title": "6 Years",
+            "subTitle": "Done 6 years of programming"
+          },
+          {
+            "title": "2 Hacks",
+            "subTitle": "Helped organize 2 Hackathons"
+          },
+          {
+            "title": "2 Years",
+            "subTitle": "Worked 2 years professionally"
+          },
+          {
+            "title": "15 Langs",
+            "subTitle": "Have programmed in 15 different Languages"
+          }
+        ]
+      },
+      {
+        "title": "But I also have...",
+        "items": [
+          {
+            "image": "/svgs/bike.svg",
+            "subTitle": "Biked 140KM in one day"
+          },
+          {
+            "image": "/svgs/mountain.svg",
+            "subTitle": "Concurred the Sleeping Giant"
+          },
+          {
+            "image": "/svgs/nesting-doll.svg",
+            "subTitle": "Been attempting to learn Russian "
+          },
+          {
+            "image": "/svgs/vr-headset.svg",
+            "subTitle": "A passion for VR and Physical computing"
+          }
+        ]
+      },
+      {
+        "title": "Right now I am working on...",
+        "items": [
+          {
+            "image": "/images/hackville.svg",
+            "bigImage": true,
+            "title": "Hackville 2021",
+            "link": "https://www.hackville.club",
+            "subTitle": "Student run virtual hackathon"
+          },
+          {
+            "image": "/images/wasmcompute.svg",
+            "bigImage": true,
+            "title": "WASM Compute",
+            "link": "https://wasmcompute.com",
+            "subTitle": "Experimental Serverless Platform for Web Assembly"
+          },
+          {
+            "bigImage": true,
+            "image": "/images/thesis.svg",
+            "title": "Thesis",
+            "subTitle": "A thesis reviewing stateful serverless platforms"
+          }
+        ]
+      }
+    ]
+  }
 }
