@@ -19,7 +19,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     const results = await graphql(`
     {
-        projects: allMdx(filter: {slug: {regex: "\/personal\/"}}) {
+        projects: allMdx(filter: {slug: {regex: "\/devlog\/"}}) {
             edges {
                 node {
                     fields {

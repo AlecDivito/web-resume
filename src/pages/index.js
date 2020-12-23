@@ -131,8 +131,8 @@ const IndexPage = () => {
       </Hero>
       <div className="common common--max-width">
         <div className="common__content common--content--max-width">
+          <Title varient="h2" className="home__section__title">Projects</Title>
           <section className="home__section home--projects">
-            <Title varient="h2" className="home__section__title">Projects</Title>
             {data.allProjectsJson.nodes.map(p =>
               <Widget title={p.title}
                 key={p.id}
@@ -145,8 +145,8 @@ const IndexPage = () => {
             )}
           </section>
 
+          <Title varient="h2" className="home__section__title">Blog Posts</Title>
           <section className="home__section home--projects">
-            <Title varient="h2" className="home__section__title">Blog Posts</Title>
             {data.blogs.edges.map(b =>
               <Widget title={b.node.frontmatter.title}
                 key={b.node.id}
@@ -158,8 +158,8 @@ const IndexPage = () => {
             )}
           </section>
 
+          <Title varient="h2" className="home__section__title">Work</Title>
           <section className="home__section home--projects">
-            <Title varient="h2" className="home__section__title">Work</Title>
             {data.work.nodes.map(w =>
               <Widget title={w.position}
                 key={w.id}
