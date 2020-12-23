@@ -1,33 +1,83 @@
-[
+{
+  "widgets": [
     {
-        "details": [
-          "Third year co-op Mobile Computing student at Sheridan College",
-          "Graduate of Sheridan's Software Development and Network Engineering advance diploma",
-          "Currently expanding my knowledge into all advancements in computer science. For example, practicing my skills by developing websites, picking up new languages and frameworks",
-          "Special focus on gaining knowledge machine learning and web/mobile design",
-          "Eager and capable of learning anything. I am interested in a breadth of context and understanding to create full pictures of the development ecosystem, allowing me to make intelligent decisions that allow."
-        ],
-        "link": "/work",
-        "section": "Professional"
+      "type": "widget",
+      "title": "Who Am I...",
+      "description": "I am this guys thats a dude"
     },
     {
-        "details": [
-          "I enjoy taking on difficult challenges and building out applications fast. I enjoy working with friends and spending time on school projects",
-          "When I'm not coding, I enjoy biking all over Ontario, snowboarding (in the winter), ice skating, and spending a weekend camping at a National or Provincial Park",
-          "Have I mentioned I really like animals? Especially cats. Dogs are cool to I guess..."
-        ],
-        "link": "/personal",
-        "section": "Personal"
-    },
-    {
-      "details": [
-        "Graduated Highschool 1 year early",
-        "Cycled 140KM from mississauga to Niagara on the Lake",
-        "Able to canoe down white water (Canoed down part of the Ottawa river)",
-        "Able to survive in the woods for 1 week with group and canoe",
-        "This website"
-      ],
-      "link": null,
-      "section": "Achievements"
+      "type": "widget",
+      "title": "But I also do...",
+      "description": "I also do some other things too..."
     }
-]
+  ],
+  "info": [
+    {
+      "type": "info",
+      "title": "I have...",
+      "info": [
+        {
+          "title": "6 Years",
+          "subTitle": "Done 6 years of programming"
+        },
+        {
+          "title": "2 Hacks",
+          "subTitle": "Helped organize 2 Hackathons"
+        },
+        {
+          "title": "2 Years",
+          "subTitle": "Worked 2 years professionally"
+        },
+        {
+          "title": "15 Langs",
+          "subTitle": "Have programmed in 15 different Languages"
+        }
+      ]
+    },
+    {
+      "type": "info",
+      "title": "But I also have...",
+      "info": [
+        {
+          "image": "/svgs/bike.svg",
+          "subTitle": "Biked 140KM in one day"
+        },
+        {
+          "image": "/svgs/mountain.svg",
+          "subTitle": "Concurred the Sleeping Giant"
+        },
+        {
+          "image": "/svgs/nesting-doll.svg",
+          "subTitle": "Been attempting to learn Russian "
+        },
+        {
+          "image": "/svgs/vr-headset.svg",
+          "subTitle": "A passion for VR and Physical computing"
+        }
+      ]
+    },
+    {
+      "type": "info",
+      "title": "Right now I am working on...",
+      "info": [
+        {
+          "image": "/images/hackville.svg",
+          "title": "Hackville 2021",
+          "link": "https://www.hackville.club",
+          "subTitle": "Student run virtual hackathon"
+        },
+        {
+          "image": "/images/wasmcompute.svg",
+          "title": "WASM Compute",
+          "link": "https://wasmcompute.com",
+          "subTitle": "Experimental Serverless Platform for Web Assembly"
+        },
+        {
+          "image": "/images/thesis.svg",
+          "title": "Thesis",
+          "subTitle": "A thesis reviewing stateful serverless platforms"
+        }
+      ]
+    }
+  ]
+}
