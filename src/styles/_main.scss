@@ -102,6 +102,11 @@ $shades-list: (
     }
 }
 
+.link--plain {
+    color: $shade-0;
+    cursor: pointer;
+}
+
 .link {
     transition: 0.3s color ease;
     position: relative;

@@ -22,7 +22,7 @@
             "Handlebars"
         ],
         "description": "Run web assembly in the cloud. Why write your serverless functions in any language.",
-        "shortDescription": "Run web assembly in the cloud",
+        "shortDescription": "Run stateful web assembly functions in the cloud. Fast and easy.",
         "blogPost": "/personal/wasmcompute",
         "siteLink": "https://wasmcompute.com"
     },

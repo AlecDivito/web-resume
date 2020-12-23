@@ -1,11 +1,14 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-
-import HeaderLayout from "../components/headerLayout";
+import Hero from "../components/hero";
+import Box from "../components/simple/box"
+import Layout from "../components/layout";
 import SEO from "../components/seo"
+import Title from "../components/simple/title";
+import Widget from "../components/widget";
+import SocialLink from "../components/simple/socialLink";
 import "./index.scss";
-import StatusDot from "../components/statusDot";
 
 /**
  * Render a storm of particles that are really pretty
@@ -105,17 +108,19 @@ class Particles {
 
 const query = graphql`
   query HomePageData {
-    allWorkJson {
+    work: allWorkJson {
       nodes {
         id
         company
         position
         startDate
         endDate
+        utilized
+        description
         logo {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
+            fixed(width: 50, height: 50) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
@@ -157,17 +162,35 @@ const query = graphql`
         stage
         status
         githubLink
+        technologies
         blogPost
         logo {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
+            fixed(width: 50, height: 50) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
       }
     }
-    allExternalNavJson {
+    blogs: allMdx(filter: {slug: {regex: "/blogs/"}}) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            totalTime
+            tags
+            description
+            publishedDate
+          }
+          id
+        }
+      }
+    }
+    external: allExternalNavJson {
       nodes {
         id
         image
@@ -176,141 +199,114 @@ const query = graphql`
         alt
       }
     }
+    file (relativePath: { eq: "images/index/alec.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 280) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `;
 
 const IndexPage = () => {
 
-  let particles = null;
+  // let particles = null;
 
-  const update = () => {
-    // get context
-    if (!particles) {
-      let canvas = document.getElementById('bg-canvas');
-      if (canvas) {
-        particles = new Particles(canvas, 25);
-      } else {
-        if (typeof window !== 'undefined') {
-          window.requestAnimationFrame(update);
-        }
-        return;
-      }
-    }
-    particles.update();
-    particles.render();
-    if (typeof window !== 'undefined') {
+  // const update = () => {
+  //   // get context
+  //   if (!particles) {
+  //     let canvas = document.getElementById('bg-canvas');
+  //     if (canvas) {
+  //       particles = new Particles(canvas, 25);
+  //     } else {
+  //       if (typeof window !== 'undefined') {
+  //         window.requestAnimationFrame(update);
+  //       }
+  //       return;
+  //     }
+  //   }
+  //   particles.update();
+  //   particles.render();
+  //   if (typeof window !== 'undefined') {
 
-      window.requestAnimationFrame(update);
-    }
-  }
-  if (typeof window !== 'undefined') {
-    window.requestAnimationFrame(update);
-  }
+  //     window.requestAnimationFrame(update);
+  //   }
+  // }
+  // if (typeof window !== 'undefined') {
+  //   window.requestAnimationFrame(update);
+  // }
 
   const data = useStaticQuery(query);
 
   return (
-    <HeaderLayout>
+    <Layout>
       <SEO title="Home" />
-      <canvas id="bg-canvas" className="home--background"></canvas>
+      {/* <canvas id="bg-canvas" className="home--background"></canvas> */}
+      <Hero
+        title="Alec Di Vito"
+        subTitle="You dream it, And I'll build it"
+        tags={["Wasm Expert", "Cloud", "Full stack"]}
+        readMoreLink="/about"
+        readMoreText="Learn about me"
+      >
+        <Img fluid={data.file.childImageSharp.fluid}
+          alt="Alec Divito 3D Profile Picture" />
+      </Hero>
       <div className="home layout--max-width">
-
-        <header className="home__header">
-          <h1 className="home__header--name">
-            Alec Di<span className="home__header--name--space">Vito</span>
-          </h1>
-          <h3 className="home__header--title">Full Stack Web Developer</h3>
-          <p className="home__header__description">
-            Aspiring Cloud Developer and WASM expert
-          </p>
-          <Link className="home__header--learn link" to="/about">Learn More</Link>
-
-          <div>
-            <a href="#index--page-anchor" className="home__header--scroller"><span></span></a>
-          </div>
-
-        </header>
-
-        <section className="home__section home--work">
-          <div aria-label="index--page-anchor" id="index--page-anchor" />
-          <h1>
-            <Link className="link" to="/work">Work</Link>
-          </h1>
-          <div className="home__section__list">
-            {data.allWorkJson.nodes.map(p =>
-              <Link to={`/work#${p.id}`} className="home__section__list__item home--work__item" key={p.id}>
-                <Img fluid={p.logo.childImageSharp.fluid} alt={p.company} />
-                <span><strong>{p.position}</strong> at {p.company}</span>
-                <small>({p.startDate} - {p.endDate})</small>
-              </Link>
+        <div className="home__content layout--content--max-width">
+          <section className="home__section home--projects">
+            <Title varient="h2" className="home__section__title">Projects</Title>
+            {data.allProjectsJson.nodes.map(p =>
+              <Widget title={p.title}
+                key={p.id}
+                subTitle={p.shortDescription}
+                tags={p.technologies}
+                status={p.status}
+                logo={<Img fixed={p.logo.childImageSharp.fixed} style={{ borderRadius: '100%' }} alt={p.company} />}
+                readMore={(p.blogPost) ? p.blogPost : `/personal#${p.id}`}
+              />
             )}
-          </div>
-        </section>
+          </section>
 
-        <section className="home__section home--projects">
-          <h1>
-            <Link className="link" to="/personal">Projects</Link>
-          </h1>
-          <div className="home__section__list">
-            {data.allProjectsJson.nodes.map((p) =>
-              <Link to={(p.blogPost) ? p.blogPost : `/personal#${p.id}`} className="home__section__list__item home--projects__item" key={p.id}>
-                <Img fluid={p.logo.childImageSharp.fluid} alt={p.company} />
-                <StatusDot status={p.status} />
-                <span>{p.title}</span>
-                <span className="mobile--hidden">{p.shortDescription}</span>
-                {/* {(p.blogPost)
-                  ? <Link link={p.blogPost} className="link--button">Read More</Link>
-                  : null
-                } */}
-                {/* <IconLink type="site" link={p.siteLink} />
-                <IconLink type="github" link={p.githubLink} /> */}
-              </Link>
+          <section className="home__section home--projects">
+            <Title varient="h2" className="home__section__title">Blog Posts</Title>
+            {data.blogs.edges.map(b =>
+              <Widget title={b.node.frontmatter.title}
+                key={b.node.id}
+                tags={b.node.frontmatter.tags}
+                readMore={b.node.fields.slug}
+                description={b.node.frontmatter.description}
+                date={b.node.frontmatter.publishedDate}
+              />
             )}
-          </div>
-        </section>
+          </section>
 
-        <section className="home__section home--school">
-          <h1>
-            <Link className="link" to="/work">School</Link>
-          </h1>
-          <div className="home__section__list">
-            {data.allSchoolJson.nodes.map((p, id) =>
-              <Link to={`/work#${p.id}`} className="home__section__list__item home--school__item" key={id}>
-                <Img fluid={p.logo.childImageSharp.fluid} alt={`${p.program} at ${p.school}`} />
-                <span>{p.program} at {p.school}</span>
-                <small>({p.startDate} - {p.endDate}, {p.gpa})</small>
-              </Link>
+          <section className="home__section home--projects">
+            <Title varient="h2" className="home__section__title">Work</Title>
+            {data.work.nodes.map(w =>
+              <Widget title={w.position}
+                key={w.id}
+                subTitle={w.company}
+                description={w.description}
+                tags={w.utilized}
+                date={`${w.startDate}-${w.endDate}`}
+                logo={<Img fixed={w.logo.childImageSharp.fixed} style={{ borderRadius: '100%' }} alt={w.company} />}
+              />
             )}
-          </div>
-        </section>
-
-        <section className="home__section home--volunteer">
-          <h1>
-            <Link className="link" to="/work">Volunteer</Link>
-          </h1>
-          <div className="home__section__list">
-            {data.allVolunteerJson.nodes.map((p, id) =>
-              <Link to={`/work#${p.id}`} className="home__section__list__item home--volunteer__item" key={id}>
-                <span>{p.time}</span>
-                <span>{p.job}</span>
-              </Link>
-            )}
-          </div>
-        </section>
-
-        <section className="home__section home--social">
-          <h1>Social</h1>
-          <div className="home__section__list">
-            {data.allExternalNavJson.nodes.map((e) =>
-              <a key={e.id} href={e.link} target="_blank" rel="noopener noreferrer" className="home__section__list__item home--social__item">
-                <img src={e.image} alt={e.alt} />
-                <span>{e.type}</span>
-              </a>
-            )}
-          </div>
-        </section>
+          </section>
+        </div>
+        <div className="home--box">
+          <Box className="home--box--sticky">
+            <div className="home__section__list">
+              {data.external.nodes.map((e) =>
+                <SocialLink {...e} className="home__section__list__item" />
+              )}
+            </div>
+          </Box>
+        </div>
       </div>
-    </HeaderLayout>
+    </Layout >
   )
 }
 

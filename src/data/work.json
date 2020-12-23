@@ -1,9 +1,9 @@
 [
     {
-        "website": null,
+        "website": "https://hackademics.club",
         "startDate": "Sept 2020",
         "endDate": "Present",
-        "company": "Hackademics Club",
+        "company": "Hackademics Club, Sheridan College",
         "position": "Vice President",
         "description": "Raised $+12,000 for Hackville! Lead team of 4 to develop open source solutions for Hackademics club. Helped to created a podcast focused on spreading the word about hackathons and Hackademics.",
         "logo": "./images/work/hackademics.png",
