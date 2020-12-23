@@ -6,7 +6,7 @@ import "./nav.scss";
 const Nav = ({ links, navActive, onNavClick, children }) => (
   <nav className="nav">
     <div className="nav--border-shadow">
-      <div className="nav--container layout--max-width">
+      <div className="nav--container common--max-width">
         <div className="nav--header">
           <Link to="/" className="nav__logo">
             Alec Di Vito

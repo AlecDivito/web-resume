@@ -109,7 +109,7 @@ const ProjectTemplate = ({ data }) => {
     return (
         <Layout>
             <SEO title={project.frontmatter.title} />
-            <section className="project layout--max-width">
+            <section className="project common--max-width">
                 {/* <Navigation textRight={project.frontmatter.next} textLeft={project.frontmatter.previous} /> */}
                 <Header text={project.frontmatter.title} isCenter={true} />
                 <h3 className="project__header">

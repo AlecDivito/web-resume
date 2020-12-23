@@ -37,7 +37,7 @@
         position: sticky;
         top: 0px;
         // this needs to be important because the max page length will mess
-        // it up (.layout--max-width)
+        // it up (.common--max-width)
         margin: -$nav-height-border-shadow-offset auto 0px auto;
         z-index: $nav-z-index + 2;
         height: $nav-height;

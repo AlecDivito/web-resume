@@ -7,7 +7,7 @@ import "./hero.scss";
 
 const Hero = ({ title, titleIcon, subTitle, tags, readMoreLink, readMoreText, date, children }) => (
     <div className="hero">
-        <div className="hero--container layout--max-width">
+        <div className="hero--container common--max-width">
             <div className="hero--z-index" style={{ width: 220 }}>
                 {children}
             </div>
@@ -20,7 +20,7 @@ const Hero = ({ title, titleIcon, subTitle, tags, readMoreLink, readMoreText, da
                 <div>
                     <div className="hero--flex">
                         <ul className="hero__list">
-                            {tags.map((t) => <li className="hero__list__item"><Tag text={t} /></li>)}
+                            {tags.map((t) => <li key={t} className="hero__list__item"><Tag text={t} /></li>)}
                         </ul>
                         {(readMoreLink && readMoreText) ? <Link className="hero__link" to={readMoreLink}>{readMoreText}</Link> : null}
                     </div>

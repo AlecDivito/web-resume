@@ -10,11 +10,11 @@ const Footer = ({
   alecHead
 }) => (
   <footer className="footer">
-    <div className="layout--max-width">
+    <div className="common--max-width">
       <div className="footer--row">
         <div className="footer--column footer--index">
           <Title invert={true} variant="h2">Alec Di Vito</Title>
-          <ul className="footer__list">{externalLinks.map(s => <li className="footer__list__item"><SocialLink className="footer__list__item--social" invert {...s} /></li>)}</ul>
+          <ul className="footer__list">{externalLinks.map(s => <li key={s.id} className="footer__list__item"><SocialLink className="footer__list__item--social" invert {...s} /></li>)}</ul>
         </div>
         <div className="footer--column footer--index">
           <Title invert={true} variant="h4">aspiring cloud developer</Title>
@@ -40,7 +40,8 @@ Footer.propTypes = {
   externalLinks: PropTypes.arrayOf(PropTypes.exact({
     alt: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
-    image: PropTypes.bool.isRequired,
+    image: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired
   })).isRequired,
 }

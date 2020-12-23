@@ -61,7 +61,7 @@ const BlogTemplate = ({ data }) => {
                     tags={blog.frontmatter.tags}
                     date={blog.frontmatter.publishedDate}
                 />
-                <article className="article__content layout--max-width">
+                <article className="article__content common--max-width">
                     <MDXRenderer>{blog.body}</MDXRenderer>
                 </article>
             </section>
