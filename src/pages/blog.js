@@ -1,28 +1,69 @@
 import React from "react"
-
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Hero from "../components/hero"
+import Box from "../components/simple/box";
+import Widget from "../components/widget";
+import Title from "../components/simple/title";
 import "./blog.scss";
-import Header from "../components/header";
 
-const BlogDirectoryPage = () => (
+const BlogDirectoryPage = ({ data }) => (
   <Layout>
-    <SEO title="Alec's Personal Blog" />
-    <section className="blog">
-      <Header text="Hey, The blog is under construction!" isCenter={true} />
-      <p>
-        Sorry for the inconvenience, currently the site is still being built
-        and all the main small kinks are still being worked out. I'm hopping to
-        have it operational before september 2019.
-      </p>
-      <p>
-        If you wondering what will be written in the blog, I'll mostly be focusing
-        on mathematic topic I learn (which will probably be basic and used as a
-        way to keep me studying) and on case studies of some of my web designs
-        and the steps I take to make my web pages look good or at least decent.
-      </p>
-    </section>
+    <SEO title="Alec Di Vito Blog" />
+    <Hero
+      title="Blog"
+      subTitle="I thought it, so I wrote it"
+      tags={["Thesis", "Interests", "Rabit Holes"]} />
+    <div className="common common--max-width">
+      <div className="common__content common--content--max-width">
+        <Title variant="h2">2020</Title>
+        <section className="home__section home--projects">
+          {data.blogs.edges.map(b =>
+            <Widget title={b.node.frontmatter.title}
+              key={b.node.id}
+              tags={b.node.frontmatter.tags}
+              readMore={b.node.fields.slug}
+              description={b.node.frontmatter.description}
+              date={b.node.frontmatter.publishedDate}
+            />
+          )}
+        </section>
+        <section>
+          <Title variant="h2">More coming soon!!</Title>
+        </section>
+      </div>
+      <div className="common--box">
+        <Box className="common--box--sticky">
+          <p>I want this to include some of the blogs posted here. Just the titles
+          it will act as a way for people to quickly navigate the app.
+            </p>
+        </Box>
+      </div>
+    </div>
   </Layout>
 )
+
+export const query = graphql`
+query BlogPageData {
+  blogs: allMdx(filter: {slug: {regex: "/blogs/"}}) {
+    edges {
+      node {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          totalTime
+          tags
+          description
+          publishedDate
+        }
+        id
+      }
+    }
+  }
+}
+`
 
 export default BlogDirectoryPage
