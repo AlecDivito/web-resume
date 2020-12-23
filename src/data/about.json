@@ -36,19 +36,19 @@
         "title": "But I also have...",
         "items": [
           {
-            "image": "/svgs/bike.svg",
+            "image": "/svgs/about/have/bike.svg",
             "subTitle": "Biked 140KM in one day"
           },
           {
-            "image": "/svgs/mountain.svg",
+            "image": "/svgs/about/have/mountain.svg",
             "subTitle": "Concurred the Sleeping Giant"
           },
           {
-            "image": "/svgs/nesting-doll.svg",
+            "image": "/svgs/about/have/nesting-doll.svg",
             "subTitle": "Been attempting to learn Russian "
           },
           {
-            "image": "/svgs/vr-headset.svg",
+            "image": "/svgs/about/have/vr-headset.svg",
             "subTitle": "A passion for VR and Physical computing"
           }
         ]
@@ -57,14 +57,14 @@
         "title": "Right now I am working on...",
         "items": [
           {
-            "image": "/images/hackville.svg",
+            "image": "/svgs/about/currently/hackville.svg",
             "bigImage": true,
             "title": "Hackville 2021",
             "link": "https://www.hackville.club",
             "subTitle": "Student run virtual hackathon"
           },
           {
-            "image": "/images/wasmcompute.svg",
+            "image": "/svgs/about/currently/wasmcompute.svg",
             "bigImage": true,
             "title": "WASM Compute",
             "link": "https://wasmcompute.com",
@@ -72,12 +72,57 @@
           },
           {
             "bigImage": true,
-            "image": "/images/thesis.svg",
+            "image": "/svgs/about/currently/thesis.svg",
             "title": "Thesis",
             "subTitle": "A thesis reviewing stateful serverless platforms"
           }
         ]
       }
-    ]
+    ],
+    "favoriteLang": {
+      "title": "My favorite programming languages are ...",
+      "items": [
+        {
+          "bigImage": true,
+          "image": "/svgs/about/programming/rust.svg",
+          "subTitle": "Rust is love, Rust is life"
+        },
+        {
+          "bigImage": true,
+          "image": "/svgs/about/programming/typescript.svg",
+          "subTitle": "Typescript cause its easy and fun"
+        },
+        {
+          "bigImage": true,
+          "image": "/svgs/about/programming/go.svg",
+          "subTitle": "GoLang for a life simple"
+        },
+        {
+          "bigImage": true,
+          "image": "/svgs/about/programming/python.svg",
+          "subTitle": "Python for machine learning and stuff"
+        }
+      ]
+    },
+    "interested": {
+      "title": "And I'm personally interested in ...",
+      "items": [
+        {
+          "bigImage": true,
+          "image": "/svgs/about/interests/systems.svg",
+          "subTitle": "Distributed Systems"
+        },
+        {
+          "bigImage": true,
+          "image": "/svgs/about/interests/wasm.svg",
+          "subTitle": "Web Assembly"
+        },
+        {
+          "bigImage": true,
+          "image": "/svgs/about/interests/cloud.svg",
+          "subTitle": "The Cloud"
+        }
+      ]
+    }
   }
 }

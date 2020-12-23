@@ -1,22 +1,17 @@
 [
     {
-        "title": "Projects",
-        "link": "/projects",
-        "ready": true
-    },
-    {
         "title": "About",
         "link": "/about",
         "ready": true
     },
     {
-        "title": "Blog",
-        "link": "/personal",
-        "ready": true
+        "title": "DevLog",
+        "link": "/devlog",
+        "ready": false
     },
     {
-        "title": "Contact",
-        "link": "/contact",
+        "title": "Blog",
+        "link": "/blog",
         "ready": true
     }
 ]
