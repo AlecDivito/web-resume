@@ -29,6 +29,22 @@ query AboutMeQuery {
         description
         title
       }
+      favoriteLang {
+        title
+        items {
+          bigImage
+          image
+          subTitle
+        }
+      }
+      interested {
+        title
+        items {
+          bigImage
+          image
+          subTitle
+        }
+      }
     }
   }
   file( relativePath: { eq: "images/about/Profile_Pic_Alec_Divito.png" } ) {
@@ -63,7 +79,7 @@ const AboutPage = () => {
           </section>
           {data.dataJson.about.info.map(w =>
             <section>
-              <Title varient="h3">{w.title}</Title>
+              <Title varient="h3" className="about__statistic--title">{w.title}</Title>
               <HorizontalList>
                 {w.items.map(item =>
                   <Statistic {...item} />
@@ -71,6 +87,22 @@ const AboutPage = () => {
               </HorizontalList>
             </section>
           )}
+          <section>
+            <Title className="about__statistic--title" varient="h2">{data.dataJson.about.favoriteLang.title}</Title>
+            <HorizontalList>
+              {data.dataJson.about.favoriteLang.items.map(item =>
+                <Statistic {...item} />
+              )}
+            </HorizontalList>
+          </section>
+          <section>
+            <Title className="about__statistic--title" varient="h2">{data.dataJson.about.interested.title}</Title>
+            <HorizontalList>
+              {data.dataJson.about.interested.items.map(item =>
+                <Statistic {...item} />
+              )}
+            </HorizontalList>
+          </section>
           <section>
             <Title varient="h2">And there is more coming soon!</Title>
           </section>
@@ -89,5 +121,6 @@ const AboutPage = () => {
     </Layout>
   );
 }
+// spaces are better then tabs
 
 export default AboutPage
