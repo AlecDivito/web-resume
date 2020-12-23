@@ -8,9 +8,11 @@ import "./hero.scss";
 const Hero = ({ title, titleIcon, subTitle, tags, readMoreLink, readMoreText, date, children }) => (
     <div className="hero">
         <div className="hero--container common--max-width">
-            <div className="hero--z-index" style={{ width: 220 }}>
-                {children}
-            </div>
+            {children ?
+                <div className="hero--z-index" style={{ width: 220 }}>
+                    {children}
+                </div>
+                : null}
             <div className="hero--z-index hero--content">
                 <h2 className="hero__title">
                     {titleIcon}
