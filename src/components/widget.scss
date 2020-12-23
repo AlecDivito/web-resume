@@ -1,0 +1,56 @@
+@import '../styles/variables';
+
+.widget {
+    position: relative;
+    margin: 3rem 1rem 4rem 0rem;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &--date {
+            color: $shade-7;
+            font-size: 1em;
+            font-weight: 700;
+        }
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+
+        * {
+            margin-right: 1rem;
+        }
+    }
+
+    &__subTitle {
+        color: $shade-9;
+        margin: 1.5rem 0rem 2rem 0rem;
+    }
+
+    &__tags {
+        margin: 2rem 0rem;
+
+        * {
+            margin-right: 1.5rem;
+        }
+    }
+
+    &__description {
+        font-size: 1.25em;
+        font-weight: 700;
+        margin-right: 2.5rem;
+        padding-bottom: 3rem;
+    }
+
+    &__link {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        color: $primary-color;
+        font-weight: 700;
+        font-size: 1.25em;
+    }
+}

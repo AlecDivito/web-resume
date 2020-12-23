@@ -1,9 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
-import "./hero.scss";
 import { Link } from "gatsby";
 import Tag from "./tag";
 import HeroCurve from "../assets/hero.svg";
+import "./hero.scss";
 
 const Hero = ({ title, titleIcon, subTitle, tags, readMoreLink, readMoreText, date, children }) => (
     <div className="hero">
