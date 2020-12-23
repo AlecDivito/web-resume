@@ -7,6 +7,14 @@
     max-width: $desktop;
 }
 
+.layout--content--max-width {
+    max-width: 880px;
+}
+
+.layout--box-menu--sticky {
+    position: sticky;
+}
+
 .page--content {
     width: 100%;
     height: 100%;

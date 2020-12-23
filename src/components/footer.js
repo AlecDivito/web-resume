@@ -1,63 +1,48 @@
 import React from "react"
-import { Link } from "gatsby"
 import PropTypes from 'prop-types';
+import Title from "./simple/title";
+import SocialLink from "./simple/socialLink";
+import FooterSvg from "../assets/footer.svg";
 import "./footer.scss";
 
-const Footer = ({ siteLinks, projectPosts, children }) => (
+const Footer = ({
+  externalLinks,
+  alecHead
+}) => (
   <footer className="footer">
-    <div className="footer__top layout--max-width">
-      <div className="footer__top__about">
-        <h3>Alec Di Vito</h3>
-        <p>
-          I'm a creative, ambitious, and enterprising software engineer as well as
-          an Cloud and Fullstack Developer.
-          </p>
-      </div>
-      <div className="footer__top__site">
-        <h3>Projects</h3>
-        <ul className="footer__top__site__list">
-          {projectPosts.filter(p => p.blogPost).map(p => (
-            <li key={p.id} >
-              <Link className="link" to={p.blogPost}>{p.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="footer__top__site">
-        <h3>Site Links</h3>
-        <ul className="footer__top__site__list wrap">
-          {siteLinks.filter(s => s.ready).map((s, i) => (
-            <li key={i}>
-              <Link className="link" to={s.link}>{s.title}</Link>
-            </li>
-          ))}
-        </ul>
+    <div className="layout--max-width">
+      <div className="footer--row">
+        <div className="footer--column footer--index">
+          <Title invert={true} variant="h2">Alec Di Vito</Title>
+          <ul className="footer__list">{externalLinks.map(s => <li className="footer__list__item"><SocialLink className="footer__list__item--social" invert {...s} /></li>)}</ul>
+        </div>
+        <div className="footer--column footer--index">
+          <Title invert={true} variant="h4">aspiring cloud developer</Title>
+          <Title invert={true} variant="h4">
+            <a className="footer__email" href="mailto:divitoa@sheridancollege.ca">
+              divitoa@sheridancollege.ca
+            </a>
+          </Title>
+        </div>
+        <div className="footer--index footer__bottom">
+          <div className="footer__bottom--head">{alecHead}</div>
+          <p style={{ zIndex: 300 }}>Made with ❤️ by <a className="link--plain" href="https://val-z.com">Valeriia Zub</a> and <a className="link--plain" href="https://alecdivito.github.io">Alec Di Vito</a></p>
+        </div>
       </div>
     </div>
-    <div className="footer__bottom layout--max-width">
-      <div className="footer__bottom__copyright">
-        Alec Di Vito © {new Date().getFullYear()}, Built with
-          {` `}
-        <a className="link" href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">Gatsby</a>
-      </div>
-      {children}
+    <div className="footer--curve">
+      <FooterSvg />
     </div>
   </footer>
 )
 
 Footer.propTypes = {
-  siteLinks: PropTypes.arrayOf(PropTypes.exact({
-    title: PropTypes.string.isRequired,
+  externalLinks: PropTypes.arrayOf(PropTypes.exact({
+    alt: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
-    ready: PropTypes.bool.isRequired,
+    image: PropTypes.bool.isRequired,
     id: PropTypes.string.isRequired
   })).isRequired,
-  projectPosts: PropTypes.arrayOf(PropTypes.exact({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    blogPost: PropTypes.string,
-  })).isRequired,
-  children: PropTypes.node
 }
 
 export default Footer;
