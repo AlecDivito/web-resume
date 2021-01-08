@@ -11,7 +11,8 @@ const Widget = ({ title, subTitle, description, tags, date, readMore, logo, stat
         <div className="widget__header">
             <div className="widget__title">
                 {logo ? logo : null}
-                <Title variant="h3">{title}</Title>
+                {(!readMore) ? <Title variant="h3">{title}</Title>
+                    : <Link to={readMore}><Title className="widget__title--link" variant="h3">{title}</Title></Link>}
                 {status ? <StatusDot status={status} /> : null}
             </div>
             {(date) ? <span className="widget__header--date">{date}</span> : null}

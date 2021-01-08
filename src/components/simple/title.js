@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import "./title.scss";
 
-const Title = ({ children, variant, invert, className }) => {
+const Title = ({ children, variant, invert, alignment, className }) => {
     let classes = "";
     if (className) {
         classes = `${classes} ${className}`
     }
     if (invert) {
         classes = `${classes} title--invert`
+    }
+    if (alignment) {
+        classes = `${classes} ${alignment}`;
     }
     switch (variant) {
         case 'h1': return <h1 className={`title ${variant} ${classes}`}>{children}</h1>;
@@ -27,6 +30,7 @@ Title.prototype = {
     variant: PropTypes.string,
     className: PropTypes.string,
     invert: PropTypes.bool,
+    alignment: PropTypes.string,
 }
 
 export default Title;
