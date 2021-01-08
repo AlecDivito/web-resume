@@ -36,18 +36,22 @@
         "title": "But I also have...",
         "items": [
           {
+            "title": "Biked",
             "image": "/svgs/about/have/bike.svg",
             "subTitle": "Biked 140KM in one day"
           },
           {
+            "title": "Hiked",
             "image": "/svgs/about/have/mountain.svg",
             "subTitle": "Concurred the Sleeping Giant"
           },
           {
+            "title": "Tried",
             "image": "/svgs/about/have/nesting-doll.svg",
-            "subTitle": "Been attempting to learn Russian "
+            "subTitle": "Been attempting to learn Ukrainian "
           },
           {
+            "title": "Played",
             "image": "/svgs/about/have/vr-headset.svg",
             "subTitle": "A passion for VR and Physical computing"
           }
@@ -74,7 +78,7 @@
             "bigImage": true,
             "image": "/svgs/about/currently/thesis.svg",
             "title": "Thesis",
-            "subTitle": "A thesis reviewing stateful serverless platforms"
+            "subTitle": "A thesis reviewing stateful serverless functions"
           }
         ]
       }
