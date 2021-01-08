@@ -8,6 +8,7 @@ import Box from "../components/simple/box";
 import Hero from "../components/hero";
 import "./devlog.scss";
 import Widget from "../components/widget";
+import SocialLinks from "../components/data/socialLinks";
 
 const DevlogPage = ({ data }) => (
     <Layout>
@@ -35,8 +36,7 @@ const DevlogPage = ({ data }) => (
             </div>
             <div className="common--box">
                 <Box className="common--box--sticky">
-                    <p>I want this to include some of the blogs posted here. Just the titles
-                    it will act as a way for people to quickly navigate the app.</p>
+                    <SocialLinks />
                 </Box>
             </div>
         </div>

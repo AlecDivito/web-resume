@@ -7,7 +7,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo"
 import Title from "../components/simple/title";
 import Widget from "../components/widget";
-import SocialLink from "../components/simple/socialLink";
+import SocialLinks from "../components/data/socialLinks";
 import "./index.scss";
 
 const query = graphql`
@@ -94,15 +94,6 @@ const query = graphql`
         }
       }
     }
-    external: allExternalNavJson {
-      nodes {
-        id
-        image
-        link
-        type
-        alt
-      }
-    }
     file (relativePath: { eq: "images/index/alec.png" }) {
       childImageSharp {
         fluid(maxWidth: 280) {
@@ -174,11 +165,7 @@ const IndexPage = () => {
         </div>
         <div className="common--box">
           <Box className="common--box--sticky">
-            <div className="home__section__list">
-              {data.external.nodes.map((e) =>
-                <SocialLink key={e.id} {...e} className="home__section__list__item" />
-              )}
-            </div>
+            <SocialLinks />
           </Box>
         </div>
       </div>

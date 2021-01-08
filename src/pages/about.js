@@ -10,6 +10,7 @@ import Title from "../components/simple/title";
 import Widget from "../components/widget";
 import "./about.scss";
 import Statistic from "../components/complex/statistic";
+import SocialLinks from "../components/data/socialLinks";
 
 const query = graphql`
 query AboutMeQuery {
@@ -109,12 +110,7 @@ const AboutPage = () => {
         </div>
         <div className="common--box">
           <Box className="common--box--sticky">
-            <ul>
-              <li>This is it's own component. Will impl later</li>
-              <li>Content</li>
-              <li>Content</li>
-              <li>Content</li>
-            </ul>
+            <SocialLinks />
           </Box>
         </div>
       </div>

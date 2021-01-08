@@ -34,35 +34,6 @@ $hero-offset: 5rem;
             margin-bottom: 4rem;
         }
 
-        &__list {
-            display: flex;
-            flex-direction: column;
-
-            &__item {
-                text-decoration: none;
-                color: $shade-8;
-                padding: 12px 1rem;
-                font-size: 1.3rem;
-                display: grid;
-                grid-template-rows: 1fr; 
-                grid-gap: 8px;
-                align-items: center;
-                justify-content: center;
-    
-                &:hover {
-                    background-color: $shade-2;
-                    border-radius: 60px;
-                    cursor: pointer;
-                }
-    
-                .gatsby-image-wrapper {
-                    width:  45px;
-                    height: 45px;
-                    margin: auto;
-                }
-            }
-        }
-
         h1, h1 .link {
             margin: 2rem 0rem;
             font-size: 2.2rem;
