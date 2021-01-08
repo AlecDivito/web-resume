@@ -88,5 +88,10 @@ $offset-height: 60px;
         top: -1;
         left: 0;
         right: 0;
+
+        svg {
+            width: 101%;
+            height: 600px;
+        }
     }
 }
