@@ -25,11 +25,14 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                     fields {
                         slug
                     }
-              }
+                    frontmatter {
+                        articles
+                    }
+                }
             }
         }
         blogs: allMdx(filter: {slug: {regex: "\/blogs\/"}}) {
-            edges {
+            edges { 
                 node {
                     fields {
                         slug
@@ -48,6 +51,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
                 slug: node.fields.slug,
+                articles: node.frontmatter.articles.map(a => `devlog/${a}`)
             }
         })
     })
