@@ -1,23 +1,40 @@
-import React from "react";
+import React from 'react';
+import SEO from "../components/seo";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import { graphql, Link } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import SEO from "../components/seo"
+import { HorizontalList } from '../components/simple/list';
+import Hero from "../components/hero";
+import Box from '../components/simple/box';
+import TableOfContents from '../components/complex/tableOfContents';
 import Img from "gatsby-image";
-import Header from "../components/header";
+import Title from '../components/simple/title';
 import Layout from "../components/layout";
 import "./project.scss";
 
+
 export const query = graphql`
-    query($slug: String!) {
+    query($slug: String!, $articles: [String!]) {
+        allMdx(filter: { slug: {in: $articles}}) {
+            nodes {
+                slug
+                frontmatter {
+                    project
+                    subTitle
+                }
+            }
+        }
         mdx(fields: {slug: {eq: $slug}}) {
             frontmatter {
                 author
+                publishedDate
+                title
+                subTitle
+                tags
+                description
                 startDate
                 endDate
                 totalTime
-                title
-                next
-                previous
+                articles
                 images {
                     publicURL
                     childImageSharp {
@@ -42,31 +59,14 @@ export const query = graphql`
                 slug
             }
             body
+            tableOfContents
         }
     }
 `;
 
-const Navigation = ({ textRight, textLeft }) => (
-    <div className="project__nav">
-        {(textRight !== "")
-            ? <Link className="project__nav--link link" to={`/personal/${textRight}`}>
-                <img className="img" src="/svgs/left-arrow.svg" alt="left arrow" />
-                {textRight}
-            </Link>
-            : <div />
-        }
-        {(textLeft !== "")
-            ? <Link className="project__nav--link link" to={`/personal/${textLeft}`}>
-                {textLeft}
-                <img className="img" src="/svgs/right-arrow.svg" alt="right arrow" />
-            </Link>
-            : <div />
-        }
-    </div>
-)
-
 const ProjectTemplate = ({ data }) => {
     const project = data.mdx;
+    const articles = data.allMdx;
     let images = {};
     if (project.frontmatter.images) {
         project.frontmatter.images.forEach((image, i) => {
@@ -108,26 +108,51 @@ const ProjectTemplate = ({ data }) => {
 
     return (
         <Layout>
-            <SEO title={project.frontmatter.title} />
-            <section className="project common--max-width">
-                {/* <Navigation textRight={project.frontmatter.next} textLeft={project.frontmatter.previous} /> */}
-                <Header text={project.frontmatter.title} isCenter={true} />
-                <h3 className="project__header">
-                    <span className="project__header--text">
-                        <img src="/svgs/time.svg" alt="time icon" />
-                        <span>{project.frontmatter.startDate}</span>
-                        <img src="/svgs/right-arrow.svg" alt="right arrow" />
-                        <span>{project.frontmatter.endDate}</span>
-                    </span>
-                    <span className="project__header--text left">
-                        {project.frontmatter.totalTime}
-                    </span>
-                </h3>
-                <article className="project__content">
-                    <MDXRenderer images={images} >{project.body}</MDXRenderer>
-                </article>
-                <Navigation textRight={project.frontmatter.next} textLeft={project.frontmatter.previous} />
-            </section>
+            <SEO title={project.frontmatter.title}>
+                <script defer={true} src="/scripts/toc.js" />
+            </SEO>
+            <Hero title={project.frontmatter.title}
+                subTitle={project.frontmatter.subTitle}
+                tags={project.frontmatter.tags}
+                date={project.frontmatter.publishedDate}
+            />
+            <div className="common common--max-width">
+                <div className="common__content common--content--max-width">
+                    <section className="article">
+                        {/* <Header text={project.frontmatter.title} isCenter={true} />
+                        <h3 className="project__header">
+                            <span className="project__header--text">
+                                <img src="/svgs/time.svg" alt="time icon" />
+                                <span>{project.frontmatter.startDate}</span>
+                                <img src="/svgs/right-arrow.svg" alt="right arrow" />
+                                <span>{project.frontmatter.endDate}</span>
+                            </span>
+                            <span className="project__header--text left">
+                                {project.frontmatter.totalTime}
+                            </span>
+                        </h3> */}
+                        <article className="article__content">
+                            <MDXRenderer images={images} >{project.body}</MDXRenderer>
+                        </article>
+                        <section className="project__nav--section">
+                            <Title className="common--bm" alignment="left">Continue Reading More...</Title>
+                            <HorizontalList>
+                                {articles.nodes.map(item =>
+                                    <Link className="project__nav" to={`/${item.slug}`}>
+                                        <Title className="project__nav__title" variant="h5">{item.frontmatter.project}</Title>
+                                        <p className="project__nav__sub">{item.frontmatter.subTitle}</p>
+                                    </Link>
+                                )}
+                            </HorizontalList>
+                        </section>
+                    </section>
+                </div>
+                <div className="common--box">
+                    <Box className="common--box--sticky">
+                        <TableOfContents contents={project.tableOfContents.items} />
+                    </Box>
+                </div>
+            </div>
         </Layout>
     );
 };

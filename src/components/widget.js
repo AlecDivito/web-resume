@@ -17,7 +17,7 @@ const Widget = ({ title, subTitle, description, tags, date, readMore, logo, stat
             </div>
             {(date) ? <span className="widget__header--date">{date}</span> : null}
         </div>
-        <Title className="widget__subTitle" variant="h6">{subTitle}</Title>
+        {subTitle ? <Title className="widget__subTitle" variant="h6">{subTitle}</Title> : null}
         <ul className="widget__tags">
             {!tags ? null : tags.slice(0, 3).map(t => <Tag key={t} text={t} dropshadow={true} />)}
             {/* <Tag text={`${tags.length - 2}+`} dropshadow={true} /> */}

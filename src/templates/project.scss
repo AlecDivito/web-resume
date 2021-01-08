@@ -81,21 +81,20 @@
     }
 
     &__nav {
-        display: flex;
-        justify-content: space-between;
+        width: 100%;
         font-size: 1.2rem;
         margin-bottom: 2rem;
 
-        &--link {
-            position: relative;
-            line-height: 2rem;
+        &--section {
+            margin-top: 8rem;
+        }
 
+        &__title {
+            text-decoration: underline;
+        }
 
-            img {
-                position: relative;
-                bottom: -6px;
-                width: 24px;
-            }
+        &__sub {
+            color: $shade-9;
         }
     }
 }
