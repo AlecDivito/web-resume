@@ -15,6 +15,11 @@ body, html {
     background-color: $shade-1;
 }
 
+a {
+    outline: none;
+    color: transparent;
+}
+
 p {
     margin: 1rem 0px;
     font-size: 1.2rem;

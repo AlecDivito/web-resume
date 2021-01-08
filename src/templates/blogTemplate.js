@@ -4,7 +4,11 @@ import SEO from "../components/seo";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import Hero from "../components/hero";
 import { graphql } from 'gatsby';
-import "./blogTemplate.scss"
+import Box from '../components/simple/box';
+import TableOfContents from '../components/complex/tableOfContents';
+import { HorizontalList } from '../components/simple/list';
+import Title from '../components/simple/title';
+import "./blogTemplate.scss";
 
 export const query = graphql`
     query($slug: String!) {
@@ -40,6 +44,7 @@ export const query = graphql`
                 slug
             }
             body
+            tableOfContents
         }
     }
 `;
@@ -54,17 +59,33 @@ const BlogTemplate = ({ data }) => {
     return (
         <Layout>
             <SEO title={blog.frontmatter.title}
-                description={blog.frontmatter.description} />
-            <section className="article">
-                <Hero title={blog.frontmatter.title}
-                    subTitle={blog.frontmatter.subTitle}
-                    tags={blog.frontmatter.tags}
-                    date={blog.frontmatter.publishedDate}
-                />
-                <article className="article__content common--max-width">
-                    <MDXRenderer>{blog.body}</MDXRenderer>
-                </article>
-            </section>
+                description={blog.frontmatter.description}>
+                <script defer={true} src="/scripts/toc.js" />
+            </SEO>
+            <Hero title={blog.frontmatter.title}
+                subTitle={blog.frontmatter.subTitle}
+                tags={blog.frontmatter.tags}
+                date={blog.frontmatter.publishedDate}
+            />
+            <div className="common common--max-width">
+                <div className="common__content common--content--max-width">
+                    <section className="article">
+                        <article className="article__content">
+                            <MDXRenderer>{blog.body}</MDXRenderer>
+                        </article>
+                    </section>
+                    <section>
+                        <Title alignment="left">Continue Reading More...</Title>
+                        <HorizontalList>
+                        </HorizontalList>
+                    </section>
+                </div>
+                <div className="common--box">
+                    <Box className="common--box--sticky">
+                        <TableOfContents contents={blog.tableOfContents.items} />
+                    </Box>
+                </div>
+            </div>
         </Layout>
     )
 }
