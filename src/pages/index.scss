@@ -40,6 +40,14 @@ $hero-offset: 5rem;
             color: $shade-9;
         }
 
+        &--bm {
+            margin-bottom: 5rem;
+
+            p {
+                line-height: 1.6em;
+            }
+        }
+
     }
 
     &--work {

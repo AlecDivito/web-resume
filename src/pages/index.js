@@ -122,6 +122,25 @@ const IndexPage = () => {
       </Hero>
       <div className="common common--max-width">
         <div className="common__content common--content--max-width">
+          <Title varient="h2" className="home__section__title">Hi There...</Title>
+          <section className="home__section home--projects home__section--bm">
+            <p>
+              I'm Alec, a student and developer. I'm interested in full stack
+              web development but also want to do some app development one day.
+              I believe the web is the future and web based apps will one day
+              be the only technology people use. I've used Kubernetes and can
+              say that I don't see it as the future. Serverless technology is
+              here and it's here to stay. Once stateful, open source serverless
+              frameworks are cheap and here, people will slowly move over all new
+              applications.
+            </p>
+            <p>
+              This website is for me to keep better tabs on my projects and keep
+              my history of all my work projects. Basically its for documentation.
+              Hope you enjoy reading some of the content.
+            </p>
+          </section>
+
           <Title varient="h2" className="home__section__title">Projects</Title>
           <section className="home__section home--projects">
             {data.allProjectsJson.nodes.map(p =>
@@ -131,7 +150,7 @@ const IndexPage = () => {
                 tags={p.technologies}
                 status={p.status}
                 logo={<Img fixed={p.logo.childImageSharp.fixed} style={{ borderRadius: '100%' }} alt={p.company} />}
-                readMore={(p.blogPost) ? p.blogPost : `/personal#${p.id}`}
+                readMore={p.blogPost}
               />
             )}
           </section>
