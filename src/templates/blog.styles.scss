@@ -1,0 +1,24 @@
+@import "../styles/variables";
+
+@media (max-width: $tablet-large) {
+    .post {
+
+        +.common {
+            margin-top: 12rem;
+        }
+    
+        &.hero {
+            background-color: $primary-color;
+
+    
+            .hero__curve {
+
+                top: 30px;
+    
+                svg {
+                    height: 500px
+                }
+            }
+        }
+    }
+}

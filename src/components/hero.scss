@@ -136,6 +136,11 @@ $offset-height: 60px;
             }
         }
 
+        &__date {
+            position: relative;
+            right: 0px;
+        }
+
         &--p0 {
             padding-left: 2rem;
         }

@@ -5,8 +5,8 @@ import Tag from "./tag";
 import HeroCurve from "../assets/hero.svg";
 import "./hero.scss";
 
-const Hero = ({ title, titleIcon, subTitle, tags, readMoreLink, readMoreText, date, children }) => (
-    <div className="hero">
+const Hero = ({ title, className, titleIcon, subTitle, tags, readMoreLink, readMoreText, date, children }) => (
+    <div className={`hero ${className ?? ""}`}>
         <div className="hero--container common--max-width">
             {children ?
                 <div className="hero--z-index hero--children" style={{ width: 270 }}>
@@ -36,6 +36,7 @@ const Hero = ({ title, titleIcon, subTitle, tags, readMoreLink, readMoreText, da
 
 Hero.prototype = {
     title: PropTypes.string.isRequired,
+    className: PropTypes.string,
     titleIcon: PropTypes.node,
     subTitle: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,

@@ -31,7 +31,7 @@ const BlogDirectoryPage = ({ data }) => (
           )}
         </section>
         <section>
-          <Title variant="h2">More coming soon!!</Title>
+          <Title variant="h2" className="margin--bt">More coming soon!!</Title>
         </section>
       </div>
       <div className="common--box">

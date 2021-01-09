@@ -105,7 +105,7 @@ const AboutPage = () => {
             </HorizontalList>
           </section>
           <section>
-            <Title varient="h2">And there is more coming soon!</Title>
+            <Title varient="h2" className="margin--bt">And there is more coming soon!</Title>
           </section>
         </div>
         <div className="common--box">

@@ -10,6 +10,7 @@ import Img from "gatsby-image";
 import Title from '../components/simple/title';
 import Layout from "../components/layout";
 import "./project.scss";
+import "./blog.styles.scss";
 
 
 export const query = graphql`
@@ -115,6 +116,7 @@ const ProjectTemplate = ({ data }) => {
                 subTitle={project.frontmatter.subTitle}
                 tags={project.frontmatter.tags}
                 date={project.frontmatter.publishedDate}
+                className="post"
             />
             <div className="common common--max-width">
                 <div className="common__content common--content--max-width">

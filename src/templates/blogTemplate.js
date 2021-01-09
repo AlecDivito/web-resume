@@ -9,6 +9,7 @@ import TableOfContents from '../components/complex/tableOfContents';
 import { HorizontalList } from '../components/simple/list';
 import Title from '../components/simple/title';
 import "./blogTemplate.scss";
+import "./blog.styles.scss";
 
 export const query = graphql`
     query($slug: String!) {
@@ -66,6 +67,7 @@ const BlogTemplate = ({ data }) => {
                 subTitle={blog.frontmatter.subTitle}
                 tags={blog.frontmatter.tags}
                 date={blog.frontmatter.publishedDate}
+                className="post"
             />
             <div className="common common--max-width">
                 <div className="common__content common--content--max-width">

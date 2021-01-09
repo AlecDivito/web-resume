@@ -30,7 +30,7 @@ const TableOfContents = ({ contents }) => {
 
     useEffect(() => {
         const content = document.querySelector('.common__content');
-        let nodes = content.querySelectorAll("h1, h2, h3, h4, h5, h6");
+        let nodes = content.querySelectorAll("h2");
         nodes.forEach((node, index) => {
             try {
                 let item = contents[index];

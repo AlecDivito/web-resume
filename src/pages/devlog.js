@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from 'gatsby';
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Img from "gatsby-image";
@@ -6,7 +7,6 @@ import Box from "../components/simple/box";
 import Hero from "../components/hero";
 import SocialLinks from "../components/data/socialLinks";
 import Card from '../components/complex/card';
-import Title from "../components/simple/title";
 import "./devlog.scss";
 
 const DevlogPage = ({ data }) => (
@@ -18,7 +18,7 @@ const DevlogPage = ({ data }) => (
             tags={["Development", "Problems", "Challeneges"]} />
         <div className="common common--max-width">
             <div className="personal common__content common--content--max-width">
-                <Title variant="h2" className="personal__title">Projects</Title>
+                {/* <Title variant="h2" className="personal__title">Projects</Title> */}
                 {data.allProjectsJson.nodes.map((p) =>
                     <div className="personal__section">
                         <Card
