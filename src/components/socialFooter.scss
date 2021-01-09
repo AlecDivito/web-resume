@@ -19,6 +19,7 @@
     &__icon {
         width: 30px;
         margin-top: 5px;
+        filter: brightness(0) invert(1);
 
         &__img {
             width: 30px;

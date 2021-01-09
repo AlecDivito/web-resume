@@ -95,3 +95,55 @@ $offset-height: 60px;
         }
     }
 }
+
+@media (max-width: $desktop) {
+    .hero {
+        padding-left: 3rem;
+    }
+}
+
+@media (max-width: $desktop-small) {
+    .hero {
+        &--flex {
+            flex-direction: column;
+        }
+
+        &__link {
+            padding-left: 0rem;
+        }
+
+        &__list {
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+@media (max-width: $tablet-large) {
+    .hero {
+        padding-left: 0rem;
+
+        &--children {
+            display: none;
+            visibility: hidden;
+        }
+
+        &--container {
+            margin-top: 25px;
+        }
+
+        &__curve {
+            svg {
+                height: 350px;
+            }
+        }
+    }
+}
+
+@media (max-width: $phone) {
+    .hero {
+        
+        &--content {
+            padding: 0rem 1rem;
+        }
+    }
+}

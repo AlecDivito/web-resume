@@ -9,7 +9,7 @@ const Hero = ({ title, titleIcon, subTitle, tags, readMoreLink, readMoreText, da
     <div className="hero">
         <div className="hero--container common--max-width">
             {children ?
-                <div className="hero--z-index" style={{ width: 270 }}>
+                <div className="hero--z-index hero--children" style={{ width: 270 }}>
                     {children}
                 </div>
                 : null}

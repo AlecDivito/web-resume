@@ -10,10 +10,10 @@ const Widget = ({ title, subTitle, description, tags, date, readMore, logo, stat
     <div className="widget">
         <div className="widget__header">
             <div className="widget__title">
-                {logo ? logo : null}
+                <span className="widget__title--logo">{logo ? logo : null}</span>
                 {(!readMore) ? <Title variant="h3">{title}</Title>
                     : <Link to={readMore}><Title className="widget__title--link" variant="h3">{title}</Title></Link>}
-                {status ? <StatusDot status={status} /> : null}
+                {status ? <StatusDot className="widget__title--status" status={status} /> : null}
             </div>
             {(date) ? <span className="widget__header--date">{date}</span> : null}
         </div>
@@ -23,7 +23,7 @@ const Widget = ({ title, subTitle, description, tags, date, readMore, logo, stat
             {/* <Tag text={`${tags.length - 2}+`} dropshadow={true} /> */}
         </ul>
         {(description) ? <p className="widget__description">{description}</p> : null}
-        {(readMore) ? <Link className="widget__link" to={readMore}>Continue Reading</Link> : null}
+        {(readMore) ? <div className="widget__link"><Link to={readMore}>Continue Reading</Link></div> : null}
     </div>
 );
 

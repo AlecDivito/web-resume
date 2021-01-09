@@ -15,4 +15,9 @@
     &--shadow {
         box-shadow: 0px 6px 20px rgba(0, 66, 191, 0.16);
     }
+
+    @media (max-width: $phone) {
+        font-size: 1em;
+        padding: 0.5rem 0.5rem;
+    }
 }
