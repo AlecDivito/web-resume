@@ -1,5 +1,7 @@
 @import '../../styles/variables';
 
+$desktop-card-image-height: 220px;
+
 .card {
     position: relative;
 
@@ -16,11 +18,19 @@
     }
 
     &__image {
-        float: right;
-        margin: 1rem;
-        width: 80px;
-        height: 80px;
-        cursor: pointer;
+        position: relative;
+        height: $desktop-card-image-height;
+        transform-origin: 50% 50%;
+        transition: filter .25s ease-in-out;
+        float: none;
+        margin: 0;
+        width: 100%;
+
+        > picture > img {
+            // needs the important here or else a style on the image overrides
+            // the transition. Don't like it but it works
+            transition: transform .5s ease-in-out, opacity .5s ease-in-out !important;
+        }
 
         &--no-link {
             cursor: not-allowed;
@@ -81,29 +91,10 @@
     }
 }
 
-$desktop-card-image-height: 220px;
-
 @media (min-width: $tablet-large) {
     .card {
         height: inherit;
         overflow: hidden;
-        
-        &__image {
-            position: relative;
-            height: $desktop-card-image-height;
-            // filter: blur(1px) brightness(50%);
-            transform-origin: 50% 50%;
-            transition: filter .25s ease-in-out;
-            float: none;
-            margin: 0;
-            width: 100%;
-
-            > picture > img {
-                // needs the important here or else a style on the image overrides
-                // the transition. Don't like it but it works
-                transition: transform .5s ease-in-out, opacity .5s ease-in-out !important;
-            }
-        }
 
         &__description {
             display: block;

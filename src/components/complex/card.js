@@ -1,11 +1,8 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import { Link } from 'gatsby';
-import Tag from '../tag';
-import StatusDot from '../statusDot';
-import './card.scss';
-import Title from '../simple/title';
 import Widget from '../widget';
+import './card.scss';
 
 const Card = ({ image, title, description, status, tags, site, github, readMore }) => (
     <div className="card">

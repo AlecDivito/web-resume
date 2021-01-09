@@ -18,7 +18,7 @@ const BlogDirectoryPage = ({ data }) => (
       tags={["Thesis", "Interests", "Rabit Holes"]} />
     <div className="common common--max-width">
       <div className="common__content common--content--max-width">
-        <Title variant="h2">2020</Title>
+        <Title variant="h2" className="common--bm">2020</Title>
         <section className="home__section home--projects">
           {data.blogs.edges.map(b =>
             <Widget title={b.node.frontmatter.title}

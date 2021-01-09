@@ -155,7 +155,7 @@ const IndexPage = () => {
             )}
           </section>
 
-          <Title varient="h2" className="home__section__title">Blog Posts</Title>
+          <Title varient="h2" className="home__section__title">Blog</Title>
           <section className="home__section home--projects">
             {data.blogs.edges.map(b =>
               <Widget title={b.node.frontmatter.title}

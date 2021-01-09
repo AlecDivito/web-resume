@@ -26,10 +26,6 @@ $offset-height: 60px;
         position: relative;
     }
 
-    &--p0 {
-        padding: 0px !important;
-    }
-
     &--z-index {
         z-index: 100;
     }
@@ -38,6 +34,10 @@ $offset-height: 60px;
         padding-left: 2rem;
         padding-bottom: $offset-height;
         width: 100%;
+    }
+
+    &--p0 {
+        padding: 0px;
     }
     
     &__title {
@@ -85,12 +85,11 @@ $offset-height: 60px;
 
     &__curve {
         position: absolute;
-        top: -1;
         left: 0;
         right: 0;
 
         svg {
-            width: 101%;
+            width: 100%;
             height: 600px;
         }
     }
@@ -136,14 +135,27 @@ $offset-height: 60px;
                 height: 350px;
             }
         }
+
+        &--p0 {
+            padding-left: 2rem;
+        }
     }
 }
 
 @media (max-width: $phone) {
     .hero {
         
+        &--p0 {
+            padding: unset;
+        }
+        
         &--content {
             padding: 0rem 1rem;
         }
+
+        &__curve {
+            top: -50px;
+        }
+
     }
 }

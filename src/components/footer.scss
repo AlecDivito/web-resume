@@ -2,6 +2,7 @@
 
 
 .footer {
+    z-index: 1;
     position: relative;
     padding: 1rem 1rem 0rem 1rem;
     background-color: $nav-background;
@@ -26,8 +27,8 @@
     &--curve {
         position: absolute;
         top: -160px;
-        right: -1px;
-        left: -1px;
+        right: 0px;
+        left: 0px;
         z-index: 10;
 
         svg {
@@ -117,6 +118,32 @@
     //         color: $nav-link-color-hover;
     //     }
     // }
+}
+
+@media (max-width: $tablet-large) {
+    .footer {
+        &--curve {
+            position: absolute;
+            top: -49px;
+            right: 0px;
+            left: 0px;
+            z-index: 10;
+
+            svg {
+                width: 100%;
+                height: 50px;
+            }
+        }
+
+        &--column {
+            flex-direction: column;
+            align-items: unset;
+
+            .title {
+                margin-bottom: 1rem;
+            }
+        }
+    }
 }
 
 @media (min-width: $tablet-large) {

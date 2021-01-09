@@ -66,13 +66,13 @@ const AboutPage = () => {
       <Hero
         title="About Alec"
         subTitle="Professional and Personal"
-        tags={["Programmer", "Wannabe Pro Cyclist", "Expert Canoist"]}
+        tags={["Programmer", "Engineer", "Cyclist"]}
       >
         <Img style={{ borderRadius: '100%' }} fixed={data.file.childImageSharp.fixed} alt="Alec Divito Profile Picture" />
       </Hero>
       <div className="common common--max-width">
         <div className="common__content common--content--max-width">
-          <Title varient="h2" className="">About Me</Title>
+          <Title varient="h2" className="common--bm">About Me</Title>
           <section>
             {data.dataJson.about.widgets.map(w =>
               <Widget title={w.title} description={w.description} key={w.title} />

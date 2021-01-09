@@ -1,23 +1,24 @@
 import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import Box from "../components/simple/box";
 import Hero from "../components/hero";
 import SocialLinks from "../components/data/socialLinks";
 import Card from '../components/complex/card';
+import Title from "../components/simple/title";
 import "./devlog.scss";
 
 const DevlogPage = ({ data }) => (
     <Layout>
         <SEO title="Projects" />
         <Hero
-            title="Development Log"
-            subTitle="Public document that keeps tabs on my current projects"
+            title="Dev Log"
+            subTitle="Public documents on past and present projects"
             tags={["Development", "Problems", "Challeneges"]} />
         <div className="common common--max-width">
             <div className="personal common__content common--content--max-width">
+                <Title variant="h2" className="personal__title">Projects</Title>
                 {data.allProjectsJson.nodes.map((p) =>
                     <div className="personal__section">
                         <Card
