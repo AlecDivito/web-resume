@@ -1,12 +1,11 @@
 @import "../styles/variables";
 
 .tag {
-    box-sizing: border-box;
-    width: fit-content;
-    height: 24px;
+    display: inline-block;
     color: $tag-color;
-    padding: 8px 16px;
+    padding: 12px 16px;
     border-radius: 35px;
+    white-space: nowrap;
     background: $tag-background-color;
     font-size: 1.25em;
     line-height: 16px;
@@ -17,6 +16,5 @@
 
     @media (max-width: $tablet-large) {
         font-size: 1em;
-        padding: 0.5rem 0.5rem;
     }
 }

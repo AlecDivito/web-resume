@@ -123,6 +123,8 @@
 
 @media (max-width: $tablet-large) {
     .footer {
+        margin-top: 0rem;
+
         &--curve {
             position: absolute;
             top: -49px;

@@ -7,7 +7,7 @@ import './linkedArticle.scss';
 
 const LinkedArticle = ({ to, title, description }) => (
     <div className="la">
-        <Link to={to}><Title varient="h5">{title}</Title></Link>
+        <Link to={to}><Title variant="h5">{title}</Title></Link>
         <Paragraph>{description}</Paragraph>
     </div>
 );

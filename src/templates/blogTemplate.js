@@ -9,7 +9,6 @@ import { Common, CommonLeft, CommonRight } from "../components/simple/common";
 import TableOfContents from '../components/complex/tableOfContents';
 import { HorizontalList } from '../components/simple/list';
 import Article from '../components/simple/article';
-import "./blog.styles.scss";
 
 export const query = graphql`
     query($slug: String!) {

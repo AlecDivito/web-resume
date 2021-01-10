@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import "./tag.scss"
 
 const Tag = ({ text, dropshadow }) => (
-    <span className={`tag ${dropshadow ? "tag--shadow" : ""}`}>
+    <div className={`tag ${dropshadow ? "tag--shadow" : ""}`}>
         {text}
-    </span>
+    </div>
 )
 
 

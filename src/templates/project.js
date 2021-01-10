@@ -12,7 +12,6 @@ import Article from '../components/simple/article';
 import Section from '../components/simple/section';
 import { Common, CommonLeft, CommonRight } from "../components/simple/common";
 import LinkedArticle from '../components/simple/linkedArticle';
-import "./blog.styles.scss";
 
 
 export const query = graphql`

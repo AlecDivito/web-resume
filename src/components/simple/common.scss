@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 
-$hero-offset: 5rem;
+$hero-offset: 2rem;
 
 .common {
     width: 100%;
@@ -10,12 +10,13 @@ $hero-offset: 5rem;
     padding-bottom: 2rem;
 
     &--max-width {
-        margin: auto;
+        margin: 0px auto;
         max-width: $desktop;
     }
 
     &__right {
         width: 100%;
+        min-width: 600px;
         margin-top: $hero-offset + 2;
         margin-right: 4rem;
 
@@ -81,7 +82,8 @@ $hero-offset: 5rem;
 @media (max-width: $tablet-large) {
     .common {
         &__right {
-            margin-top: 2rem;
+            min-width: unset;
+            margin-right: 0rem;
         }
     }
 }
