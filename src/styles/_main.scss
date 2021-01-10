@@ -5,7 +5,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: raleway;
+    font-family: raleway, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+pre[class*="language-"] {
+    padding: 2em;
+    border-radius: 35px;
 }
 
 body, html {
@@ -24,6 +31,11 @@ a {
 p {
     margin: 1rem 0px;
     font-size: 1.2rem;
+}
+
+code * {
+    font-size: 1em;
+    font-family: consolas !important;
 }
 
 // website blog post

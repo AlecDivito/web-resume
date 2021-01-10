@@ -9,8 +9,8 @@
     h1, h2, h3, h4, h5, h6 {
         color: $primary-color;
         font-size: 2.25em;
-        margin: 3.5rem 0rem 1.5rem;
-        line-height: 1em;
+        margin: 3rem 0rem 1rem;
+        line-height: 1.6em;
     }
 
     ul, ol {
@@ -22,6 +22,7 @@
     }
 
     p {
+        margin-top: 0rem;
         margin-bottom: 2rem;
     }
 
@@ -30,12 +31,16 @@
     }
 
     figure {
-        margin-top: 2rem;
+        margin-bottom: 2rem;
     }
 
     figcaption {
-        font-size: 1rem;
+        font-size: 0.7em;
         color: $shade-7;
         text-align: center;
+    }
+
+    code {
+        margin-bottom: 2rem !important;
     }
 }

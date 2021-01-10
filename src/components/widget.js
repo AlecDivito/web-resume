@@ -5,6 +5,7 @@ import Tag from './tag';
 import { Link } from 'gatsby';
 import './widget.scss';
 import StatusDot from './statusDot';
+import Paragraph from './simple/paragraph';
 
 const Widget = ({ title, subTitle, description, tags, date, readMore, logo, status }) => (
     <div className="widget">
@@ -22,7 +23,7 @@ const Widget = ({ title, subTitle, description, tags, date, readMore, logo, stat
             {!tags ? null : tags.slice(0, 3).map(t => <Tag key={t} text={t} dropshadow={true} />)}
             {/* <Tag text={`${tags.length - 2}+`} dropshadow={true} /> */}
         </ul>
-        {(description) ? <p className="widget__description">{description}</p> : null}
+        {(description) ? <Paragraph>{description}</Paragraph> : null}
         {(readMore) ? <div className="widget__link"><Link to={readMore}>Continue Reading</Link></div> : null}
     </div>
 );

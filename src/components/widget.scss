@@ -2,7 +2,7 @@
 
 .widget {
     position: relative;
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
     margin-bottom: 3rem;
 
     &__header {
@@ -47,14 +47,10 @@
         }
     }
 
-    &__description {
-        font-size: 1.25em;
-    }
-
     &__link {
         position: absolute;
-        bottom: 0px;
-        left: 0px;
+        bottom: -5px;
+        left: -4px;
         color: $primary-color;
         font-size: 1.25em;
     }
@@ -95,11 +91,6 @@
         &__header {
             flex-direction: column;
             align-items: unset;
-        }
-
-        &__description {
-            padding: 0rem;
-            margin: 1rem 0rem;
         }
     }
 }

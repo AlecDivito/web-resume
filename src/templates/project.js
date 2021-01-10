@@ -1,7 +1,7 @@
 import React from 'react';
 import SEO from "../components/seo";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import { HorizontalList } from '../components/simple/list';
 import Hero from "../components/hero";
 import TableOfContents from '../components/complex/tableOfContents';
@@ -142,7 +142,9 @@ const ProjectTemplate = ({ data }) => {
                         <HorizontalList>
                             {articles.nodes.map(item =>
                                 <LinkedArticle to={`/${item.slug}`}
-                                    title={item.frontmatter.project} description={item.frontmatter.subTitle} />
+                                    key={item.slug}
+                                    title={item.frontmatter.project}
+                                    description={item.frontmatter.subTitle} />
                             )}
                         </HorizontalList>
                     </Section>
