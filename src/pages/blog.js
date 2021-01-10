@@ -3,11 +3,11 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/hero"
-import Box from "../components/simple/box";
 import Widget from "../components/widget";
-import Title from "../components/simple/title";
-import "./blog.scss";
-import SocialLinks from "../components/data/socialLinks"
+import SocialLinks from "../components/data/socialLinks";
+import Section from "../components/simple/section";
+import { Common, CommonLeft, CommonRight } from "../components/simple/common";
+
 
 const BlogDirectoryPage = ({ data }) => (
   <Layout>
@@ -16,10 +16,9 @@ const BlogDirectoryPage = ({ data }) => (
       title="Blog"
       subTitle="I thought it, so I wrote it"
       tags={["Thesis", "Interests", "Rabit Holes"]} />
-    <div className="common common--max-width">
-      <div className="common__content common--content--max-width">
-        <Title variant="h2" className="common--bm">2020</Title>
-        <section className="home__section home--projects">
+    <Common>
+      <CommonRight>
+        <Section title="2020">
           {data.blogs.edges.map(b =>
             <Widget title={b.node.frontmatter.title}
               key={b.node.id}
@@ -29,17 +28,13 @@ const BlogDirectoryPage = ({ data }) => (
               date={b.node.frontmatter.publishedDate}
             />
           )}
-        </section>
-        <section>
-          <Title variant="h2" className="margin--bt">More coming soon!!</Title>
-        </section>
-      </div>
-      <div className="common--box">
-        <Box className="common--box--sticky">
-          <SocialLinks />
-        </Box>
-      </div>
-    </div>
+        </Section>
+        <Section title="More coming soon!!" />
+      </CommonRight>
+      <CommonLeft>
+        <SocialLinks />
+      </CommonLeft>
+    </Common>
   </Layout>
 )
 

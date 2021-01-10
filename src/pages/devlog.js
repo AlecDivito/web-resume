@@ -3,11 +3,11 @@ import { graphql } from 'gatsby';
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Img from "gatsby-image";
-import Box from "../components/simple/box";
 import Hero from "../components/hero";
 import SocialLinks from "../components/data/socialLinks";
 import Card from '../components/complex/card';
-import "./devlog.scss";
+import Section from "../components/simple/section";
+import { Common, CommonLeft, CommonRight } from "../components/simple/common";
 
 const DevlogPage = ({ data }) => (
     <Layout>
@@ -16,11 +16,10 @@ const DevlogPage = ({ data }) => (
             title="Dev Log"
             subTitle="Public documents on past and present projects"
             tags={["Development", "Problems", "Challeneges"]} />
-        <div className="common common--max-width">
-            <div className="personal common__content common--content--max-width">
-                {/* <Title variant="h2" className="personal__title">Projects</Title> */}
-                {data.allProjectsJson.nodes.map((p) =>
-                    <div className="personal__section">
+        <Common>
+            <CommonRight>
+                <Section title="Projects">
+                    {data.allProjectsJson.nodes.map((p) =>
                         <Card
                             image={<Img className="card__image" fluid={p.image.childImageSharp.fluid} />}
                             title={p.title}
@@ -31,15 +30,13 @@ const DevlogPage = ({ data }) => (
                             github={p.githubLink}
                             readMore={p.blogPost}
                         />
-                    </div>
-                )}
-            </div>
-            <div className="common--box">
-                <Box className="common--box--sticky">
-                    <SocialLinks />
-                </Box>
-            </div>
-        </div>
+                    )}
+                </Section>
+            </CommonRight>
+            <CommonLeft>
+                <SocialLinks />
+            </CommonLeft>
+        </Common>
     </Layout>
 );
 

@@ -17,7 +17,8 @@ body, html {
 
 a {
     outline: none;
-    color: transparent;
+    color: $primary-color;
+    padding: 0px 4px;
 }
 
 p {

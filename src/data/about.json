@@ -2,12 +2,12 @@
   "about": {
     "widgets": [
       {
-        "title": "Who Am I...",
-        "description": "Alec Di Vito is a 4th year Sheridan College student and a Full Stack Developer with an interest in cloud technologies. Alec has experience developing frontend and backend application over 5 years with a total of 2 years of work experience. "
+        "title": "I am...",
+        "description": "a Full Stack Developer and a 4th year Sheridan College student in Mobile Computing graduating at the end of 2021 with an interest in cloud computing, websites and mobile development. My experience includes working at RBC on their Cloud team where I helped  develop their next generation pipeline for developers on Kubernetes to researching fall detection at The Centre for Mobile Innovation at Sheridan College. I’ve graduated once already from Sheridan College with an advanced diploma from Software Development and Network Engineering. In addition I have been to 4 hackathons where in one of them I have placed 3rd. Technology excites me a lot and I’m very excited playing with emerging technologies such as Virtual Reality and server less computing."
       },
       {
-        "title": "But I also...",
-        "description": "Cycle, ice skate, snowboard and white water canoe. I'm a cat lover but dogs are also cool I guess. I've also am the vice presedent of a club at sheridan college; hackademics.club and we are hosting a hackathon; hackville.io. This is hosted for Sheridan students by Sheridan students with +12,000 CAD in funding! It's also the first online Hackville! Overall I do other things as well!"
+        "title": "I also...",
+        "description": "Cycle, ice skate, snowboard and white water canoe. I'm a cat lover but dogs are also cool I guess. I am the vice president of the Hackademics club at Sheridan college and we are hosting our annual hackathon; hackville this year. This is hosted for Sheridan students by Sheridan students with +12,000 CAD in funding! It's also the first online Hackville! "
       }
     ],
     "info": [

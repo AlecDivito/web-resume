@@ -4,12 +4,14 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { graphql, Link } from "gatsby";
 import { HorizontalList } from '../components/simple/list';
 import Hero from "../components/hero";
-import Box from '../components/simple/box';
 import TableOfContents from '../components/complex/tableOfContents';
 import Img from "gatsby-image";
 import Title from '../components/simple/title';
 import Layout from "../components/layout";
-import "./project.scss";
+import Article from '../components/simple/article';
+import Section from '../components/simple/section';
+import { Common, CommonLeft, CommonRight } from "../components/simple/common";
+import LinkedArticle from '../components/simple/linkedArticle';
 import "./blog.styles.scss";
 
 
@@ -118,9 +120,9 @@ const ProjectTemplate = ({ data }) => {
                 date={project.frontmatter.publishedDate}
                 className="post"
             />
-            <div className="common common--max-width">
-                <div className="common__content common--content--max-width">
-                    <section className="article">
+            <Common>
+                <CommonRight>
+                    <Article>
                         {/* <Header text={project.frontmatter.title} isCenter={true} />
                         <h3 className="project__header">
                             <span className="project__header--text">
@@ -133,28 +135,22 @@ const ProjectTemplate = ({ data }) => {
                                 {project.frontmatter.totalTime}
                             </span>
                         </h3> */}
-                        <article className="article__content">
-                            <MDXRenderer images={images} >{project.body}</MDXRenderer>
-                        </article>
-                        <section className="project__nav--section">
-                            <Title className="common--bm" alignment="left">Continue Reading More...</Title>
-                            <HorizontalList>
-                                {articles.nodes.map(item =>
-                                    <Link className="project__nav" to={`/${item.slug}`}>
-                                        <Title className="project__nav__title" variant="h5">{item.frontmatter.project}</Title>
-                                        <p className="project__nav__sub">{item.frontmatter.subTitle}</p>
-                                    </Link>
-                                )}
-                            </HorizontalList>
-                        </section>
-                    </section>
-                </div>
-                <div className="common--box">
-                    <Box className="common--box--sticky">
-                        <TableOfContents contents={project.tableOfContents.items} />
-                    </Box>
-                </div>
-            </div>
+                        <MDXRenderer images={images} >{project.body}</MDXRenderer>
+                    </Article>
+                    <Section title="Continue Reading More...">
+                        <Title className="common--bm" alignment="left"></Title>
+                        <HorizontalList>
+                            {articles.nodes.map(item =>
+                                <LinkedArticle to={`/${item.slug}`}
+                                    title={item.frontmatter.project} description={item.frontmatter.subTitle} />
+                            )}
+                        </HorizontalList>
+                    </Section>
+                </CommonRight>
+                <CommonLeft>
+                    <TableOfContents contents={project.tableOfContents.items} />
+                </CommonLeft>
+            </Common>
         </Layout>
     );
 };

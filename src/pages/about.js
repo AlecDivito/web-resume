@@ -4,13 +4,12 @@ import Img from "gatsby-image";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/hero";
-import Box from "../components/simple/box";
 import { HorizontalList } from "../components/simple/list";
-import Title from "../components/simple/title";
 import Widget from "../components/widget";
-import "./about.scss";
 import Statistic from "../components/complex/statistic";
 import SocialLinks from "../components/data/socialLinks";
+import { Common, CommonLeft, CommonRight } from "../components/simple/common";
+import Section from "../components/simple/section";
 
 const query = graphql`
 query AboutMeQuery {
@@ -70,53 +69,48 @@ const AboutPage = () => {
       >
         <Img style={{ borderRadius: '100%' }} fixed={data.file.childImageSharp.fixed} alt="Alec Divito Profile Picture" />
       </Hero>
-      <div className="common common--max-width">
-        <div className="common__content common--content--max-width">
-          <Title varient="h2" className="common--bm">About Me</Title>
-          <section>
+      <Common>
+        <CommonRight>
+          <Section title="About me">
             {data.dataJson.about.widgets.map(w =>
               <Widget title={w.title} description={w.description} key={w.title} />
             )}
-          </section>
+          </Section>
+
           {data.dataJson.about.info.map(w =>
-            <section key={w.title}>
-              <Title varient="h3" className="about__statistic--title">{w.title}</Title>
+            <Section varient="h3" title={w.title} key={w.title}>
               <HorizontalList>
                 {w.items.map(item =>
                   <Statistic key={item.link} {...item} />
                 )}
               </HorizontalList>
-            </section>
+            </Section>
           )}
-          <section>
-            <Title className="about__statistic--title" varient="h2">{data.dataJson.about.favoriteLang.title}</Title>
+
+          <Section title={data.dataJson.about.favoriteLang.title}>
             <HorizontalList>
               {data.dataJson.about.favoriteLang.items.map(item =>
                 <Statistic key={item.subTitle} {...item} />
               )}
             </HorizontalList>
-          </section>
-          <section>
-            <Title className="about__statistic--title" varient="h2">{data.dataJson.about.interested.title}</Title>
+          </Section>
+
+          <Section title={data.dataJson.about.interested.title}>
             <HorizontalList>
               {data.dataJson.about.interested.items.map(item =>
                 <Statistic key={item.subTitle} {...item} />
               )}
             </HorizontalList>
-          </section>
-          <section>
-            <Title varient="h2" className="margin--bt">And there is more coming soon!</Title>
-          </section>
-        </div>
-        <div className="common--box">
-          <Box className="common--box--sticky">
-            <SocialLinks />
-          </Box>
-        </div>
-      </div>
+          </Section>
+
+          <Section title="And there is more coming soon!" />
+        </CommonRight>
+        <CommonLeft>
+          <SocialLinks />
+        </CommonLeft>
+      </Common>
     </Layout>
   );
 }
-// spaces are better then tabs
 
 export default AboutPage

@@ -4,11 +4,11 @@ import SEO from "../components/seo";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import Hero from "../components/hero";
 import { graphql } from 'gatsby';
-import Box from '../components/simple/box';
+import Section from "../components/simple/section";
+import { Common, CommonLeft, CommonRight } from "../components/simple/common";
 import TableOfContents from '../components/complex/tableOfContents';
 import { HorizontalList } from '../components/simple/list';
-import Title from '../components/simple/title';
-import "./blogTemplate.scss";
+import Article from '../components/simple/article';
 import "./blog.styles.scss";
 
 export const query = graphql`
@@ -69,25 +69,20 @@ const BlogTemplate = ({ data }) => {
                 date={blog.frontmatter.publishedDate}
                 className="post"
             />
-            <div className="common common--max-width">
-                <div className="common__content common--content--max-width">
-                    <section className="article">
-                        <article className="article__content">
-                            <MDXRenderer>{blog.body}</MDXRenderer>
-                        </article>
-                    </section>
-                    <section>
-                        <Title alignment="left">Continue Reading More...</Title>
+            <Common>
+                <CommonRight>
+                    <Article>
+                        <MDXRenderer>{blog.body}</MDXRenderer>
+                    </Article>
+                    <Section title="Continue Reading More...">
                         <HorizontalList>
                         </HorizontalList>
-                    </section>
-                </div>
-                <div className="common--box">
-                    <Box className="common--box--sticky">
-                        <TableOfContents contents={blog.tableOfContents.items} />
-                    </Box>
-                </div>
-            </div>
+                    </Section>
+                </CommonRight>
+                <CommonLeft>
+                    <TableOfContents contents={blog.tableOfContents.items} />
+                </CommonLeft>
+            </Common>
         </Layout>
     )
 }
