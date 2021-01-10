@@ -2,7 +2,8 @@
 
 .widget {
     position: relative;
-    margin: 1rem 1rem 4rem 0rem;
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
 
     &__header {
         display: flex;
@@ -12,7 +13,6 @@
         &--date {
             color: $shade-7;
             font-size: 1em;
-            font-weight: 700;
         }
     }
 
@@ -20,16 +20,13 @@
         display: flex;
         align-items: center;
 
+        a {
+            text-decoration: none;
+        }
+
         &--link {
             display: flex;
             flex-direction: column-reverse;
-
-            &::before {
-                content: "";
-                height: 2px;
-                border-radius: 15px;
-                width: 100%;
-            }
         }
 
         * {
@@ -52,21 +49,14 @@
 
     &__description {
         font-size: 1.25em;
-        font-weight: 700;
-        margin-right: 2.5rem;
-        padding-bottom: 3rem;
     }
 
     &__link {
         position: absolute;
         bottom: 0px;
-        right: 0px;
+        left: 0px;
         color: $primary-color;
-        font-weight: 700;
         font-size: 1.25em;
-        a {
-            color: inherit;
-        }
     }
 }
 

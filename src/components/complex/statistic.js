@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { VerticalList } from "../simple/list";
 import Title from '../simple/title';
+import Paragraph from '../simple/paragraph';
 import "./statstic.scss"
 
 const Statistic = ({ image, bigImage, title, subTitle, link }) => (
@@ -11,7 +12,7 @@ const Statistic = ({ image, bigImage, title, subTitle, link }) => (
             {link ? <a className="statistic__title" href={link}>{title}</a> : title}
         </Title> : null
         }
-        <p>{subTitle}</p>
+        <Paragraph>{subTitle}</Paragraph>
     </VerticalList>
 )
 

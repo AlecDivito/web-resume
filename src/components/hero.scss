@@ -43,7 +43,6 @@ $offset-height: 60px;
     &__title {
         font-size: 3em;
         color: $shade-0;
-        font-weight: bold;
     }
 
     &__description {
@@ -51,7 +50,6 @@ $offset-height: 60px;
         color: $shade-0;
         margin-bottom: 2rem;
         margin-top: 0rem;
-        font-weight: bold;
     }
 
     &__date {
@@ -65,7 +63,6 @@ $offset-height: 60px;
     &__link {
         padding-left: 2rem;
         font-size: 1.2em;
-        font-weight: 700;
         color: $shade-0;
     }
 

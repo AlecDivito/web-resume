@@ -29,7 +29,7 @@ const TableOfContents = ({ contents }) => {
     // }, [activeSections, setActiveIndex])
 
     useEffect(() => {
-        const content = document.querySelector('.common__content');
+        const content = document.querySelector('.article');
         let nodes = content.querySelectorAll("h2");
         nodes.forEach((node, index) => {
             try {
