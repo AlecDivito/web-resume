@@ -50,13 +50,34 @@
     }
 
     figcaption {
+        margin-top: 1rem;
         font-size: 0.7em;
         color: $shade-7;
         text-align: center;
     }
 
-    code, div {
+    code, div, blockquote {
         margin-bottom: 2rem !important;
+    }
+
+    blockquote {
+        margin: 1rem;
+        padding: 1rem;
+        border-left: 0.5rem solid $primary-color;
+
+
+        p {
+            margin-bottom: 0rem;
+        }
+
+        div {
+            margin-left: 2rem;
+            margin-bottom: 0rem !important;
+        }
+
+        cite {
+            font-style: italic;
+        }
     }
 
     .gatsby-highlight {
