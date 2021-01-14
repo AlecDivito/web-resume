@@ -1,33 +1,132 @@
-[
-    {
-        "details": [
-          "Third year co-op Mobile Computing student at Sheridan College",
-          "Graduate of Sheridan's Software Development and Network Engineering advance diploma",
-          "Currently expanding my knowledge into all advancements in computer science. For example, practicing my skills by developing websites, picking up new languages and frameworks",
-          "Special focus on gaining knowledge machine learning and web/mobile design",
-          "Eager and capable of learning anything. I am interested in a breadth of context and understanding to create full pictures of the development ecosystem, allowing me to make intelligent decisions that allow."
-        ],
-        "link": "/work",
-        "section": "Professional"
+{
+  "about": {
+    "widgets": [
+      {
+        "title": "I am...",
+        "description": "a Full Stack Developer and a 4th year Sheridan College student in Mobile Computing graduating december 2021 with an interest in cloud computing, full stack development and mobile development. My experience includes working at RBC on their cloud team where I helped develop their next generation pipeline for bank developers on Kubernetes to researching fall detection through The Centre for Mobile Innovation at Sheridan College. I’ve graduated once already from Sheridan College with an advanced diploma from Software Development and Network Engineering. In addition I have been to 4 hackathons where in one of them I have placed 3rd. Technology excites me a lot and I’m very excited playing with emerging technologies such as Virtual Reality and server less computing."
+      },
+      {
+        "title": "I also...",
+        "description": "Cycle, ice skate, snowboard and white water canoe. I'm a cat lover but dogs are also cool I guess. I am the vice president of the Hackademics club at Sheridan college and we are hosting our annual hackathon; hackville this year. This is hosted for Sheridan students by Sheridan students with +12,000 CAD in funding! It's also the first online Hackville ever (Thanks Covid)! "
+      }
+    ],
+    "info": [
+      {
+        "title": "I have...",
+        "items": [
+          {
+            "title": "6 Years",
+            "subTitle": "Done 6 years of programming"
+          },
+          {
+            "title": "2 Hacks",
+            "subTitle": "Helped organize 2 Hackathons"
+          },
+          {
+            "title": "2 Years",
+            "subTitle": "Worked 2 years professionally"
+          },
+          {
+            "title": "15 Langs",
+            "subTitle": "Have programmed in 15 different Languages"
+          }
+        ]
+      },
+      {
+        "title": "But I also have...",
+        "items": [
+          {
+            "title": "Biked",
+            "image": "/svgs/about/have/bike.svg",
+            "subTitle": "Biked 140KM in one day"
+          },
+          {
+            "title": "Hiked",
+            "image": "/svgs/about/have/mountain.svg",
+            "subTitle": "Concurred the Sleeping Giant"
+          },
+          {
+            "title": "Tried",
+            "image": "/svgs/about/have/nesting-doll.svg",
+            "subTitle": "Been attempting to learn Russian"
+          },
+          {
+            "title": "Played",
+            "image": "/svgs/about/have/vr-headset.svg",
+            "subTitle": "Have a passion for Virtual Reality"
+          }
+        ]
+      },
+      {
+        "title": "Right now I am working on...",
+        "items": [
+          {
+            "image": "/svgs/about/currently/hackville.svg",
+            "bigImage": true,
+            "title": "Hackville 2021",
+            "link": "https://www.hackville.club",
+            "subTitle": "Student run virtual hackathon"
+          },
+          {
+            "image": "/svgs/about/currently/wasmcompute.svg",
+            "bigImage": true,
+            "title": "WASM Compute",
+            "link": "https://wasmcompute.com",
+            "subTitle": "Experimental Serverless Platform for Web Assembly"
+          },
+          {
+            "bigImage": true,
+            "image": "/svgs/about/currently/thesis.svg",
+            "title": "Thesis",
+            "subTitle": "A thesis reviewing stateful serverless functions"
+          }
+        ]
+      }
+    ],
+    "favoriteLang": {
+      "title": "My favorite programming languages are ...",
+      "items": [
+        {
+          "bigImage": true,
+          "image": "/svgs/about/programming/rust.svg",
+          "subTitle": "Rust is love, Rust is life"
+        },
+        {
+          "bigImage": true,
+          "image": "/svgs/about/programming/typescript.svg",
+          "subTitle": "Typescript cause its easy and fun"
+        },
+        {
+          "bigImage": true,
+          "image": "/svgs/about/programming/go.svg",
+          "subTitle": "GoLang for a life simple"
+        },
+        {
+          "bigImage": true,
+          "image": "/svgs/about/programming/python.svg",
+          "subTitle": "Python for machine learning and stuff"
+        }
+      ]
     },
-    {
-        "details": [
-          "I enjoy taking on difficult challenges and building out applications fast. I enjoy working with friends and spending time on school projects",
-          "When I'm not coding, I enjoy biking all over Ontario, snowboarding (in the winter), ice skating, and spending a weekend camping at a National or Provincial Park",
-          "Have I mentioned I really like animals? Especially cats. Dogs are cool to I guess..."
-        ],
-        "link": "/personal",
-        "section": "Personal"
-    },
-    {
-      "details": [
-        "Graduated Highschool 1 year early",
-        "Cycled 140KM from mississauga to Niagara on the Lake",
-        "Able to canoe down white water (Canoed down part of the Ottawa river)",
-        "Able to survive in the woods for 1 week with group and canoe",
-        "This website"
-      ],
-      "link": null,
-      "section": "Achievements"
+    "interested": {
+      "title": "And I'm personally interested in ...",
+      "items": [
+        {
+          "bigImage": true,
+          "image": "/svgs/about/interests/systems.svg",
+          "subTitle": "Distributed Systems"
+        },
+        {
+          "bigImage": true,
+          "image": "/svgs/about/interests/wasm.svg",
+          "subTitle": "Web Assembly"
+        },
+        {
+          "bigImage": true,
+          "image": "/svgs/about/interests/cloud.svg",
+          "subTitle": "The Cloud"
+        }
+      ]
     }
-]
+  }
+}

@@ -1,5 +1,11 @@
+// fonts
+$raleway-font: raleway;
+
 // Resolutions
+$phone: 480px;
 $tablet-large: 768px;
+$desktop-small: 900px;
+$desktop: 1364px;
 
 // brands
 $brand-white: hsl(0, 0%, 100%);
@@ -14,7 +20,7 @@ $brand-warning: hsl(48, 100%, 67%);
 $brand-danger: hsl(348, 100%, 61%);//  #FF3860
 
 // shades
-$shade-9: hsl(0, 0%, 8%);
+$shade-9: hsl(0, 0%, 17%);
 $shade-8: hsl(0, 0%, 25%);
 $shade-7: hsl(0, 0%, 35%);
 $shade-6: hsl(0, 0%, 48%);
@@ -35,6 +41,8 @@ $primary-color-4: hsl(222, 89%, 59%);
 $primary-color-3: hsl(222, 89%, 69%);
 $primary-color-2: hsl(222, 89%, 79%);
 $primary-color-1: hsl(222, 89%, 89%);
+$primary-color: #475DE6;
+$primary-highlight-color: lighten($primary-color, 30%);
 
 // accent colors
 // $accent-color-9:  hsl(40, 100%, 10%);
@@ -55,17 +63,19 @@ $global-box-shadow: 0 10px 20px $primary-color-1, 0 6px 6px $primary-color-2;
  * NAV STYLES
  */
 $nav-width: 100%;
-$nav-height: 72px;
+$nav-height: 100px;
+$nav-font-size-left: 2.2em;
+$nav-font-size-right: 1em;
 $nav-height-border-shadow-offset: 16px;
 $nav-box-shadow: 0 10px 6px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 $nav-after-background: linear-gradient($shade-1, $shade-1);
 $nav-padding: 8px;
-$nav-background: $primary-color-6;
-$nav-z-index: 20;
+$nav-background: $primary-color;
+$nav-z-index: 200;
 
 $nav-link-color: $shade-2;
 $nav-link-color-hover: $shade-1;
-$nav-link-padding: 0px 4px;
+$nav-link-padding: 0px 12px;
 $nav-mobile-transform-animation: transform .5s cubic-bezier(.4,0,.2,1), opacity .5s cubic-bezier(.4,0,.2,1);
 
 // - burger styles
@@ -109,8 +119,8 @@ $about-greetings-intro-padding: 1rem;
  */
 $personal-color: $shade-8;
 
-$tag-color: $shade-1;
-$tag-background-color: $accent-color-5;
+$tag-color: $shade-9;
+$tag-background-color: $shade-0;
 
 $card-title-color: $shade-8;
 $card-description-color: $shade-7;

@@ -22,9 +22,55 @@
             "Handlebars"
         ],
         "description": "Run web assembly in the cloud. Why write your serverless functions in any language.",
-        "shortDescription": "Run web assembly in the cloud",
-        "blogPost": "/personal/wasmcompute",
+        "shortDescription": "Run stateful web assembly functions in the cloud. Fast and easy.",
+        "blogPost": [
+            {
+                "title": "Update #1: History of wasmcompute",
+                "content": "/devlog/wasmcompute",
+                "year": 2020,
+                "month": 12,
+                "day": 1
+            }
+        ],
         "siteLink": "https://wasmcompute.com"
+    },
+    {
+        "title": "Personal Website",
+        "stage": "Completed",
+        "status": "completed",
+        "image": "./images/website_landing_page.png",
+        "logo": "./images/blog_logo.png",
+        "startDate": "Aug 2018",
+        "endDate": "Present",
+        "totalTime": "1 year+",
+        "technologies": [
+            "Gatsby",
+            "Javascript",
+            "React",
+            "Canvas2d",
+            "SCSS",
+            "HTML"
+        ],
+        "description": "This website! Learning gatsby (which is pretty cool) and creating a blog and resume website at the same time!",
+        "shortDescription": "This website, made with gatsby",
+        "blogPost": [
+            {
+                "title": "Update #2: Converting a portfolio into a blog",
+                "content": "/devlog/website-update-1",
+                "year": 2021,
+                "month": 1,
+                "day": 10
+            },
+            {
+                "title": "Update #1: Iterating designs to my first portfolio",
+                "content": "/devlog/website",
+                "year": 2018,
+                "month": 9,
+                "day": 10
+            }
+        ],
+        "githubLink": "https://github.com/AlecDivito/bomb-finder",
+        "siteLink": "https://alecdivito.github.io/"
     },
     {
         "title": "MineSweeper Clone",
@@ -47,7 +93,15 @@
         ],
         "description": "A Minesweeper clone inspired by Google's proxx.app. Added more features on top of the game.",
         "shortDescription": "Minesweeper clone inspired by Googles proxx",
-        "blogPost": "/personal/bomb-finder",
+        "blogPost": [
+            {
+                "title": "Designing and creating a minesweeper clone",
+                "content": "/devlog/bomb-finder",
+                "year": 2019,
+                "month": 8,
+                "day": 26
+            }
+        ],
         "githubLink": "https://github.com/AlecDivito/bomb-finder",
         "siteLink": "https://alecdivito.github.io/bomb-finder/"
     },
@@ -67,32 +121,40 @@
         ],
         "description": "A small library that focuses on creating a library on crates.io and hopefully a webassembly one on npm. Ability to read, edit and write bitmaps.",
         "shortDescription": "Rust library that is able to read, write, and edit bitmaps.",
-        "blogPost": "/personal/rustbitmap",
+        "blogPost": [
+            {
+                "title": "Making my first library with Rust",
+                "content": "/devlog/rustbitmap",
+                "year": 2019,
+                "month": 8,
+                "day": 29
+            }
+        ],
         "githubLink": "https://github.com/AlecDivito/rusty-bitmap",
         "siteLink": "https://crates.io/crates/rustbitmap"
     },
     {
-        "title": "Personal Website",
-        "stage": "Completed",
-        "status": "completed",
-        "image": "./images/PersonalWebsite.png",
-        "logo": "./images/website_logo.png",
-        "startDate": "Aug 2018",
+        "title": "Tetris Clone",
+        "stage": "In Progress",
+        "status": "active",
+        "image": "./images/tetris.png",
+        "logo": "./images/tetris.png",
+        "startDate": "May 2019",
         "endDate": "Present",
-        "totalTime": "1 year+",
+        "totalTime": "4 months+",
         "technologies": [
-            "Gatsby",
-            "Javascript",
-            "React",
+            "Rust",
+            "Web assembly",
+            "Typescript",
             "Canvas2d",
-            "SCSS",
+            "CSS",
             "HTML"
         ],
-        "description": "This website! Learning gatsby (which is pretty cool) and creating a blog and resume website at the same time!",
-        "shortDescription": "This website, made with gatsby",
-        "blogPost": "/personal/website",
-        "githubLink": "https://github.com/AlecDivito/bomb-finder",
-        "siteLink": "https://alecdivito.github.io/"
+        "description": "A tetris clone focusing on using webassembly compiled by rust. Used to learn advantages using webassembly beside javascript development",
+        "shortDescription": "Tetris clone with a focus on developing the logic in rust and wasm",
+        "blogPost": [],
+        "githubLink": "https://github.com/AlecDivito/weby-rusty-tetris",
+        "siteLink": "https://alecdivito.github.io/weby-rusty-tetris/"
     },
     {
         "title": "Budgetise",
@@ -117,31 +179,16 @@
         ],
         "description": "Capstone project for my final year in the SDNE program at sheridan. Created to manage multiple McDonald's expenses.",
         "shortDescription": "Capstone project for my final year in SDNE program",
-        "blogPost": "/personal/budgetise",
+        "blogPost": [
+            {
+                "title": "Capstone project for SDNE at Sheridan College",
+                "content": "/devlog/budgetise",
+                "year": 2018,
+                "month": 12,
+                "day": 28
+            }
+        ],
         "githubLink": null,
         "siteLink": null
-    },
-    {
-        "title": "Tetris Clone",
-        "stage": "In Progress",
-        "status": "active",
-        "image": "./images/tetris.png",
-        "logo": "./images/tetris.png",
-        "startDate": "May 2019",
-        "endDate": "Present",
-        "totalTime": "4 months+",
-        "technologies": [
-            "Rust",
-            "Web assembly",
-            "Typescript",
-            "Canvas2d",
-            "CSS",
-            "HTML"
-        ],
-        "description": "A tetris clone focusing on using webassembly compiled by rust. Used to learn advantages using webassembly beside javascript development",
-        "shortDescription": "Tetris clone with a focus on developing the logic in rust and wasm",
-        "blogPost": null,
-        "githubLink": "https://github.com/AlecDivito/weby-rusty-tetris",
-        "siteLink": "https://alecdivito.github.io/weby-rusty-tetris/"
     }
 ]

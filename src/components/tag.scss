@@ -1,14 +1,20 @@
 @import "../styles/variables";
 
 .tag {
-    box-sizing: border-box;
-    width: fit-content;
-    height: 24px;
+    display: inline-block;
     color: $tag-color;
-    margin: 2px 2px;
-    padding: 4px 16px;
+    padding: 12px 16px;
     border-radius: 35px;
+    white-space: nowrap;
     background: $tag-background-color;
-    font-size: 14px;
+    font-size: 1.25em;
     line-height: 16px;
+
+    &--shadow {
+        box-shadow: 0px 6px 20px rgba(0, 66, 191, 0.16);
+    }
+
+    @media (max-width: $tablet-large) {
+        font-size: 1em;
+    }
 }

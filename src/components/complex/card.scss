@@ -1,0 +1,57 @@
+@import '../../styles/variables';
+
+$desktop-card-image-height: 220px;
+
+.card {
+    position: relative;
+    padding-bottom: 1.5rem;
+    margin-bottom: 3rem;
+
+    .widget {
+        padding-bottom: 0rem;
+        margin-bottom: 0rem;
+    }
+
+    &__image {
+        position: relative;
+        height: $desktop-card-image-height;
+        transform-origin: 50% 50%;
+        transition: filter .25s ease-in-out;
+        float: none;
+        margin: 0px 0px 1rem 0px;
+        width: 100%;
+    }
+
+    &__post {
+        width: 100%;
+        // border-top: 1px solid black;
+
+        
+        // &:last-child {
+        //     border-bottom: 1px solid black;
+        // }
+
+        // :hover {
+        //     background-color: $primary-highlight-color;
+        // }
+            
+        &__link {
+            color: $primary-color;
+            padding: .75rem 0rem;
+            font-size: 1.2em;
+        }
+
+        &__title {
+
+        }
+
+    }
+
+}
+
+@media (min-width: $tablet-large) {
+    .card {
+        height: inherit;
+        overflow: hidden;
+    }
+}

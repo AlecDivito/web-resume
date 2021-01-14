@@ -1,0 +1,229 @@
+---
+project: "Portfolio and Blog"
+title: "Updating my portfolio to be more like a blog"
+subTitle: "Updating my website in hopes of building a personal brand"
+author: "Alec Di Vito"
+publishedDate: "2021-01-10"
+startDate: "Jan 2021"
+endDate: "Dec 2020"
+totalTime: "40 Hours"
+articles:
+    - "website"
+    - "wasmcompute"
+tags:
+    - "Personal Development"
+    - "Blogging"
+    - "Refactoring"
+images:
+    - ../images/personal/website-update-1/versions/versions.png
+    - ../images/personal/website-update-1/versions/prototype.png
+    - ../images/personal/website-update-1/mobile/mobile_v1.png
+    - ../images/personal/website-update-1/mobile/mobile_v2.png
+    - ../images/personal/website-update-1/mobile/mobile_v3.png
+    - ../images/personal/website-update-1/desktop-index/index_v1.png
+    - ../images/personal/website-update-1/desktop-index/index_v2.png
+    - ../images/personal/website-update-1/desktop-index/index_v3.png
+    - ../images/personal/website-update-1/desktop-projects/project_v1.png
+    - ../images/personal/website-update-1/desktop-projects/project_v2.png
+    - ../images/personal/website-update-1/desktop-about/about_v1.png
+    - ../images/personal/website-update-1/desktop-about/about_v2.png
+---
+
+## Overview
+
+My personal portfolio has now been online for a little over 2 years now
+and was initially created to showcase my skills and hobbies for anyone
+interested to visit. The first post set and reviewed the initial goals,
+technologies, design, development process and difficulties of the
+project. This second post will review the what the first design
+succeeded and failed in then review the new choices that have been made
+for the websites update.
+
+## Reviewing Goals
+
+When I initially created my portfolio, I set out to create a website
+that would look decent and work as a second resume. I also referenced
+that I plan on making this website more of a blog and adding content
+about school projects and self-interests. The website was meant to be
+easily extendable, updateable and show case all of my accomplishments.
+So how did I do? Overall, it was a failure. Let's, review the facts.
+
+### Facts
+
+Overall, I found that the website looked good and that most people
+*without* a design background enjoyed the design and reviewing the
+material on the site.
+
+However...
+
+After updating the website every so often for 2 years I can say that the
+information found here was always super stale and never included up to
+date information. I found the way I laid out the project files, markdown
+content and data (which were mostly just JSON files) made it hard to
+update the website quickly because I had duplicate data in 2-3 different
+places.
+
+Designers who viewed my pervious website ***did not approve*** that I
+used a very saturated blue as my main color and a very saturated red as
+my accent. They also didn't understand why I had "snow" on my landing
+page. That was actually talked about the most when anyone visited my
+website. I've removed it as it seems like no one really loved it. They
+also mentioned poor text hierarchy and a bad font choice (now I
+know that impact is not the best font to use).
+
+> Because Alec is not a designer, understanding some of the feedback he received took a
+> bit of time. More so, he was rejecting it and resisting suggestions.
+> Now though, he understands what he did wrong, and admitted to not listening to
+> single designer friend. From now on, he'll try his best not to make the same mistake again.
+<div>-- <cite><a href="https://www.linkedin.com/in/val-z/">Valeriia</a> <a href="https://www.val-z.com/">Zub</a></cite></div>
+ 
+Finally, the website was very time consuming to deploy. I currently
+publish it by pushing the built website content to a different
+repository on GitHub and GitHub pages deploys the website. This isn't
+the best way to publish changes however, but it's been working for me,
+so I've kept the practice up. This ~~will~~ must be changed in the
+coming months.
+
+## New Goals
+
+After going over the goals from the initial development of this website
+and the reviews from the designers, it is clear a new design and project
+structure was need. The website has been left to rot for the past 2
+years (2018-2020) and only accomplished being a second resume by a bare
+minimum. To solve these past failures, I've made a collection of short
+term and long-term goals that I hope this website can achieve.
+
+This update will be focusing on solving my short-term goals, and the
+update solves most of them. However, the long-term goals will be
+implemented during the year of 2021.
+
+### Short term
+
+1.  Update primary and accent colors
+2.  Add a page for blog content
+3.  Modify the project page
+4.  Change the about page to include more professional, personal information
+5.  Change the style of the Landing page
+6.  Update the layout of data.
+
+### Long term
+
+1.  Move data points, content and deployment to a third party service (using [wasmcompute](http://wasmcompute.com/))
+2.  Post regular content about my projects and research topics/interests
+3.  Share posts on multiple platforms and create a social persona
+4.  Track number of visits to the website
+
+## Design/Development Process
+
+Before starting development this time around, I spent time preparing a
+prototype of the updated website with my girlfriend and designer
+[Valeriia](https://www.linkedin.com/in/val-z/)
+[Zub](https://www.val-z.com/). We started out by talking together about
+what I wanted the website to be (which is more of a blog) and creating a
+list of things I wanted to change about the current website (see short
+term goals). After listing them, I began working on the update. I
+searched for inspiration by looking at other blogs and portfolios I had
+found over the past year that I liked to take inspiration from.
+
+I took "*inspirations*" from 2 websites. [joshwcomeau.com](https://www.joshwcomeau.com/), and [taniarascia.com](https://www.taniarascia.com/)
+
+>  “Good artists copy, great artists steal.”
+<div>-- <cite>Pablo Picasso</cite></div>
+
+### Design Process
+
+After the research was done and we knew roughly what we wanted, we
+started prototyping and iterated through a couple of new designs for the
+landing page.
+
+<span>
+<props.images.versions alt="Different version of the landing page for alec divito" caption="All iterations made for this websites landing page" />
+</span>
+
+After iterating over a handful of prototypes we finally found one design
+we both liked and started copying information from my current website
+over to provide more of a concert look and feel over a couple of
+different pages.
+
+<span>
+<props.images.prototype alt="Prototype showing off how the application would look" caption="Prototype showing off design" />
+</span>
+
+I was super happy with the progress we made together and thought the new
+website design was starting to look promising. I was a bit sad that the
+entire website style was being updated but thought that if this new
+design would be implemented it would be a big improvement. I dove into
+the code and converting the prototype into website. In total, the entire
+design process took around 12 hours to fully complete.
+
+##### Phones Home Page
+
+<div class="grid grid--3">
+    <props.images.mobile_v1 alt="first version of alec divitos portfolio mobile index page" caption="first version" />
+    <props.images.mobile_v2 alt="second version of alec divitos portfolio mobile index page" caption="second version" />
+    <props.images.mobile_v3 alt="third version of alec divitos portfolio mobile index page" caption="third version" />
+</div>
+
+##### Desktop Home Page
+
+<div class="grid grid--2">
+    <props.images.index_v2 alt="second version of alec divitos portfolio desktop index page" caption="second version" />
+    <props.images.index_v3 alt="third version of alec divitos portfolio desktop index page" caption="third version" />
+</div>
+
+##### Desktop About Page
+
+<div class="grid grid--2">
+    <props.images.about_v2 alt="third version of alec divitos portfolio desktop about page" caption="second version" />
+    <props.images.about_v1 alt="second version of alec divitos portfolio desktop about page" caption="third version" />
+</div>
+
+##### Desktop Project Page
+
+<div class="grid grid--2">
+    <props.images.project_v1 alt="second version of alec divitos portfolio desktop projects page" caption="second version" />
+    <props.images.project_v2 alt="third version of alec divitos portfolio desktop projects page" caption="third version" />
+</div>
+
+### Development Process
+
+The overall development time for updating the website was about 3 days
+of programming (which equated to about 20 hours of programming). This
+included making mock data that would be used as the blog posts and
+deciding on what type of meta data should be displayed on the website.
+
+I found that I refactored the redesign of the website twice. Once to
+reduce the number of random css classes found on all of the pages by
+creating general react components. The second refactor was improving the
+graphql queries and updating meta data found in some of my mdx files.
+
+One change I did without creating a prototype was adding in the devlog
+page. I didn't want to mix up my project posts with my blog posts, thus
+decided to create a new page. Overall, I'm happy with how both pages
+cover unique content.
+
+## Difficulties and Future Changes
+
+I believe that there are more changes that need to be done to the
+website. Currently, there is no paging, searching or filtering that can
+be done on the devlog or blog pages. The home page also contains
+duplicate information that can be found on the blog and devlog pages.
+The home page should be updated to only contain the newest posts and
+other announcements.
+
+The about page should include some more details about my professional
+ability and history. I'm planning on removing any professional
+information from the home page once I have enough content for the blog
+and devlog.
+
+## Reflection
+
+The update is a huge life quality of life change and puts me one step
+closer to having a blog that I'm happy about. Though the amount of work
+to get here has been quite a lot I believe it's a step in the right
+direction. Over the course of the update, I've found that writing takes
+just as much time as programming (if not more).
+
+In the next couple of months, I plan on adding more content and once
+that is done, add more functionalities. I'm excited to see how the
+website.

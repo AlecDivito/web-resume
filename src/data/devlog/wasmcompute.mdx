@@ -1,0 +1,273 @@
+---
+project: "WasmCompute"
+title: "WasmCompute: A new serverless platform"
+subTitle: "A prototype stateful serverless platform using web assembly"
+author: "Alec Di Vito"
+publishedDate: "2020-12-01"
+startDate: "Jan 2020"
+endDate: "Active"
+totalTime: "on and off for a couple of months"
+articles:
+    - "website-update-1"
+    - "bomb-finder"
+tags:
+    - "Web Assembly"
+    - "Serverless"
+    - "Platform"
+images:
+    - ../images/personal/wasmcompute/wasmcompute.png
+    - ../images/personal/wasmcompute/wasmcompute-docs/docs_1.png
+    - ../images/personal/wasmcompute/wasmcompute-docs/docs_2.png
+    - ../images/personal/wasmcompute/wasmcompute-docs/docs_3.png
+    - ../images/personal/wasmcompute/wasmcompute-v2/app.png
+    - ../images/personal/wasmcompute/wasmcompute-v2/home.png
+    - ../images/personal/wasmcompute/wasmcompute-v2/landing.png
+    - ../images/personal/wasmcompute/wasmcompute-v1/db_table.png
+    - ../images/personal/wasmcompute/wasmcompute-v1/endpoints.png
+    - ../images/personal/wasmcompute/wasmcompute-v1/viewmodels.png
+    - ../images/personal/wasmcompute/wasmcompute-v1/create_db_table.png
+    - ../images/personal/wasmcompute/wasmcompute-v1/old_landing.png
+---
+
+## Problem
+
+The world is changing and so is the way that developers deploy software.
+What was once deploying a webserver to a virtual machine has matured
+into developers deploying containers and having tools that help them
+orchestrate deployment of them (Kubernetes). I believe the next and
+final wave of this saga is serverless computing. It's already gaining
+hold in the market as companies move away from Kubernetes to use
+serverless solution offerings from cloud providers like AWS and Azures.
+
+Like any innovation there is growing pains as more companies and
+individuals start moving their workload to the cloud and realizing they
+don't support all of the features and specifications they need.
+Serverless is a wonderful technology but doesn't provide all of the
+grantee's developers are accustom to when developing internet
+applications. Serverless offerings today have many areas to overcome
+such as cost, cold start time, resource limitations, security, scaling
+and supporting long running applications.
+
+Wasmcompute is meant to be my answer to all of these problems.
+
+<span>
+<props.images.wasmcompute alt="wasmcompute.com websites index page" caption="wasmcompute landing page" />
+</span>
+
+## Overview
+
+Wasmcompute is meant to be a stateful serverless platform that runs off
+of web assembly. It contains an online platform and a command line
+application that gives you access to upload your functions quickly and
+easily. The platform is opinionated and creates a new function for every
+git commit you push to the platform. This allows developers to run
+multiple tests once new versions is released. It also allows you to
+reference other functions in code and run them on your own machine.
+
+This is meant to be an ambitious project that will take a couple of
+years to complete. It's supposed to be more of a tool for me and for me
+to practice developing a large project. The second goal is to make the
+tool profitable and to help others.
+
+## Goals
+
+The goals for the wasmcompute platform consist of the following:
+
+1.  Run web assembly functions in the cloud
+2.  Write stateful serverless functions without configuration files
+3.  Quick start up with clear costs
+4.  Referencing personal and 3^rd^ party functions is easy
+5.  Building a pipeline of multiple functions is easy
+6.  Integrated type checking
+7.  Develop functions in any language
+8.  Give developers and devops engineers the tools to do their job
+
+However, the project is not close to the overview or the goals of the project.
+This post will cover the history of wasmcompute and all of it's failures and
+successes.
+
+## Development Process
+
+It's been now over a year since start this project (I was working on it
+off and on during 2020). During this period, I've used multiple
+different technologies and have changed direction and refactored
+multiple times.
+
+### Initial development
+
+Development for Wasmcompute started in early 2020 using Golang as the
+primary language of choice and using wasmer as the library to the web
+assembly scripts on the backend. React was used on the frontend and I
+used material UI as my component library. Authentication was setup to
+support email and password as well as GitHub OAuth tokens. I was just
+playing around developing what I thought would be a good prototype
+without any planning (which I know, isn't smart).
+
+<div>
+    <props.images.old_landing alt="Old landing page for wasmcompute" caption="Old landing page" />
+</div>
+
+The application focused on creating a UI where you could create a
+project that would automatically support CRUD (create, read, update,
+delete) operations. Using the UI, you could input the database table you
+wanted to create, and it would reflect that in the database. Every time
+you create a new table, I would auto generate CRUD routes and view
+models that would support your application and act as an API.
+
+For this initial project, I was planning for users to create their
+database using the UI then upload a unique web assembly script
+(programmed in rust) for the custom logic that they may need.
+
+<div class="grid grid--2">
+    <props.images.db_table alt="database tables for old wasmcompute" caption="Database tables created" />
+    <props.images.create_db_table alt="create a database table for old wasmcompute" caption="Create a database table" />
+    <props.images.endpoints alt="Endpoints generated from database table creation for old wasmcompute" caption="Endpoints generated" />
+    <props.images.viewmodels alt="View models generated from database table creation for old wasmcompute" caption="View models generated" />
+</div>
+
+> looking back now over my code, I'm happy I could still run the
+> project with relative ease. It's been 7 months sense my last commit and
+> everything still works painlessly.
+
+At the time, I was also learning new technologies. I was taking my first
+steps in learn AWS (Amazon Web Services) and using terraform to handle
+all of my infrastructure. It was my first major project using Golang and
+included close to 5000 lines of code.
+
+After a couple of months, I realized I had lost my vision for what I
+wanted the project to be (which was a web assembly, serverless
+platform). I decided I needed to start over and change my direction.
+
+### Changing directions
+
+I started a new project with a new understanding what I wanted to build.
+For this second attempt I decided to use Rust because I didn't know if
+even this project would succeed, and I wanted to use Rust on a more
+serious project then just creating bitmap images. I decided that there
+was no real point in focusing on developing a UI first because this tool
+was meant for developers to quickly create web services. Therefore, I
+decided to build a CLI application that would be coupled with my
+platform.
+
+I got started building and after about 3 weeks I had my first working
+prototypes. This project was better and include a couple of different
+parts.
+
+1.  I had my web server that would deal with managing and running the platform
+2.  I had a CLI that would support the user to build and deploy their web assembly projects
+3.  I had a rust library that would allow developers to interface with
+    some custom API's I had. This API would allow access to a Sqlite
+    database on the platform and other services. WASI would give the
+    develop access to the operating system.
+
+I decided that it was time to test it out. I built a helloworld project
+and a documentation project where I've stored all of my notes about the
+design of the application. The following is a couple of screen shots
+taken throughout a working version of the app running locally.
+
+##### Wasmcompute
+
+<div class="grid grid--3">
+    <props.images.landing alt="Landing page for wasmcompute" caption="Landing page" />
+    <props.images.home alt="Home page for wasmcompute" caption="Home page" />
+    <props.images.app alt="Application page for wasmcompute" caption="Application page" />
+</div>
+
+##### Wasmcompute Docs
+
+<div class="grid grid--3">
+    <props.images.docs_1 alt="wasmcompute custom document page" caption="docs landing page" />
+    <props.images.docs_2 alt="wasmcompute custom document page" caption="docs about page" />
+    <props.images.docs_3 alt="wasmcompute custom document page" caption="docs design page" />
+</div>
+
+### Understanding the Final Product
+
+After getting to this point, I was happy with the progress, but it felt
+as though I was still on the wrong path. During this time, I was also
+beginning to research other web assembly serverless solutions and found
+a couple that was sort of already doing what my application was doing.
+This demotivated me and I pondered for weeks if this project was even
+worth the time anymore.
+
+After weeks thinking, I decided it was still was. Current solutions on
+the market are still not focusing in the right areas and I think I'll be
+able to get it right. Although I would love to share more information
+right now, I'm not ready. I am currently doing more documentation work
+and researching recent papers so that I can learn more about what other
+companies and people are doing. I hope to learn from them as well as
+integrate what worked into my platform.
+
+The next post I create for this project will include more documentation
+and information on what the future of the platform will include. It will
+be a more technical and will dive into my plans for the platform and
+include diagrams and plans on how I intend to build it.
+
+## Technologies
+
+This project currently has me embarking on many new technologies. I used
+Golang, Rust, Terraform, AWS, Web Assembly, GitHub (Hooks and
+Authentication) and Postgres. I also used React for the first version of
+the project but ended up dropping it in the second because I believe the
+frontend UI doesn't need to be so complicated and complex. Also because
+I thought managing rendering pages on the server would be easier. I
+ended up using Handlebars (for rust) instead.
+
+The one technology I hope to add to this project is Ansible for
+deployment to web servers.
+
+## Difficulties
+
+One of the main difficulties during the development in Rust was the use
+of a HTTP web server library called tide. I decided to use it because I
+thought it was a young project that I would be able to help contribute
+to. I've always wanted to give back to an open-source project because I
+feel like I've finally become a skilled programmer and would love to
+help the community. I needed support for routing on subdomains, so I put
+in an issue to talk about it. There were some discussions, and I went
+off and built the support for it. However, it is sadly still in a PR
+today and I understand why, it ended up being 500 new additions to the
+code base so it was not a small addition, but I hope that the project
+maintainers are still considering adding it.
+
+If I were to go back in time, I would have chosen to use hyper or a more
+mature project for my web server needs, that way I could create all of
+my own custom logic on top of http server. Though I may just do this
+depending on how I feel the refactoring goes for the current project.
+
+Another difficulty I had was not planning nearly enough. It would have
+helped me a lot to create smaller goals then aim to create a new big
+platform. Although I don't see the first 6 months of the start of this
+project as wasted, I defiantly could have spent less time on the
+prototype had I documented better what I wanted from the beginning.
+
+Lastly, I'm not happy with how the UI looks for the current website but
+part of me just wanted to try and deploy the project to get it working
+on the web but to my understanding it isn't doing very well online and
+it's broken down a couple of times. I've had to SSH in to turn it back
+on couple of times after doing something wrong. The next time I deploy
+this project I need to have a better CI/CD plan in place that work as
+well as a better change log.
+
+## Project Status
+
+The project is still in progress and will be for some time. I believe
+that it will take one more year to get to a more stable place and
+another year for me to write all of the features I want for it.
+
+## Results
+
+The result of the project is currently at [wasmcompute](http://wasmcompute.com/).
+Although just be careful right now (Jan 2021) because the version that's deployed can
+and will fall over in a moment's notice.
+
+## Reflections
+
+This was the second big project that I've worked on (Budgetise being the
+first) though it is probably one that I am most proud even in its bad
+state. I believe it has promise to become a platform that other
+developers use. Maybe it can become something like GitHub pages, Netify,
+Azure Durable Functions and Cloudflare workers all in one. All that's
+left is for me to do more work on it and hopefully one day it will be
+ready for the world. I'll be sure to write an update once the project
+reaches its next step.

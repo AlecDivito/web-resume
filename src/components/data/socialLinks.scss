@@ -1,0 +1,25 @@
+@import '../../styles/variables';
+
+.social__link--item {
+    text-decoration: none;
+    color: $shade-8;
+    padding: 12px 1rem;
+    font-size: 1.3rem;
+    display: grid;
+    grid-template-rows: 1fr; 
+    grid-gap: 8px;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background-color: $shade-2;
+        border-radius: 60px;
+        cursor: pointer;
+    }
+
+    .gatsby-image-wrapper {
+        width:  45px;
+        height: 45px;
+        margin: auto;
+    }
+}

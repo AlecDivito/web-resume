@@ -1,28 +1,63 @@
 import React from "react"
-
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import "./blog.scss";
-import Header from "../components/header";
+import Hero from "../components/hero"
+import Widget from "../components/widget";
+import SocialLinks from "../components/data/socialLinks";
+import Section from "../components/simple/section";
+import { Common, CommonLeft, CommonRight } from "../components/simple/common";
 
-const BlogDirectoryPage = () => (
+
+const BlogDirectoryPage = ({ data }) => (
   <Layout>
-    <SEO title="Alec's Personal Blog" />
-    <section className="blog">
-      <Header text="Hey, The blog is under construction!" isCenter={true} />
-      <p>
-        Sorry for the inconvenience, currently the site is still being built
-        and all the main small kinks are still being worked out. I'm hopping to
-        have it operational before september 2019.
-      </p>
-      <p>
-        If you wondering what will be written in the blog, I'll mostly be focusing
-        on mathematic topic I learn (which will probably be basic and used as a
-        way to keep me studying) and on case studies of some of my web designs
-        and the steps I take to make my web pages look good or at least decent.
-      </p>
-    </section>
+    <SEO title="Alec Di Vito Blog" />
+    <Hero
+      title="Blog"
+      subTitle="I thought it, so I wrote it"
+      tags={["Thesis", "Interests", "Rabit Holes"]} />
+    <Common>
+      <CommonRight>
+        <Section title="Posts">
+          {data.blogs.edges.map(b =>
+            <Widget title={b.node.frontmatter.title}
+              key={b.node.id}
+              tags={b.node.frontmatter.tags}
+              readMore={b.node.fields.slug}
+              description={b.node.frontmatter.description}
+              date={b.node.frontmatter.publishedDate}
+            />
+          )}
+        </Section>
+        <Section title="More coming soon!!" />
+      </CommonRight>
+      <CommonLeft>
+        <SocialLinks />
+      </CommonLeft>
+    </Common>
   </Layout>
 )
+
+export const query = graphql`
+query BlogPageData {
+  blogs: allMdx(filter: {slug: {regex: "/blogs/"}}, sort: {order: DESC, fields: frontmatter___publishedDate}) {
+    edges {
+      node {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          totalTime
+          tags
+          description
+          publishedDate
+        }
+        id
+      }
+    }
+  }
+}
+`
 
 export default BlogDirectoryPage

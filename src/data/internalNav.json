@@ -10,23 +10,13 @@
         "ready": true
     },
     {
-        "title": "Projects",
-        "link": "/personal",
-        "ready": true
-    },
-    {
-        "title": "Work",
-        "link": "/work",
+        "title": "DevLog",
+        "link": "/devlog",
         "ready": true
     },
     {
         "title": "Blog",
         "link": "/blog",
-        "ready": false
-    },
-    {
-        "title": "Contact",
-        "link": "/contact",
         "ready": true
     }
 ]

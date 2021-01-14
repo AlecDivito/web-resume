@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+
+.list {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+
+    &--h {
+        flex-direction: row;
+        align-content: center;
+
+        @media (max-width: $tablet-large) {
+            flex-direction: column;
+        }
+    }
+
+    &--v {
+        flex-direction: column;
+    }
+
+    &--sb {
+        justify-content: space-between;
+    }
+
+    &--aic {
+        align-items: center;
+    }
+}

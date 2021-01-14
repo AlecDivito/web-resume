@@ -15,6 +15,14 @@ module.exports = {
         path: `${__dirname}/src/data/`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/
+        }
+      }
+    },
     `gatsby-transformer-sharp`, // images
     `gatsby-plugin-sharp`,      // image optimization
     `gatsby-transformer-json`,  // graphql for data files
@@ -56,7 +64,7 @@ module.exports = {
             resolve: 'gatsby-remark-prismjs',
           }
         ],
-        plugins: ['gatsby-remark-images' ],
+        plugins: ['gatsby-remark-images'],
       }
     },
     {

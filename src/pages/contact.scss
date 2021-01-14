@@ -36,7 +36,6 @@
     & > label {
         font-size: .8rem;
         color: $contact-field-label-color;
-        font-weight: 700;
         text-transform: uppercase;
         margin-left: 8px;
         margin-bottom: 8px;
@@ -47,7 +46,6 @@
         padding: 8px;
         color: $contact-input-color;
         font-size: 1rem;
-        font-weight: 700;
         background:$contact-input-background-color; 
         border: 0px solid transparent;
     }

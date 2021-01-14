@@ -1,10 +1,19 @@
 @import "./variables";
+@import "./fonts";
+@import "./global";
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: raleway, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+pre[class*="language-"] {
+    padding: 2em;
+    border-radius: 35px;
 }
 
 body, html {
@@ -14,9 +23,19 @@ body, html {
     background-color: $shade-1;
 }
 
+a {
+    outline: none;
+    color: $primary-color;
+}
+
 p {
     margin: 1rem 0px;
     font-size: 1.2rem;
+}
+
+code * {
+    font-size: 1em;
+    font-family: consolas !important;
 }
 
 // website blog post
@@ -101,6 +120,11 @@ $shades-list: (
     }
 }
 
+.link--plain {
+    color: $shade-0;
+    cursor: pointer;
+}
+
 .link {
     transition: 0.3s color ease;
     position: relative;
@@ -137,20 +161,16 @@ $shades-list: (
         }
     }
 
-    &::before, &::after {
+    &::after {
         content: "";
         transition: 0.3s width ease;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         position: absolute;
-        height: 5px;
+        height: 2px;
         width: 0px;
-        background-color: $accent-color-5;
-    }
-    
-    &::before {
-        right: 0px;
-        top: -0.25em;
+        background-color: $shade-0;
+        border-radius: 5px;
     }
 
     &::after {
@@ -160,7 +180,7 @@ $shades-list: (
 
 
     &:hover {
-        &::before, &::after {
+        &::after {
             width: 100%; 
         }
     }
