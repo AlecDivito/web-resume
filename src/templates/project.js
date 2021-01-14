@@ -70,16 +70,19 @@ const ProjectTemplate = ({ data }) => {
     let images = {};
     if (project.frontmatter.images) {
         project.frontmatter.images.forEach((image, i) => {
-            const { childImageSharp, publicURL } = image;
+            if (!image) {
+                console.log(image);
+                return;
+            }
             // public urls normally look like: "/static/gradient_bicubic-676f728568c6798ea9686d6a6ef2c3e8.bmp"
             // we want to try and get "gradient_bicubic"
             let name = "";
             let component;
-            if (childImageSharp != null) {
-                name = childImageSharp.fluid.originalName.split(".")[0];
+            if (image.childImageSharp) {
+                name = image.childImageSharp.fluid.originalName.split(".")[0];
                 component = ({ alt, caption }) => (
                     <figure>
-                        <Img fluid={childImageSharp.fluid} alt={alt} />
+                        <Img fluid={image.childImageSharp.fluid} alt={alt} />
                         {(caption && caption.length > 0)
                             ? <figcaption>{caption}</figcaption>
                             : null
@@ -87,13 +90,13 @@ const ProjectTemplate = ({ data }) => {
                     </figure>
                 )
             } else {
-                let publicUrlName = publicURL.split("/");
+                let publicUrlName = image.publicURL.split("/");
                 let filename = publicUrlName[publicUrlName.length - 1].split("-")[0];
                 // Remove the filename extensen
                 name = filename.split(".")[0];
                 component = ({ alt, caption }) => (
                     <figure>
-                        <img className="image--child" src={publicURL} alt={alt} />
+                        <img className="image--child" src={image.publicURL} alt={alt} />
                         {(caption && caption.length > 0)
                             ? <figcaption>{caption}</figcaption>
                             : null
