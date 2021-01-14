@@ -15,6 +15,18 @@ tags:
     - "Serverless"
     - "Platform"
 images:
+    - ../images/personal/wasmcompute/wasmcompute.png
+    - ../images/personal/wasmcompute/wasmcompute-docs/docs_1.png
+    - ../images/personal/wasmcompute/wasmcompute-docs/docs_2.png
+    - ../images/personal/wasmcompute/wasmcompute-docs/docs_3.png
+    - ../images/personal/wasmcompute/wasmcompute-v2/app.png
+    - ../images/personal/wasmcompute/wasmcompute-v2/home.png
+    - ../images/personal/wasmcompute/wasmcompute-v2/landing.png
+    - ../images/personal/wasmcompute/wasmcompute-v1/db_table.png
+    - ../images/personal/wasmcompute/wasmcompute-v1/endpoints.png
+    - ../images/personal/wasmcompute/wasmcompute-v1/viewmodels.png
+    - ../images/personal/wasmcompute/wasmcompute-v1/create_db_table.png
+    - ../images/personal/wasmcompute/wasmcompute-v1/old_landing.png
 ---
 
 ## Problem
@@ -38,6 +50,10 @@ and supporting long running applications.
 
 Wasmcompute is meant to be my answer to all of these problems.
 
+<span>
+<props.images.wasmcompute alt="wasmcompute.com websites index page" caption="wasmcompute landing page" />
+</span>
+
 ## Overview
 
 Wasmcompute is meant to be a stateful serverless platform that runs off
@@ -53,31 +69,22 @@ years to complete. It's supposed to be more of a tool for me and for me
 to practice developing a large project. The second goal is to make the
 tool profitable and to help others.
 
-The project is not close to the overview but at least the plan is there.
-The rest of this post goes over this history of where the project is at
-right now.
-
 ## Goals
 
-The goals for this program are very ambitious and is meant to be a
-moving target as I get a better sense of what I need to build. The
-current goals of the platform consist of:
+The goals for the wasmcompute platform consist of the following:
 
 1.  Run web assembly functions in the cloud
-
 2.  Write stateful serverless functions without configuration files
-
 3.  Quick start up with clear costs
-
 4.  Referencing personal and 3^rd^ party functions is easy
-
 5.  Building a pipeline of multiple functions is easy
-
 6.  Integrated type checking
-
 7.  Develop functions in any language
-
 8.  Give developers and devops engineers the tools to do their job
+
+However, the project is not close to the overview or the goals of the project.
+This post will cover the history of wasmcompute and all of it's failures and
+successes.
 
 ## Development Process
 
@@ -96,6 +103,10 @@ support email and password as well as GitHub OAuth tokens. I was just
 playing around developing what I thought would be a good prototype
 without any planning (which I know, isn't smart).
 
+<div>
+    <props.images.old_landing alt="Old landing page for wasmcompute" caption="Old landing page" />
+</div>
+
 The application focused on creating a UI where you could create a
 project that would automatically support CRUD (create, read, update,
 delete) operations. Using the UI, you could input the database table you
@@ -107,13 +118,16 @@ For this initial project, I was planning for users to create their
 database using the UI then upload a unique web assembly script
 (programmed in rust) for the custom logic that they may need.
 
-![Graphical user interface, text Description automatically generated
-with medium confidence](media/image1.png){width="6.5in"
-height="3.6326388888888888in"}
+<div class="grid grid--2">
+    <props.images.db_table alt="database tables for old wasmcompute" caption="Database tables created" />
+    <props.images.create_db_table alt="create a database table for old wasmcompute" caption="Create a database table" />
+    <props.images.endpoints alt="Endpoints generated from database table creation for old wasmcompute" caption="Endpoints generated" />
+    <props.images.viewmodels alt="View models generated from database table creation for old wasmcompute" caption="View models generated" />
+</div>
 
-\> looking back now over my code, I'm happy I could still run the
-project with relative ease. It's been 7 months sense my last commit and
-everything still works painlessly.
+> looking back now over my code, I'm happy I could still run the
+> project with relative ease. It's been 7 months sense my last commit and
+> everything still works painlessly.
 
 At the time, I was also learning new technologies. I was taking my first
 steps in learn AWS (Amazon Web Services) and using terraform to handle
@@ -139,12 +153,8 @@ I got started building and after about 3 weeks I had my first working
 prototypes. This project was better and include a couple of different
 parts.
 
-1.  I had my web server that would deal with managing and running the
-    platform
-
-2.  I had a CLI that would support the user to build and deploy their
-    web assembly projects
-
+1.  I had my web server that would deal with managing and running the platform
+2.  I had a CLI that would support the user to build and deploy their web assembly projects
 3.  I had a rust library that would allow developers to interface with
     some custom API's I had. This API would allow access to a Sqlite
     database on the platform and other services. WASI would give the
@@ -155,7 +165,21 @@ and a documentation project where I've stored all of my notes about the
 design of the application. The following is a couple of screen shots
 taken throughout a working version of the app running locally.
 
-\< insert images here \>
+##### Wasmcompute
+
+<div class="grid grid--3">
+    <props.images.landing alt="Landing page for wasmcompute" caption="Landing page" />
+    <props.images.home alt="Home page for wasmcompute" caption="Home page" />
+    <props.images.app alt="Application page for wasmcompute" caption="Application page" />
+</div>
+
+##### Wasmcompute Docs
+
+<div class="grid grid--3">
+    <props.images.docs_1 alt="wasmcompute custom document page" caption="docs landing page" />
+    <props.images.docs_2 alt="wasmcompute custom document page" caption="docs about page" />
+    <props.images.docs_3 alt="wasmcompute custom document page" caption="docs design page" />
+</div>
 
 ### Understanding the Final Product
 
