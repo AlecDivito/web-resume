@@ -31,7 +31,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                 }
             }
         }
-        blogs: allMdx(filter: {slug: {regex: "\/blogs\/"}}) {
+        blogs: allMdx(filter: {slug: {regex: "\/blogs\/"}}, sort: {order: DESC, fields: frontmatter___publishedDate}) {
             edges { 
                 node {
                     fields {

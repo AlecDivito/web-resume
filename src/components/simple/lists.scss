@@ -18,6 +18,13 @@
 
     &--v {
         flex-direction: column;
-        text-align: center;
+    }
+
+    &--sb {
+        justify-content: space-between;
+    }
+
+    &--aic {
+        align-items: center;
     }
 }

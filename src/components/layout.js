@@ -18,13 +18,6 @@ query GetNavData {
       alt
     }
   }
-  allProjectsJson {
-    nodes {
-      id
-      title
-      blogPost
-    }
-  }
   allInternalNavJson {
     nodes {
       id

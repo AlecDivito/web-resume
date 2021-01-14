@@ -6,7 +6,7 @@ import HeroCurve from "../assets/hero.svg";
 import "./hero.scss";
 
 const Hero = ({ title, className, titleIcon, subTitle, tags, readMoreLink, readMoreText, date, children }) => (
-    <div className={`hero ${className ?? ""}`}>
+    <section className={`hero ${className ?? ""}`}>
         <div className="hero--container common--max-width">
             {children ?
                 <div className="hero--z-index hero--children" style={{ width: 270 }}>
@@ -14,10 +14,10 @@ const Hero = ({ title, className, titleIcon, subTitle, tags, readMoreLink, readM
                 </div>
                 : null}
             <div className={`${children ? "" : "hero--p0"} hero--z-index hero--content`}>
-                <h2 className="hero__title">
+                <h1 className="hero__title">
                     {titleIcon}
                     {title}
-                </h2>
+                </h1>
                 <p className="hero__description">{subTitle}</p>
                 <div className="hero--flex">
                     <ul className="hero__list">
@@ -31,7 +31,7 @@ const Hero = ({ title, className, titleIcon, subTitle, tags, readMoreLink, readM
         <div className="hero__curve">
             <HeroCurve />
         </div>
-    </div>
+    </section>
 );
 
 Hero.prototype = {
