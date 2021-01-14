@@ -18,7 +18,7 @@ const BlogDirectoryPage = ({ data }) => (
       tags={["Thesis", "Interests", "Rabit Holes"]} />
     <Common>
       <CommonRight>
-        <Section title="2020">
+        <Section title="Posts">
           {data.blogs.edges.map(b =>
             <Widget title={b.node.frontmatter.title}
               key={b.node.id}
@@ -40,7 +40,7 @@ const BlogDirectoryPage = ({ data }) => (
 
 export const query = graphql`
 query BlogPageData {
-  blogs: allMdx(filter: {slug: {regex: "/blogs/"}}) {
+  blogs: allMdx(filter: {slug: {regex: "/blogs/"}}, sort: {order: DESC, fields: frontmatter___publishedDate}) {
     edges {
       node {
         fields {

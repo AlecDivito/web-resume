@@ -28,7 +28,7 @@ const DevlogPage = ({ data }) => (
                             tags={p.technologies}
                             site={p.siteLink}
                             github={p.githubLink}
-                            readMore={p.blogPost}
+                            posts={p.blogPost}
                         />
                     )}
                 </Section>
@@ -50,7 +50,13 @@ query GetPersonalProjectsData {
             status
             technologies
             description
-            blogPost
+            blogPost {
+                title
+                content
+                year
+                month
+                day
+            }
             image {
                 childImageSharp {
                     fluid {

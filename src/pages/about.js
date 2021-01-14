@@ -102,8 +102,6 @@ const AboutPage = () => {
               )}
             </HorizontalList>
           </Section>
-
-          <Section title="And there is more coming soon!" />
         </CommonRight>
         <CommonLeft>
           <SocialLinks />

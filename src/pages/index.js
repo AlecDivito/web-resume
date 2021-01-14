@@ -30,7 +30,7 @@ const query = graphql`
         }
       }
     }
-    allVolunteerJson {
+    volunteer: allVolunteerJson {
       nodes {
         id
         description
@@ -39,7 +39,7 @@ const query = graphql`
         time
       }
     }
-    allSchoolJson {
+    school: allSchoolJson {
       nodes {
         id
         achievement
@@ -48,10 +48,11 @@ const query = graphql`
         startDate
         school
         program
+        description
         logo {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
+            fixed(width: 50, height: 50) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
@@ -67,7 +68,12 @@ const query = graphql`
         status
         githubLink
         technologies
-        blogPost
+        blogPost {
+          content
+          year
+          month
+          day
+        }
         logo {
           childImageSharp {
             fixed(width: 50, height: 50) {
@@ -77,7 +83,7 @@ const query = graphql`
         }
       }
     }
-    blogs: allMdx(filter: {slug: {regex: "/blogs/"}}) {
+    blogs: allMdx(filter: {slug: {regex: "/blogs/"}}, sort: {order: DESC, fields: frontmatter___publishedDate}) {
       edges {
         node {
           fields {
@@ -131,24 +137,19 @@ const IndexPage = () => {
               experince. If you want to see some of my work check out some of
               my <Link to="/devlog">projects</Link>, if you want to learn more
               about me and my interests checkout my<Link to="blog">blog</Link>
-              and if you are intrested in highering me then you can checkout my
+              and if you are intrested in hiring me then you can checkout my
               <a target="_blank" rel="nofollow" href="/2021-Jan-AlecDivito-Resume.pdf">resume</a>.
-            </Paragraph>
-            <Paragraph>
-              This website was made for me to keep better tabs on my projects
-              and to learn how to track my work and desisions better. Basically
-              its for documentation. Hope you enjoy it.
             </Paragraph>
           </Section>
           <Section title="Projects">
             {data.allProjectsJson.nodes.map(p =>
               <Widget title={p.title}
                 key={p.id}
-                subTitle={p.shortDescription}
+                description={p.shortDescription}
                 tags={p.technologies}
                 status={p.status}
                 logo={<Img fixed={p.logo.childImageSharp.fixed} style={{ borderRadius: '100%' }} alt={p.company} />}
-                readMore={p.blogPost}
+                readMore={p.blogPost.map(b => b.content)[0] ?? null}
               />
             )}
           </Section>
@@ -172,6 +173,28 @@ const IndexPage = () => {
                 tags={w.utilized}
                 date={`${w.startDate}-${w.endDate}`}
                 logo={<Img fixed={w.logo.childImageSharp.fixed} style={{ borderRadius: '100%' }} alt={w.company} />}
+              />
+            )}
+          </Section>
+          <Section title="School">
+            {data.school.nodes.map(w =>
+              <Widget title={w.program}
+                key={w.id}
+                subTitle={w.school}
+                description={w.description}
+                // tags={w.utilized}
+                date={`${w.startDate}-${w.endDate}`}
+                logo={<Img fixed={w.logo.childImageSharp.fixed} style={{ borderRadius: '100%' }} alt={w.school} />}
+              />
+            )}
+          </Section>
+          <Section title="Volunteer">
+            {data.volunteer.nodes.map(w =>
+              <Widget title={w.job}
+                key={w.id}
+                subTitle={w.location}
+                description={w.description}
+                date={w.time}
               />
             )}
           </Section>
