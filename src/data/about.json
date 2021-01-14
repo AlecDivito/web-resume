@@ -3,11 +3,11 @@
     "widgets": [
       {
         "title": "I am...",
-        "description": "a Full Stack Developer and a 4th year Sheridan College student in Mobile Computing graduating at the end of 2021 with an interest in cloud computing, websites and mobile development. My experience includes working at RBC on their Cloud team where I helped  develop their next generation pipeline for developers on Kubernetes to researching fall detection at The Centre for Mobile Innovation at Sheridan College. I’ve graduated once already from Sheridan College with an advanced diploma from Software Development and Network Engineering. In addition I have been to 4 hackathons where in one of them I have placed 3rd. Technology excites me a lot and I’m very excited playing with emerging technologies such as Virtual Reality and server less computing."
+        "description": "a Full Stack Developer and a 4th year Sheridan College student in Mobile Computing graduating december 2021 with an interest in cloud computing, full stack development and mobile development. My experience includes working at RBC on their cloud team where I helped develop their next generation pipeline for bank developers on Kubernetes to researching fall detection through The Centre for Mobile Innovation at Sheridan College. I’ve graduated once already from Sheridan College with an advanced diploma from Software Development and Network Engineering. In addition I have been to 4 hackathons where in one of them I have placed 3rd. Technology excites me a lot and I’m very excited playing with emerging technologies such as Virtual Reality and server less computing."
       },
       {
         "title": "I also...",
-        "description": "Cycle, ice skate, snowboard and white water canoe. I'm a cat lover but dogs are also cool I guess. I am the vice president of the Hackademics club at Sheridan college and we are hosting our annual hackathon; hackville this year. This is hosted for Sheridan students by Sheridan students with +12,000 CAD in funding! It's also the first online Hackville! "
+        "description": "Cycle, ice skate, snowboard and white water canoe. I'm a cat lover but dogs are also cool I guess. I am the vice president of the Hackademics club at Sheridan college and we are hosting our annual hackathon; hackville this year. This is hosted for Sheridan students by Sheridan students with +12,000 CAD in funding! It's also the first online Hackville ever (Thanks Covid)! "
       }
     ],
     "info": [
@@ -48,12 +48,12 @@
           {
             "title": "Tried",
             "image": "/svgs/about/have/nesting-doll.svg",
-            "subTitle": "Been attempting to learn Ukrainian "
+            "subTitle": "Been attempting to learn Russian"
           },
           {
             "title": "Played",
             "image": "/svgs/about/have/vr-headset.svg",
-            "subTitle": "A passion for VR and Physical computing"
+            "subTitle": "Have a passion for Virtual Reality"
           }
         ]
       },
