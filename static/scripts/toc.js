@@ -3,7 +3,6 @@ function ready(fn) {
 }
 
 ready(() => {
-    console.log('called');
     const motionQuery = window.matchMedia('(prefers-reduced-motion)')
 
     const TableOfContents = {

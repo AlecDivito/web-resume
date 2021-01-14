@@ -63,7 +63,6 @@ const BlogTemplate = ({ data }) => {
     const blog = data.mdx;
     const articles = data.allMdx;
     let images = {};
-    console.log(blog.frontmatter.images);
     if (blog.frontmatter.images) {
         blog.frontmatter.images.forEach((image, i) => {
             const { childImageSharp } = image;
