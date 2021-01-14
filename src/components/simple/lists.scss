@@ -9,7 +9,6 @@
     &--h {
         flex-direction: row;
         align-content: center;
-        justify-content: space-around;
 
         @media (max-width: $tablet-large) {
             flex-direction: column;

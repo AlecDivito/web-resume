@@ -136,9 +136,8 @@ const IndexPage = () => {
               lot of love trying to get things right so I hope you enjoy the
               experince. If you want to see some of my work check out some of
               my <Link to="/devlog">projects</Link>, if you want to learn more
-              about me and my interests checkout my<Link to="blog">blog</Link>
-              and if you are intrested in hiring me then you can checkout my
-              <a target="_blank" rel="nofollow" href="/2021-Jan-AlecDivito-Resume.pdf">resume</a>.
+              about me and my interests checkout my <Link to="blog">blog</Link> and
+              if you are intrested in hiring me then you can checkout my <a target="_blank" rel="nofollow" href="/2021-Jan-AlecDivito-Resume.pdf">resume</a>.
             </Paragraph>
           </Section>
           <Section title="Projects">

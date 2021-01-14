@@ -3,10 +3,12 @@ import Proptypes from 'prop-types';
 import './section.scss';
 import Title from './title';
 
-const Section = ({ title, varient, children }) => (
+const Section = ({ title, varient, children, className }) => (
     <>
-        <Title varient={varient ?? "h2"}>{title}</Title>
-        <section className="section">{children}</section>
+        <section className={`section ${className ?? ""}`}>
+            <Title className="mb" varient={varient ?? "h2"}>{title}</Title>
+            {children}
+        </section>
     </>
 );
 
@@ -14,6 +16,7 @@ Section.prototype = {
     children: Proptypes.node,
     title: Proptypes.string.isRequired,
     varient: Proptypes.string,
+    className: Proptypes.string,
 }
 
 export default Section;

@@ -79,7 +79,7 @@ const AboutPage = () => {
 
           {data.dataJson.about.info.map(w =>
             <Section varient="h3" title={w.title} key={w.title}>
-              <HorizontalList>
+              <HorizontalList className="list--sb">
                 {w.items.map(item =>
                   <Statistic key={item.link} {...item} />
                 )}
@@ -88,7 +88,7 @@ const AboutPage = () => {
           )}
 
           <Section title={data.dataJson.about.favoriteLang.title}>
-            <HorizontalList>
+            <HorizontalList className="list--sb">
               {data.dataJson.about.favoriteLang.items.map(item =>
                 <Statistic key={item.subTitle} {...item} />
               )}
@@ -96,7 +96,7 @@ const AboutPage = () => {
           </Section>
 
           <Section title={data.dataJson.about.interested.title}>
-            <HorizontalList>
+            <HorizontalList className="list--sb">
               {data.dataJson.about.interested.items.map(item =>
                 <Statistic key={item.subTitle} {...item} />
               )}

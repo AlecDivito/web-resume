@@ -24,7 +24,7 @@ const Hero = ({ title, className, titleIcon, subTitle, tags, readMoreLink, readM
                         {tags.map((t) => <li key={t} className="hero__list__item"><Tag text={t} /></li>)}
                     </ul>
                     {(readMoreLink && readMoreText) ? <Link className="hero__link" to={readMoreLink}>{readMoreText}</Link> : null}
-                    {(date) ? <p className="hero__date">Last Updated: {date}</p> : null}
+                    {(date) ? <p className="hero__date">Published: {date}</p> : null}
                 </div>
             </div>
         </div>

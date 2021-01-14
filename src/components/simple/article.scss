@@ -7,10 +7,10 @@
 
     h1 {font-size: 2.5em;}
     h2 {font-size: 2.25em;}
-    h3 {font-size: 2em;}
-    h4 {font-size: 1.75em;}
-    h5 {font-size: 1.5em;}
-    h6 {font-size: 1.25em;}
+    h3 {font-size: 1.75em;}
+    h4 {font-size: 1.55em;}
+    h5 {font-size: 1.25em;}
+    h6 {font-size: 1em;}
     
     h1, h2, h3, h4, h5, h6 {
         color: $primary-color;
@@ -32,11 +32,21 @@
     }
 
     a {
-        color: inherit;
+        color: $primary-color;
     }
 
     figure {
         margin-bottom: 2rem;
+
+        .gatsby-image-wrapper {
+            margin: 1rem;
+            border-radius: 1rem;
+            box-shadow: 0px 6px 20px rgba(0, 66, 191, 0.16);
+        }
+
+        div {
+            margin-bottom: 0rem !important;
+        }
     }
 
     figcaption {
@@ -47,5 +57,14 @@
 
     code, div {
         margin-bottom: 2rem !important;
+    }
+
+    .gatsby-highlight {
+        box-shadow: 0px 6px 20px rgba(0, 66, 191, 0.16);
+        border-radius: 35px;
+    }
+
+    strong {
+        font-weight: 900;
     }
 }
