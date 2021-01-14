@@ -6,13 +6,11 @@ import { HorizontalList } from '../components/simple/list';
 import Hero from "../components/hero";
 import TableOfContents from '../components/complex/tableOfContents';
 import Img from "gatsby-image";
-import Title from '../components/simple/title';
 import Layout from "../components/layout";
 import Article from '../components/simple/article';
 import Section from '../components/simple/section';
 import { Common, CommonLeft, CommonRight } from "../components/simple/common";
 import LinkedArticle from '../components/simple/linkedArticle';
-
 
 export const query = graphql`
     query($slug: String!, $articles: [String!]) {
@@ -137,7 +135,6 @@ const ProjectTemplate = ({ data }) => {
                         <MDXRenderer images={images} >{project.body}</MDXRenderer>
                     </Article>
                     <Section title="Continue Reading More...">
-                        <Title className="common--bm" alignment="left"></Title>
                         <HorizontalList>
                             {articles.nodes.map(item =>
                                 <LinkedArticle to={`/${item.slug}`}

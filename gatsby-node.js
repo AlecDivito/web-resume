@@ -56,12 +56,19 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         })
     })
 
-    results.data.blogs.edges.forEach(({ node }) => {
+    results.data.blogs.edges.forEach(({ node }, index) => {
+        let articles = [];
+        // console.log(`${results.data.blogs.edges.length} > ${index + 1} = ${results.data.blogs.edges.length < index + 1}`)
+        if (results.data.blogs.edges.length > index + 1) {
+            articles.push(results.data.blogs.edges[index + 1].node.fields.slug.slice(1, -1))
+        }
+        console.log(articles);
         createPage({
             path: node.fields.slug,
             component: path.resolve(`./src/templates/blogTemplate.js`),
             context: {
                 slug: node.fields.slug,
+                articles: articles,
             }
         })
     })

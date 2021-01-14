@@ -1,17 +1,28 @@
 import React from 'react';
-import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import Hero from "../components/hero";
 import { graphql } from 'gatsby';
+import { HorizontalList } from '../components/simple/list';
+import Hero from "../components/hero";
+import TableOfContents from '../components/complex/tableOfContents';
+import Img from "gatsby-image";
+import Layout from "../components/layout";
+import Article from '../components/simple/article';
 import Section from "../components/simple/section";
 import { Common, CommonLeft, CommonRight } from "../components/simple/common";
-import TableOfContents from '../components/complex/tableOfContents';
-import { HorizontalList } from '../components/simple/list';
-import Article from '../components/simple/article';
+import LinkedArticle from '../components/simple/linkedArticle';
 
 export const query = graphql`
-    query($slug: String!) {
+    query($slug: String!, $articles: [String!]) {
+        allMdx(filter: { slug: {in: $articles}}) {
+            nodes {
+                slug
+                frontmatter {
+                    title
+                    subTitle
+                }
+            }
+        }        
         mdx(fields: {slug: {eq: $slug}}) {
             frontmatter {
                 author
@@ -21,7 +32,6 @@ export const query = graphql`
                 tags
                 description
                 images {
-                    publicURL
                     childImageSharp {
                         fluid {
                             base64
@@ -51,9 +61,25 @@ export const query = graphql`
 
 const BlogTemplate = ({ data }) => {
     const blog = data.mdx;
+    const articles = data.allMdx;
+    let images = {};
+    console.log(blog.frontmatter.images);
     if (blog.frontmatter.images) {
-        // if there are images, oh well. Right now i'm not handling that
-        // Checkout project template to learn how to do it.
+        blog.frontmatter.images.forEach((image, i) => {
+            const { childImageSharp } = image;
+            let name = childImageSharp.fluid.originalName.split(".")[0];
+            let component = ({ alt, caption }) => (
+                <figure>
+                    <Img fluid={childImageSharp.fluid} alt={alt} />
+                    {(caption && caption.length > 0)
+                        ? <figcaption>{caption}</figcaption>
+                        : null
+                    }
+                </figure>
+            )
+            // if we have a childImageShape, we can just get the name normally
+            images[name] = component;
+        });
     }
 
     return (
@@ -71,10 +97,16 @@ const BlogTemplate = ({ data }) => {
             <Common>
                 <CommonRight>
                     <Article>
-                        <MDXRenderer>{blog.body}</MDXRenderer>
+                        <MDXRenderer images={images}>{blog.body}</MDXRenderer>
                     </Article>
-                    <Section title="Continue Reading More...">
+                    <Section title="Continue Reading More..." className="section--tm">
                         <HorizontalList>
+                            {articles.nodes.map(item =>
+                                <LinkedArticle to={`/${item.slug}`}
+                                    key={item.slug}
+                                    title={item.frontmatter.title}
+                                    description={item.frontmatter.subTitle} />
+                            )}
                         </HorizontalList>
                     </Section>
                 </CommonRight>
