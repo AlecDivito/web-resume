@@ -21,7 +21,7 @@ const Hero = ({ title, className, titleIcon, subTitle, tags, readMoreLink, readM
                 <p className="hero__description">{subTitle}</p>
                 <div className="hero--flex">
                     <ul className="hero__list">
-                        {tags.map((t) => <li key={t} className="hero__list__item"><Tag text={t} /></li>)}
+                        {tags.map((t) => <li key={t} className="hero__list__item"><Tag text={t} flat={true} /></li>)}
                     </ul>
                     {(readMoreLink && readMoreText) ? <Link className="hero__link" to={readMoreLink}>{readMoreText}</Link> : null}
                     {(date) ? <p className="hero__date">Published: {date}</p> : null}

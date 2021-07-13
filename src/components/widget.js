@@ -3,12 +3,25 @@ import Proptypes from 'prop-types';
 import Title from './simple/title';
 import Tag from './tag';
 import { Link } from 'gatsby';
-import './widget.scss';
 import StatusDot from './statusDot';
 import Paragraph from './simple/paragraph';
+import TagList from './simple/tagList';
+import './widget.scss';
 
-const Widget = ({ title, subTitle, description, tags, date, readMore, logo, status }) => (
-    <div className="widget">
+const Wrapper = ({ boxed, readMore, children }) => {
+    if (boxed && readMore) {
+        return <div className={`widget ${boxed ? "widget--boxed" : ""}`}>
+            <Link className="no-decoration" to={readMore}>
+                {children}
+            </Link>
+        </div>
+    } else {
+        return <div className="widget">{children}</div>
+    }
+}
+
+const Widget = ({ title, subTitle, description, tags, date, readMore, logo, status, boxed = false }) => (
+    <Wrapper boxed={boxed} readMore={readMore}>
         <div className="widget__header">
             <div className="widget__title">
                 {logo ? <span className="widget__title--logo">{logo}</span> : null}
@@ -19,13 +32,13 @@ const Widget = ({ title, subTitle, description, tags, date, readMore, logo, stat
             {(date) ? <span className="widget__header--date">{date}</span> : null}
         </div>
         {subTitle ? <Title className="widget__subTitle" variant="h6">{subTitle}</Title> : null}
-        <ul className="widget__tags">
-            {!tags ? null : tags.slice(0, 3).map(t => <Tag key={t} text={t} dropshadow={true} />)}
+        <TagList padding={boxed}>
+            {!tags ? null : tags.slice(0, 3).map(t => <Tag key={t} text={t} flat={true} />)}
             {/* <Tag text={`${tags.length - 2}+`} dropshadow={true} /> */}
-        </ul>
+        </TagList>
         {(description) ? <Paragraph>{description}</Paragraph> : null}
-        {(readMore) ? <div className="widget__link"><Link to={readMore}>Continue Reading</Link></div> : null}
-    </div>
+        {(readMore && !boxed) ? <div className="widget__link"><Link to={readMore}>Continue Reading</Link></div> : null}
+    </Wrapper>
 );
 
 Widget.prototype = {
@@ -37,6 +50,8 @@ Widget.prototype = {
     readMore: Proptypes.string,
     logo: Proptypes.node,
     status: Proptypes.string,
+    boxed: Proptypes.bool,
 }
+
 
 export default Widget;

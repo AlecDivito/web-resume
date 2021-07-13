@@ -1,7 +1,7 @@
 @import '../../styles//variables';
 
 .box {
-    border-radius: 60px;
+    border-radius: $border-radius;
     background-color: $shade-0;
     box-shadow: 0px 6px 20px rgba(0, 66, 191, .16);
     width: 100%;

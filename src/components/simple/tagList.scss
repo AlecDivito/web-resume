@@ -1,0 +1,22 @@
+@import '../../styles/variables';
+.tags {
+    margin: 1.5rem 0rem;
+
+    &--empty {
+        margin: 0rem;
+    }
+
+    .tag {
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: $phone) {
+    .tags {
+        margin: 1rem 0rem;
+    
+        .tag {
+            margin-right: 0.5rem;
+        }
+    }
+}
