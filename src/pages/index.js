@@ -48,11 +48,12 @@ const IndexPage = () => {
             {data.allProjectsJson.nodes.map(p =>
               <Widget title={p.title}
                 key={p.id}
-                description={p.shortDescription}
+                subTitle={p.shortDescription}
                 tags={p.technologies}
                 status={p.status}
                 logo={<Img fixed={p.logo.childImageSharp.fixed} style={{ borderRadius: '100%' }} alt={p.company} />}
                 readMore={p.blogPost.map(b => b.content)[0] ?? null}
+                boxed={true}
               />
             )}
           </Section>
