@@ -1,6 +1,7 @@
 @import "./variables";
 @import "./fonts";
 @import "./global";
+@import "./utilities";
 
 * {
     margin: 0;
@@ -8,19 +9,18 @@
     box-sizing: border-box;
     font-family: raleway, sans-serif;
     font-style: normal;
-    font-weight: 400;
 }
 
 pre[class*="language-"] {
     padding: 2em;
-    border-radius: 35px;
+    border-radius: $border-radius;
 }
 
 body, html {
     margin: 0;
     padding: 0;
     width: 100%;
-    background-color: $shade-1;
+    background-color: $shade-0;
 }
 
 a {

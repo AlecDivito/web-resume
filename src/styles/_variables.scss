@@ -28,8 +28,8 @@ $shade-5: hsl(0, 0%, 58%);
 $shade-4: hsl(0, 0%, 68%);
 $shade-3: hsl(0, 0%, 78%);
 $shade-2: hsl(0, 0%, 88%);
-$shade-1: hsl(0, 0%, 95%);
-$shade-0: hsl(0, 0%, 98%);
+$shade-1: $brand-white;
+$shade-0: $brand-white;
 
 // primary colors
 $primary-color-9: hsl(222, 89%, 9%);
@@ -41,7 +41,7 @@ $primary-color-4: hsl(222, 89%, 59%);
 $primary-color-3: hsl(222, 89%, 69%);
 $primary-color-2: hsl(222, 89%, 79%);
 $primary-color-1: hsl(222, 89%, 89%);
-$primary-color: #475DE6;
+$primary-color: #4B5CDE;
 $primary-highlight-color: lighten($primary-color, 30%);
 
 // accent colors
@@ -58,6 +58,7 @@ $accent-color-1:  hsl(358, 77%, 90%);
 
 $global-box-shadow: 0 10px 20px $primary-color-1, 0 6px 6px $primary-color-2;
 
+$border-radius: 30px;
 
 /**
  * NAV STYLES
@@ -120,6 +121,7 @@ $about-greetings-intro-padding: 1rem;
 $personal-color: $shade-8;
 
 $tag-color: $shade-9;
+$tag-border-color: $primary-color;
 $tag-background-color: $shade-0;
 
 $card-title-color: $shade-8;

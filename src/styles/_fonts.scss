@@ -1,9 +1,22 @@
 @font-face {
     font-family: raleway;
-    src:url('../fonts/raleway-regular-webfont.woff2') format('woff2'),
-        url('../fonts/raleway-regular-webfont.woff') format('woff'),
-        url('../fonts/Raleway-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    src:url('../fonts/roboto-v27-latin/roboto-v27-latin-300.woff2') format('woff2'),
+        url('../fonts/roboto-v27-latin/roboto-v27-latin-300.woff') format('woff'),
+        url('../fonts/roboto-v27-latin/roboto-v27-latin-300.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: raleway;
+    font-style: normal;
+    font-weight: 700;
+    src:url('../fonts/roboto-v27-latin/roboto-v27-latin-500.woff2') format('woff2'),
+        url('../fonts/roboto-v27-latin/roboto-v27-latin-500.woff') format('woff'),
+        url('../fonts/roboto-v27-latin/roboto-v27-latin-500.ttf') format('truetype');
+}
+
+
 
 @font-face { 
     font-family: consolas; 
